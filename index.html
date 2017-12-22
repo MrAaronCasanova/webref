@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Casy Web Ref</title>
+</head>
+<body>
+<div class="container">
+
+
+  <h1 class="center-align">
+    My References
+  </h1>
+
+  <div id="references">
+
+  <!-- class="search" automagically makes an input a search field. -->
+    <input class="search" placeholder="Search" />
+  <!-- class="sort" automagically makes an element a sort buttons. The date-sort value decides what to sort by. -->
+    <button class="sort" data-sort="html">
+      HTML
+    </button>
+    <button class="sort" data-sort="css">
+      CSS
+    </button>
+    <button class="sort" data-sort="javascript">
+      Javascript
+    </button>
+
+<!-- Child elements of container with class="html, css, or javascript" becomes list items -->
+    <ul class="list collapsible popout" data-collapsible="accordion">
+<!-- The innerHTML of children with class="html, css, or javascript" becomes this items "name" value -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="html">HTML</h4>
+        </div>
+        <div class="collapsible-body">
+            <h5>Hyper Text Markup Language</h5>
+            <p>The language that defines and adds content to a webpage.</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="html">Tables</h4>
+        </div>
+        <div class="collapsible-body">
+            <h5>Available Tags - table, tr, th, td</h5>
+            <p><strong>tr</strong> = table row, <strong>th</strong> = table head, <strong>td</strong> = table data</p>
+            <table style="width:100%">
+              <tr>
+                <th>TR1 Table Head</th>
+                <th>TR1 Table Head</th>
+                <th>TR1 Table Head</th>
+              </tr>
+              <tr>
+                <td>TR2 Table Data</td>
+                <td>TR2 Table Data</td>
+                <td>TR2 Table Data</td>
+              </tr>
+              <tr>
+                <td>TR3 Table Data</td>
+                <td>TR3 Table Data</td>
+                <td>TR3 Table Data</td>
+              </tr>
+            </table>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="css">Selectors</h4>
+        </div>
+        <div class="collapsible-body">
+            <h5>Grab anything on a website</h5>
+            <p>Select by html tag, class, and id.</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Varible</h4>
+        </div>
+        <div class="collapsible-body">
+            <h5>What is a varible?</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus recusandae voluptatum eos reprehenderit itaque magni, temporibus facilis doloremque, maxime iure.</p>
+        </div>
+      </li>
+    </ul> <!-- Main UL -->
+
+  </div> <!-- Main Reference Div -->
+
+</div> <!-- Container Div -->
+<script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/list.js" charset="utf-8"></script>
+<script src="js/casy.js" charset="utf-8"></script>
+
+</body>
+</html>
