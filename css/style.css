@@ -1,3 +1,42 @@
 ul.list {
   margin-top: 16px;
 }
+
+/* --------------------------------------------
+Hover
+-------------------------------------------- */
+h5.expand {
+  display: inline-block;
+  transition: .3s;
+}
+h5.expand:hover {
+  color: #309461;
+  padding: 23px;
+  border: 1px solid #309461;
+  display: inline-block;
+}
+p.vanish {
+  text-align: center;
+  padding: 40px;
+  transition: letter-spacing .6s, opacity .6s;
+
+}
+p.vanish:hover {
+  letter-spacing: 12px;
+  opacity: 0;
+}
+div.buttonHover {
+  position: relative;
+}
+button.zoomZoom {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  transition: color .7s, background-color .7s, padding .4s, transform .4s;
+}
+button.zoomZoom:hover {
+  transform: scale(2);
+  padding: 30px;
+  color: #fff;
+  background-color: #333;
+}
