@@ -1,6 +1,22 @@
 ul.list {
   margin-top: 16px;
 }
+/* --------------------------------------------
+Tables
+-------------------------------------------- */
+table {
+    border-collapse: collapse;
+    background-color: #eeeeee;
+    box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.59);
+}
+
+table, th, td {
+    border: 2px solid #1c1d1f;
+    padding: 10px;
+}
+th {
+  background-color: rgba(75, 121, 201, 0.27);
+}
 
 /* --------------------------------------------
 Hover
@@ -98,6 +114,7 @@ Animated Button
   box-shadow: none;
   top: 6px;
 }
+
 /* --------------------------------------------
 Transform
 -------------------------------------------- */
@@ -112,6 +129,7 @@ Transform
   background-color: #134de0;
   text-align: center;
   color: #fff;
+  box-shadow: -2px 4px 9px rgba(0, 0, 0, 0.51);
 }
 .crazyObject:nth-of-type(odd) {
   background-color: #0d5252;
@@ -123,7 +141,6 @@ Transform
 .noFour {
   transition: all 2s;
 }
-
 .crazyOne {
   transition: transform 1.7s;
   transform: translate(150px, 20px);
@@ -139,6 +156,11 @@ Transform
 .crazyFour {
   transition: transform 2.7s;
   transform: translateY(-40px);
+}
+
+input[type="button"] {
+  margin-left: 20px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.51);
 }
 
 /* ------ Scale ------ */
