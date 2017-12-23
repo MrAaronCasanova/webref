@@ -98,3 +98,47 @@ Animated Button
   box-shadow: none;
   top: 6px;
 }
+/* --------------------------------------------
+Transform
+-------------------------------------------- */
+
+/* ------ Translate ------ */
+/* Used jQuery to toggleClasses */
+
+.crazyObject {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  background-color: #134de0;
+  text-align: center;
+  color: #fff;
+}
+.crazyObject:nth-of-type(odd) {
+  background-color: #0d5252;
+}
+
+.noOne,
+.noTwo,
+.noThree,
+.noFour {
+  transition: all 2s;
+}
+
+.crazyOne {
+  transition: transform 1.7s;
+  transform: translate(150px, 20px);
+}
+.crazyTwo {
+  transition: transform 2s;
+  transform: translateX(100px);
+}
+.crazyThree {
+  transition: transform 2.2s;
+  transform: translate(50px, -20px);
+}
+.crazyFour {
+  transition: transform 2.7s;
+  transform: translateY(-40px);
+}
+
+/* ------ Scale ------ */
