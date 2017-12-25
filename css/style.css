@@ -4,6 +4,11 @@ ul.list {
 /* --------------------------------------------
 Tables
 -------------------------------------------- */
+.tableIcons {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
 table {
     border-collapse: collapse;
     background-color: #eeeeee;
