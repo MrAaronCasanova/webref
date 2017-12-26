@@ -175,8 +175,8 @@ input[type="button"] {
 Form
 -------------------------------------------- */
 
-label {
-  font-size: 1.2rem;
+label[for] {
+  font-size: 1.3rem;
 }
 
 .radioStyle label:last-of-type {
@@ -184,6 +184,10 @@ label {
 }
 [for="agreed"] {
   margin-bottom: 15px;
+}
+
+.pushDown {
+  padding-bottom: 40px;
 }
 
 .btnCenter {

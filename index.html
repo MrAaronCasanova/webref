@@ -59,13 +59,17 @@ HTML
         <div class="collapsible-body">
             <!-- action - where the form sends data to -->
             <!-- method - what HTTP method (get/post) -->
-            <h3>Register</h3>
+            <h3 class="pushDown">Register</h3>
             <form action="">
               <div>
-                <label for="firstName">First Name:</label>
-                <input id="firstName" name="name" type="text" placeholder="Aaron" required>
-                <label for="lastName">Last Name:</label>
-                <input id="lastName" name="name" type="text" placeholder="Casanova" required>
+                <div class="input-field">
+                  <label for="firstName">First Name:</label>
+                  <input id="firstName" name="name" type="text" placeholder="Aaron" required>
+                </div>
+                <div class="input-field">
+                  <label for="lastName">Last Name:</label>
+                  <input id="lastName" name="name" type="text" placeholder="Casanova" required>
+                </div>
               </div>
               <div class="radioStyle">
                 <input id="male" name="gender" type="radio" value="male">
@@ -76,14 +80,14 @@ HTML
                 <label for="other">Other</label>
               </div>
               <div>
-                <!-- Rev 1 (input&label tag) -->
-                <label for="email">Email:</label>
-                <input type="email" name="email" placeholder="your email" required>
-                <!-- Rev 2 (inputINlabel tag) -->
-                <label for="password">
-                  Password:
+                <div class="input-field">
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+                <div class="input-field">
+                  <label for="password">Password:</label>
                   <input type="password" name="password" pattern=".{8,12}" required title="8 to 12 characters">
-                </label>
+                </div>
               </div>
               <div>
                 <label>Birthday:</label>
