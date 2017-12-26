@@ -19,3 +19,12 @@ $('#button').click(function () {
   $('.noThree').toggleClass('crazyThree');
   $('.noFour').toggleClass('crazyFour');
 });
+
+/* --------------------------------------------
+Form
+-------------------------------------------- */
+
+// Overides materialze's default select tag styling
+$(document).ready(function () {
+  $('select').material_select();
+});

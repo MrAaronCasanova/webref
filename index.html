@@ -54,25 +54,11 @@ HTML
       <li>
         <div class="collapsible-header">
           <h4 class="html">Forms</h4>
+          <!-- Used CSS & JS -->
         </div>
         <div class="collapsible-body">
             <!-- action - where the form sends data to -->
             <!-- method - what HTTP method (get/post) -->
-            <form action="">
-              <!-- Rev 1 -->
-              <label for="username">
-                Username:
-                <input type="text" id="username" placeholder="username">
-              </label>
-              <!-- Rev 2 -->
-              <label for="password">
-                Password:
-              </label>
-              <input type="text" id="password" placeholder="password">
-              <!-- Think I prefer Rev 1 for UX reasons (clickable "space" between label&input tags when nested) -->
-              <input type="submit">
-            </form>
-            <br>
             <h3>Register</h3>
             <form action="">
               <label for="firstName">First Name:</label>
@@ -88,10 +74,10 @@ HTML
                 <label for="other">Other</label>
               </div>
               <div>
-                <label for="email">
-                  Email:
-                  <input type="email" name="email" placeholder="your email" required>
-                </label>
+                <!-- Rev 1 (input&label tag) -->
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="your email" required>
+                <!-- Rev 2 (inputINlabel tag) -->
                 <label for="password">
                   Password:
                   <input type="password" name="password" required>
@@ -101,16 +87,20 @@ HTML
                 <label>
                   Birthday:
                   <select>
+                    <option>Month</option>
                     <option>January</option>
                     <option>Februry</option>
                     <option>March</option>
                   </select>
                   <select>
+                    <option>Day</option>
+                    <option>10</option>
                     <option>10</option>
                     <option>11</option>
                     <option>12</option>
                   </select>
                   <select>
+                    <option>Year</option>
                     <option>2000</option>
                     <option>2001</option>
                     <option>2002</option>
@@ -302,6 +292,13 @@ GIT
 <script src="js/list.js" charset="utf-8"></script>
 <script src="js/casy.js" charset="utf-8"></script>
 <input type="radio" name="Aaron" value="Casanova">
+
+<selec>
+  <option name="look" value="asdf">asdghgf</option>
+  <option value="asdjsjfsf">sdfhjhf</option>
+  <option value="asfgsjdf">jhfdghg</option>
+  <option value="asfshdf">etyjxfg</option>
+</selec>
 </body>
 </html>
 Toolbox
@@ -316,3 +313,9 @@ Left off:
   The Advance Web Development Bootcamp
     Folder: 02
       Video: 015 - Search: Scale
+
+
+ToDo List
+Forms
+fix color when selecting first name
+Style a little bit
