@@ -67,7 +67,7 @@ HTML
                 <label for="lastName">Last Name:</label>
                 <input id="lastName" name="name" type="text" placeholder="Casanova" required>
               </div>
-              <div>
+              <div class="radioStyle">
                 <input id="male" name="gender" type="radio" value="male">
                 <label for="male">Male</label>
                 <input id="female" name="gender" type="radio" value="female">
@@ -86,34 +86,33 @@ HTML
                 </label>
               </div>
               <div>
-                <label>
-                  Birthday:
+                <label>Birthday:</label>
                   <select name="month">
-                    <option>Month</option>
+                    <option disabled selected>Month</option>
                     <option>January</option>
                     <option>Februry</option>
                     <option>March</option>
                   </select>
                   <select name="day">
-                    <option>Day</option>
-                    <option>10</option>
+                    <option disabled selected>Day</option>
                     <option>10</option>
                     <option>11</option>
                     <option>12</option>
                   </select>
                   <select name="year">
-                    <option>Year</option>
+                    <option disabled selected>Year</option>
                     <option>2000</option>
                     <option>2001</option>
                     <option>2002</option>
                   </select>
-                </label>
               </div>
               <div>
                 <input id="agreed" name="agreed" type="checkbox">
                 <label for="agreed">I agree to the terms and condititions:</label>
               </div>
-              <input type="submit">
+              <div class="btnCenter">
+              <input class="formBtnStyle" type="submit">
+              </div>
             </form>
         </div>
       </li>
@@ -294,13 +293,6 @@ GIT
 <script src="js/list.js" charset="utf-8"></script>
 <script src="js/casy.js" charset="utf-8"></script>
 <input type="radio" name="Aaron" value="Casanova">
-
-<selec>
-  <option name="look" value="asdf">asdghgf</option>
-  <option value="asdjsjfsf">sdfhjhf</option>
-  <option value="asfgsjdf">jhfdghg</option>
-  <option value="asfshdf">etyjxfg</option>
-</selec>
 </body>
 </html>
 Toolbox
@@ -320,4 +312,3 @@ Left off:
 ToDo List
 Forms
 fix color when selecting first name
-Style a little bit

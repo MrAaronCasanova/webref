@@ -178,3 +178,21 @@ Form
 label {
   font-size: 1.2rem;
 }
+
+.radioStyle label:last-of-type {
+  margin-bottom: 15px;
+}
+[for="agreed"] {
+  margin-bottom: 15px;
+}
+
+.btnCenter {
+  position: relative;
+}
+
+div .formBtnStyle {
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
