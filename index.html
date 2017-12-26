@@ -61,10 +61,12 @@ HTML
             <!-- method - what HTTP method (get/post) -->
             <h3>Register</h3>
             <form action="">
-              <label for="firstName">First Name:</label>
-              <input id="firstName" type="text" placeholder="Aaron" required>
-              <label for="lastName">Last Name:</label>
-              <input id="lastName" type="text" placeholder="Casanova" required>
+              <div>
+                <label for="firstName">First Name:</label>
+                <input id="firstName" name="name" type="text" placeholder="Aaron" required>
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" name="name" type="text" placeholder="Casanova" required>
+              </div>
               <div>
                 <input id="male" name="gender" type="radio" value="male">
                 <label for="male">Male</label>
@@ -80,26 +82,26 @@ HTML
                 <!-- Rev 2 (inputINlabel tag) -->
                 <label for="password">
                   Password:
-                  <input type="password" name="password" required>
+                  <input type="password" name="password" pattern=".{8,12}" required title="8 to 12 characters">
                 </label>
               </div>
               <div>
                 <label>
                   Birthday:
-                  <select>
+                  <select name="month">
                     <option>Month</option>
                     <option>January</option>
                     <option>Februry</option>
                     <option>March</option>
                   </select>
-                  <select>
+                  <select name="day">
                     <option>Day</option>
                     <option>10</option>
                     <option>10</option>
                     <option>11</option>
                     <option>12</option>
                   </select>
-                  <select>
+                  <select name="year">
                     <option>Year</option>
                     <option>2000</option>
                     <option>2001</option>
@@ -307,8 +309,8 @@ Toolbox
 Left off:
 
   The Web Developer Bootcamp
-    Folder: 04
-      Video: 32
+    Folder: 05
+      Video: 38
 
   The Advance Web Development Bootcamp
     Folder: 02
