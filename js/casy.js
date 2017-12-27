@@ -2,7 +2,7 @@
 Main Filter Functionality
 -------------------------------------------- */
 var options = {
-  valueNames: ['html', 'css', 'javascript', 'git'],
+  valueNames: ['html', 'css', 'javascript', 'workflow'],
 };
 
 var refList = new List('references', options);
