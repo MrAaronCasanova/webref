@@ -44,7 +44,7 @@ HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="CSS">Color</h4>
+          <h4 class="css">Color</h4>
         </div>
         <div class="collapsible-body">
             <h5>Decimal - Base 10</h5>
@@ -259,8 +259,62 @@ CSS
           <h4 class="css">Selectors</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Grab anything on a website</h5>
-            <p>Select by html tag, class, and id.</p>
+          <h5>Common Selectors</h5>
+          <p><strong>Element</strong> - Use tag names to select elements on a page</p>
+          <pre>
+h1 {
+  font-size: 25px;
+}
+          </pre>
+          <p><strong>Class</strong> - Can be applied to multiple elements on page</p>
+          <pre>
+.completed {
+  text-decoration: line-through;
+}
+          </pre>
+          <p><strong>ID</strong> - Applies to one specific element on page</p>
+          <pre>
+#special {
+  background-color: #078881;
+}
+          </pre>
+          <p><strong>Asterisk</strong> - Applies to every element on the page</p>
+          <pre>
+* {
+  margin: 0;
+  padding: 0;
+}
+          </pre>
+          <p><strong>Descendant Selector</strong> - Lets you select elements nested within elements (chain together selectors with one space between each)</p>
+          <pre>
+li .class {
+  margin-right: 30px;
+}
+          </pre>
+          <p><strong>Adjacent Selector</strong> - Lets you select element siblings that come immediately after another element (Examples shows only ul's after an h4 tag being selected)</p>
+          <pre>
+h4 + ul {
+  border: 4px solid #2178b0;
+}
+          </pre>
+          <p><strong>Attribute Selector</strong> - Lets you select elements from any specified attribute</p>
+          <pre>
+input[type="checkbox"] {
+  border: 4px solid #2178b0;
+}
+          </pre>
+          <p><strong>nth-of-type</strong> - This selector takes the parameter even, odd, or a numeric value & lets you select those elements of the specified type (Example finds every 3rd ul on the page and styles it)</p>
+          <pre>
+ul:nth-of-type(3) {
+  color: blue;
+}
+          </pre>
+          <p>This whole code snippet is refered to as a declaration</p>
+          <pre>
+selector {
+  property: value;
+}
+          </pre>
         </div>
       </li>
 <!-- ********************************************
