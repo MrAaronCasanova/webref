@@ -18,6 +18,16 @@ p {
 ul.list {
   margin-top: 16px;
 }
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
 /* --------------------------------------------
 Tables
 -------------------------------------------- */
@@ -221,5 +231,24 @@ div .formBtnStyle {
 }
 
 /* --------------------------------------------
-Color
+Font
 -------------------------------------------- */
+
+.family {
+  font-family: Georgia;
+}
+.fSize {
+  font-size: 1.5rem;
+}
+.fWeight {
+  font-weight: 800;
+}
+.lHeight {
+  line-height: 2;
+}
+.tAlign {
+  text-align: center;
+}
+.tDecoration {
+  text-decoration: underline;
+}
