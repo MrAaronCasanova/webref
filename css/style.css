@@ -6,11 +6,13 @@ Global
   font-weight: 100;
 }
 h1 {
-  font-family: montserrat;
   text-transform: uppercase;
   font-weight: 100;
   letter-spacing: 1.4rem;
   font-size: 1.8rem;
+}
+h5 {
+  margin-bottom: 20px;
 }
 p {
   letter-spacing: .1rem;
@@ -251,4 +253,30 @@ Font
 }
 .tDecoration {
   text-decoration: underline;
+}
+.googleFonts {
+  font-size: 2rem;
+  color: #00b18d;
+}
+
+/* --------------------------------------------
+Box Model
+-------------------------------------------- */
+.table-basic {
+  border-style: none;
+  margin: auto;
+}
+.td-basic {
+  border-style: none;
+  width: 100px;
+  height: 100px;
+
+}
+.vertical {
+  border-left: 2px solid #333;
+  border-right: 2px solid #333;
+}
+.horizontal {
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
 }

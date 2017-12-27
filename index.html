@@ -44,22 +44,27 @@ HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="css">Font</h4>
+          <h4 class="css">Box Model</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Common Styling Properties</h5>
-            <hr>
-            <p class="fFamily"><strong class="fFamily">font-family:</strong> Georgia;</p>
-            <hr>
-            <p class="fSize"><strong class="fSize">font-size:</strong> 1.5(rem)(em)(px);</p>
-            <hr>
-            <p class="fWeight"><strong class="fWeight">font-weight:</strong> 100-800 ++ of 100(bold)(normal);</p>
-            <hr>
-            <p class="lHeight"><strong class="lHeight">line-height:</strong> 2; (Usually a value between 1.5 & 2) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <hr>
-            <p class="tAlign"><strong class="tAlign">text-align:</strong> center;</p>
-            <hr>
-            <p class="tDecoration"><strong class="tDecoration">text-decoration:</strong> underline;</p>
+            <h5>Tic Tac Toe</h5>
+            <table class="table-basic">
+              <tr>
+                <td class="td-basic"></td>
+                <td class="td-basic vertical"></td>
+                <td class="td-basic"></td>
+              </tr>
+              <tr>
+                <td class="td-basic horizontal"></td>
+                <td class="td-basic vertical horizontal"></td>
+                <td class="td-basic horizontal"></td>
+              </tr>
+              <tr>
+                <td class="td-basic"></td>
+                <td class="td-basic vertical"></td>
+                <td class="td-basic"></td>
+              </tr>
+            </table>
         </div>
       </li>
       <li>
@@ -80,7 +85,7 @@ HTML
             <!-- action - where the form sends data to -->
             <!-- method - what HTTP method (get/post) -->
             <h3 class="pushDown">Register</h3>
-            <form action="">
+            <form action="#">
               <div>
                 <div class="input-field">
                   <label for="firstName">First Name:</label>
@@ -188,6 +193,34 @@ HTML
 <!-- ********************************************
 CSS
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="css">Font</h4>
+        </div>
+        <div class="collapsible-body">
+            <h5>Common Styling Properties</h5>
+            <hr>
+            <p class="fFamily"><strong class="fFamily">font-family:</strong> Georgia;</p>
+            <hr>
+            <p class="fSize"><strong class="fSize">font-size:</strong> 1.5(rem)(em)(px);</p>
+            <hr>
+            <p class="fWeight"><strong class="fWeight">font-weight:</strong> 100-800 ++ of 100(bold)(normal);</p>
+            <hr>
+            <p class="lHeight"><strong class="lHeight">line-height:</strong> 2; (Usually a value between 1.5 & 2) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <hr>
+            <p class="tAlign"><strong class="tAlign">text-align:</strong> center;</p>
+            <hr>
+            <p class="tDecoration"><strong class="tDecoration">text-decoration:</strong> underline;</p>
+            <hr>
+            <a class="googleFonts" href="https://fonts.google.com/" target="_blank">Google Fonts</a>
+            <ul>
+              <li>- Select desired font</li>
+              <li>- Select font weight in customize tab</li>
+              <li>- Copy & Paste the provided link tag in your html document</li>
+              <li>- Use freely throughout page</li>
+            </ul>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="css">Color</h4>
@@ -418,19 +451,18 @@ Workflow
 <input type="radio" name="Aaron" value="Casanova">
 </body>
 </html>
-Toolbox
-
-
-
 
   <!-- TODO: Left Off
 
   The Web Developer Bootcamp
     Folder: 06
-      Video: 50
+      Video: 59
 
     The Advance Web Development Bootcamp
       Folder: 02
         Video: 015 - Search: Scale
 
   -->
+
+<!-- NOTE: Style Guide
+http://codeguide.co/ -->
