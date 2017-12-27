@@ -14,10 +14,10 @@ Transform
 /* ------ Translate ------ */
 
 $('#button').click(function () {
-  $('.noOne').toggleClass('crazyOne');
-  $('.noTwo').toggleClass('crazyTwo');
-  $('.noThree').toggleClass('crazyThree');
-  $('.noFour').toggleClass('crazyFour');
+  $('.no-one').toggleClass('crazy-one');
+  $('.no-two').toggleClass('crazy-two');
+  $('.no-three').toggleClass('crazy-three');
+  $('.no-four').toggleClass('crazy-four');
 });
 
 /* --------------------------------------------

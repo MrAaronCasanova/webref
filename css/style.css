@@ -33,7 +33,7 @@ hr {
 /* --------------------------------------------
 Tables
 -------------------------------------------- */
-.tableIcons {
+.table-icons {
   font-size: 20px;
   margin-right: 10px;
 }
@@ -75,16 +75,16 @@ p.vanish:hover {
   letter-spacing: 12px;
   opacity: 0;
 }
-div.buttonHover {
+div.button-hover {
   position: relative;
 }
-button.zoomZoom {
+button.zoom-zoom {
   position: absolute;
   right: 1.5rem;
   bottom: 1.5rem;
   transition: color .7s, background-color .7s, padding .4s, transform .4s;
 }
-button.zoomZoom:hover {
+button.zoom-zoom:hover {
   transform: scale(2);
   padding: 30px;
   color: #fff;
@@ -93,7 +93,7 @@ button.zoomZoom:hover {
 /* --------------------------------------------
 Focus
 -------------------------------------------- */
-input.inputFocus:focus {
+input.input-focus:focus {
   border: 2px solid #31ad75;
   padding-left: 10px;
   font-size: 1.7rem;
@@ -119,12 +119,12 @@ button.rounder:active {
 /* --------------------------------------------
 Animated Button
 -------------------------------------------- */
-.frontCenter {
+.front-center {
   font-weight: 300;
   letter-spacing: 5px;
   text-align: center;
 }
-.aniButt, .aniButt:focus  {
+.ani-butt, .ani-butt:focus  {
   outline: none;
   border: none;
   display: block;
@@ -140,11 +140,11 @@ Animated Button
   border-radius: 20px;
   box-shadow: 0 6px #1a6b31;
 }
-.aniButt:hover {
+.ani-butt:hover {
   box-shadow: 0 4px #1a6b31;
   top: 2px;
 }
-.aniButt:active {
+.ani-butt:active {
   box-shadow: none;
   top: 6px;
 }
@@ -156,7 +156,7 @@ Transform
 /* ------ Translate ------ */
 /* Used jQuery to toggleClasses */
 
-.crazyObject {
+.crazy-object {
   width: 50px;
   height: 50px;
   margin: 20px;
@@ -165,29 +165,29 @@ Transform
   color: #fff;
   box-shadow: -2px 4px 9px rgba(0, 0, 0, 0.51);
 }
-.crazyObject:nth-of-type(odd) {
+.crazy-object:nth-of-type(odd) {
   background-color: #0d5252;
 }
 
-.noOne,
-.noTwo,
-.noThree,
-.noFour {
+.no-one,
+.no-two,
+.no-three,
+.no-four {
   transition: all 2s;
 }
-.crazyOne {
+.crazy-one {
   transition: transform 1.7s;
   transform: translate(150px, 20px);
 }
-.crazyTwo {
+.crazy-two {
   transition: transform 2s;
   transform: translateX(100px);
 }
-.crazyThree {
+.crazy-three {
   transition: transform 2.2s;
   transform: translate(50px, -20px);
 }
-.crazyFour {
+.crazy-four {
   transition: transform 2.7s;
   transform: translateY(-40px);
 }
@@ -208,24 +208,24 @@ label[for] {
   font-size: 1.3rem;
 }
 
-.radioStyle label:last-of-type {
+.radio-style label:last-of-type {
   margin-bottom: 15px;
 }
 [for="agreed"] {
   margin-bottom: 45px;
 }
 
-.pushDown {
+.push-down {
   font-size: 1.7rem;
 
   padding-bottom: 40px;
 }
 
-.btnCenter {
+.btn-center {
   position: relative;
 }
 
-div .formBtnStyle {
+div .form-btn-style {
   position: absolute;
   left: 50%;
   margin-right: -50%;
@@ -236,25 +236,25 @@ div .formBtnStyle {
 Font
 -------------------------------------------- */
 
-.family {
+.f-family {
   font-family: Georgia;
 }
-.fSize {
+.f-size {
   font-size: 1.5rem;
 }
-.fWeight {
+.f-weight {
   font-weight: 800;
 }
-.lHeight {
+.l-height {
   line-height: 2;
 }
-.tAlign {
+.t-align {
   text-align: center;
 }
-.tDecoration {
+.t-decoration {
   text-decoration: underline;
 }
-.googleFonts {
+.google-fonts {
   font-size: 2rem;
   color: #00b18d;
 }
