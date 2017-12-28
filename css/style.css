@@ -280,3 +280,29 @@ Box Model
   border-top: 2px solid #333;
   border-bottom: 2px solid #333;
 }
+
+/* --------------------------------------------
+Old Photo Grid - W/ Floats
+-------------------------------------------- */
+
+.photo-grid {
+  float: left;
+  width: 30%;
+  margin: 1.66%;
+}
+.fancy-heading {
+  margin-left: 34.98%;
+  width: 30%;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #e3e3e3;
+  text-align: center;
+}
+.fancy-three {
+  margin-left: 1.66%;
+  color: #166fcc
+}
+/* Maybe this should go in global? */
+.clear {
+  clear: both;
+  display: block;
+}
