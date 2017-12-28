@@ -13,7 +13,6 @@
 <body>
 <div class="container">
 
-
   <h1 class="center-align">
     Casy's Toolbox
   </h1>
@@ -81,67 +80,67 @@ HTML
           <!-- Used CSS & JS -->
         </div>
         <div class="collapsible-body">
-            <!-- action - where the form sends data to -->
-            <!-- method - what HTTP method (get/post) -->
-            <h3 class="push-down">Register</h3>
-            <form action="#">
-              <div>
-                <div class="input-field">
-                  <label for="first-name">First Name:</label>
-                  <input id="first-name" name="name" type="text" placeholder="Aaron" required>
-                </div>
-                <div class="input-field">
-                  <label for="last-name">Last Name:</label>
-                  <input id="last-name" name="name" type="text" placeholder="Casanova" required>
-                </div>
+          <!-- action - where the form sends data to -->
+          <!-- method - what HTTP method (get/post) -->
+          <h3 class="push-down">Register</h3>
+          <form action="#">
+            <div>
+              <div class="input-field">
+                <label for="first-name">First Name:</label>
+                <input id="first-name" name="name" type="text" placeholder="Aaron" required>
               </div>
-              <div class="radio-style">
-                <input id="male" name="gender" type="radio" value="male">
-                <label for="male">Male</label>
-                <input id="female" name="gender" type="radio" value="female">
-                <label for="female">Female</label>
-                <input id="other" name="gender" type="radio" value="other">
-                <label for="other">Other</label>
+              <div class="input-field">
+                <label for="last-name">Last Name:</label>
+                <input id="last-name" name="name" type="text" placeholder="Casanova" required>
               </div>
-              <div>
-                <div class="input-field">
-                  <label for="email">Email:</label>
-                  <input type="email" name="email" placeholder="example@gmail.com" required>
-                </div>
-                <div class="input-field">
-                  <label for="password">Password:</label>
-                  <input type="password" name="password" pattern=".{8,12}" required title="8 to 12 characters">
-                </div>
+            </div>
+            <div class="radio-style">
+              <input id="male" name="gender" type="radio" value="male">
+              <label for="male">Male</label>
+              <input id="female" name="gender" type="radio" value="female">
+              <label for="female">Female</label>
+              <input id="other" name="gender" type="radio" value="other">
+              <label for="other">Other</label>
+            </div>
+            <div>
+              <div class="input-field">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="example@gmail.com" required>
               </div>
-              <div>
-                <label>Birthday:</label>
-                  <select name="month">
-                    <option disabled selected>Month</option>
-                    <option>January</option>
-                    <option>Februry</option>
-                    <option>March</option>
-                  </select>
-                  <select name="day">
-                    <option disabled selected>Day</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
-                  </select>
-                  <select name="year">
-                    <option disabled selected>Year</option>
-                    <option>2000</option>
-                    <option>2001</option>
-                    <option>2002</option>
-                  </select>
+              <div class="input-field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" pattern=".{8,12}" required title="8 to 12 characters">
               </div>
-              <div>
-                <input id="agreed" name="agreed" type="checkbox">
-                <label for="agreed">I agree to the terms and condititions:</label>
-              </div>
-              <div class="btn-center">
-              <input class="form-btn-style" type="submit">
-              </div>
-            </form>
+            </div>
+            <div>
+              <label>Birthday:</label>
+                <select name="month">
+                  <option disabled selected>Month</option>
+                  <option>January</option>
+                  <option>Februry</option>
+                  <option>March</option>
+                </select>
+                <select name="day">
+                  <option disabled selected>Day</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+                <select name="year">
+                  <option disabled selected>Year</option>
+                  <option>2000</option>
+                  <option>2001</option>
+                  <option>2002</option>
+                </select>
+            </div>
+            <div>
+              <input id="agreed" name="agreed" type="checkbox" required>
+              <label for="agreed">I agree to the terms and condititions:</label>
+            </div>
+            <div class="btn-center">
+            <input class="form-btn-style" type="submit">
+            </div>
+          </form>
         </div>
       </li>
       <li>
@@ -149,44 +148,44 @@ HTML
           <h4 class="html">Tables</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Skills</h5>
-            <table style="width:100%">
-              <tr>
-                <th><i class="fa fa-html5 table-icons"></i>HTML</th>
-                <td>1 Year Experience</td>
-                <td>Highschool & Online Courses</td>
-              </tr>
-              <tr>
-                <th><i class="fa fa-css3 table-icons"></i>CSS</th>
-                <td>1 Year Experience</td>
-                <td>Highschool & Online Courses</td>
-              </tr>
-              <tr>
-                <th><i class="fa fa-sitemap table-icons"></i>JAVASCRIPT</th>
-                <td>6 Months Experience</td>
-                <td>Online Courses</td>
-              </tr>
-              <tr>
-                <th><i class="fa fa-image table-icons"></i>PHOTOSHOP</th>
-                <td>2 Years Experience</td>
-                <td>Highschool & Online Courses</td>
-              </tr>
-              <tr>
-                <th><i class="fa fa-motorcycle table-icons"></i>ILLUSTRATOR</th>
-                <td>1 Year Experience</td>
-                <td>Highschool & Online Courses</td>
-              </tr>
-              <tr>
-                <th><i class="fa fa-clone table-icons"></i>LIGHTROOM</th>
-                <td>2 Years Experience</td>
-                <td>Online Courses</td>
-              </tr>
-              <tr>
-                <th><i class="fa fa-camera-retro table-icons"></i>PHOTOGRAPHY</th>
-                <td>2 Years Experience</td>
-                <td>Online Courses & Owned Photobooth Business</td>
-              </tr>
-            </table>
+          <h5>Skills</h5>
+          <table style="width:100%">
+            <tr>
+              <th><i class="fa fa-html5 table-icons"></i>HTML</th>
+              <td>1 Year Experience</td>
+              <td>Highschool & Online Courses</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-css3 table-icons"></i>CSS</th>
+              <td>1 Year Experience</td>
+              <td>Highschool & Online Courses</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-sitemap table-icons"></i>JAVASCRIPT</th>
+              <td>6 Months Experience</td>
+              <td>Online Courses</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-image table-icons"></i>PHOTOSHOP</th>
+              <td>2 Years Experience</td>
+              <td>Highschool & Online Courses</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-motorcycle table-icons"></i>ILLUSTRATOR</th>
+              <td>1 Year Experience</td>
+              <td>Highschool & Online Courses</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-clone table-icons"></i>LIGHTROOM</th>
+              <td>2 Years Experience</td>
+              <td>Online Courses</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-camera-retro table-icons"></i>PHOTOGRAPHY</th>
+              <td>2 Years Experience</td>
+              <td>Online Courses & Owned Photobooth Business</td>
+            </tr>
+          </table>
         </div>
       </li>
 <!-- ********************************************
@@ -197,17 +196,17 @@ CSS
           <h4 class="html css">Old Photo Grid - W/ Floats</h4>
         </div>
         <div class="collapsible-body">
-            <h5 class="fancy-heading"><span class="fancy-three">3</span> Photo Grid</h5>
-            <img class="photo-grid" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
-            <img class="photo-grid" src="http://c1.staticflickr.com/9/8788/17367410309_78abb9e5b6_b.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/6/5814/20700286354_762c19bd3b_b.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/6/5647/21137202535_404bf25729_b.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/6/5588/14991687545_5c8e1a2e86_b.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/4/3888/14878097108_5997041006_b.jpg">
-            <img class="photo-grid" src="http://c2.staticflickr.com/8/7579/15482110477_0b0e9e5421_b.jpg">
-            <span class="clear"></span>
+          <h5 class="fancy-heading"><span class="fancy-three">3</span> Photo Grid</h5>
+          <img class="photo-grid" src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg">
+          <img class="photo-grid" src="http://c1.staticflickr.com/9/8788/17367410309_78abb9e5b6_b.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/6/5814/20700286354_762c19bd3b_b.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/6/5647/21137202535_404bf25729_b.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/6/5588/14991687545_5c8e1a2e86_b.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/4/3888/14878097108_5997041006_b.jpg">
+          <img class="photo-grid" src="http://c2.staticflickr.com/8/7579/15482110477_0b0e9e5421_b.jpg">
+          <span class="clear"></span>
         </div>
       </li>
       <li>
@@ -215,24 +214,24 @@ CSS
           <h4 class="css">Tic Tac Toe</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Game Time</h5>
-            <table class="table-basic">
-              <tr>
-                <td class="td-basic"></td>
-                <td class="td-basic vertical"></td>
-                <td class="td-basic"></td>
-              </tr>
-              <tr>
-                <td class="td-basic horizontal"></td>
-                <td class="td-basic vertical horizontal"></td>
-                <td class="td-basic horizontal"></td>
-              </tr>
-              <tr>
-                <td class="td-basic"></td>
-                <td class="td-basic vertical"></td>
-                <td class="td-basic"></td>
-              </tr>
-            </table>
+          <h5>Game Time</h5>
+          <table class="table-basic">
+            <tr>
+              <td class="td-basic"></td>
+              <td class="td-basic vertical"></td>
+              <td class="td-basic"></td>
+            </tr>
+            <tr>
+              <td class="td-basic horizontal"></td>
+              <td class="td-basic vertical horizontal"></td>
+              <td class="td-basic horizontal"></td>
+            </tr>
+            <tr>
+              <td class="td-basic"></td>
+              <td class="td-basic vertical"></td>
+              <td class="td-basic"></td>
+            </tr>
+          </table>
         </div>
       </li>
       <li>
@@ -240,27 +239,27 @@ CSS
           <h4 class="css">Font</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Common Styling Properties</h5>
-            <hr>
-            <p class="f-family"><strong class="f-family">font-family:</strong> Georgia;</p>
-            <hr>
-            <p class="f-size"><strong class="f-size">font-size:</strong> 1.5(rem)(em)(px);</p>
-            <hr>
-            <p class="f-weight"><strong class="f-weight">font-weight:</strong> 100-800 ++ of 100(bold)(normal);</p>
-            <hr>
-            <p class="l-height"><strong class="l-height">line-height:</strong> 2; (Usually a value between 1.5 & 2) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <hr>
-            <p class="t-align"><strong class="t-align">text-align:</strong> center;</p>
-            <hr>
-            <p class="t-decoration"><strong class="t-decoration">text-decoration:</strong> underline;</p>
-            <hr>
-            <a class="google-fonts" href="https://fonts.google.com/" target="_blank">Google Fonts</a>
-            <ul>
-              <li>- Select desired font</li>
-              <li>- Select font weight in customize tab</li>
-              <li>- Copy & Paste the provided link tag in your html document</li>
-              <li>- Use freely throughout page</li>
-            </ul>
+          <h5>Common Styling Properties</h5>
+          <hr>
+          <p class="f-family"><strong class="f-family">font-family:</strong> Georgia;</p>
+          <hr>
+          <p class="f-size"><strong class="f-size">font-size:</strong> 1.5(rem)(em)(px);</p>
+          <hr>
+          <p class="f-weight"><strong class="f-weight">font-weight:</strong> 100-800 ++ of 100(bold)(normal);</p>
+          <hr>
+          <p class="l-height"><strong class="l-height">line-height:</strong> 2; (Usually a value between 1.5 & 2) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <hr>
+          <p class="t-align"><strong class="t-align">text-align:</strong> center;</p>
+          <hr>
+          <p class="t-decoration"><strong class="t-decoration">text-decoration:</strong> underline;</p>
+          <hr>
+          <a class="google-fonts" href="https://fonts.google.com/" target="_blank">Google Fonts</a>
+          <ul>
+            <li>- Select desired font</li>
+            <li>- Select font weight in customize tab</li>
+            <li>- Copy & Paste the provided link tag in your html document</li>
+            <li>- Use freely throughout page</li>
+          </ul>
         </div>
       </li>
       <li>
@@ -268,25 +267,25 @@ CSS
           <h4 class="css">Color</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Decimal - Base 10</h5>
-            <p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
-            <p>_ _ _ : values are between 0 and 9</p>
-            <hr>
-            <h5>Binary - Base 2</h5>
-            <p>0, 1</p>
-            <p>_ _ : values are either 0 or 1</p>
-            <hr>
-            <h5>Hexadecimal - Base 16</h5>
-            <p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F</p>
-            <p>#_ _ _ _ _ _ : values are between 0 and F</p>
-            <hr>
-            <h5>RGB</h5>
-            <p>0 ... 255</p>
-            <p>rgb(_ _ _, _ _ _, _ _ _) : values are between 0 and 255</p>
-            <hr>
-            <h5>RGBA</h5>
-            <p>0 ... 255 + 0 ... 1 (alpha channel - transparency)</p>
-            <p>rgb(_ _ _, _ _ _, _ _ _, _) : values are between 0 and 255</p>
+          <h5>Decimal - Base 10</h5>
+          <p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
+          <p>_ _ _ : values are between 0 and 9</p>
+          <hr>
+          <h5>Binary - Base 2</h5>
+          <p>0, 1</p>
+          <p>_ _ : values are either 0 or 1</p>
+          <hr>
+          <h5>Hexadecimal - Base 16</h5>
+          <p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F</p>
+          <p>#_ _ _ _ _ _ : values are between 0 and F</p>
+          <hr>
+          <h5>RGB</h5>
+          <p>0 ... 255</p>
+          <p>rgb(_ _ _, _ _ _, _ _ _) : values are between 0 and 255</p>
+          <hr>
+          <h5>RGBA</h5>
+          <p>0 ... 255 + 0 ... 1 (alpha channel - transparency)</p>
+          <p>rgb(_ _ _, _ _ _, _ _ _, _) : values are between 0 and 255</p>
         </div>
       </li>
       <li>
@@ -294,12 +293,12 @@ CSS
           <h4 class="css">Translate - Transform</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Lets you move, warp, rotate, and scale elements</h5>
-            <div class="crazy-object no-one">1</div>
-            <div class="crazy-object no-two">2</div>
-            <div class="crazy-object no-three">3</div>
-            <div  class="crazy-object no-four">4</div>
-            <input type="button" id="button" value="Click Me">
+          <h5>Lets you move, warp, rotate, and scale elements</h5>
+          <div class="crazy-object no-one">1</div>
+          <div class="crazy-object no-two">2</div>
+          <div class="crazy-object no-three">3</div>
+          <div  class="crazy-object no-four">4</div>
+          <input type="button" id="button" value="Click Me">
         </div>
       </li>
       <li>
@@ -307,8 +306,7 @@ CSS
           <h4 class="css">Scale</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Scale</h5>
-
+          <h5>Scale</h5>
         </div>
       </li>
       <li>
@@ -316,9 +314,9 @@ CSS
           <h4 class="css">Hover</h4>
         </div>
         <div class="collapsible-body button-hover">
-            <h5 class="expand">Hover CSS Animation</h5>
-            <p class="vanish">Try n Catch Me</p>
-            <button class="zoom-zoom">Zoom</button>
+          <h5 class="expand">Hover CSS Animation</h5>
+          <p class="vanish">Try n Catch Me</p>
+          <button class="zoom-zoom">Zoom</button>
         </div>
       </li>
       <li>
@@ -326,12 +324,12 @@ CSS
           <h4 class="css">Focus</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Focus CSS Animation</h5>
-            <p>Try the tab key</p>
-            <input type="text" class="input-focus" placeholder="Type & Tab">
-            <input type="text" class="input-focus" placeholder="Type & Tab">
-            <input type="text" class="input-focus" placeholder="Type & Tab">
-            <input type="text" class="input-focus" placeholder="Press Shift + Tab To Go Back">
+          <h5>Focus CSS Animation</h5>
+          <p>Try the tab key</p>
+          <input type="text" class="input-focus" placeholder="Type & Tab">
+          <input type="text" class="input-focus" placeholder="Type & Tab">
+          <input type="text" class="input-focus" placeholder="Type & Tab">
+          <input type="text" class="input-focus" placeholder="Press Shift + Tab To Go Back">
         </div>
       </li>
       <li>
@@ -339,8 +337,8 @@ CSS
           <h4 class="css">Active</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Click/Press & Hold</h5>
-            <button class="rounder">Round & Out</button>
+          <h5>Click/Press & Hold</h5>
+          <button class="rounder">Round & Out</button>
         </div>
       </li>
       <li>
@@ -348,8 +346,8 @@ CSS
           <h4 class="css">Animated Button</h4>
         </div>
         <div class="collapsible-body">
-            <h5 class="front-center">This Button Has 3 States</h5>
-            <button class="ani-butt">Click Here</button>
+          <h5 class="front-center">This Button Has 3 States</h5>
+          <button class="ani-butt">Click Here</button>
         </div>
       </li>
       <li>
@@ -432,8 +430,8 @@ JAVASCRIPT
           <h4 class="javascript">Varible</h4>
         </div>
         <div class="collapsible-body">
-            <h5>What is a varible?</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus recusandae voluptatum eos reprehenderit itaque magni, temporibus facilis doloremque, maxime iure.</p>
+          <h5>What is a varible?</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus recusandae voluptatum eos reprehenderit itaque magni, temporibus facilis doloremque, maxime iure.</p>
         </div>
       </li>
 <!-- ********************************************
@@ -444,21 +442,21 @@ Workflow
           <h4 class="workflow">Git</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Add existing project to git hub</h5>
-            <p><a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/" target="_blank">Click Here</a></p>
-            <h5>Common Commands</h5>
-            <p>git status</p>
-            <p>git add .</p>
-            <p>git commit -m " "</p>
-            <p>git loghist</p>
-            <p>git pull origin master</p>
-            <p>git push origin master</p>
-            <p>git branch -a</p>
-            <p>git checkout <em>branch name</em></p>
-            <p>git checkout -b <em>branch name</em></p>
-            <p>git merge <em>branch name</em></p>
-            <p>git commit --amend -m "<em>new commit message</em>"</p>
-            <p>q : will quit out of certain situations </p>
+          <h5>Add existing project to git hub</h5>
+          <p><a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/" target="_blank">Click Here</a></p>
+          <h5>Common Commands</h5>
+          <p>git status</p>
+          <p>git add .</p>
+          <p>git commit -m " "</p>
+          <p>git loghist</p>
+          <p>git pull origin master</p>
+          <p>git push origin master</p>
+          <p>git branch -a</p>
+          <p>git checkout <em>branch name</em></p>
+          <p>git checkout -b <em>branch name</em></p>
+          <p>git merge <em>branch name</em></p>
+          <p>git commit --amend -m "<em>new commit message</em>"</p>
+          <p>q : will quit out of certain situations </p>
         </div>
       </li>
       <li>
@@ -466,18 +464,18 @@ Workflow
           <h4 class="workflow">ToDo / Atom</h4>
         </div>
         <div class="collapsible-body">
-            <h5>Common Commands - Launch w/ ctrl + shift + T</h5>
-            <p>FIXME</p>
-            <p>TODO</p>
-            <p>XXX</p>
-            <p>IDEA</p>
-            <p>HACK</p>
-            <p>NOTE</p>
-            <p>REVIEW</p>
-            <p>BUG</p>
-            <p>QUESTION</p>
-            <p>COMBAK</p>
-            <p>TEMP</p>
+          <h5>Common Commands - Launch w/ ctrl + shift + T</h5>
+          <p>FIXME</p>
+          <p>TODO</p>
+          <p>XXX</p>
+          <p>IDEA</p>
+          <p>HACK</p>
+          <p>NOTE</p>
+          <p>REVIEW</p>
+          <p>BUG</p>
+          <p>QUESTION</p>
+          <p>COMBAK</p>
+          <p>TEMP</p>
         </div>
       </li>
     </ul> <!-- Main UL -->

@@ -1,6 +1,7 @@
 /* --------------------------------------------
 Main Filter Functionality
 -------------------------------------------- */
+
 var options = {
   valueNames: ['html', 'css', 'javascript', 'workflow'],
 };

@@ -1,6 +1,7 @@
 /* --------------------------------------------
 Global
 -------------------------------------------- */
+
 *{
   font-family: montserrat;
   font-weight: 100;
@@ -33,17 +34,16 @@ hr {
 /* --------------------------------------------
 Tables
 -------------------------------------------- */
+
 .table-icons {
   font-size: 20px;
   margin-right: 10px;
 }
-
 table {
     border-collapse: collapse;
     background-color: #eeeeee;
     box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.59);
 }
-
 table, th, td {
     border: 2px solid #1c1d1f;
     padding: 10px;
@@ -55,6 +55,7 @@ th {
 /* --------------------------------------------
 Hover
 -------------------------------------------- */
+
 h5.expand {
   display: inline-block;
   transition: .3s;
@@ -69,7 +70,6 @@ p.vanish {
   text-align: center;
   padding: 40px;
   transition: letter-spacing .6s, opacity .6s;
-
 }
 p.vanish:hover {
   letter-spacing: 12px;
@@ -90,17 +90,21 @@ button.zoom-zoom:hover {
   color: #fff;
   background-color: #333;
 }
+
 /* --------------------------------------------
 Focus
 -------------------------------------------- */
+
 input.input-focus:focus {
   border: 2px solid #31ad75;
   padding-left: 10px;
   font-size: 1.7rem;
 }
+
 /* --------------------------------------------
 Active
 -------------------------------------------- */
+
 button.rounder {
   margin-top: 15px;
   padding: 20px;
@@ -116,9 +120,11 @@ button.rounder:active {
   text-shadow: 1px 1px 2px #161616;
   box-shadow: 1px 1px 2px #161616;
 }
+
 /* --------------------------------------------
 Animated Button
 -------------------------------------------- */
+
 .front-center {
   font-weight: 300;
   letter-spacing: 5px;
@@ -168,7 +174,6 @@ Transform
 .crazy-object:nth-of-type(odd) {
   background-color: #0d5252;
 }
-
 .no-one,
 .no-two,
 .no-three,
@@ -191,14 +196,12 @@ Transform
   transition: transform 2.7s;
   transform: translateY(-40px);
 }
-
 input[type="button"] {
   margin-left: 20px;
   box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.51);
 }
 
 /* ------ Scale ------ */
-
 
 /* --------------------------------------------
 Form
@@ -207,24 +210,19 @@ Form
 label[for] {
   font-size: 1.3rem;
 }
-
 .radio-style label:last-of-type {
   margin-bottom: 15px;
 }
 [for="agreed"] {
   margin-bottom: 45px;
 }
-
 .push-down {
   font-size: 1.7rem;
-
   padding-bottom: 40px;
 }
-
 .btn-center {
   position: relative;
 }
-
 div .form-btn-style {
   position: absolute;
   left: 50%;
@@ -262,6 +260,7 @@ Font
 /* --------------------------------------------
 Box Model
 -------------------------------------------- */
+
 .table-basic {
   border-style: none;
   margin: auto;
@@ -270,7 +269,6 @@ Box Model
   border-style: none;
   width: 100px;
   height: 100px;
-
 }
 .vertical {
   border-left: 2px solid #333;
@@ -330,7 +328,6 @@ Old Photo Grid - W/ Floats
   font-size: 2rem;
   padding: 1.5rem 1.5rem 1.5rem 0px;
 }
-
 .blog-content {
   border-left: 7px solid #adadad;
   padding-left: 7px;
