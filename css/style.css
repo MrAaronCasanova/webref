@@ -30,6 +30,9 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
+em {
+  font-weight: 400;
+}
 
 /* --------------------------------------------
 Tables
@@ -337,3 +340,12 @@ Old Photo Grid - W/ Floats
 .blog-post {
   margin-bottom: 40px;
 }
+
+/* --------------------------------------------
+Comparison Operator
+Logical Operators
+-------------------------------------------- */
+
+.js-tables { text-align: center; }
+
+th.js-tables { font-weight: bold; }

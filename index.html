@@ -43,31 +43,70 @@ HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="workflow">Terminal/Command Line</h4>
+          <h4 class="javascript">Logical Operators</h4>
         </div>
         <div class="collapsible-body">
-          <h5>Common Commands</h5>
-          <p><strong>Generic Syntax</strong> - command -options param1 param2 ...</p>
-          <p><strong>man [command]</strong> - Lets you view the manual for the specified command</p>
-          <p><strong>cd</strong> - Brings you straight to the home directory</p>
-          <p><strong>cd [folder]</strong> - Changes to the directory of the specified folder</p>
-          <p><strong>cd ..</strong> - Brings you back one directory</p>
-          <p><strong>ls</strong> - Lists all the segments(files and folders) in your current directory</p>
-          <p><strong>ls -a</strong> - Lists all the segments(files and folders) in your current directory including hidden files</p>
-          <p><strong>ls -a</strong> - Lists all the segments(files and folders) in your current directory including hidden files</p>
-          <p><strong>pwd</strong> - Print Working Directory (display path of the current folder)</p>
-          <p><strong>mkdir [newDirName]</strong> - Creates the specified directory</p>
-          <p><strong>touch [path,filename]</strong> - Creates an empty file if one does not exist - Updates file access & modification timestamps</p>
-          <p><strong>open [file, folder, url]</strong> - Opens files, folders, & URLs (as if you double clicked it)</p>
-          <p><strong>open .</strong> - Opens your current working directory in a finder window</p>
-          <p><strong>mv [demo1.txt demo2.txt] or [example.txt ../new-example-directory]</strong> - Renames a file or moves it to a new location</p>
-          <p><strong>trash [directory,file]</strong> - Custom setup that moves directories or files to the trash rather than deleting</p>
-          <p><strong>Cmd + K</strong> - Clears the screen</p>
-          <p><strong>Cmd + A</strong> - Go to the beginning of the line your currently typing on</p>
-          <p><strong>Cmd + E</strong> - Go to the end of the line your currently typing on</p>
-          <p><strong>Cmd + &rarr;</strong> - Move cursor one character forward</p>
-          <p><strong>Cmd + &larr;</strong> - Move cursor one character backwards</p>
-          <p><strong>Tab</strong> - Auto-complete files and folder names</p>
+          <h5 class="js-tables">AND, OR, and NOT</h5>
+          <table>
+            <thead>
+              <tr>
+                <th class="js-tables">Operator</th>
+                <th class="js-tables">Name</th>
+                <th class="js-tables">Example</th>
+                <th class="js-tables">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="js-tables">&gt;</td>
+                <td>Greater than</td>
+                <td class="js-tables">x &gt; 20</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">&lt;</td>
+                <td>Less than</td>
+                <td class="js-tables">x &lt; -13</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">&gt;=</td>
+                <td>Greater than or equal to</td>
+                <td class="js-tables">x &gt;= 15</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">&lt;=</td>
+                <td>Less than or equal to</td>
+                <td class="js-tables">x &lt;= 200</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">==</td>
+                <td>Equal to</td>
+                <td class="js-tables">x == '15'</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">===</td>
+                <td>Equal value and type</td>
+                <td class="js-tables">x === '15'</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">!=</td>
+                <td>Not equal to</td>
+                <td class="js-tables">x != 'h'</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">!==</td>
+                <td>Not equal to calue or equal to type</td>
+                <td class="js-tables">x !== '15'</td>
+                <td>true</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </li>
       <li>
@@ -456,16 +495,155 @@ JAVASCRIPT
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Comparison Operators</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5 class="js-tables">Assume x = 15</h5>
+          <table>
+            <thead>
+              <tr>
+                <th class="js-tables">Operator</th>
+                <th class="js-tables">Name</th>
+                <th class="js-tables">Example</th>
+                <th class="js-tables">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="js-tables">&gt;</td>
+                <td>Greater than</td>
+                <td class="js-tables">x &gt; 20</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">&lt;</td>
+                <td>Less than</td>
+                <td class="js-tables">x &lt; -13</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">&gt;=</td>
+                <td>Greater than or equal to</td>
+                <td class="js-tables">x &gt;= 15</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">&lt;=</td>
+                <td>Less than or equal to</td>
+                <td class="js-tables">x &lt;= 200</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">==</td>
+                <td>Equal to</td>
+                <td class="js-tables">x == '15'</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">===</td>
+                <td>Equal value and type</td>
+                <td class="js-tables">x === '15'</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">!=</td>
+                <td>Not equal to</td>
+                <td class="js-tables">x != 'h'</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">!==</td>
+                <td>Not equal to calue or equal to type</td>
+                <td class="js-tables">x !== '15'</td>
+                <td>true</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Methods</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Useful Built-In Methods</h5>
+          <p><strong>alert()</strong> - Displays an alert box over the web page stating the content within the parenthesis</p>
+          <p><strong>prompt()</strong> - Displays a prompt box over the web page and allows you to get input from a user ("type your prompt message inside the parenthesis") - Commonly paired with a variable</p>
+          <p><strong>console.log()</strong> - Displays the content within the parenthesis in the console</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Primitive Datatypes</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>5 Types:</h5>
+          <p><strong>Numbers</strong> - Ex. 4, 9.3, -10</p>
+          <p>- Perform mathmatical tasks with the standard order of operations - PEMDAS</p>
+          <p>- Tricky Concept - % Modulo (Mod) - Remainder Operator - Divides the specified values and returns only the remainder value</p>
+          <p><strong>Strings</strong> - Ex. "Hello World", "923"</p>
+          <p>- You can concatenate two strings with the addition (+) operator</p>
+          <p>- Use backslashes (\) to add characters to your string that are stated to be illegal syntax (backslash will not appear unless there are two in a row \\)</p>
+          <p>- Every string has access to a length property - Which will retrieve a <em>number</em> specifying the total amount of characters in the string</p>
+          <p>- Access indivual characters of the string with [] and an index value</p>
+          <pre>
+      "hello"[4]    //"o"
+          </pre>
+          <p><strong>Booleans</strong> - Ex. true, false</p>
+          <p><strong>Null</strong> - Value we set in place that tells the javascript engine there is no value specified</p>
+          <p><strong>Undefined</strong> - Value set in place by the javascript engine that specifies that a value has not been assigned</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">Varible</h4>
         </div>
         <div class="collapsible-body">
-          <h5>What is a varible?</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus recusandae voluptatum eos reprehenderit itaque magni, temporibus facilis doloremque, maxime iure.</p>
+          <h5>Containers that store values</h5>
+          <p>Variables can contain any of the 5 primative datatypes</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Javascript Vocabulary</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Confusing Terms</h5>
+          <p><strong>Coercion</strong> - When the javascript engine has multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
         </div>
       </li>
 <!-- ********************************************
 Workflow
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Terminal/Command Line</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Common Commands</h5>
+          <p><strong>Generic Syntax</strong> - command -options param1 param2 ...</p>
+          <p><strong>man [command]</strong> - Lets you view the manual for the specified command</p>
+          <p><strong>cd</strong> - Brings you straight to the home directory</p>
+          <p><strong>cd [folder]</strong> - Changes to the directory of the specified folder</p>
+          <p><strong>cd ..</strong> - Brings you back one directory</p>
+          <p><strong>ls</strong> - Lists all the segments(files and folders) in your current directory</p>
+          <p><strong>ls -a</strong> - Lists all the segments(files and folders) in your current directory including hidden files</p>
+          <p><strong>pwd</strong> - Print Working Directory (display path of the current folder)</p>
+          <p><strong>mkdir [newDirName]</strong> - Creates the specified directory</p>
+          <p><strong>touch [filename,path]</strong> - Creates an empty file if one does not exist - Updates file access & modification timestamps</p>
+          <p><strong>open [file, folder, url]</strong> - Opens files, folders, & URLs (as if you double clicked it)</p>
+          <p><strong>open .</strong> - Opens your current working directory in a finder window</p>
+          <p><strong>open . -a [application name]</strong> - Opens your current working directory in the specified application</p>
+          <p><strong>mv [demo1.txt demo2.txt] or [example.txt ../new-example-directory]</strong> - Renames a file or moves it to a new location</p>
+          <p><strong>trash [directory,file]</strong> - Custom setup that moves directories or files to the trash rather than deleting</p>
+          <p><strong>clear</strong> - Clears the screen, but allows you to scroll up and view previous commands</p>
+          <p><strong>Cmd + A</strong> - Go to the beginning of the line your currently typing on</p>
+          <p><strong>Cmd + E</strong> - Go to the end of the line your currently typing on</p>
+          <p><strong>Cmd + &rarr;</strong> - Move cursor one character forward</p>
+          <p><strong>Cmd + &larr;</strong> - Move cursor one character backwards</p>
+          <p><strong>Tab</strong> - Auto-complete files and folder names</p>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="workflow">Git</h4>
