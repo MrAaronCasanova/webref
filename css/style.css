@@ -346,6 +346,18 @@ Comparison Operator
 Logical Operators
 -------------------------------------------- */
 
-.js-tables { text-align: center; }
+.js-tables {
+  text-align: center;
+}
 
-th.js-tables { font-weight: bold; }
+th.js-tables {
+  font-weight: bold;
+}
+
+/* --------------------------------------------
+Javascript Vocabulary
+-------------------------------------------- */
+
+.vocab-lists {
+  margin-left: 40px;
+}

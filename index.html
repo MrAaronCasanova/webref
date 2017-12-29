@@ -39,76 +39,8 @@
     <ul class="list collapsible popout" data-collapsible="accordion">
 <!-- The innerHTML of children with class="html, css, or javascript" becomes this items "name" value -->
 <!-- ********************************************
-HTML
+NOTE HTML
 ********************************************* -->
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Logical Operators</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5 class="js-tables">AND, OR, and NOT</h5>
-          <table>
-            <thead>
-              <tr>
-                <th class="js-tables">Operator</th>
-                <th class="js-tables">Name</th>
-                <th class="js-tables">Example</th>
-                <th class="js-tables">Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="js-tables">&gt;</td>
-                <td>Greater than</td>
-                <td class="js-tables">x &gt; 20</td>
-                <td>false</td>
-              </tr>
-              <tr>
-                <td class="js-tables">&lt;</td>
-                <td>Less than</td>
-                <td class="js-tables">x &lt; -13</td>
-                <td>false</td>
-              </tr>
-              <tr>
-                <td class="js-tables">&gt;=</td>
-                <td>Greater than or equal to</td>
-                <td class="js-tables">x &gt;= 15</td>
-                <td>true</td>
-              </tr>
-              <tr>
-                <td class="js-tables">&lt;=</td>
-                <td>Less than or equal to</td>
-                <td class="js-tables">x &lt;= 200</td>
-                <td>true</td>
-              </tr>
-              <tr>
-                <td class="js-tables">==</td>
-                <td>Equal to</td>
-                <td class="js-tables">x == '15'</td>
-                <td>true</td>
-              </tr>
-              <tr>
-                <td class="js-tables">===</td>
-                <td>Equal value and type</td>
-                <td class="js-tables">x === '15'</td>
-                <td>false</td>
-              </tr>
-              <tr>
-                <td class="js-tables">!=</td>
-                <td>Not equal to</td>
-                <td class="js-tables">x != 'h'</td>
-                <td>true</td>
-              </tr>
-              <tr>
-                <td class="js-tables">!==</td>
-                <td>Not equal to calue or equal to type</td>
-                <td class="js-tables">x !== '15'</td>
-                <td>true</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="html">HTML</h4>
@@ -257,7 +189,7 @@ HTML
         </div>
       </li>
 <!-- ********************************************
-CSS
+NOTE CSS
 ********************************************* -->
       <li>
         <div class="collapsible-header">
@@ -491,8 +423,48 @@ selector {
         </div>
       </li>
 <!-- ********************************************
-JAVASCRIPT
+NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Logical Operators</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5 class="js-tables">AND, OR, and NOT</h5>
+          <table>
+            <thead>
+              <tr>
+                <th class="js-tables">Operator</th>
+                <th class="js-tables">Name</th>
+                <th class="js-tables">Example</th>
+                <th class="js-tables">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="js-tables">&&</td>
+                <td class="js-tables">AND</td>
+                <td class="js-tables">x &lt; 10 && x !== 5</td>
+                <td class="js-tables">false</td>
+              </tr>
+              <tr>
+                <td class="js-tables">||</td>
+                <td class="js-tables">OR</td>
+                <td class="js-tables">x &gt; 9 || x === 5</td>
+                <td class="js-tables">true</td>
+              </tr>
+              <tr>
+                <td class="js-tables">!</td>
+                <td class="js-tables">NOT</td>
+                <td class="js-tables">!(x === y)</td>
+                <td class="js-tables">true</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <p class="js-tables"><em>Asume x = 5 and y = 9</em></p>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">Comparison Operators</h4>
@@ -609,11 +581,21 @@ JAVASCRIPT
         </div>
         <div class="collapsible-body">
           <h5>Confusing Terms</h5>
-          <p><strong>Coercion</strong> - When the javascript engine has multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
+          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
+          <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
+          <ul class="vocab-lists">
+            <li><strong>Falsy Values</strong></li>
+            <li>false</li>
+            <li>' ' (empty string)</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>NaN</li>
+            <li><strong>Everything Else Is Truthy</strong></li>
+          </ul>
         </div>
       </li>
 <!-- ********************************************
-Workflow
+NOTE WORKFLOW
 ********************************************* -->
       <li>
         <div class="collapsible-header">
@@ -699,11 +681,11 @@ Workflow
 </body>
 </html>
 
-  <!-- TODO: Left Off
+  <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 08
-      Video: 81
+    Folder: 09
+      Video: 96
 
     The Advance Web Development Bootcamp
       Folder: 02
@@ -711,5 +693,6 @@ Workflow
 
   -->
 
-<!-- NOTE: Style Guide
+<!-- NOTE: STYLE GUIDE
+-PUT THIS SOMEWHERE-
 http://codeguide.co/ -->
