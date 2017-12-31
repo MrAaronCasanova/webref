@@ -42,3 +42,13 @@ Delete This - Tutorial Project Exercise
 
 // var age = prompt('What is your age?');
 // alert(age + ' years is roughly ' + age * 365.25 + ' days');
+
+// var age = prompt('What is your age?');
+// var odd = age % 2;
+// if (age < 0) {
+//   alert('You mean to tell me you don\'t exist yet');
+// } else if (age === 21) {
+//   alert('happy 21st birthday');
+// } else if (odd !== 0) {
+//   alert('your age is odd');
+// }
