@@ -52,3 +52,51 @@ Delete This - Tutorial Project Exercise
 // } else if (odd !== 0) {
 //   alert('your age is odd');
 // }
+
+// var secretNumber = 9;
+// var stringGuess = prompt('Guess a number');
+// var guess = Number(stringGuess);
+// if (guess === secretNumber) {
+//   alert('YOU GOT IT RIGHT!');
+// } else if (guess > secretNumber) {
+//   alert('Too high. Guess again!');
+// } else {
+//   alert('Too low. Guess again!');
+// }
+
+// console.log('Ex 1 *****');
+// var num = -10;
+// while (num <= 19) {
+//   console.log(num);
+//   num++;
+// }
+
+// console.log('Ex 2 *****');
+// var even = 10;
+// while (even <= 40) {
+//   if (even % 2 === 0) {
+//     console.log(even);
+//   }
+
+//   even++;
+// }
+
+// console.log('Ex3 *****');
+// var odd = 300;
+// while (odd <= 333) {
+//   if (odd % 2 !== 0) {
+//     console.log(odd);
+//   }
+
+//   odd++;
+// }
+
+// console.log('Ex 4 *****');
+// var multiNum = 5;
+// while (multiNum <= 50) {
+//   if (multiNum % 5 === 0 && multiNum % 3 === 0) {
+//     console.log(multiNum);
+//   }
+
+//   multiNum++;
+// }
