@@ -100,3 +100,20 @@ Delete This - Tutorial Project Exercise
 
 //   multiNum++;
 // }
+
+// ****** ARE WE THERE YET EX. 1
+// var answer = prompt('Are we there yet?');
+
+// while (answer !== 'yes' && answer !== 'yeah') {
+//   var answer = prompt('Are we there yet?');
+// }
+
+// alert('YAY, WE MADE IT!!!');
+
+// ****** ARE WE THERE YET EX. 2
+// var answer = prompt('Are we there yet?');
+// while (answer.indexOf('yes') === -1) {
+//   var answer = prompt('Are we there yet?');
+// }
+
+// alert('YAY, WE MADE IT!!!');
