@@ -117,3 +117,34 @@ Delete This - Tutorial Project Exercise
 // }
 
 // alert('YAY, WE MADE IT!!!');
+
+// ****** LOOP EXERCISES
+console.log('Ex. 1');
+var num = -10;
+for (i = num; i <= 19; i++) {
+  console.log(i);
+}
+
+console.log('Ex. 2');
+var even = 10;
+for (i = even; i <= 40; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+
+console.log('Ex. 3');
+var odd = 300;
+for (i = odd; i <= 333; i++) {
+  if (i % 2 !== 0) {
+    console.log(i);
+  }
+}
+
+console.log('Ex. 4');
+var numDiv = 5;
+for (i = numDiv; i <= 50; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log(i);
+  }
+}
