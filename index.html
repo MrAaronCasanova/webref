@@ -53,6 +53,17 @@ Two ways to initialize an empty array
 var friends = [];
 var friends = new Array(); // uncommon
           </pre>
+          <p><strong>Nested Arrays</strong> - Example below</p>
+          <pre>
+var friendGroups = [
+['Harry', 'Ron', 'Hermione'],
+['Malfoy', 'Crabbe', 'Goyle'],
+['Mooney', 'Wormtail', 'Prongs']
+];
+
+console.log(friendsGroups[2][0]); // returns 'Mooney'
+          </pre>
+          <p><strong>Array Iteration</strong> - Doing something to every item in an array</p>
           <h5>Commonly Used Array Methods</h5>
           <p><strong>Push</strong> - adds values to the end of an array</p>
           <pre>
@@ -107,6 +118,26 @@ fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
 var nums = [1,2,3];
 var otherNums = nums.slice();
 // both arrays are [1, 2, 3]
+          </pre>
+          <p><strong>forEach</strong> - JavaScript provides an easy built-in way of iterating over an array: ForEach</p>
+          <pre>
+// Structure
+arr.forEach(someFunction)
+
+var colors = ['red', 'orange', 'yellow', 'green'];
+
+colors.forEach(function(color){
+  // color is a placeholder, call it whatever you want
+  console.log(color);
+});
+
+// ****** Same Functionality ******
+
+var colors = ['red', 'orange', 'yellow', 'green'];
+
+for (i = 0; i &lt; colors.length; i++) {
+  console.log(colors[i]);
+}
           </pre>
         </div>
       </li>

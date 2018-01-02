@@ -64,6 +64,8 @@ Delete This - Tutorial Project Exercise
 //   alert('Too low. Guess again!');
 // }
 
+/* ------ Loops Exercises ------ */
+
 // console.log('Ex 1 *****');
 // var num = -10;
 // while (num <= 19) {
@@ -77,7 +79,7 @@ Delete This - Tutorial Project Exercise
 //   if (even % 2 === 0) {
 //     console.log(even);
 //   }
-
+//
 //   even++;
 // }
 
@@ -87,7 +89,7 @@ Delete This - Tutorial Project Exercise
 //   if (odd % 2 !== 0) {
 //     console.log(odd);
 //   }
-
+//
 //   odd++;
 // }
 
@@ -97,25 +99,25 @@ Delete This - Tutorial Project Exercise
 //   if (multiNum % 5 === 0 && multiNum % 3 === 0) {
 //     console.log(multiNum);
 //   }
-
+//
 //   multiNum++;
 // }
 
 // ****** ARE WE THERE YET EX. 1
 // var answer = prompt('Are we there yet?');
-
+//
 // while (answer !== 'yes' && answer !== 'yeah') {
 //   var answer = prompt('Are we there yet?');
 // }
-
+//
 // alert('YAY, WE MADE IT!!!');
-
+//
 // ****** ARE WE THERE YET EX. 2
 // var answer = prompt('Are we there yet?');
 // while (answer.indexOf('yes') === -1) {
 //   var answer = prompt('Are we there yet?');
 // }
-
+//
 // alert('YAY, WE MADE IT!!!');
 
 // ****** LOOP EXERCISES
@@ -160,30 +162,49 @@ Delete This - Tutorial Project Exercise
 //     console.log(false);
 //   }
 // }
-
+//
 // isEven('two');
 // isEven(4);
 // isEven(5);
-
+//
 // console.log('Ex. 2');
 // function factorial(num) {
 //   var result = 1;
 //   for (i = num; i > 0; i--) {
 //     result *= i;
 //   }
-
+//
 //   console.log(result);
 // }
-
+//
 // factorial(5);
 // factorial(2);
 // factorial(10);
 // factorial(0);
-
+//
 // console.log('Ex. 3');
 // function kebabToSnake(str) {
 //   var newStr = str.replace(/-/g, '_');
 //   console.log(newStr);
 // }
-
+//
 // kebabToSnake('hello-world');
+
+/* ------ Prompt Based ToDo List ------ */
+
+// var todos = [];
+//
+// var input = prompt('What would you like to do?');
+//
+// while (input !== 'quit') {
+//   if (input === 'list') {
+//     console.log(todos);
+//   } else if (input === 'new') {
+//     var newTodo = prompt('What would you like to add to your list?');
+//     todos.push(newTodo);
+//   }
+//
+//   input = prompt('What would you like to do?');
+// }
+//
+// console.log('OK, YOU QUIT THE APP');
