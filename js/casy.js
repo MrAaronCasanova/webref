@@ -119,32 +119,71 @@ Delete This - Tutorial Project Exercise
 // alert('YAY, WE MADE IT!!!');
 
 // ****** LOOP EXERCISES
+// console.log('Ex. 1');
+// var num = -10;
+// for (i = num; i <= 19; i++) {
+//   console.log(i);
+// }
+
+// console.log('Ex. 2');
+// var even = 10;
+// for (i = even; i <= 40; i++) {
+//   if (i % 2 === 0) {
+//     console.log(i);
+//   }
+// }
+
+// console.log('Ex. 3');
+// var odd = 300;
+// for (i = odd; i <= 333; i++) {
+//   if (i % 2 !== 0) {
+//     console.log(i);
+//   }
+// }
+
+// console.log('Ex. 4');
+// var numDiv = 5;
+// for (i = numDiv; i <= 50; i++) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log(i);
+//   }
+// }
+
+// ****** Function Exercises
 console.log('Ex. 1');
-var num = -10;
-for (i = num; i <= 19; i++) {
-  console.log(i);
+function isEven(num) {
+  if (typeof num === 'string') {
+    console.log('That\'s not a number');
+  } else if (num % 2 === 0) {
+    console.log('true');
+  } else {
+    console.log(false);
+  }
 }
+
+isEven('two');
+isEven(4);
+isEven(5);
 
 console.log('Ex. 2');
-var even = 10;
-for (i = even; i <= 40; i++) {
-  if (i % 2 === 0) {
-    console.log(i);
+function factorial(num) {
+  var result = 1;
+  for (i = num; i > 0; i--) {
+    result *= i;
   }
+
+  console.log(result);
 }
+
+factorial(5);
+factorial(2);
+factorial(10);
+factorial(0);
 
 console.log('Ex. 3');
-var odd = 300;
-for (i = odd; i <= 333; i++) {
-  if (i % 2 !== 0) {
-    console.log(i);
-  }
+function kebabToSnake(str) {
+  var newStr = str.replace(/-/g, '_');
+  console.log(newStr);
 }
 
-console.log('Ex. 4');
-var numDiv = 5;
-for (i = numDiv; i <= 50; i++) {
-  if (i % 3 === 0 && i % 5 === 0) {
-    console.log(i);
-  }
-}
+kebabToSnake('hello-world');
