@@ -150,40 +150,40 @@ Delete This - Tutorial Project Exercise
 // }
 
 // ****** Function Exercises
-console.log('Ex. 1');
-function isEven(num) {
-  if (typeof num === 'string') {
-    console.log('That\'s not a number');
-  } else if (num % 2 === 0) {
-    console.log('true');
-  } else {
-    console.log(false);
-  }
-}
+// console.log('Ex. 1');
+// function isEven(num) {
+//   if (typeof num === 'string') {
+//     console.log('That\'s not a number');
+//   } else if (num % 2 === 0) {
+//     console.log('true');
+//   } else {
+//     console.log(false);
+//   }
+// }
 
-isEven('two');
-isEven(4);
-isEven(5);
+// isEven('two');
+// isEven(4);
+// isEven(5);
 
-console.log('Ex. 2');
-function factorial(num) {
-  var result = 1;
-  for (i = num; i > 0; i--) {
-    result *= i;
-  }
+// console.log('Ex. 2');
+// function factorial(num) {
+//   var result = 1;
+//   for (i = num; i > 0; i--) {
+//     result *= i;
+//   }
 
-  console.log(result);
-}
+//   console.log(result);
+// }
 
-factorial(5);
-factorial(2);
-factorial(10);
-factorial(0);
+// factorial(5);
+// factorial(2);
+// factorial(10);
+// factorial(0);
 
-console.log('Ex. 3');
-function kebabToSnake(str) {
-  var newStr = str.replace(/-/g, '_');
-  console.log(newStr);
-}
+// console.log('Ex. 3');
+// function kebabToSnake(str) {
+//   var newStr = str.replace(/-/g, '_');
+//   console.log(newStr);
+// }
 
-kebabToSnake('hello-world');
+// kebabToSnake('hello-world');

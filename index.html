@@ -43,52 +43,10 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="javascript">Functions</h4>
+          <h4 class="javascript">TBD</h4>
         </div>
         <div class="collapsible-body">
-          <p><strong>Functions</strong> - Let us wrap bits of code up into REUSABLE packages. They are one of the building blocks of JS.</p>
-          <pre>
-function funName() {
-  console.log('Hello World');
-}
-
-funName(); &larr; runs the function
-          </pre>
-          <p><strong>Arguments</strong> - Values that are passed into functions (Also refered to as parameters)</p>
-          <p>Parameters are the names in the paranthesis</p>
-          <p>Arguments are the actual values passed in</p>
-          <pre>
-function square(val) {
-  console.log(val * val);
-}
-
-square(4); &larr; 16
-          </pre>
-          <p>You can also specify multiple arguments</p>
-          <pre>
-function area(length, width) {
-  console.log(length * width);
-}
-
-square(9,2); &larr; 18
-          </pre>
-          <p><strong>Return</strong> - Passes through the results of a function (Output)</p>
-          <p>Every function returns something and if not specified JS will return undefined</p>
-          <p>Return keyword stops the execution of a function</p>
-          <pre>
-function typeOne() {
-  return "I am a function declaration";
-}
-
-typeOne(); &larr; runs the function
-          </pre>
-          <pre>
-var typeTwo = function() {
-  return "I am a function expression";
-}
-
-typeTwo(); &larr; runs the function
-          </pre>
+          <p><strong></strong></p>
         </div>
       </li>
       <li>
@@ -477,6 +435,56 @@ NOTE JAVASCRIPT
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Functions</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Functions</strong> - Let us wrap bits of code up into REUSABLE packages. They are one of the building blocks of JS.</p>
+          <pre>
+      function funName() {
+      console.log('Hello World');
+      }
+
+      funName(); &larr; runs the function
+          </pre>
+          <p><strong>Arguments</strong> - Values that are passed into functions (Also refered to as parameters)</p>
+          <p>Parameters are the names in the paranthesis</p>
+          <p>Arguments are the actual values passed in</p>
+          <pre>
+      function square(val) {
+      console.log(val * val);
+      }
+
+      square(4); &larr; 16
+          </pre>
+          <p>You can also specify multiple arguments</p>
+          <pre>
+      function area(length, width) {
+      console.log(length * width);
+      }
+
+      square(9,2); &larr; 18
+          </pre>
+          <p><strong>Return</strong> - Passes through the results of a function (Output)</p>
+          <p>Every function returns something and if not specified JS will return undefined</p>
+          <p>Return keyword stops the execution of a function</p>
+          <pre>
+      function typeOne() {
+      return "I am a function declaration";
+      }
+
+      typeOne(); &larr; runs the function
+          </pre>
+          <pre>
+      var typeTwo = function() {
+      return "I am a function expression";
+      }
+
+      typeTwo(); &larr; runs the function
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">Loops</h4>
         </div>
         <div class="collapsible-body">
@@ -654,6 +662,9 @@ NOTE JAVASCRIPT
         <div class="collapsible-body">
           <h5>Confusing Terms</h5>
           <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
+          <p><strong>Scope</strong> - is the  context that code is executed in</p>
+          <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
+          <p>Can either take a function as an argument or they return another function</p>
           <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
           <ul class="vocab-lists">
             <li><strong>Falsy Values</strong></li>
@@ -803,8 +814,8 @@ NOTE WORKFLOW
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 09
-      Video: 96
+    Folder: 11
+      Video: 120
 
     The Advance Web Development Bootcamp
       Folder: 02
