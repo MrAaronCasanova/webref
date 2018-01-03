@@ -120,9 +120,12 @@ var otherNums = nums.slice();
 // both arrays are [1, 2, 3]
           </pre>
           <p><strong>forEach</strong> - JavaScript provides an easy built-in way of iterating over an array: ForEach</p>
+          <p>Expected to have at least 1 of the 3 available arguments</p>
           <pre>
 // Structure
-arr.forEach(someFunction)
+arr.forEach(function callback(currentValue[, index[, array]]) {
+  // your iterator
+}[, thisArg]);
 
 var colors = ['red', 'orange', 'yellow', 'green'];
 

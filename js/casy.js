@@ -192,43 +192,43 @@ Delete This - Tutorial Project Exercise
 
 /* ------ Prompt Based ToDo List ------ */
 
-var todos = ['test', 'test2', 'test3'];
-
-var input = prompt('What would you like to do?');
-
-while (input !== 'quit') {
-  if (input === 'list') {
-    listTodos();
-  } else if (input === 'new') {
-    addTodo();
-  } else if (input === 'delete') {
-    deleteTodo();
-  }
-
-  input = prompt('What would you like to do?');
-}
-
-console.log('OK, YOU QUIT THE APP');
-
-function listTodos() {
-  console.log('*********');
-  todos.forEach(function (listItem, index) {
-    console.log(index + ': ' + listItem);
-  });
-
-  console.log('*********');
-}
-
-function addTodo() {
-  var newTodo = prompt('What would you like to add to your list?');
-  todos.push(newTodo);
-}
-
-function deleteTodo() {
-  var index = prompt('Enter index of todo to delete');
-  todos.splice(index, 1);
-  listTodos();
-}
+// var todos = ['test', 'test2', 'test3'];
+//
+// var input = prompt('What would you like to do?');
+//
+// while (input !== 'quit') {
+//   if (input === 'list') {
+//     listTodos();
+//   } else if (input === 'new') {
+//     addTodo();
+//   } else if (input === 'delete') {
+//     deleteTodo();
+//   }
+//
+//   input = prompt('What would you like to do?');
+// }
+//
+// console.log('OK, YOU QUIT THE APP');
+//
+// function listTodos() {
+//   console.log('*********');
+//   todos.forEach(function (listItem, index) {
+//     console.log(index + ': ' + listItem);
+//   });
+//
+//   console.log('*********');
+// }
+//
+// function addTodo() {
+//   var newTodo = prompt('What would you like to add to your list?');
+//   todos.push(newTodo);
+// }
+//
+// function deleteTodo() {
+//   var index = prompt('Enter index of todo to delete');
+//   todos.splice(index, 1);
+//   listTodos();
+// }
 
 /* ------ Array Exercise ------ */
 
@@ -239,3 +239,58 @@ function deleteTodo() {
 //     console.log(numbers[i]);
 //   }
 // };
+
+console.log('Ex. 1 ******');
+var revNums = [1, 2, 3, 4, 5];
+function printReverse(arr) {
+  for (i = arr.length - 1; i >= 0; i--) {
+    console.log(arr[i]);
+  }
+}
+
+printReverse(revNums);
+
+console.log('Ex. 2 ******');
+var uniNums1 = [1, 1, 1, 1];
+var uniNums2 = [1, 1, 4, 1];
+function isUniform(arr) {
+  var compareNum = arr[0];
+  for (i = 1; i < arr.length; i++) {
+    if (arr[i] !== compareNum) {
+      return console.log(false);
+    }
+  }
+
+  console.log(true);
+}
+
+isUniform(uniNums1);
+isUniform(uniNums2);
+
+console.log('Ex. 3 ******');
+var addNums = [10, 20, 20];
+function sumArray(arr) {
+  var total = 0;
+  arr.forEach(function (val) {
+    total += val;
+  });
+
+  console.log(total);
+}
+
+sumArray(addNums);
+
+console.log('Ex. 4 ******');
+var maxNums = [1, 204, 3, 55];
+function max(arr) {
+  var maxNum = arr[0];
+  arr.forEach(function (val) {
+    if (val > maxNum) {
+      maxNum = val;
+    }
+  });
+
+  console.log(maxNum);
+}
+
+max(maxNums);
