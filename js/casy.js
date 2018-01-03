@@ -239,58 +239,98 @@ Delete This - Tutorial Project Exercise
 //     console.log(numbers[i]);
 //   }
 // };
+//
+// console.log('Ex. 1 ******');
+// var revNums = [1, 2, 3, 4, 5];
+// function printReverse(arr) {
+//   for (i = arr.length - 1; i >= 0; i--) {
+//     console.log(arr[i]);
+//   }
+// }
+//
+// printReverse(revNums);
+//
+// console.log('Ex. 2 ******');
+// var uniNums1 = [1, 1, 1, 1];
+// var uniNums2 = [1, 1, 4, 1];
+// function isUniform(arr) {
+//   var compareNum = arr[0];
+//   for (i = 1; i < arr.length; i++) {
+//     if (arr[i] !== compareNum) {
+//       return console.log(false);
+//     }
+//   }
+//
+//   console.log(true);
+// }
+//
+// isUniform(uniNums1);
+// isUniform(uniNums2);
+//
+// console.log('Ex. 3 ******');
+// var addNums = [10, 20, 20];
+// function sumArray(arr) {
+//   var total = 0;
+//   arr.forEach(function (val) {
+//     total += val;
+//   });
+//
+//   console.log(total);
+// }
+//
+// sumArray(addNums);
+//
+// console.log('Ex. 4 ******');
+// var maxNums = [1, 204, 3, 55];
+// function max(arr) {
+//   var maxNum = arr[0];
+//   arr.forEach(function (val) {
+//     if (val > maxNum) {
+//       maxNum = val;
+//     }
+//   });
+//
+//   console.log(maxNum);
+// }
+//
+// max(maxNums);
 
-console.log('Ex. 1 ******');
-var revNums = [1, 2, 3, 4, 5];
-function printReverse(arr) {
-  for (i = arr.length - 1; i >= 0; i--) {
-    console.log(arr[i]);
-  }
-}
+var movies = [
+  {
+    title: 'In Bruges',
+    rating: '5 stars',
+    hasWatched: true,
+  },
+  {
+    title: 'Frozen',
+    rating: '4.5 stars',
+    hasWatched: false,
+  },
+  {
+    title: 'Mad Max Fury Road',
+    rating: '5 stars',
+    hasWatched: true,
+  },
+  {
+    title: 'Les Miserables',
+    rating: '3.5 stars',
+    hasWatched: false,
+  },
+];
 
-printReverse(revNums);
+function movieSpecs(arr) {
+  arr.forEach(function (val, index) {
+    var movie = arr[index];
+    var watched = function () {
+      if (movie.hasWatched) {
+        return 'You have seen';
+      } else {
+        return 'You have not seen';
+      }
+    };
 
-console.log('Ex. 2 ******');
-var uniNums1 = [1, 1, 1, 1];
-var uniNums2 = [1, 1, 4, 1];
-function isUniform(arr) {
-  var compareNum = arr[0];
-  for (i = 1; i < arr.length; i++) {
-    if (arr[i] !== compareNum) {
-      return console.log(false);
-    }
-  }
-
-  console.log(true);
-}
-
-isUniform(uniNums1);
-isUniform(uniNums2);
-
-console.log('Ex. 3 ******');
-var addNums = [10, 20, 20];
-function sumArray(arr) {
-  var total = 0;
-  arr.forEach(function (val) {
-    total += val;
+    console.log(watched() + ' ' + movie.title + ' - ' + movie.rating);
   });
-
-  console.log(total);
 }
 
-sumArray(addNums);
-
-console.log('Ex. 4 ******');
-var maxNums = [1, 204, 3, 55];
-function max(arr) {
-  var maxNum = arr[0];
-  arr.forEach(function (val) {
-    if (val > maxNum) {
-      maxNum = val;
-    }
-  });
-
-  console.log(maxNum);
-}
-
-max(maxNums);
+movieSpecs(movies);
