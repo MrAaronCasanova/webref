@@ -43,142 +43,18 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="javascript">Objects</h4>
+          <h4 class="javascript">The DOM</h4>
         </div>
         <div class="collapsible-body">
-          <p><strong>Objects</strong> - Stores multiple key value pairs</p>
-          <pre>
-Three ways to initialize an empty Object
-
-// make an empty object and then add to it
-var person = {};
-person.name = 'Aaron Casanova';
-person.age = 25;
-person.city = 'Huntington Beach';
-
-// all at once
-var person = {
-  name: 'Aaron Casanova',
-  age: 25,
-  city: 'Huntington Beach'
-};
-
-// another way of initializing an Object
-var person = new Object();
-person.name = 'Aaron Casanova';
-person.age = 25;
-person.city = 'Huntington Beach';
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Array</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>Array</strong> - Stores multiple values - Zero-based</p>
-          <pre>
-Two ways to initialize an empty array
-
-var friends = [];
-var friends = new Array(); // uncommon
-          </pre>
-          <p><strong>Nested Arrays</strong> - Example below</p>
-          <pre>
-var friendGroups = [
-['Harry', 'Ron', 'Hermione'],
-['Malfoy', 'Crabbe', 'Goyle'],
-['Mooney', 'Wormtail', 'Prongs']
-];
-
-console.log(friendsGroups[2][0]); // returns 'Mooney'
-          </pre>
-          <p><strong>Array Iteration</strong> - Doing something to every item in an array</p>
-          <h5>Commonly Used Array Methods</h5>
-          <p><strong>Push</strong> - adds values to the end of an array</p>
-          <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.push('green');
-// ['red', 'orange', 'yellow', 'green']
-          </pre>
-          <p><strong>Pop</strong> - removes the last item in an array</p>
-          <pre>
-var colors = ['red', 'orange', 'yellow'];
-olors.pop();
-// ['red', 'orange']
-          </pre>
-          <p><strong>Unshift</strong> - Use unshift to add to the front of an array</p>
-          <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.unshift('infrared');
-// ['infrared', 'red', 'orange', 'yellow']
-          </pre>
-          <p><strong>Shift</strong> - Use shift to remove the first item in an array</p>
-          <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.shift();
-// ['orange', 'yellow']
-
-// shift() also returns the removed element
-var col = colors.shift(); // orange
-          </pre>
-          <p><strong>IndexOf</strong> - Use indexOf() to find the index of an item in an array</p>
-          <pre>
-var friends = ['Charlie', 'Liz', 'David', 'Mattias', 'Liz'];
-
-// returns the first index at which a given element can be found
-friends.indexOf('David'); // 2
-friends.indexOf('Liz'); // 1, not 4
-
-// returns -1 if the element is not present
-friends.indexOf('Hagrid'); // -2
-          </pre>
-          <p><strong>Slice</strong> - Use slice() to copy parts of an array</p>
-          <pre>
-var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
-// use slice to copy the 2nd and 3d fruits
-// specify index where the new array starts(1) and ends(3)
-var citrus = fruits.slice(1, 3);
-
-// this does not alter the original fruits Array
-// citrus contains ['Orange', 'Lemon']
-fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
-
-// you can also use slice() to copy an entire Array
-var nums = [1,2,3];
-var otherNums = nums.slice();
-// both arrays are [1, 2, 3]
-          </pre>
-          <p><strong>forEach</strong> - JavaScript provides an easy built-in way of iterating over an array: ForEach</p>
-          <p>Expected to have at least 1 of the 3 available arguments</p>
-          <pre>
-// Structure
-arr.forEach(function callback(currentValue[, index[, array]]) {
-  // your iterator
-}[, thisArg]);
-
-var colors = ['red', 'orange', 'yellow', 'green'];
-
-colors.forEach(function(color){
-  // color is a placeholder, call it whatever you want
-  console.log(color);
-});
-
-// ****** Same Functionality ******
-
-var colors = ['red', 'orange', 'yellow', 'green'];
-
-for (i = 0; i &lt; colors.length; i++) {
-  console.log(colors[i]);
-}
-          </pre>
-          <p><strong>splice</strong> - Cut and remove a specific number of elements out of an array</p>
-          <pre>
-var index = prompt('Enter index of todo to delete');
-todos.splice(index, 1);
-// 1 specifies the number of values following after the index value that will be removed
-//
-          </pre>
+          <p><strong>DOM</strong> - The Document Object Model is the interface between your Javascript and HTML+CSS</p>
+          <p>The basic process is <strong>Select</strong> then <strong>Manipulate</strong></p>
+          <p><strong>Document</strong> - It all starts with the document, the (root node)(top level object)</p>
+          <h5>Common Document Selector Methods</h5>
+          <p><strong>document.getElementById()</strong> - Takes a string argument and returns the one element with a matching ID</p>
+          <p><strong>document.getElementByClassName()</strong> - Takes a string argument and returns a list of elements that have a matching class (returns node list)</p>
+          <p><strong>document.getElementByTagName()</strong> - Returns a list of all elements of a given taf name, like &lt;li&gt; or &lt;h1&gt; (returns node list)</p>
+          <p><strong>document.querySelector()</strong> - Returns the first element that matches a given CSS-style selector</p>
+          <p><strong>document.querySelectorAll()</strong> - Returns a list of elements that matches a given CSS-style selector (returns node list)</p>
         </div>
       </li>
       <li>
@@ -567,6 +443,146 @@ NOTE JAVASCRIPT
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Objects</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Objects</strong> - Stores multiple key value pairs</p>
+          <pre>
+      Three ways to initialize an empty Object
+
+      // make an empty object and then add to it
+      var person = {};
+      person.name = 'Aaron Casanova';
+      person.age = 25;
+      person.city = 'Huntington Beach';
+
+      // all at once
+      var person = {
+      name: 'Aaron Casanova',
+      age: 25,
+      city: 'Huntington Beach'
+      };
+
+      // another way of initializing an Object
+      var person = new Object();
+      person.name = 'Aaron Casanova';
+      person.age = 25;
+      person.city = 'Huntington Beach';
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Array</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Array</strong> - Stores multiple values - Zero-based</p>
+          <pre>
+      Two ways to initialize an empty array
+
+      var friends = [];
+      var friends = new Array(); // uncommon
+          </pre>
+          <p><strong>Nested Arrays</strong> - Example below</p>
+          <pre>
+      var friendGroups = [
+      ['Harry', 'Ron', 'Hermione'],
+      ['Malfoy', 'Crabbe', 'Goyle'],
+      ['Mooney', 'Wormtail', 'Prongs']
+      ];
+
+      console.log(friendsGroups[2][0]); // returns 'Mooney'
+          </pre>
+          <p><strong>Array Iteration</strong> - Doing something to every item in an array</p>
+          <h5>Commonly Used Array Methods</h5>
+          <p><strong>Push</strong> - adds values to the end of an array</p>
+          <pre>
+      var colors = ['red', 'orange', 'yellow'];
+      colors.push('green');
+      // ['red', 'orange', 'yellow', 'green']
+          </pre>
+          <p><strong>Pop</strong> - removes the last item in an array</p>
+          <pre>
+      var colors = ['red', 'orange', 'yellow'];
+      olors.pop();
+      // ['red', 'orange']
+          </pre>
+          <p><strong>Unshift</strong> - Use unshift to add to the front of an array</p>
+          <pre>
+      var colors = ['red', 'orange', 'yellow'];
+      colors.unshift('infrared');
+      // ['infrared', 'red', 'orange', 'yellow']
+          </pre>
+          <p><strong>Shift</strong> - Use shift to remove the first item in an array</p>
+          <pre>
+      var colors = ['red', 'orange', 'yellow'];
+      colors.shift();
+      // ['orange', 'yellow']
+
+      // shift() also returns the removed element
+      var col = colors.shift(); // orange
+          </pre>
+          <p><strong>IndexOf</strong> - Use indexOf() to find the index of an item in an array</p>
+          <pre>
+      var friends = ['Charlie', 'Liz', 'David', 'Mattias', 'Liz'];
+
+      // returns the first index at which a given element can be found
+      friends.indexOf('David'); // 2
+      friends.indexOf('Liz'); // 1, not 4
+
+      // returns -1 if the element is not present
+      friends.indexOf('Hagrid'); // -2
+          </pre>
+          <p><strong>Slice</strong> - Use slice() to copy parts of an array</p>
+          <pre>
+      var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+      // use slice to copy the 2nd and 3d fruits
+      // specify index where the new array starts(1) and ends(3)
+      var citrus = fruits.slice(1, 3);
+
+      // this does not alter the original fruits Array
+      // citrus contains ['Orange', 'Lemon']
+      fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+
+      // you can also use slice() to copy an entire Array
+      var nums = [1,2,3];
+      var otherNums = nums.slice();
+      // both arrays are [1, 2, 3]
+          </pre>
+          <p><strong>forEach</strong> - JavaScript provides an easy built-in way of iterating over an array: ForEach</p>
+          <p>Expected to have at least 1 of the 3 available arguments</p>
+          <pre>
+      // Structure
+      arr.forEach(function callback(currentValue[, index[, array]]) {
+      // your iterator
+      }[, thisArg]);
+
+      var colors = ['red', 'orange', 'yellow', 'green'];
+
+      colors.forEach(function(color){
+      // color is a placeholder, call it whatever you want
+      console.log(color);
+      });
+
+      // ****** Same Functionality ******
+
+      var colors = ['red', 'orange', 'yellow', 'green'];
+
+      for (i = 0; i &lt; colors.length; i++) {
+      console.log(colors[i]);
+      }
+          </pre>
+          <p><strong>splice</strong> - Cut and remove a specific number of elements out of an array</p>
+          <pre>
+      var index = prompt('Enter index of todo to delete');
+      todos.splice(index, 1);
+      // 1 specifies the number of values following after the index value that will be removed
+      //
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">Functions</h4>
         </div>
         <div class="collapsible-body">
@@ -947,8 +963,8 @@ NOTE WORKFLOW
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 11
-      Video: 127
+    Folder: 13
+      Video: 145
 
     The Advance Web Development Bootcamp
       Folder: 02

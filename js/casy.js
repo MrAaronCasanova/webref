@@ -295,42 +295,44 @@ Delete This - Tutorial Project Exercise
 //
 // max(maxNums);
 
-var movies = [
-  {
-    title: 'In Bruges',
-    rating: '5 stars',
-    hasWatched: true,
-  },
-  {
-    title: 'Frozen',
-    rating: '4.5 stars',
-    hasWatched: false,
-  },
-  {
-    title: 'Mad Max Fury Road',
-    rating: '5 stars',
-    hasWatched: true,
-  },
-  {
-    title: 'Les Miserables',
-    rating: '3.5 stars',
-    hasWatched: false,
-  },
-];
+/* ------ Object Exercise ------ */
 
-function movieSpecs(arr) {
-  arr.forEach(function (val, index) {
-    var movie = arr[index];
-    var watched = function () {
-      if (movie.hasWatched) {
-        return 'You have seen';
-      } else {
-        return 'You have not seen';
-      }
-    };
-
-    console.log(watched() + ' ' + movie.title + ' - ' + movie.rating);
-  });
-}
-
-movieSpecs(movies);
+// var movies = [
+//   {
+//     title: 'In Bruges',
+//     rating: '5 stars',
+//     hasWatched: true,
+//   },
+//   {
+//     title: 'Frozen',
+//     rating: '4.5 stars',
+//     hasWatched: false,
+//   },
+//   {
+//     title: 'Mad Max Fury Road',
+//     rating: '5 stars',
+//     hasWatched: true,
+//   },
+//   {
+//     title: 'Les Miserables',
+//     rating: '3.5 stars',
+//     hasWatched: false,
+//   },
+// ];
+//
+// function movieSpecs(arr) {
+//   arr.forEach(function (val, index) {
+//     var movie = arr[index];
+//     var watched = function () {
+//       if (movie.hasWatched) {
+//         return 'You have seen';
+//       } else {
+//         return 'You have not seen';
+//       }
+//     };
+//
+//     console.log(watched() + ' ' + movie.title + ' - ' + movie.rating);
+//   });
+// }
+//
+// movieSpecs(movies);
