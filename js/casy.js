@@ -192,19 +192,50 @@ Delete This - Tutorial Project Exercise
 
 /* ------ Prompt Based ToDo List ------ */
 
-// var todos = [];
+var todos = ['test', 'test2', 'test3'];
+
+var input = prompt('What would you like to do?');
+
+while (input !== 'quit') {
+  if (input === 'list') {
+    listTodos();
+  } else if (input === 'new') {
+    addTodo();
+  } else if (input === 'delete') {
+    deleteTodo();
+  }
+
+  input = prompt('What would you like to do?');
+}
+
+console.log('OK, YOU QUIT THE APP');
+
+function listTodos() {
+  console.log('*********');
+  todos.forEach(function (listItem, index) {
+    console.log(index + ': ' + listItem);
+  });
+
+  console.log('*********');
+}
+
+function addTodo() {
+  var newTodo = prompt('What would you like to add to your list?');
+  todos.push(newTodo);
+}
+
+function deleteTodo() {
+  var index = prompt('Enter index of todo to delete');
+  todos.splice(index, 1);
+  listTodos();
+}
+
+/* ------ Array Exercise ------ */
+
+// var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //
-// var input = prompt('What would you like to do?');
-//
-// while (input !== 'quit') {
-//   if (input === 'list') {
-//     console.log(todos);
-//   } else if (input === 'new') {
-//     var newTodo = prompt('What would you like to add to your list?');
-//     todos.push(newTodo);
+// for (i = 0; i < numbers.length; i++) {
+//   if (numbers[i] % 3 === 0) {
+//     console.log(numbers[i]);
 //   }
-//
-//   input = prompt('What would you like to do?');
-// }
-//
-// console.log('OK, YOU QUIT THE APP');
+// };
