@@ -49,12 +49,61 @@ NOTE HTML
           <p><strong>DOM</strong> - The Document Object Model is the interface between your Javascript and HTML+CSS</p>
           <p>The basic process is <strong>Select</strong> then <strong>Manipulate</strong></p>
           <p><strong>Document</strong> - It all starts with the document, the (root node)(top level object)</p>
+          <hr>
+          <hr>
           <h5>Common Document Selector Methods</h5>
           <p><strong>document.getElementById()</strong> - Takes a string argument and returns the one element with a matching ID</p>
           <p><strong>document.getElementByClassName()</strong> - Takes a string argument and returns a list of elements that have a matching class (returns node list)</p>
           <p><strong>document.getElementByTagName()</strong> - Returns a list of all elements of a given taf name, like &lt;li&gt; or &lt;h1&gt; (returns node list)</p>
           <p><strong>document.querySelector()</strong> - Returns the first element that matches a given CSS-style selector</p>
           <p><strong>document.querySelectorAll()</strong> - Returns a list of elements that matches a given CSS-style selector (returns node list)</p>
+          <hr>
+          <hr>
+          <h5>Common Properties</h5>
+          <p><strong>style</strong> - The style property is one way to manipulate an element's style</p>
+          <pre>
+var tag = document.querySelector('h1');
+
+// manipulate
+tag.style.color = 'blue';
+tag.style.border = '1px solid red';
+tag.style.fontSize = '70px';
+
+// Above is not DRY
+// * Define a class in CSS File * //
+.some-class {
+  color: blue;
+  border: 1px solid red;
+  font-size: 70px;
+}
+// Add the new class to the previously selected element
+tag.classList.add('some-class');
+          </pre>
+          <hr>
+          <p><strong>classList</strong> - A read-only list that contains the classes for a given element. It is not an array.</p>
+          <pre>
+var tag = document.querySelector('h1');
+
+// Add a class to the selected element
+tag.classList.add('another-class');
+
+// Remove a class
+tag.classList.remove('another-class');
+
+// Toggle a class
+tag.classList.toggle('another-class');
+          </pre>
+          <hr>
+          <p><strong>textContent</strong> - Returns a string of all the text contained in a given element</p>
+          <pre>
+var tag = document.querySelector('p');
+
+// Retrieve the textContent:
+tag.textContent // 'This is an awesome paragraph'
+
+// alter the textContent:
+tag.textContent = 'blah blah blah';
+          </pre>
         </div>
       </li>
       <li>
