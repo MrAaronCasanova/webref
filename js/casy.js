@@ -338,3 +338,30 @@ Delete This - Tutorial Project Exercise
 // movieSpecs(movies);
 
 /* ------ DOM ------ */
+
+// Playing with Google
+
+// var links = document.getElementsByTagName('a');
+//
+// for (i = 0; i < links.length; i++) {
+//   links[i].style.background = 'pink';
+//   links[i].style.border = '1px solid #000';
+//   links[i].setAttribute('href', 'https://www.soundcloud.com/casymusic');
+// }
+
+// Color Toggle Button
+var colorToggle = document.querySelector('.color-picker');
+
+var cBody = document.querySelector('.collapsible-body');
+
+isPink = false;
+
+colorToggle.addEventListener('click', function () {
+  if (isPink) {
+    cBody.style.background = 'white';
+  } else {
+    cBody.style.background = 'pink';
+  }
+
+  isPink = !isPink;
+});

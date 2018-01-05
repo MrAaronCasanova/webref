@@ -46,6 +46,7 @@ NOTE HTML
           <h4 class="javascript">The DOM</h4>
         </div>
         <div class="collapsible-body">
+          <button class="color-picker">Testing</button>
           <p><strong>DOM</strong> - The Document Object Model is the interface between your Javascript and HTML+CSS</p>
           <p>The basic process is <strong>Select</strong> then <strong>Manipulate</strong></p>
           <p><strong>Document</strong> - It all starts with the document, the (root node)(top level object)</p>
@@ -103,6 +104,46 @@ tag.textContent // 'This is an awesome paragraph'
 
 // alter the textContent:
 tag.textContent = 'blah blah blah';
+          </pre>
+          <hr>
+          <p><strong>innerHTML</strong> - Similar to textContent, except it returns a string of all the HTML contained in a given element</p>
+          <strong>Will also render HTML on your page if written appropriately</strong>
+          <pre>
+var tag = document.querySelector('p');
+
+// Retrieve the textContent:
+tag.textContent // 'This is an awesome paragraph'
+
+// alter the textContent:
+tag.textContent = 'blah blah blah';
+          </pre>
+          <hr>
+          <hr>
+          <p><strong>Attributes</strong> - You have the ability to manipulate the HTML attributes on the page</p>
+          <p><h5>getAttribute & setAttribute</h5> - will read and write attributes like <em>src</em> or <em>href</em></p>
+          <pre>
+var link = document.querySelector('a');
+link.getAttribute('href'); // "www.google.com"
+// Change href attribute
+link.setAttribute('href', 'www.dogs.com');
+// /&lt;a href="www.dogs.com"&gt;I am a link&lt;/a&gt;
+
+// To change the image src
+var img = document.querySelector('img');
+img.setAttribute('src', 'corgi.png');
+// &lt;img src="corgi.png"&gt;
+          </pre>
+          <hr>
+          <hr>
+          <p><strong>DOM Events</strong> - Making things interactive</p>
+          <p><strong>The Process</strong> - Select an element then add an event listener</p>
+          <p><strong>The Syntax</strong> - To add a listener, we use a method called <em>addEventListener</em></p>
+          <pre>
+element.addEventListener(type, functionToCall);
+var button = document.querySelector('button');
+button.addEventListener('click', function(){
+  console.log('SOMEONE CLICKED THE BUTTON');
+});
           </pre>
         </div>
       </li>
@@ -1013,7 +1054,7 @@ NOTE WORKFLOW
 
   The Web Developer Bootcamp
     Folder: 13
-      Video: 145
+      Video: 154
 
     The Advance Web Development Bootcamp
       Folder: 02
