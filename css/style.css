@@ -373,3 +373,12 @@ Score Keeper Exercise
 .winner {
   color: forestgreen;
 }
+
+/* --------------------------------------------
+DOM Events
+-------------------------------------------- */
+
+/* Part of mouseoverNout JS */
+.selected {
+  color: lightblue;
+}

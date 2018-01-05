@@ -31,6 +31,103 @@ $(document).ready(function () {
 });
 
 /* --------------------------------------------
+Score Keeper Exercise
+-------------------------------------------- */
+
+var p1Button = document.querySelector('.p1');
+var p2Button = document.querySelector('.p2');
+var resetButton = document.querySelector('.reset');
+var p1ScoreBoard = document.querySelector('.p1-score-board');
+var p2ScoreBoard = document.querySelector('.p2-score-board');
+var numInput = document.querySelector('.num-input');
+var playToNum = document.querySelector('.play-to-num');
+
+var p1Score = 0;
+var p2Score = 0;
+
+var gameOver = false;
+var winningScore = 5;
+
+p1Button.addEventListener('click', function () {
+  if (!gameOver) {
+    p1Score++;
+    if (p1Score === winningScore) {
+      p1ScoreBoard.classList.add('winner');
+      gameOver = true;
+    }
+
+    p1ScoreBoard.textContent = p1Score;
+  }
+});
+
+p2Button.addEventListener('click', function () {
+  if (!gameOver) {
+    p2Score++;
+    if (p2Score === winningScore) {
+      p2ScoreBoard.classList.add('winner');
+      gameOver = true;
+    }
+
+    p2ScoreBoard.textContent = p2Score;
+  }
+});
+
+resetButton.addEventListener('click', function () {
+  reset();
+});
+
+function reset() {
+  p1Score = 0;
+  p2Score = 0;
+  p1ScoreBoard.textContent = p1Score;
+  p2ScoreBoard.textContent = p2Score;
+  p1ScoreBoard.classList.remove('winner');
+  p2ScoreBoard.classList.remove('winner');
+  gameOver = false;
+}
+
+numInput.addEventListener('change', function () {
+  playToNum.textContent = numInput.value;
+  winningScore = Number(numInput.value);
+  reset();
+});
+
+/* --------------------------------------------
+DOM Events
+-------------------------------------------- */
+
+/* ------ Click Demo ------ */
+var clickDemo = document.querySelector('.click-demo');
+
+var isClicked = false;
+
+clickDemo.addEventListener('click', function () {
+  if (isClicked) {
+    clickDemo.style.color = 'black';
+  } else {
+    clickDemo.style.color = 'coral';
+  }
+
+  isClicked = !isClicked;
+});
+
+// ^^^ Would be better to create .custom-styling separately in CSS
+// ^^^ and use clickDemo.classList.toggle('custom-styling');
+
+/* ------ Mouse Over & Mouse Out ------ */
+var mouseoverNout = document.querySelectorAll('.mouseover-n-out');
+
+for (i = 0; i < mouseoverNout.length; i++) {
+  mouseoverNout[i].addEventListener('mouseover', function () {
+    this.classList.add('selected');
+  });
+
+  mouseoverNout[i].addEventListener('mouseout', function () {
+    this.classList.remove('selected');
+  });
+}
+
+/* --------------------------------------------
 Delete This - Tutorial Project Exercise
 -------------------------------------------- */
 
@@ -190,6 +287,15 @@ Delete This - Tutorial Project Exercise
 //
 // kebabToSnake('hello-world');
 
+// Counts all event on MDN's event reference page
+// var events = document.querySelectorAll('td code a');
+// var count = 0;
+// for (i = 0; i < events.length; i++) {
+//   count += 1;
+// }
+//
+// console.log(count);
+
 /* ------ Prompt Based ToDo List ------ */
 
 // var todos = ['test', 'test2', 'test3'];
@@ -348,80 +454,3 @@ Delete This - Tutorial Project Exercise
 //   links[i].style.border = '1px solid #000';
 //   links[i].setAttribute('href', 'https://www.soundcloud.com/casymusic');
 // }
-
-// Color Toggle Button
-var colorToggle = document.querySelector('.color-toggle');
-
-var cTBody = document.querySelector('.c-t-body');
-
-isPink = false;
-
-colorToggle.addEventListener('click', function () {
-  if (isPink) {
-    cTBody.style.background = 'white';
-  } else {
-    cTBody.style.background = 'pink';
-  }
-
-  isPink = !isPink;
-});
-
-/* ------ Score Keeper Exercise ------ */
-
-var p1Button = document.querySelector('.p1');
-var p2Button = document.querySelector('.p2');
-var resetButton = document.querySelector('.reset');
-var p1ScoreBoard = document.querySelector('.p1-score-board');
-var p2ScoreBoard = document.querySelector('.p2-score-board');
-var numInput = document.querySelector('.num-input');
-var playToNum = document.querySelector('.play-to-num');
-
-var p1Score = 0;
-var p2Score = 0;
-
-var gameOver = false;
-var winningScore = 5;
-
-p1Button.addEventListener('click', function () {
-  if (!gameOver) {
-    p1Score++;
-    if (p1Score === winningScore) {
-      p1ScoreBoard.classList.add('winner');
-      gameOver = true;
-    }
-
-    p1ScoreBoard.textContent = p1Score;
-  }
-});
-
-p2Button.addEventListener('click', function () {
-  if (!gameOver) {
-    p2Score++;
-    if (p2Score === winningScore) {
-      p2ScoreBoard.classList.add('winner');
-      gameOver = true;
-    }
-
-    p2ScoreBoard.textContent = p2Score;
-  }
-});
-
-resetButton.addEventListener('click', function () {
-  reset();
-});
-
-function reset() {
-  p1Score = 0;
-  p2Score = 0;
-  p1ScoreBoard.textContent = p1Score;
-  p2ScoreBoard.textContent = p2Score;
-  p1ScoreBoard.classList.remove('winner');
-  p2ScoreBoard.classList.remove('winner');
-  gameOver = false;
-}
-
-numInput.addEventListener('change', function () {
-  playToNum.textContent = numInput.value;
-  winningScore = Number(numInput.value);
-  reset();
-});

@@ -43,23 +43,34 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="html css javascript">Score Keeper</h4>
+          <h4 class="javascript">DOM Events</h4>
         </div>
         <div class="collapsible-body">
-          <h5 class="score-board"><span class="p1-score-board">0</span> to <span class="p2-score-board">0</span></h5>
-          <p>Playing to: <span class="play-to-num">5</span></p>
-          <input class="num-input" type="number">
-          <button class="p1">Player One</button>
-          <button class="p2">Player Two</button>
-          <button class="reset">Reset</button>
+          <p><strong>DOM Events</strong> - Making things interactive</p>
+          <p><strong>The Process</strong> - Select an element then add an event listener</p>
+          <p><strong>The Syntax</strong> - To add a listener, we use a method called <em>addEventListener</em></p>
+          <pre>
+element.addEventListener(type, functionToCall);
+
+var button = document.querySelector('button');
+button.addEventListener('click', function(){
+    console.log('SOMEONE CLICKED THE BUTTON');
+});
+          </pre>
+          <hr>
+          <hr>
+          <h5>Common EventListeners</h5>
+          <p><strong>Note: the key word THIS inside an eventListener refers to the element the event was trigger on</strong></p>
+          <p><strong class="click-demo">click</strong> -  events are fired when a pointing device button (usually a mouse's primary button) is pressed and released on a single element.</p>
+          <p><strong class="mouseover-n-out">mouseover</strong> - events are fired when a pointing device is moved onto the element that has the listener attached or onto one of its children</p>
+          <p><strong class="mouseover-n-out">mouseout</strong> - events are fired when a pointing device (usually a mouse) is moved off the element that has the listener attached or off one of its children. Note that it is also triggered on the parent when you move onto a child element, since you move out of the visible space of the parent</p>
         </div>
       </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">The DOM</h4>
         </div>
-        <div class="collapsible-body c-t-body">
-          <button class="color-toggle">Testing</button>
+        <div class="collapsible-body">
           <p><strong>DOM</strong> - The Document Object Model is the interface between your Javascript and HTML+CSS</p>
           <p>The basic process is <strong>Select</strong> then <strong>Manipulate</strong></p>
           <p><strong>Document</strong> - It all starts with the document, the (root node)(top level object)</p>
@@ -145,18 +156,6 @@ link.setAttribute('href', 'www.dogs.com');
 var img = document.querySelector('img');
 img.setAttribute('src', 'corgi.png');
 // &lt;img src="corgi.png"&gt;
-          </pre>
-          <hr>
-          <hr>
-          <p><strong>DOM Events</strong> - Making things interactive</p>
-          <p><strong>The Process</strong> - Select an element then add an event listener</p>
-          <p><strong>The Syntax</strong> - To add a listener, we use a method called <em>addEventListener</em></p>
-          <pre>
-element.addEventListener(type, functionToCall);
-var button = document.querySelector('button');
-button.addEventListener('click', function(){
-  console.log('SOMEONE CLICKED THE BUTTON');
-});
           </pre>
         </div>
       </li>
@@ -544,6 +543,19 @@ selector {
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="html css javascript">Score Keeper</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5 class="score-board"><span class="p1-score-board">0</span> to <span class="p2-score-board">0</span></h5>
+          <p>Playing to: <span class="play-to-num">5</span></p>
+          <input class="num-input" type="number">
+          <button class="p1">Player One</button>
+          <button class="p2">Player Two</button>
+          <button class="reset">Reset</button>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">Objects</h4>
