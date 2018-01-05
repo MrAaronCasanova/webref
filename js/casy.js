@@ -350,18 +350,78 @@ Delete This - Tutorial Project Exercise
 // }
 
 // Color Toggle Button
-var colorToggle = document.querySelector('.color-picker');
+var colorToggle = document.querySelector('.color-toggle');
 
-var cBody = document.querySelector('.collapsible-body');
+var cTBody = document.querySelector('.c-t-body');
 
 isPink = false;
 
 colorToggle.addEventListener('click', function () {
   if (isPink) {
-    cBody.style.background = 'white';
+    cTBody.style.background = 'white';
   } else {
-    cBody.style.background = 'pink';
+    cTBody.style.background = 'pink';
   }
 
   isPink = !isPink;
+});
+
+/* ------ Score Keeper Exercise ------ */
+
+var p1Button = document.querySelector('.p1');
+var p2Button = document.querySelector('.p2');
+var resetButton = document.querySelector('.reset');
+var p1ScoreBoard = document.querySelector('.p1-score-board');
+var p2ScoreBoard = document.querySelector('.p2-score-board');
+var numInput = document.querySelector('.num-input');
+var playToNum = document.querySelector('.play-to-num');
+
+var p1Score = 0;
+var p2Score = 0;
+
+var gameOver = false;
+var winningScore = 5;
+
+p1Button.addEventListener('click', function () {
+  if (!gameOver) {
+    p1Score++;
+    if (p1Score === winningScore) {
+      p1ScoreBoard.classList.add('winner');
+      gameOver = true;
+    }
+
+    p1ScoreBoard.textContent = p1Score;
+  }
+});
+
+p2Button.addEventListener('click', function () {
+  if (!gameOver) {
+    p2Score++;
+    if (p2Score === winningScore) {
+      p2ScoreBoard.classList.add('winner');
+      gameOver = true;
+    }
+
+    p2ScoreBoard.textContent = p2Score;
+  }
+});
+
+resetButton.addEventListener('click', function () {
+  reset();
+});
+
+function reset() {
+  p1Score = 0;
+  p2Score = 0;
+  p1ScoreBoard.textContent = p1Score;
+  p2ScoreBoard.textContent = p2Score;
+  p1ScoreBoard.classList.remove('winner');
+  p2ScoreBoard.classList.remove('winner');
+  gameOver = false;
+}
+
+numInput.addEventListener('change', function () {
+  playToNum.textContent = numInput.value;
+  winningScore = Number(numInput.value);
+  reset();
 });

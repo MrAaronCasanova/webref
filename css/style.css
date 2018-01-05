@@ -365,3 +365,11 @@ Javascript Vocabulary
 .vocab-lists {
   margin-left: 40px;
 }
+
+/* --------------------------------------------
+Score Keeper Exercise
+-------------------------------------------- */
+
+.winner {
+  color: forestgreen;
+}
