@@ -11,6 +11,7 @@
   <title>CASY'S TOOLBOX</title>
 </head>
 <body>
+
 <div class="container">
 
   <h1 class="center-align">
@@ -41,6 +42,72 @@
 <!-- ********************************************
 NOTE HTML
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">jQuery</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Selecting with jQuery</h5>
+          <p><strong>$('selectorGoesHere')</strong> - Similar to querySelectorAll, in that we provide a CSS style selector and jQuery will return all matching elements</p>
+        <hr>
+        <hr>
+        <h5>Manipulate Style</h5>
+        <p><strong>.css()</strong> - method is jQuery's interface to styling</p>
+        <pre id="special">
+$(selector)
+
+.css(property, value)
+
+// select elem with id "special" and give it a border
+$('#special').css('border', '2px solid red');
+
+// we can also pass in an object with stylesheet
+var styles = {
+  backgroundColor: 'pink',
+  fontWeight: 'bold'
+};
+
+$('#special').css(styles);
+        </pre>
+        <hr>
+        <hr>
+        <h5>Common jQuery Methods</h5>
+        <p><strong>.text()</strong> - Get the combined text contents of each element in the set of matched elements, including their decendants, or set the text contents of the matched elements</p>
+        <pre>
+$(selector)
+
+.text(newValue)
+        </pre>
+        <p><strong>.html()</strong> - Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element</p>
+        <pre>
+$(selector)
+
+.html('&lt;p&gt;Example&lt;/p&gt;')
+        </pre>
+        <p><strong>.attr()</strong> - Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element</p>
+        <pre>
+$(selector)
+
+.attr(attribute, value)
+        </pre>
+        <p><strong>.val()</strong> -  Get the current value of the first element in the set of matched elements or set the value of every matched element</p>
+        <pre>
+$(selector)
+
+.val(value)
+        </pre>
+        <p><strong>.addClass()</strong> -  Adds the specified class(es) to each element in the set of matched elements</p>
+        <p><strong>.removeClass()</strong> -  Removes the specified class(es) to each element in the set of matched elements</p>
+        <p><strong>.toggleClass()</strong> -  Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument</p>
+        <pre>
+$(selector)
+
+.addClass('class-name')
+.removeClass('class-name')
+.toggleClass('class-name')
+        </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">DOM Events</h4>
@@ -980,6 +1047,19 @@ NOTE WORKFLOW
         <div class="collapsible-body">
           <h5>Add existing project to git hub</h5>
           <p><a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/" target="_blank">Click Here</a></p>
+          <strong>$ git init</strong>
+
+          <p><strong>$ git add .</strong> - # Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.</p>
+
+          <p><strong>$ git commit -m "First commit"</strong> - # Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.</p>
+
+          <p><strong>$ git remote add origin remote</strong>  - repository URL
+          # Sets the new remote</p>
+          <p><strong>git remote -v</strong> - # Verifies the new remote URL</p>
+
+          <p><strong>$ git push -u origin master</strong> - # Pushes the changes in your local repository up to the remote repository you specified as the origin</p>
+          <hr>
+          <hr>
           <h5>Common Commands</h5>
           <p><strong>git status</strong></p>
           <p><strong>git add .</strong></p>
@@ -1064,22 +1144,21 @@ NOTE WORKFLOW
     </ul> <!-- Main UL -->
 
   </div> <!-- Main Reference Div -->
-
 </div> <!-- Container Div -->
 
 <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
 <script src="js/materialize.min.js"></script>
 <script src="js/list.js" charset="utf-8"></script>
 <script src="js/casy.js" charset="utf-8"></script>
-<input type="radio" name="Aaron" value="Casanova">
+
 </body>
 </html>
 
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 13
-      Video: 154
+    Folder: 17
+      Video: 179
 
     The Advance Web Development Bootcamp
       Folder: 02
