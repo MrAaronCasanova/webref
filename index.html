@@ -106,6 +106,44 @@ $(selector)
 .removeClass('class-name')
 .toggleClass('class-name')
         </pre>
+        <hr>
+        <hr>
+        <h5>Common jQuery Event Methods</h5>
+        <p><strong>click()</strong> - method is a quick and easy way to add a click listener to element(s)</p>
+        <pre>
+// prints when item with id 'submit' is clicked
+$('#submit').click(function(){
+  console.log('Another Click');
+});
+        </pre>
+        <p><strong>keypress()</strong> - method is a quick and easy way to add a keypress listener to element(s)</p>
+        <pre>
+$('#target').keypress(function(){
+  console.log('Handler for .keypress() called');
+});
+        </pre>
+        <p><strong>on()</strong> - works similarly to addEventListener. It lets you specify the type of event to listen for.</p>
+        <pre>
+// prints when item with id 'submit' is clicked
+$('#submit').on('dblclick', function(){
+  console.log('Another Click');
+});
+        </pre>
+        <hr>
+        <hr>
+        <h5>jQuery Effects</h5>
+        <p><strong>fadeOut()</strong> - Hide the matched elements by fading them to transparent</p>
+        <p><strong>fadeIn()</strong> - Reveals the matched elements by fading them in from 0 transparency</p>
+        <p><strong>fadeToggle()</strong> - Hide or Reveal the matched elements base on elements current state</p>
+        <pre>
+$('#clickme').click(function(){
+  #('#book').fadeOut(1000, function(){
+    console.log('Fade Completed');
+    // this code will run after the fade time specified
+  });
+});
+        </pre>
+        <p><strong>slideOut(), slideIn(), slideToggle()</strong> - all function like the fade methods</p>
         </div>
       </li>
       <li>
