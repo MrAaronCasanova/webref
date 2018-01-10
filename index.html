@@ -1139,6 +1139,8 @@ NOTE WORKFLOW
         </div>
         <div class="collapsible-body">
           <h5>Common Terminology</h5>
+          <p><strong>get route</strong> - is for retrieving information</p>
+          <p><strong>post route</strong> - is for sending new data to be added to the db or to be used on the server</p>
           <p><strong>Routing</strong> - establishes the request and response for a given path</p>
           <p><strong>Route Parameters || (Route Variables || Path Variables)</strong> - instead of creating routes for every possible path name</p>
           <p>ex. - <em>app.get(/r</em><strong>/:routeParameters</strong><em>/comments</em><strong>/:moreParameters</strong><strong>/:lastParameter</strong><em>)</em></p>
@@ -1160,6 +1162,7 @@ app.get('/speak/:animal', function(req, res) {
           </pre>
           <p><strong>*</strong> - when a star is used in a route definition it will match any request that comes in (this is why the order of routes is important) - The star is useful for catching requests that have not been established</p>
           <p><strong>res.render()</strong> - a method that lives on the response object that renders dynamic html files also known as templates (lets you send back the contents of a file) - express automatically looks in the <em>views directory</em></p>
+          <p><strong>res.redirect()</strong> - a method that lives on the response object that takes a url and triggers the route again to run all the code within the specified url's route</p>
           <p><strong>.ejs</strong> - file type that stands for embedded javascript (what enables us to have dynamic templates)</p>
           <p><strong>ejs tags or brackets</strong> - are needed to embed js into html</p>
           <p><strong>&lt;%= js %&gt;</strong> - with the equal will sign will return the value into your html</p>
@@ -1222,6 +1225,7 @@ app.get('/speak/:animal', function(req, res) {
           <p><strong>^ + N</strong> - Delete this key binding for New File so you navigate with this command</p>
           <p><strong>^ + P</strong> - Delete this key binding for Jump To Matching Element so you navigate with this command</p>
           <p><strong>c9 open (fileName)</strong> - Open files from straight from the terminal (I first ran the following code) - npm install -g c9</p>
+          <p><strong>Ctrl + esc</strong> - open and close bottom terminal pane</p>
         </div>
       </li>
     </ul> <!-- Main UL -->
