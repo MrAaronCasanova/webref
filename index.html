@@ -44,6 +44,40 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="workflow">API</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Application Program(ming) Interface</h5>
+          <p>API's are interfaces for code/computers to talk to one another</p>
+          <p><strong>Web API's</strong> - generally communicate via HTTP</p>
+          <p><strong><a href="https://www.programmableweb.com/" target="_blank">ProgrammableWeb</a></strong> - is a great API Directory</p>
+          <hr>
+          <hr>
+          <h5>Data Formats</h5>
+          <p>When we use the interenet, we make HTTP requests and get HTML back</p>
+          <p>API's dont need the structure provided by HTML, and use simpler data formats like <em>XML</em> and <em>JSON</em> - both specifying key value pairs</p>
+          <p><strong>XML</strong> - Extended Markup Language is syntacticly similar to HTML, but it does not describe presentation like HTML</p>
+          <pre>
+&lt;person&gt;
+  &lt;age&gt;25&lt;/age&gt;
+  &lt;name&gt;Aaron&lt;/name&gt;
+  &lt;city&gt;Huntington&lt;/city&gt;
+&lt;/person&gt;
+          </pre>
+          <p><strong>JSON</strong> - Javascript Object Notation looks exactly like js objects, but everything is a string</p>
+          <pre>
+{
+  'person': {
+    'age': '25',
+    'name': 'Aaron',
+    'city': 'Huntington'
+  }
+}
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">jQuery</h4>
         </div>
         <div class="collapsible-body">
