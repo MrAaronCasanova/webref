@@ -1159,6 +1159,8 @@ app.get('/speak/:animal', function(req, res) {
 });
           </pre>
           <p><strong>*</strong> - when a star is used in a route definition it will match any request that comes in (this is why the order of routes is important) - The star is useful for catching requests that have not been established</p>
+          <p><strong>res.render()</strong> - a method that lives on the response object that renders dynamic html files also known as templates (lets you send back the contents of a file) - express automatically looks in the <em>views directory</em></p>
+          <p><strong>.ejs</strong> - file type that stands for embedded javascript (what enables us to have dynamic templates) - ejs brackets are needed to embed js into html <strong>&lt;%= js %&gt;</strong></p>
         </div>
       </li>
       <li>
@@ -1186,7 +1188,6 @@ app.get('/speak/:animal', function(req, res) {
           <p><strong>Option + &rarr;</strong> - Skips left one word at a time (also handy to hold shift when highlighting)</p>
           <p><strong>Ctrl + Option + L</strong> - Launch Atom live server</p>
           <p><strong>Ctrl + Option + Q</strong> - Quit Atom live server</p>
-          <p><strong>Ctrl + Option + Q</strong> - Quit Atom live server</p>
           <p><strong>Cmd + Click</strong> - For multiple cursors (esc key when done)</p>
           <p><strong>Option + Shift + W</strong> - Highlight selection first, then use this command to wrap in new tbd tags</p>
           <p><strong>Cmd + /</strong> - Toggles the selected text into a comment of the current language type</p>
@@ -1200,7 +1201,6 @@ app.get('/speak/:animal', function(req, res) {
         <div class="collapsible-body">
           <h5>Common Commands</h5>
           <p><strong>Double Tap Cmd</strong> - This will initiate the program</p>
-          <p><strong>Cmd + Enter</strong> - Search the web for whatever was typed in the prompt</p>
           <p><strong>Cmd + Enter</strong> - Search the web for whatever was typed in the prompt</p>
           <p><strong>Spell [word]</strong> - Start typing how you think a word is spelled - Select the correctly spelt word - The word will automatically be copied to your clipboard - Ready to paste anywhere</p>
           <p><strong>Define [word]</strong> - Very handy quick lookup dictionary</p>
