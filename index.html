@@ -1135,6 +1135,34 @@ NOTE WORKFLOW
       </li>
       <li>
         <div class="collapsible-header">
+          <h4 class="workflow">Backend</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Common Terminology</h5>
+          <p><strong>Routing</strong> - establishes the request and response for a given path</p>
+          <p><strong>Route Parameters || (Route Variables || Path Variables)</strong> - instead of creating routes for every possible path name</p>
+          <p>ex. - <em>app.get(/r</em><strong>/:routeParameters</strong><em>/comments</em><strong>/:moreParameters</strong><strong>/:lastParameter</strong><em>)</em></p>
+          <p><strong>req.params</strong> - lets you view and/or retrieve the route parameters of the request (can be stored into variable and used to make dynamic webpages)</p>
+          <pre>
+app.get('/speak/:animal', function(req, res) {
+    var sounds = {
+        pig: 'Oink',
+        cow: 'Moo',
+        dog: 'Woof Woof',
+        cat: 'Meow',
+        goldfish: '...',
+    }
+    var animal = req.params.animal.toLowerCase();
+    var sound = sounds[animal];
+
+    res.send('The ' + animal.toUpperCase() + ' says ' + sound);
+});
+          </pre>
+          <p><strong>*</strong> - when a star is used in a route definition it will match any request that comes in (this is why the order of routes is important) - The star is useful for catching requests that have not been established</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="workflow">Atom Commands</h4>
         </div>
         <div class="collapsible-body">
@@ -1208,8 +1236,8 @@ NOTE WORKFLOW
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 20
-      Video: 213
+    Folder: 24
+      Video: 230
 
     The Advance Web Development Bootcamp
       Folder: 02
