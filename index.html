@@ -44,262 +44,6 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="workflow">API</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>Application Program(ming) Interface</h5>
-          <p>API's are interfaces for code/computers to talk to one another</p>
-          <p><strong>Web API's</strong> - generally communicate via HTTP</p>
-          <p><strong><a href="https://www.programmableweb.com/" target="_blank">ProgrammableWeb</a></strong> - is a great API Directory</p>
-          <hr>
-          <hr>
-          <h5>Data Formats</h5>
-          <p>When we use the interenet, we make HTTP requests and get HTML back</p>
-          <p>API's dont need the structure provided by HTML, and use simpler data formats like <em>XML</em> and <em>JSON</em> - both specifying key value pairs</p>
-          <p><strong>XML</strong> - Extended Markup Language is syntacticly similar to HTML, but it does not describe presentation like HTML</p>
-          <pre>
-&lt;person&gt;
-  &lt;age&gt;25&lt;/age&gt;
-  &lt;name&gt;Aaron&lt;/name&gt;
-  &lt;city&gt;Huntington&lt;/city&gt;
-&lt;/person&gt;
-          </pre>
-          <p><strong>JSON</strong> - Javascript Object Notation looks exactly like js objects, but everything is a string</p>
-          <pre>
-{
-  'person': {
-    'age': '25',
-    'name': 'Aaron',
-    'city': 'Huntington'
-  }
-}
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">jQuery</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>Selecting with jQuery</h5>
-          <p><strong>$('selectorGoesHere')</strong> - Similar to querySelectorAll, in that we provide a CSS style selector and jQuery will return all matching elements</p>
-        <hr>
-        <hr>
-        <h5>Manipulate Style</h5>
-        <p><strong>.css()</strong> - method is jQuery's interface to styling</p>
-        <pre id="special">
-$(selector)
-
-.css(property, value)
-
-// select elem with id "special" and give it a border
-$('#special').css('border', '2px solid red');
-
-// we can also pass in an object with stylesheet
-var styles = {
-  backgroundColor: 'pink',
-  fontWeight: 'bold'
-};
-
-$('#special').css(styles);
-        </pre>
-        <hr>
-        <hr>
-        <h5>Common jQuery Methods</h5>
-        <p><strong>.text()</strong> - Get the combined text contents of each element in the set of matched elements, including their decendants, or set the text contents of the matched elements</p>
-        <pre>
-$(selector)
-
-.text(newValue)
-        </pre>
-        <p><strong>.html()</strong> - Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element</p>
-        <pre>
-$(selector)
-
-.html('&lt;p&gt;Example&lt;/p&gt;')
-        </pre>
-        <p><strong>.attr()</strong> - Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element</p>
-        <pre>
-$(selector)
-
-.attr(attribute, value)
-        </pre>
-        <p><strong>.val()</strong> -  Get the current value of the first element in the set of matched elements or set the value of every matched element</p>
-        <pre>
-$(selector)
-
-.val(value)
-        </pre>
-        <p><strong>.addClass()</strong> -  Adds the specified class(es) to each element in the set of matched elements</p>
-        <p><strong>.removeClass()</strong> -  Removes the specified class(es) to each element in the set of matched elements</p>
-        <p><strong>.toggleClass()</strong> -  Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument</p>
-        <pre>
-$(selector)
-
-.addClass('class-name')
-.removeClass('class-name')
-.toggleClass('class-name')
-        </pre>
-        <hr>
-        <hr>
-        <h5>Common jQuery Event Methods</h5>
-        <p><strong>click()</strong> - method is a quick and easy way to add a click listener to element(s)</p>
-        <pre>
-// prints when item with id 'submit' is clicked
-$('#submit').click(function(){
-  console.log('Another Click');
-});
-        </pre>
-        <p><strong>keypress()</strong> - method is a quick and easy way to add a keypress listener to element(s)</p>
-        <pre>
-$('#target').keypress(function(){
-  console.log('Handler for .keypress() called');
-});
-        </pre>
-        <p><strong>on()</strong> - works similarly to addEventListener. It lets you specify the type of event to listen for.</p>
-        <pre>
-// prints when item with id 'submit' is clicked
-$('#submit').on('dblclick', function(){
-  console.log('Another Click');
-});
-        </pre>
-        <hr>
-        <hr>
-        <h5>jQuery Effects</h5>
-        <p><strong>fadeOut()</strong> - Hide the matched elements by fading them to transparent</p>
-        <p><strong>fadeIn()</strong> - Reveals the matched elements by fading them in from 0 transparency</p>
-        <p><strong>fadeToggle()</strong> - Hide or Reveal the matched elements base on elements current state</p>
-        <pre>
-$('#clickme').click(function(){
-  #('#book').fadeOut(1000, function(){
-    console.log('Fade Completed');
-    // this code will run after the fade time specified
-  });
-});
-        </pre>
-        <p><strong>slideOut(), slideIn(), slideToggle()</strong> - all function like the fade methods</p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">DOM Events</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>DOM Events</strong> - Making things interactive</p>
-          <p><strong>The Process</strong> - Select an element then add an event listener</p>
-          <p><strong>The Syntax</strong> - To add a listener, we use a method called <em>addEventListener</em></p>
-          <pre>
-element.addEventListener(type, functionToCall);
-
-var button = document.querySelector('button');
-button.addEventListener('click', function(){
-    console.log('SOMEONE CLICKED THE BUTTON');
-});
-          </pre>
-          <hr>
-          <hr>
-          <h5>Common EventListeners</h5>
-          <p><strong>Note: the key word THIS inside an eventListener refers to the element the event was trigger on</strong></p>
-          <p><strong class="click-demo">click</strong> -  events are fired when a pointing device button (usually a mouse's primary button) is pressed and released on a single element.</p>
-          <p><strong class="mouseover-n-out">mouseover</strong> - events are fired when a pointing device is moved onto the element that has the listener attached or onto one of its children</p>
-          <p><strong class="mouseover-n-out">mouseout</strong> - events are fired when a pointing device (usually a mouse) is moved off the element that has the listener attached or off one of its children. Note that it is also triggered on the parent when you move onto a child element, since you move out of the visible space of the parent</p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">The DOM</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>DOM</strong> - The Document Object Model is the interface between your Javascript and HTML+CSS</p>
-          <p>The basic process is <strong>Select</strong> then <strong>Manipulate</strong></p>
-          <p><strong>Document</strong> - It all starts with the document, the (root node)(top level object)</p>
-          <hr>
-          <hr>
-          <h5>Common Document Selector Methods</h5>
-          <p><strong>document.getElementById()</strong> - Takes a string argument and returns the one element with a matching ID</p>
-          <p><strong>document.getElementByClassName()</strong> - Takes a string argument and returns a list of elements that have a matching class (returns node list)</p>
-          <p><strong>document.getElementByTagName()</strong> - Returns a list of all elements of a given taf name, like &lt;li&gt; or &lt;h1&gt; (returns node list)</p>
-          <p><strong>document.querySelector()</strong> - Returns the first element that matches a given CSS-style selector</p>
-          <p><strong>document.querySelectorAll()</strong> - Returns a list of elements that matches a given CSS-style selector (returns node list)</p>
-          <hr>
-          <hr>
-          <h5>Common Properties</h5>
-          <p><strong>style</strong> - The style property is one way to manipulate an element's style</p>
-          <pre>
-var tag = document.querySelector('h1');
-
-// manipulate
-tag.style.color = 'blue';
-tag.style.border = '1px solid red';
-tag.style.fontSize = '70px';
-
-// Above is not DRY
-// * Define a class in CSS File * //
-.some-class {
-  color: blue;
-  border: 1px solid red;
-  font-size: 70px;
-}
-// Add the new class to the previously selected element
-tag.classList.add('some-class');
-          </pre>
-          <hr>
-          <p><strong>classList</strong> - A read-only list that contains the classes for a given element. It is not an array.</p>
-          <pre>
-var tag = document.querySelector('h1');
-
-// Add a class to the selected element
-tag.classList.add('another-class');
-
-// Remove a class
-tag.classList.remove('another-class');
-
-// Toggle a class
-tag.classList.toggle('another-class');
-          </pre>
-          <hr>
-          <p><strong>textContent</strong> - Returns a string of all the text contained in a given element</p>
-          <pre>
-var tag = document.querySelector('p');
-
-// Retrieve the textContent:
-tag.textContent // 'This is an awesome paragraph'
-
-// alter the textContent:
-tag.textContent = 'blah blah blah';
-          </pre>
-          <hr>
-          <p><strong>innerHTML</strong> - Similar to textContent, except it returns a string of all the HTML contained in a given element</p>
-          <strong>Will also render HTML on your page if written appropriately</strong>
-          <pre>
-var tag = document.querySelector('p');
-
-// Retrieve the textContent:
-tag.textContent // 'This is an awesome paragraph'
-
-// alter the textContent:
-tag.textContent = 'blah blah blah';
-          </pre>
-          <hr>
-          <hr>
-          <p><strong>Attributes</strong> - You have the ability to manipulate the HTML attributes on the page</p>
-          <p><h5>getAttribute & setAttribute</h5> - will read and write attributes like <em>src</em> or <em>href</em></p>
-          <pre>
-var link = document.querySelector('a');
-link.getAttribute('href'); // "www.google.com"
-// Change href attribute
-link.setAttribute('href', 'www.dogs.com');
-// /&lt;a href="www.dogs.com"&gt;I am a link&lt;/a&gt;
-
-// To change the image src
-var img = document.querySelector('img');
-img.setAttribute('src', 'corgi.png');
-// &lt;img src="corgi.png"&gt;
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
           <h4 class="html">HTML</h4>
         </div>
         <div class="collapsible-body">
@@ -684,6 +428,228 @@ NOTE JAVASCRIPT
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">jQuery</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Selecting with jQuery</h5>
+          <p><strong>$('selectorGoesHere')</strong> - Similar to querySelectorAll, in that we provide a CSS style selector and jQuery will return all matching elements</p>
+        <hr>
+        <hr>
+        <h5>Manipulate Style</h5>
+        <p><strong>.css()</strong> - method is jQuery's interface to styling</p>
+        <pre id="special">
+$(selector)
+
+.css(property, value)
+
+// select elem with id "special" and give it a border
+$('#special').css('border', '2px solid red');
+
+// we can also pass in an object with stylesheet
+var styles = {
+  backgroundColor: 'pink',
+  fontWeight: 'bold'
+};
+
+$('#special').css(styles);
+        </pre>
+        <hr>
+        <hr>
+        <h5>Common jQuery Methods</h5>
+        <p><strong>.text()</strong> - Get the combined text contents of each element in the set of matched elements, including their decendants, or set the text contents of the matched elements</p>
+        <pre>
+$(selector)
+
+.text(newValue)
+        </pre>
+        <p><strong>.html()</strong> - Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element</p>
+        <pre>
+$(selector)
+
+.html('&lt;p&gt;Example&lt;/p&gt;')
+        </pre>
+        <p><strong>.attr()</strong> - Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element</p>
+        <pre>
+$(selector)
+
+.attr(attribute, value)
+        </pre>
+        <p><strong>.val()</strong> -  Get the current value of the first element in the set of matched elements or set the value of every matched element</p>
+        <pre>
+$(selector)
+
+.val(value)
+        </pre>
+        <p><strong>.addClass()</strong> -  Adds the specified class(es) to each element in the set of matched elements</p>
+        <p><strong>.removeClass()</strong> -  Removes the specified class(es) to each element in the set of matched elements</p>
+        <p><strong>.toggleClass()</strong> -  Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument</p>
+        <pre>
+$(selector)
+
+.addClass('class-name')
+.removeClass('class-name')
+.toggleClass('class-name')
+        </pre>
+        <hr>
+        <hr>
+        <h5>Common jQuery Event Methods</h5>
+        <p><strong>click()</strong> - method is a quick and easy way to add a click listener to element(s)</p>
+        <pre>
+// prints when item with id 'submit' is clicked
+$('#submit').click(function(){
+  console.log('Another Click');
+});
+        </pre>
+        <p><strong>keypress()</strong> - method is a quick and easy way to add a keypress listener to element(s)</p>
+        <pre>
+$('#target').keypress(function(){
+  console.log('Handler for .keypress() called');
+});
+        </pre>
+        <p><strong>on()</strong> - works similarly to addEventListener. It lets you specify the type of event to listen for.</p>
+        <pre>
+// prints when item with id 'submit' is clicked
+$('#submit').on('dblclick', function(){
+  console.log('Another Click');
+});
+        </pre>
+        <hr>
+        <hr>
+        <h5>jQuery Effects</h5>
+        <p><strong>fadeOut()</strong> - Hide the matched elements by fading them to transparent</p>
+        <p><strong>fadeIn()</strong> - Reveals the matched elements by fading them in from 0 transparency</p>
+        <p><strong>fadeToggle()</strong> - Hide or Reveal the matched elements base on elements current state</p>
+        <pre>
+$('#clickme').click(function(){
+  $('#book').fadeOut(1000, function(){
+    console.log('Fade Completed');
+    // this code will run after the fade time specified
+  });
+});
+        </pre>
+        <p><strong>slideOut(), slideIn(), slideToggle()</strong> - all function like the fade methods</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">DOM Events</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>DOM Events</strong> - Making things interactive</p>
+          <p><strong>The Process</strong> - Select an element then add an event listener</p>
+          <p><strong>The Syntax</strong> - To add a listener, we use a method called <em>addEventListener</em></p>
+          <pre>
+element.addEventListener(type, functionToCall);
+
+var button = document.querySelector('button');
+button.addEventListener('click', function(){
+  console.log('SOMEONE CLICKED THE BUTTON');
+});
+          </pre>
+          <hr>
+          <hr>
+          <h5>Common EventListeners</h5>
+          <p><strong>Note: the key word THIS inside an eventListener refers to the element the event was trigger on</strong></p>
+          <p><strong class="click-demo">click</strong> -  events are fired when a pointing device button (usually a mouse's primary button) is pressed and released on a single element.</p>
+          <p><strong class="mouseover-n-out">mouseover</strong> - events are fired when a pointing device is moved onto the element that has the listener attached or onto one of its children</p>
+          <p><strong class="mouseover-n-out">mouseout</strong> - events are fired when a pointing device (usually a mouse) is moved off the element that has the listener attached or off one of its children. Note that it is also triggered on the parent when you move onto a child element, since you move out of the visible space of the parent</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">The DOM</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>DOM</strong> - The Document Object Model is the interface between your Javascript and HTML+CSS</p>
+          <p>The basic process is <strong>Select</strong> then <strong>Manipulate</strong></p>
+          <p><strong>Document</strong> - It all starts with the document, the (root node)(top level object)</p>
+          <hr>
+          <hr>
+          <h5>Common Document Selector Methods</h5>
+          <p><strong>document.getElementById()</strong> - Takes a string argument and returns the one element with a matching ID</p>
+          <p><strong>document.getElementByClassName()</strong> - Takes a string argument and returns a list of elements that have a matching class (returns node list)</p>
+          <p><strong>document.getElementByTagName()</strong> - Returns a list of all elements of a given taf name, like &lt;li&gt; or &lt;h1&gt; (returns node list)</p>
+          <p><strong>document.querySelector()</strong> - Returns the first element that matches a given CSS-style selector</p>
+          <p><strong>document.querySelectorAll()</strong> - Returns a list of elements that matches a given CSS-style selector (returns node list)</p>
+          <hr>
+          <hr>
+          <h5>Common Properties</h5>
+          <p><strong>style</strong> - The style property is one way to manipulate an element's style</p>
+          <pre>
+var tag = document.querySelector('h1');
+
+// manipulate
+tag.style.color = 'blue';
+tag.style.border = '1px solid red';
+tag.style.fontSize = '70px';
+
+// Above is not DRY
+// * Define a class in CSS File * //
+.some-class {
+  color: blue;
+  border: 1px solid red;
+  font-size: 70px;
+}
+// Add the new class to the previously selected element
+tag.classList.add('some-class');
+          </pre>
+          <hr>
+          <p><strong>classList</strong> - A read-only list that contains the classes for a given element. It is not an array.</p>
+          <pre>
+var tag = document.querySelector('h1');
+
+// Add a class to the selected element
+tag.classList.add('another-class');
+
+// Remove a class
+tag.classList.remove('another-class');
+
+// Toggle a class
+tag.classList.toggle('another-class');
+          </pre>
+          <hr>
+          <p><strong>textContent</strong> - Returns a string of all the text contained in a given element</p>
+          <pre>
+var tag = document.querySelector('p');
+
+// Retrieve the textContent:
+tag.textContent // 'This is an awesome paragraph'
+
+// alter the textContent:
+tag.textContent = 'blah blah blah';
+          </pre>
+          <hr>
+          <p><strong>innerHTML</strong> - Similar to textContent, except it returns a string of all the HTML contained in a given element</p>
+          <strong>Will also render HTML on your page if written appropriately</strong>
+          <pre>
+var tag = document.querySelector('p');
+
+// Retrieve the textContent:
+tag.textContent // 'This is an awesome paragraph'
+
+// alter the textContent:
+tag.textContent = 'blah blah blah';
+          </pre>
+          <hr>
+          <hr>
+          <p><strong>Attributes</strong> - You have the ability to manipulate the HTML attributes on the page</p>
+          <p><h5>getAttribute & setAttribute</h5> - will read and write attributes like <em>src</em> or <em>href</em></p>
+          <pre>
+var link = document.querySelector('a');
+link.getAttribute('href'); // "www.google.com"
+// Change href attribute
+link.setAttribute('href', 'www.dogs.com');
+// &lt;a href="www.dogs.com"&gt;I am a link&lt;/a&gt;
+
+// To change the image src
+var img = document.querySelector('img');
+img.setAttribute('src', 'corgi.png');
+// &lt;img src="corgi.png"&gt;
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="html css javascript">Score Keeper</h4>
         </div>
         <div class="collapsible-body">
@@ -702,26 +668,26 @@ NOTE JAVASCRIPT
         <div class="collapsible-body">
           <p><strong>Objects</strong> - Stores multiple key value pairs</p>
           <pre>
-      Three ways to initialize an empty Object
+Three ways to initialize an empty Object
 
-      // make an empty object and then add to it
-      var person = {};
-      person.name = 'Aaron Casanova';
-      person.age = 25;
-      person.city = 'Huntington Beach';
+// make an empty object and then add to it
+var person = {};
+person.name = 'Aaron Casanova';
+person.age = 25;
+person.city = 'Huntington Beach';
 
-      // all at once
-      var person = {
-      name: 'Aaron Casanova',
-      age: 25,
-      city: 'Huntington Beach'
-      };
+// all at once
+var person = {
+  name: 'Aaron Casanova',
+  age: 25,
+  city: 'Huntington Beach'
+};
 
-      // another way of initializing an Object
-      var person = new Object();
-      person.name = 'Aaron Casanova';
-      person.age = 25;
-      person.city = 'Huntington Beach';
+// another way of initializing an Object
+var person = new Object();
+person.name = 'Aaron Casanova';
+person.age = 25;
+person.city = 'Huntington Beach';
           </pre>
         </div>
       </li>
@@ -732,106 +698,105 @@ NOTE JAVASCRIPT
         <div class="collapsible-body">
           <p><strong>Array</strong> - Stores multiple values - Zero-based</p>
           <pre>
-      Two ways to initialize an empty array
+Two ways to initialize an empty array
 
-      var friends = [];
-      var friends = new Array(); // uncommon
+var friends = [];
+var friends = new Array(); // uncommon
           </pre>
           <p><strong>Nested Arrays</strong> - Example below</p>
           <pre>
-      var friendGroups = [
-      ['Harry', 'Ron', 'Hermione'],
-      ['Malfoy', 'Crabbe', 'Goyle'],
-      ['Mooney', 'Wormtail', 'Prongs']
-      ];
+var friendGroups = [
+  ['Harry', 'Ron', 'Hermione'],
+  ['Malfoy', 'Crabbe', 'Goyle'],
+  ['Mooney', 'Wormtail', 'Prongs']
+];
 
-      console.log(friendsGroups[2][0]); // returns 'Mooney'
+console.log(friendsGroups[2][0]); // returns 'Mooney'
           </pre>
           <p><strong>Array Iteration</strong> - Doing something to every item in an array</p>
           <h5>Commonly Used Array Methods</h5>
           <p><strong>Push</strong> - adds values to the end of an array</p>
           <pre>
-      var colors = ['red', 'orange', 'yellow'];
-      colors.push('green');
-      // ['red', 'orange', 'yellow', 'green']
+var colors = ['red', 'orange', 'yellow'];
+colors.push('green');
+// ['red', 'orange', 'yellow', 'green']
           </pre>
           <p><strong>Pop</strong> - removes the last item in an array</p>
           <pre>
-      var colors = ['red', 'orange', 'yellow'];
-      olors.pop();
-      // ['red', 'orange']
+var colors = ['red', 'orange', 'yellow'];
+colors.pop();
+// ['red', 'orange']
           </pre>
           <p><strong>Unshift</strong> - Use unshift to add to the front of an array</p>
           <pre>
-      var colors = ['red', 'orange', 'yellow'];
-      colors.unshift('infrared');
-      // ['infrared', 'red', 'orange', 'yellow']
+var colors = ['red', 'orange', 'yellow'];
+colors.unshift('infrared');
+// ['infrared', 'red', 'orange', 'yellow']
           </pre>
           <p><strong>Shift</strong> - Use shift to remove the first item in an array</p>
           <pre>
-      var colors = ['red', 'orange', 'yellow'];
-      colors.shift();
-      // ['orange', 'yellow']
+var colors = ['red', 'orange', 'yellow'];
+colors.shift();
+// ['orange', 'yellow']
 
-      // shift() also returns the removed element
-      var col = colors.shift(); // orange
+// shift() also returns the removed element
+var col = colors.shift(); // orange
           </pre>
           <p><strong>IndexOf</strong> - Use indexOf() to find the index of an item in an array</p>
           <pre>
-      var friends = ['Charlie', 'Liz', 'David', 'Mattias', 'Liz'];
+var friends = ['Charlie', 'Liz', 'David', 'Mattias', 'Liz'];
 
-      // returns the first index at which a given element can be found
-      friends.indexOf('David'); // 2
-      friends.indexOf('Liz'); // 1, not 4
+// returns the first index at which a given element can be found
+friends.indexOf('David'); // 2
+friends.indexOf('Liz'); // 1, not 4
 
-      // returns -1 if the element is not present
-      friends.indexOf('Hagrid'); // -2
+// returns -1 if the element is not present
+friends.indexOf('Hagrid'); // -2
           </pre>
           <p><strong>Slice</strong> - Use slice() to copy parts of an array</p>
           <pre>
-      var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
-      // use slice to copy the 2nd and 3d fruits
-      // specify index where the new array starts(1) and ends(3)
-      var citrus = fruits.slice(1, 3);
+var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+// use slice to copy the 2nd and 3d fruits
+// specify index where the new array starts(1) and ends(3)
+var citrus = fruits.slice(1, 3);
 
-      // this does not alter the original fruits Array
-      // citrus contains ['Orange', 'Lemon']
-      fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+// this does not alter the original fruits Array
+// citrus contains ['Orange', 'Lemon']
+fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
 
-      // you can also use slice() to copy an entire Array
-      var nums = [1,2,3];
-      var otherNums = nums.slice();
-      // both arrays are [1, 2, 3]
+// you can also use slice() to copy an entire Array
+var nums = [1,2,3];
+var otherNums = nums.slice();
+// both arrays are [1, 2, 3]
           </pre>
           <p><strong>forEach</strong> - JavaScript provides an easy built-in way of iterating over an array: ForEach</p>
           <p>Expected to have at least 1 of the 3 available arguments</p>
           <pre>
-      // Structure
-      arr.forEach(function callback(currentValue[, index[, array]]) {
-      // your iterator
-      }[, thisArg]);
+// Structure
+arr.forEach(function callback(currentValue[, index[, array]]) {
+  // your iterator
+}[, thisArg]);
 
-      var colors = ['red', 'orange', 'yellow', 'green'];
+var colors = ['red', 'orange', 'yellow', 'green'];
 
-      colors.forEach(function(color){
-      // color is a placeholder, call it whatever you want
-      console.log(color);
-      });
+colors.forEach(function(color){
+  // color is a placeholder, call it whatever you want
+  console.log(color);
+});
 
-      // ****** Same Functionality ******
+// ****** Same Functionality ******
 
-      var colors = ['red', 'orange', 'yellow', 'green'];
+var colors = ['red', 'orange', 'yellow', 'green'];
 
-      for (i = 0; i &lt; colors.length; i++) {
-      console.log(colors[i]);
-      }
+for (i = 0; i &lt; colors.length; i++) {
+  console.log(colors[i]);
+}
           </pre>
           <p><strong>splice</strong> - Cut and remove a specific number of elements out of an array</p>
           <pre>
-      var index = prompt('Enter index of todo to delete');
-      todos.splice(index, 1);
-      // 1 specifies the number of values following after the index value that will be removed
-      //
+var index = prompt('Enter index of todo to delete');
+todos.splice(index, 1);
+// 1 specifies the number of values following after the index value that will be removed
           </pre>
         </div>
       </li>
@@ -842,46 +807,46 @@ NOTE JAVASCRIPT
         <div class="collapsible-body">
           <p><strong>Functions</strong> - Let us wrap bits of code up into REUSABLE packages. They are one of the building blocks of JS.</p>
           <pre>
-      function funName() {
-      console.log('Hello World');
-      }
+function funName() {
+  console.log('Hello World');
+}
 
-      funName(); &larr; runs the function
+funName(); &larr; runs the function
           </pre>
           <p><strong>Arguments</strong> - Values that are passed into functions (Also refered to as parameters)</p>
           <p>Parameters are the names in the paranthesis</p>
           <p>Arguments are the actual values passed in</p>
           <pre>
-      function square(val) {
-      console.log(val * val);
-      }
+function square(val) {
+  console.log(val * val);
+}
 
-      square(4); &larr; 16
+square(4); &larr; 16
           </pre>
           <p>You can also specify multiple arguments</p>
           <pre>
-      function area(length, width) {
-      console.log(length * width);
-      }
+function area(length, width) {
+  console.log(length * width);
+}
 
-      square(9,2); &larr; 18
+square(9,2); &larr; 18
           </pre>
           <p><strong>Return</strong> - Passes through the results of a function (Output)</p>
           <p>Every function returns something and if not specified JS will return undefined</p>
           <p>Return keyword stops the execution of a function</p>
           <pre>
-      function typeOne() {
-      return "I am a function declaration";
-      }
+function typeOne() {
+  return "I am a function declaration";
+}
 
-      typeOne(); &larr; runs the function
+typeOne(); &larr; runs the function
           </pre>
           <pre>
-      var typeTwo = function() {
-      return "I am a function expression";
-      }
+var typeTwo = function() {
+  return "I am a function expression";
+}
 
-      typeTwo(); &larr; runs the function
+typeTwo(); &larr; runs the function
           </pre>
         </div>
       </li>
@@ -1041,7 +1006,7 @@ NOTE JAVASCRIPT
           <p>- Every string has access to a length property - Which will retrieve a <em>number</em> specifying the total amount of characters in the string</p>
           <p>- Access indivual characters of the string with [] and an index value</p>
           <pre>
-      "hello"[4]    //"o"
+"hello"[4]    //"o"
           </pre>
           <p><strong>Booleans</strong> - Ex. true, false</p>
           <p><strong>Null</strong> - Value we set in place that tells the javascript engine there is no value specified</p>
@@ -1169,6 +1134,41 @@ NOTE WORKFLOW
       </li>
       <li>
         <div class="collapsible-header">
+          <h4 class="workflow">API</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Application Program(ming) Interface</h5>
+          <p>API's are interfaces for code/computers to talk to one another</p>
+          <p><strong>Web API's</strong> - generally communicate via HTTP</p>
+          <p><strong><a href="https://www.programmableweb.com/" target="_blank">ProgrammableWeb</a></strong> - is a great API Directory</p>
+          <hr>
+          <hr>
+          <h5>Data Formats</h5>
+          <p>When we use the interenet, we make HTTP requests and get HTML back</p>
+          <p>API's dont need the structure provided by HTML, and use simpler data formats like <em>XML</em> and <em>JSON</em> - both specifying key value pairs</p>
+          <p><strong>XML</strong> - Extended Markup Language is syntacticly similar to HTML, but it does not describe presentation like HTML</p>
+          <pre>
+&lt;person&gt;
+  &lt;age&gt;25&lt;/age&gt;
+  &lt;name&gt;Aaron&lt;/name&gt;
+  &lt;city&gt;Huntington&lt;/city&gt;
+&lt;/person&gt;
+          </pre>
+          <p><strong>JSON</strong> - Javascript Object Notation looks exactly like js objects, but everything is a string</p>
+          <pre>
+{
+  'person': {
+    'age': '25',
+    'name': 'Aaron',
+    'city': 'Huntington'
+  }
+}
+          </pre>
+          <p><strong>JSON.parse(body)</strong> - allows us to take the JSON string (that looks like a js object) and parse it into a js object (the body argument in the example is specific to the npm <em>request</em> package)</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="workflow">Backend</h4>
         </div>
         <div class="collapsible-body">
@@ -1278,8 +1278,8 @@ app.get('/speak/:animal', function(req, res) {
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 24
-      Video: 230
+    Folder: 26
+      Video: 248
 
     The Advance Web Development Bootcamp
       Folder: 02
