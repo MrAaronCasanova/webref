@@ -44,6 +44,58 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="html">RESTful Routes</h4>
+        </div>
+        <div class="collapsible-body">
+          <table>
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>URL</th>
+                <th>VERB</th>
+                <th>DESCRIPTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INDEX</td>
+                <td>/dogs</td>
+                <td>GET</td>
+                <td>Display a list of all dogs</td>
+              </tr>
+              <tr>
+                <td>NEW</td>
+                <td>/dogs/new</td>
+                <td>GET</td>
+                <td>Displays form to make a new dog</td>
+              </tr>
+              <tr>
+                <td>CREATE</td>
+                <td>/dogs</td>
+                <td>POST</td>
+                <td>Add new dog to DB</td>
+              </tr>
+              <tr>
+                <td>SHOW</td>
+                <td>/dogs/:id</td>
+                <td>POST</td>
+                <td>Shows info about one dog</td>
+              </tr>
+              <tr>
+                <td>Hello</td>
+              </tr>
+              <tr>
+                <td>Hello</td>
+              </tr>
+              <tr>
+                <td>Hello</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="workflow">MongoDB</h4>
         </div>
         <div class="collapsible-body">
@@ -77,6 +129,7 @@ db.dogs.insert({ name: 'Moose', breed: 'Pug' })
 db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
           </pre>
           <p><strong>remove()</strong> - allows you to remove items from a given collection</p>
+          <p><strong>db.collection.drop()</strong> - replace collection with the name of a specific collection to delete all the existing items in the collection</p>
           <hr>
           <hr>
           <h5>Mongoose</h5>
@@ -84,6 +137,10 @@ db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
           <p>Essentially you can write JS that can interacts with your database</p>
           <p><strong>Schema</strong> - the basic plan or structure of what a particular collection looks like</p>
           <p><strong>Model</strong> - where you take your schema and compile it into a model that returns an object with available methods (convention is to have a Capitalized variable name)</p>
+          <hr>
+          <hr>
+          <h5>Common Mongoose Methods</h5>
+          <p><strong>findById(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
         </div>
       </li>
       <li>
@@ -1333,8 +1390,8 @@ app.get('/speak/:animal', function(req, res) {
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 26
-      Video: 248
+    Folder: 29
+      Video: 260
 
     The Advance Web Development Bootcamp
       Folder: 02
