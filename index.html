@@ -51,13 +51,14 @@ NOTE HTML
           <hr>
           <hr>
           <h5>RESTful Routes</h5>
-          <table>
+          <table class="responsive-table">
             <thead>
               <tr>
                 <th><strong>NAME</strong></th>
                 <th><strong>PATH/URL</strong></th>
                 <th><strong>HTTP VERB</strong></th>
-                <th><strong>DESCRIPTION/PURPOSE</strong></th>
+                <th><strong>DESC/PURPOSE</strong></th>
+                <th><strong>MONGOOSE METHOD</strong></th>
               </tr>
             </thead>
             <tbody>
@@ -66,42 +67,49 @@ NOTE HTML
                 <td>/dogs</td>
                 <td>GET</td>
                 <td>List all dogs</td>
+                <td>Dog.find()</td>
               </tr>
               <tr class="rest-green">
                 <td><strong>NEW</strong></td>
                 <td>/dogs/new</td>
                 <td>GET</td>
                 <td>Show new dog form</td>
+                <td>N/A (just renders a form)</td>
               </tr>
               <tr class="rest-green">
                 <td><strong>CREATE</strong></td>
                 <td>/dogs</td>
                 <td>POST</td>
                 <td>Create a new dog, then redirect somewhere</td>
+                <td>Dog.create()</td>
               </tr>
               <tr class="rest-purple">
                 <td><strong>SHOW</strong></td>
                 <td>/dogs/:id</td>
                 <td>GET</td>
                 <td>Shows info about one specific dog</td>
+                <td>Dog.findById()</td>
               </tr>
               <tr class="rest-yellow">
                 <td><strong>EDIT</strong></td>
                 <td>/dogs/:id/edit</td>
                 <td>GET</td>
                 <td>Show edit form for one dog</td>
+                <td>Dog.findById()</td>
               </tr>
               <tr class="rest-yellow">
                 <td><strong>UPDATE</strong></td>
                 <td>/dogs/:id</td>
-                <td>PUT</td>
+                <td>PUT(post)</td>
                 <td>Update a particular dog, then redirect somewhere</td>
+                <td>Dog.findByIdAndUpdate()</td>
               </tr>
               <tr class="rest-red">
                 <td><strong>DESTROY</strong></td>
                 <td>/dogs/:id</td>
-                <td>DELETE</td>
+                <td>DELETE(post)</td>
                 <td>Delete a particular dog, then redirect somewhere</td>
+                <td>Dog.findByIdAndRemove()</td>
               </tr>
             </tbody>
           </table>
@@ -155,6 +163,7 @@ db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
           <h5>Common Mongoose Methods</h5>
           <p><strong>findById(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
           <p><strong>findByIdAndUpdate(id, newData, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and update the content</p>
+          <p><strong>findByIdAndRemove(id, callback(err))</strong> - Allows you to retrieve information on a specific item from your DB by it's id and delete the content</p>
         </div>
       </li>
       <li>
