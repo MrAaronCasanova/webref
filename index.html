@@ -42,140 +42,7 @@
 <!-- ********************************************
 NOTE HTML
 ********************************************* -->
-      <li>
-        <div class="collapsible-header">
-          <h4 class="html">REST</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>REST</strong> - Representational State Transfer - it is a pattern for defining our routes - a convention/architecture for mapping HTTP routes to CRUD(Create-Read-Update-Delete) functionality</p>
-          <hr>
-          <hr>
-          <h5>RESTful Routes</h5>
-          <table class="responsive-table">
-            <thead>
-              <tr>
-                <th><strong>NAME</strong></th>
-                <th><strong>PATH/URL</strong></th>
-                <th><strong>HTTP VERB</strong></th>
-                <th><strong>DESC/PURPOSE</strong></th>
-                <th><strong>MONGOOSE METHOD</strong></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>INDEX</strong></td>
-                <td>/dogs</td>
-                <td>GET</td>
-                <td>List all dogs</td>
-                <td>Dog.find()</td>
-              </tr>
-              <tr class="rest-green">
-                <td><strong>NEW</strong></td>
-                <td>/dogs/new</td>
-                <td>GET</td>
-                <td>Show new dog form</td>
-                <td>N/A (just renders a form)</td>
-              </tr>
-              <tr class="rest-green">
-                <td><strong>CREATE</strong></td>
-                <td>/dogs</td>
-                <td>POST</td>
-                <td>Create a new dog, then redirect somewhere</td>
-                <td>Dog.create()</td>
-              </tr>
-              <tr class="rest-purple">
-                <td><strong>SHOW</strong></td>
-                <td>/dogs/:id</td>
-                <td>GET</td>
-                <td>Shows info about one specific dog</td>
-                <td>Dog.findById()</td>
-              </tr>
-              <tr class="rest-yellow">
-                <td><strong>EDIT</strong></td>
-                <td>/dogs/:id/edit</td>
-                <td>GET</td>
-                <td>Show edit form for one dog</td>
-                <td>Dog.findById()</td>
-              </tr>
-              <tr class="rest-yellow">
-                <td><strong>UPDATE</strong></td>
-                <td>/dogs/:id</td>
-                <td>PUT(post)</td>
-                <td>Update a particular dog, then redirect somewhere</td>
-                <td>Dog.findByIdAndUpdate()</td>
-              </tr>
-              <tr class="rest-red">
-                <td><strong>DESTROY</strong></td>
-                <td>/dogs/:id</td>
-                <td>DELETE(post)</td>
-                <td>Delete a particular dog, then redirect somewhere</td>
-                <td>Dog.findByIdAndRemove()</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">MongoDB</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>MongoDB</strong> - is a NoSQL(non-relational) database</p>
-          <p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">Mac Setup</a></p>
-          <hr>
-          <hr>
-          <h5>Common Mongo Commands</h5>
-          <p><strong>mongod</strong> - starts the mongo daemon - the mongod process is the primary database process that runs in the background on an individual server</p>
-          <p><strong>mongo</strong> - opens up the mongo shell - like the js console it is good for testing and debugging</p>
-          <p><strong>help</strong> - will give us a list of features that we can use to interact with mongo</p>
-          <p><strong>show dbs</strong> - show database names</p>
-          <p><strong>use [db name]</strong> - will let us access or create a db if the specified db name does not exist</p>
-          <p><strong>show collections</strong> - will display all the collections in a given db - like <em>use</em> you can access a collection or create one if it does not exist with one command (see below)</p>
-          <p><strong>CRUD(not a command more of an ideology)</strong> - stands for: Create - Read - Update - Delete(Destroy)</p>
-          <p><strong>insert()</strong> - passes the specified data into a given collection</p>
-          <pre>
-// db refers to the current database your in
-// .dogs is the collection (it will create
-// the dogs collection if it doesn't already exist)
-// .insert() is adding info to the dogs collection
 
-db.dogs.insert({ name: 'Moose', breed: 'Pug' })
-          </pre>
-          <p><strong>find()</strong> - allows you to retrieve information out of a collection - you can narrow down your results by specifying info inside the parenthesis</p>
-          <p><strong>update()</strong> - takes two params: the selector and the update</p>
-          <pre>
-// $set: - allows us to update and add new info
-// without overwritting everything else stored
-// in the selected item
-db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
-          </pre>
-          <p><strong>remove()</strong> - allows you to remove items from a given collection</p>
-          <p><strong>db.collection.drop()</strong> - replace collection with the name of a specific collection to delete all the existing items in the collection</p>
-          <hr>
-          <hr>
-          <h5>Mongoose</h5>
-          <p>ODM: Object Data Mapper - Tool that helps us interact with MongoDB inside our JS files</p>
-          <p>Essentially you can write JS that can interacts with your database</p>
-          <p><strong>Schema</strong> - the basic plan or structure of what a particular collection looks like</p>
-          <p><strong>Model</strong> - where you take your schema and compile it into a model that returns an object with available methods (convention is to have a Capitalized variable name)</p>
-          <hr>
-          <hr>
-          <h5>Common Mongoose Methods</h5>
-          <p><strong>findById(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
-          <p><strong>findByIdAndUpdate(id, newData, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and update the content</p>
-          <p><strong>findByIdAndRemove(id, callback(err))</strong> - Allows you to retrieve information on a specific item from your DB by it's id and delete the content</p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">Databases</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>Database</strong> - is a collection of information/data that has an interface to which we can write code to interact with the stored data</p>
-          <p><strong>SQL(relational)</strong> - tabular/flat databases - a table must be defined - you must have multiple tables if you want to relate information - often using id's and join tables to do so</p>
-          <p><strong>NoSQL(non-relational)</strong> - non-tabular/information can be nested - don't have tables - more flexible - data looks like js objects</p>
-        </div>
-      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="html">HTML</h4>
@@ -1184,6 +1051,140 @@ NOTE WORKFLOW
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="html">REST</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>REST</strong> - Representational State Transfer - it is a pattern for defining our routes - a convention/architecture for mapping HTTP routes to CRUD(Create-Read-Update-Delete) functionality</p>
+          <hr>
+          <hr>
+          <h5>RESTful Routes</h5>
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th><strong>NAME</strong></th>
+                <th><strong>PATH/URL</strong></th>
+                <th><strong>HTTP VERB</strong></th>
+                <th><strong>DESC/PURPOSE</strong></th>
+                <th><strong>MONGOOSE METHOD</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>INDEX</strong></td>
+                <td>/dogs</td>
+                <td>GET</td>
+                <td>List all dogs</td>
+                <td>Dog.find()</td>
+              </tr>
+              <tr class="rest-green">
+                <td><strong>NEW</strong></td>
+                <td>/dogs/new</td>
+                <td>GET</td>
+                <td>Show new dog form</td>
+                <td>N/A (just renders a form)</td>
+              </tr>
+              <tr class="rest-green">
+                <td><strong>CREATE</strong></td>
+                <td>/dogs</td>
+                <td>POST</td>
+                <td>Create a new dog, then redirect somewhere</td>
+                <td>Dog.create()</td>
+              </tr>
+              <tr class="rest-purple">
+                <td><strong>SHOW</strong></td>
+                <td>/dogs/:id</td>
+                <td>GET</td>
+                <td>Shows info about one specific dog</td>
+                <td>Dog.findById()</td>
+              </tr>
+              <tr class="rest-yellow">
+                <td><strong>EDIT</strong></td>
+                <td>/dogs/:id/edit</td>
+                <td>GET</td>
+                <td>Show edit form for one dog</td>
+                <td>Dog.findById()</td>
+              </tr>
+              <tr class="rest-yellow">
+                <td><strong>UPDATE</strong></td>
+                <td>/dogs/:id</td>
+                <td>PUT(post)</td>
+                <td>Update a particular dog, then redirect somewhere</td>
+                <td>Dog.findByIdAndUpdate()</td>
+              </tr>
+              <tr class="rest-red">
+                <td><strong>DESTROY</strong></td>
+                <td>/dogs/:id</td>
+                <td>DELETE(post)</td>
+                <td>Delete a particular dog, then redirect somewhere</td>
+                <td>Dog.findByIdAndRemove()</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">MongoDB</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>MongoDB</strong> - is a NoSQL(non-relational) database</p>
+          <p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">Mac Setup</a></p>
+          <hr>
+          <hr>
+          <h5>Common Mongo Commands</h5>
+          <p><strong>mongod</strong> - starts the mongo daemon - the mongod process is the primary database process that runs in the background on an individual server</p>
+          <p><strong>mongo</strong> - opens up the mongo shell - like the js console it is good for testing and debugging</p>
+          <p><strong>help</strong> - will give us a list of features that we can use to interact with mongo</p>
+          <p><strong>show dbs</strong> - show database names</p>
+          <p><strong>use [db name]</strong> - will let us access or create a db if the specified db name does not exist</p>
+          <p><strong>show collections</strong> - will display all the collections in a given db - like <em>use</em> you can access a collection or create one if it does not exist with one command (see below)</p>
+          <p><strong>CRUD(not a command more of an ideology)</strong> - stands for: Create - Read - Update - Delete(Destroy)</p>
+          <p><strong>insert()</strong> - passes the specified data into a given collection</p>
+          <pre>
+      // db refers to the current database your in
+      // .dogs is the collection (it will create
+      // the dogs collection if it doesn't already exist)
+      // .insert() is adding info to the dogs collection
+
+      db.dogs.insert({ name: 'Moose', breed: 'Pug' })
+          </pre>
+          <p><strong>find()</strong> - allows you to retrieve information out of a collection - you can narrow down your results by specifying info inside the parenthesis</p>
+          <p><strong>update()</strong> - takes two params: the selector and the update</p>
+          <pre>
+      // $set: - allows us to update and add new info
+      // without overwritting everything else stored
+      // in the selected item
+      db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
+          </pre>
+          <p><strong>remove()</strong> - allows you to remove items from a given collection</p>
+          <p><strong>db.collection.drop()</strong> - replace collection with the name of a specific collection to delete all the existing items in the collection</p>
+          <hr>
+          <hr>
+          <h5>Mongoose</h5>
+          <p>ODM: Object Data Mapper - Tool that helps us interact with MongoDB inside our JS files</p>
+          <p>Essentially you can write JS that can interacts with your database</p>
+          <p><strong>Schema</strong> - the basic plan or structure of what a particular collection looks like</p>
+          <p><strong>Model</strong> - where you take your schema and compile it into a model that returns an object with available methods (convention is to have a Capitalized variable name)</p>
+          <hr>
+          <hr>
+          <h5>Common Mongoose Methods</h5>
+          <p><strong>findById(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
+          <p><strong>findByIdAndUpdate(id, newData, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and update the content</p>
+          <p><strong>findByIdAndRemove(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and delete the content</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Databases</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Database</strong> - is a collection of information/data that has an interface to which we can write code to interact with the stored data</p>
+          <p><strong>SQL(relational)</strong> - tabular/flat databases - a table must be defined - you must have multiple tables if you want to relate information - often using id's and join tables to do so</p>
+          <p><strong>NoSQL(non-relational)</strong> - non-tabular/information can be nested - don't have tables - more flexible - data looks like js objects</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="workflow">Terminal/Command Line</h4>
         </div>
         <div class="collapsible-body">
@@ -1413,8 +1414,8 @@ app.get('/speak/:animal', function(req, res) {
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 29
-      Video: 267
+    Folder: 30
+      Video: 269
 
     The Advance Web Development Bootcamp
       Folder: 02
