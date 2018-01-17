@@ -42,7 +42,60 @@
 <!-- ********************************************
 NOTE HTML
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Associations</h4>
+        </div>
+        <div class="collapsible-body">
+          <p>Allows us to have multiple collections in our DB relate to one another</p>
+          <hr>
+          <hr>
+          <h5>Types Of Associations</h5>
+          <p><strong>one:one relationships</strong> - one entity is related to one of another entity - Ex. One Book: has One Author</p>
+          <p><strong>one:many relationships</strong> - one entity relates to many other enities - Ex. One User: has Photos, Posts, and Likes</p>
+          <p><strong>many:many relationships</strong> - Many entities are all interrelated - Ex. Students: Courses - Students can sign up for mutlple courses, and Courses can have many students enrolled</p>
+          <hr>
+          <p><strong>Embedding Data</strong> - where you embed the Schema of one entity as an array into the Schema of another</p>
+          <pre>
+// POST - title, content
+var postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+});
+var Post = mongoose.model('Post', postSchema);
 
+// USER - email, name
+var userSchema = new mongoose.Schema({
+  email: String,
+  name: String,
+  posts: [postSchema],
+});
+var User = mongoose.model('User', userSchema);
+          </pre>
+          <p><strong>Referencing Data</strong> - where you embed an array of IDs into a Schema that reference other entities by their ID</p>
+          <pre>
+// POST - title, content
+var postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+});
+var Post = mongoose.model('Post', postSchema);
+
+// USER - email, name
+var userSchema = new mongoose.Schema({
+  email: String,
+  name: String,
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Post',
+    },
+  ],
+}, { usePushEach: true });
+var User = mongoose.model('User', userSchema);
+          </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="html">HTML</h4>
@@ -1168,9 +1221,9 @@ NOTE WORKFLOW
           <hr>
           <hr>
           <h5>Common Mongoose Methods</h5>
-          <p><strong>findById(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
-          <p><strong>findByIdAndUpdate(id, newData, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and update the content</p>
-          <p><strong>findByIdAndRemove(id, callback)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and delete the content</p>
+          <p><strong>findById(id, callback(err, data))</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
+          <p><strong>findByIdAndUpdate(id, newData, callback(err, data))</strong> - Allows you to retrieve information on a specific item from your DB by it's id and update the content</p>
+          <p><strong>findByIdAndRemove(id, callback(err)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and delete the content</p>
         </div>
       </li>
       <li>
@@ -1415,7 +1468,7 @@ app.get('/speak/:animal', function(req, res) {
 
   The Web Developer Bootcamp
     Folder: 30
-      Video: 269
+      Video: 272
 
     The Advance Web Development Bootcamp
       Folder: 02
