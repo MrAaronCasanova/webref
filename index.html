@@ -44,6 +44,64 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="workflow">Heroku</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Heroku Config</strong></p>
+          <p><strong>1: "start": "node app.js"</strong> - make sure package.json has start script</p>
+          <p><strong>2: app.listen(process,env.PORT, process.env.IP, callback;</strong> - make sure app.js file is configured like so</p>
+          <p><strong>3: git init, git add, git commit</strong> - make sure git is set up on main project directory</p>
+          <p><strong>4: heroku create</strong> - pass through login credentials</p>
+          <p><strong>5: git push heroku master</strong> - this will push your code up to heroku</p>
+          <hr>
+          <hr>
+          <h5>Other Heroku Commands</h5>
+          <p><strong>heroku logs</strong> - use this command to view a log of any errors that occur with heroku (heroku logs is specific to each project folder)</p>
+          <p><strong>heroku run [command]</strong> - allows you to connect and run your standard CLI commands on the heroku server and return the results</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">NPM</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Node Package Manager</strong> - is the default package manager for the JavaScript runtime environment Node.js</p>
+          <hr>
+          <hr>
+          <h5>Common NPM Commands</h5>
+          <p><strong>npm init</strong> - this command initializes our project by prompting questions which it uses to generate the package.json file</p>
+          <p><strong>npm install [package] --save</strong> - installs package to current directories node_modules directory, and --save adds the package as a dependency in the package.json file</p>
+          <p><strong>npm install [package]@latest --save</strong> - update a particular package as well as the package.json file</p>
+          <hr>
+          <hr>
+          <h5>Commonly Used NPM Packages</h5>
+          <ul>
+            <li>express</li>
+            <li>body-parser</li>
+            <li>mongoose</li>
+            <li></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Authentication</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong></strong> - </p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Modular Code</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>module.exports</strong> - acts like a return value in a function - when splitting our code into mutiple files we use module.exports to take the contents of one file and require('example') it in our other files</p>
+          <p><strong>Seeds File</strong> - can be run to seed our DB with data - Useful for filling in information while building. (Common in error driven development - write code you want to work, get error, write code to get rid of error, etc...)</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="workflow">Associations</h4>
         </div>
         <div class="collapsible-body">
@@ -1258,6 +1316,7 @@ NOTE WORKFLOW
           <p><strong>mv [demo1.txt demo2.txt] or [example.txt ../new-example-directory]</strong> - Renames a file or moves it to a new location</p>
           <p><strong>trash [directory,file]</strong> - Custom setup that moves directories or files to the trash rather than deleting</p>
           <p><strong>clear</strong> - Clears the screen, but allows you to scroll up and view previous commands</p>
+          <p><strong>Ctrl + U</strong> - Clear typed line to the beginning</p>
           <p><strong>Cmd + A</strong> - Go to the beginning of the line your currently typing on</p>
           <p><strong>Cmd + E</strong> - Go to the end of the line your currently typing on</p>
           <p><strong>Cmd + &rarr;</strong> - Move cursor one character forward</p>
@@ -1299,6 +1358,7 @@ NOTE WORKFLOW
           <p><strong>git merge</strong> <em>branch name</em></p>
           <p><strong>git commit --amend -m</strong><em> "new commit message"</em></p>
           <p><strong>q</strong> : will quit out of certain situations </p>
+          <p><strong>git revert --no-commit 12345678..HEAD</strong> - this will revert everything from the HEAD back to the commit hash(safe and easy way to rollback to a previous state) - <strong>git commit -m "reverted back to 12345678"</strong></p>
         </div>
       </li>
       <li>
@@ -1400,12 +1460,13 @@ app.get('/speak/:animal', function(req, res) {
         <div class="collapsible-body">
           <h5>Common Commands</h5>
           <p><strong>Cmd + ,</strong> - Opens the Preferences/Settings view</p>
-          <p><strong>Cmd + shift + D</strong> - Duplicates the entire line of the current cursor position</p>
+          <p><strong>Cmd + Shift + D</strong> - Duplicates the entire line of the current cursor position</p>
           <p><strong>Cmd + Ctrl + &uarr;</strong> - Moves the contents of the current cursor position up one line</p>
           <p><strong>Cmd + Ctrl + &darr;</strong> - Moves the contents of the current cursor position down one line</p>
           <p><strong>Cmd + [</strong> - Indents the contents of the current cursor position to the left</p>
           <p><strong>Cmd + ]</strong> - Indents the contents of the current cursor position to the right</p>
           <p><strong>Cmd + L</strong> - Selects the entire line of the cursor's current position</p>
+          <p><strong>Ctrl + Shift + L</strong> - Select grammar</p>
           <p><strong>Ctrl + shift + K</strong> - Deletes the current line</p>
           <p><strong>Ctrl + shift + F</strong> - Advance search and replace options</p>
           <p><strong>Ctrl + G</strong> - Opens the Go To Line panel</p>
@@ -1467,8 +1528,8 @@ app.get('/speak/:animal', function(req, res) {
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 30
-      Video: 272
+    Folder: 37
+      Video: 316
 
     The Advance Web Development Bootcamp
       Folder: 02
