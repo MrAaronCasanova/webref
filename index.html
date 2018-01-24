@@ -44,6 +44,127 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">'THIS' keyword</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>THIS</h5>
+          <p>The 'this' keyword is determined by it's execution context (value is determined at execution)</p>
+          <p><strong>Global, Object/Implicit, Explicit, New</strong> - are the four rules of how the value of the 'this' keyword can be determined</p>
+          <p><strong>1 - Global Context</strong> - when 'this' is not inside of a declared object</p>
+          <p><strong>Strict Mode ('use strict')</strong> - when placed at the top of our document it enables strict mode for which the value of 'this' is undefined when inside a function (so you don't accidently assign properties/create variables on the global object)</p>
+          <p><strong>2 - Implicit/Object</strong> - when the keyword 'this' IS inside of a declared object (the value will always be the closest parent object)</p>
+          <p><strong>3 - Explicit Binding</strong> - choose what we want the context of 'this' to be using call, apply or bind (these can only be used by functions)</p>
+          <p><strong>4 - The 'new' keyword</strong> - it is a reserved keyword - we can set the context of the keyword 'this' using the 'new' keyword (when the 'new' keyword is used an object is created on the spot) - the value of the keyword 'this' is set to an empty object and returned from the function that is used with the 'new' keyword</p>
+          <table>
+            <thead>
+              <tr>
+                <th><strong>NAME OF METHOD</strong></th>
+                <th><strong>PARAMETERS</strong></th>
+                <th><strong>INVOKE IMMEDIATELY?</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Call</strong></td>
+                <td>thisArg,a,b,c,d,...</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Apply</strong></td>
+                <td>thisArg,[a,b,c,d,...]</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Bind</strong></td>
+                <td>thisArg,a,b,c,d,...</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre>
+var person = {
+  firstName: 'Aaron',
+  sayHi: function () {
+    return 'Hi ' + this.firstname;
+  },
+
+  determineContext: function () {
+    return this === person;
+  },
+
+  dog: {
+    sayHello: function () {
+      return 'Hello ' + this.firstName;
+    },
+
+    determineContext: function () {
+      return this === person;
+    },
+  },
+
+  addNumbers: function (a, b, c, d) {
+    return this.firstName + ' just calculated ' + (a + b + c + d);
+  },
+
+  sayHowdy: function () {
+    setTimeout(function () {
+      console.log('Howdy ' + this.firstName);
+    }, 1000);
+  },
+
+  sayBonjour: function () {
+    setTimeout(function () {
+      console.log('Bonjour ' + this.firstName);
+    }.bind(this), 1000);
+  },
+};
+
+var casanova = {
+  firstName: 'Casy',
+};
+
+var casyCalc = person.addNumbers.bind(casanova, 1, 2, 3, 4); // function() {}...
+// does not invoke / returns function definition
+
+// With bind - we do not need to know all the arguments up front
+var casyCalc2 = person.addNumbers.bind(casanova, 1, 2);
+
+function FullName(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+var casy = new FullName('Aaron', 'Casanova');
+
+person.sayHi(); // 'Hi Aaron'
+person.determineContext(); // true
+
+person.dog.sayHello.call(person); // 'Hello Aaron'
+person.dog.determineContext.call(person); // true
+// Notice when using the 'call' method we do NOT invoke sayHello or determineContext
+// (the 'thisArg' can be any declared object in the file)
+person.sayHi.call(casanova); // Hi Casy
+person.sayHi.apply(casanova); // Hi Casy
+
+person.addNumbers(1, 2, 3, 4); // Aaron just calculated 10
+person.addNumbers.call(casanova, 1, 2, 3, 4); // Casy just calculated 10
+person.addNumbers.apply(casanova, [1, 2, 3, 4]); // Casy just calculated 10
+
+casyCalc(); // Casy just calculated 10
+casyCalc2(3, 4); // Casy just calculated 10
+
+// setTimeout is a method on the window object
+person.sayHowdy(); // Howdy undefined (1000 milliseconds later)
+// Use bind to set the correct context of 'this'
+person.sayBonjour(); // Bonjour Aaron (1000 milliseconds later)
+
+casy.firstName; // 'Aaron'
+casy.lastName;// 'Casanova'
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="workflow">Heroku</h4>
         </div>
         <div class="collapsible-body">
@@ -58,6 +179,9 @@ NOTE HTML
           <h5>Other Heroku Commands</h5>
           <p><strong>heroku logs</strong> - use this command to view a log of any errors that occur with heroku (heroku logs is specific to each project folder)</p>
           <p><strong>heroku run [command]</strong> - allows you to connect and run your standard CLI commands on the heroku server and return the results</p>
+          <hr>
+          <p><strong>Environment Variables</strong> - are used to hide or obscure information inside your project - define with terminal in project folder using the following command (export KEY=value) - use process.env.KEY to access the value in project files</p>
+          <p><strong>heroku config:set KEY=value</strong> - allows you to define your environment variable with heroku </p>
         </div>
       </li>
       <li>
@@ -1136,10 +1260,13 @@ typeTwo(); &larr; runs the function
       </li>
       <li>
         <div class="collapsible-header">
-          <h4 class="javascript">Javascript Vocabulary</h4>
+          <h4 class="javascript">Javascript</h4>
         </div>
         <div class="collapsible-body">
           <h5>Confusing Terms</h5>
+          <p><strong>Syntax Parser</strong> - a program that reads your code and determines what it does and if its grammer is valid (translates your code into something the computer can understand) - the programs are known as compilers or interpreters</p>
+          <p><strong>Lexical Environment</strong> - where something sits physically in the code you write (where you write something is important)</p>
+          <p><strong>Execution Context</strong> - a wrapper to help manage the code that is running (multiple lexical environments can exist and the execution context manages which one is current running)</p>
           <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
           <p><strong>Scope</strong> - is the  context that code is executed in</p>
           <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
@@ -1155,6 +1282,11 @@ typeTwo(); &larr; runs the function
             <li>NaN</li>
             <li><strong>Everything Else Is Truthy</strong></li>
           </ul>
+          <hr>
+          <hr>
+          <h5>JS Concepts</h5>
+          <hr>
+          <hr>
         </div>
       </li>
 <!-- ********************************************
@@ -1528,8 +1660,12 @@ app.get('/speak/:animal', function(req, res) {
   <!-- TODO: LEFT OFF
 
   The Web Developer Bootcamp
-    Folder: 37
-      Video: 316
+    Folder: 39
+      Video: 327
+
+  JS Understanding the Weird Parts
+    Folder: 2
+      Video: 6
 
     The Advance Web Development Bootcamp
       Folder: 02

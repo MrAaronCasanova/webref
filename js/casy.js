@@ -454,3 +454,84 @@ Delete This - Tutorial Project Exercise
 //   links[i].style.border = '1px solid #000';
 //   links[i].setAttribute('href', 'https://www.soundcloud.com/casymusic');
 // }
+
+/* ------ 'THIS' keyword ------ */
+
+// var person = {
+//   firstName: 'Aaron',
+//   sayHi: function () {
+//     return 'Hi ' + this.firstname;
+//   },
+//
+//   determineContext: function () {
+//     return this === person;
+//   },
+//
+//   dog: {
+//     sayHello: function () {
+//       return 'Hello ' + this.firstName;
+//     },
+//
+//     determineContext: function () {
+//       return this === person;
+//     },
+//   },
+//
+//   addNumbers: function (a, b, c, d) {
+//     return this.firstName + ' just calculated ' + (a + b + c + d);
+//   },
+//
+//   sayHowdy: function () {
+//     setTimeout(function () {
+//       console.log('Howdy ' + this.firstName);
+//     }, 1000);
+//   },
+//
+//   sayBonjour: function () {
+//     setTimeout(function () {
+//       console.log('Bonjour ' + this.firstName);
+//     }.bind(this), 1000);
+//   },
+// };
+//
+// var casanova = {
+//   firstName: 'Casy',
+// };
+//
+// var casyCalc = person.addNumbers.bind(casanova, 1, 2, 3, 4); // function() {}...
+// // does not invoke / returns function definition
+//
+// // With bind - we do not need to know all the arguments up front
+// var casyCalc2 = person.addNumbers.bind(casanova, 1, 2);
+//
+// function FullName(firstName, lastName) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+// }
+//
+// var casy = new FullName('Aaron', 'Casanova');
+//
+// person.sayHi(); // 'Hi Aaron'
+// person.determineContext(); // true
+//
+// person.dog.sayHello.call(person); // 'Hello Aaron'
+// person.dog.determineContext.call(person); // true
+// // Notice when using the 'call' method we do NOT invoke sayHello or determineContext
+// // (the 'thisArg' can be any declared object in the file)
+// person.sayHi.call(casanova); // Hi Casy
+// person.sayHi.apply(casanova); // Hi Casy
+//
+// person.addNumbers(1, 2, 3, 4); // Aaron just calculated 10
+// person.addNumbers.call(casanova, 1, 2, 3, 4); // Casy just calculated 10
+// person.addNumbers.apply(casanova, [1, 2, 3, 4]); // Casy just calculated 10
+//
+// casyCalc(); // Casy just calculated 10
+// casyCalc2(3, 4); // Casy just calculated 10
+//
+// // setTimeout is a method on the window object
+// person.sayHowdy(); // Howdy undefined (1000 milliseconds later)
+// // Use bind to set the correct context of 'this'
+// person.sayBonjour(); // Bonjour Aaron (1000 milliseconds later)
+//
+// casy.firstName; // 'Aaron'
+// casy.lastName;// 'Casanova'
