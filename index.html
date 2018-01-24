@@ -44,6 +44,83 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Object Oriented Programming (OOP)</h4>
+        </div>
+        <div class="collapsible-body">
+          <p>A model based on objects constructed from a blueprint</p>
+          <p><strong>classes</strong> - are the name of the  blueprints for which objects are constructed</p>
+          <p><strong>instances</strong> - are what we call the objects that are created from classes</p>
+          <p><strong>Constructor Functions</strong> - lets us use a function as a blueprint for what each [House] should be (see example)</p>
+          <p><strong>new</strong> - the 'new' keyword must be used with a function or else we get a type error</p>
+          <ol>
+            <li>Creates an empty object</li>
+            <li>Sets the keyword 'this' to the empty object</li>
+            <li>Adds the line `return this` to the end of the function, which follows it</li>
+            <li>Adds a property onto the empty object called '__proto__'(double underscore commonly called dunder || dunderProto), which links the prototype property on the constructor function to the empty object</li>
+          </ol>
+          <pre>
+// Capitalize function name
+
+function House(bedrooms, bathrooms, numSqft) {
+  this.bedrooms = bedrooms;
+  this.bathrooms = bathrooms;
+  this.numSqft = numSqft;
+}
+
+var firstHouse = new House(2, 2, 1200);
+console.log(firstHouse.bedrooms); // 2
+console.log(firstHouse.bathrooms); // 2
+console.log(firstHouse.numSqft); // 1200
+
+---------------------------------------------------
+
+function Dog(name, age) {
+  this.name = name;
+  this.age = age;
+  this.bark = function () {
+    console.log(this.name + ' just barked!');
+  };
+}
+
+var moose = new Dog('Moose', 3);
+
+moose.bark(); // Moose just barked!
+
+---------------------------------------------------
+
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+
+  // we can also set properties on the keyword 'this'
+  // that are preset values
+  this.numWheels = 4;
+}
+
+function Motorcycle(make, model, year) {
+  // using call
+  Car.call(this, make, model, year);
+  this.numWheels = 2;
+}
+
+function Motorcycle(make, model, year) {
+  // using apply
+  Car.apply(this, [make, model, year]);
+  this.numWheels = 2;
+}
+
+function Motocycle(make, model, year) {
+  // even better using apply with arguments
+  Car.apply(this, arguments);
+  this.numWheels = 2;
+}
+
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">'THIS' keyword</h4>
         </div>
         <div class="collapsible-body">
@@ -1661,7 +1738,7 @@ app.get('/speak/:animal', function(req, res) {
 
   The Web Developer Bootcamp
     Folder: 39
-      Video: 327
+      Video: 335
 
   JS Understanding the Weird Parts
     Folder: 2

@@ -535,3 +535,58 @@ Delete This - Tutorial Project Exercise
 //
 // casy.firstName; // 'Aaron'
 // casy.lastName;// 'Casanova'
+
+/* ------ Obect Oriented Programming (OOP) ------ */
+
+// Capitalize function name
+
+// function House(bedrooms, bathrooms, numSqft) {
+//   this.bedrooms = bedrooms;
+//   this.bathrooms = bathrooms;
+//   this.numSqft = numSqft;
+// }
+//
+// var firstHouse = new House(2, 2, 1200);
+// console.log(firstHouse.bedrooms); // 2
+// console.log(firstHouse.bathrooms); // 2
+// console.log(firstHouse.numSqft); // 1200
+//
+// function Dog(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   this.bark = function () {
+//     console.log(this.name + ' just barked!');
+//   };
+// }
+//
+// var moose = new Dog('Moose', 3);
+//
+// moose.bark();
+//
+// function Car(make, model, year) {
+//   this.make = make;
+//   this.model = model;
+//   this.year = year;
+//
+//   // we can also set properties on the keyword 'this'
+//   // that are preset values
+//   this.numWheels = 4;
+// }
+//
+// function Motorcycle(make, model, year) {
+//   // using call
+//   Car.call(this, make, model, year);
+//   this.numWheels = 2;
+// }
+//
+// function Motorcycle(make, model, year) {
+//   // using apply
+//   Car.apply(this, [make, model, year]);
+//   this.numWheels = 2;
+// }
+//
+// function Motocycle(make, model, year) {
+//   // even better using apply with arguments
+//   Car.apply(this, arguments);
+//   this.numWheels = 2;
+// }
