@@ -44,6 +44,62 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">prototype & __proto__</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Prototype</strong> - is an object that can have methods and properties placed on it - the prototype is shared among all objects created by that constructor function</p>
+          <p>Every time the new keyword is used, a link between the object created and the prototype property of the constructor is established - this link can be accessed using __proto__</p>
+          <p>The prototype object contains a property called constructor, which points back to the constructor function</p>
+          <p>To share properties and methods for objects created by a constructor function, place them in the prototype as it is the most efficient</p>
+          <img class="responsive-img" src="./img/proto.png" alt="Prototype/__proto__ Diagram">
+          <pre>
+// this is the constructor function
+function Person(name) {
+  this.name = name;
+}
+
+// this is an object created from the Person constructor
+var casy = new Person('Aaron');
+var nova = new Person('Casanova');
+
+// since we used the new keyword, we have established
+// a link between the object and the prototype property
+// we can access that using __proto__
+
+casy.__proto__ === Person.prototype; // true
+nova.__proto__ === Person.prototype; // true
+
+// the Person.prototype object also has a property
+// called constructor which points back to the function
+Person.prototype.constructor === Person; // true
+
+--------------------------------------------
+
+function Vehicle(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.isRunning = false;
+}
+
+Vehicle.prototype.turnOn = function () {
+  return this.isRunning = true;
+};
+
+Vehicle.prototype.turnOff = function () {
+  return this.isRunning = false;
+};
+
+Vehicle.prototype.honk = function () {
+  if (this.isRunning) {
+    return 'beep';
+  }
+};
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">Object Oriented Programming (OOP)</h4>
         </div>
         <div class="collapsible-body">

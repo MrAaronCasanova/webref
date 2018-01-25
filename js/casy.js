@@ -590,3 +590,57 @@ Delete This - Tutorial Project Exercise
 //   Car.apply(this, arguments);
 //   this.numWheels = 2;
 // }
+
+/* ------ prototype & __proto__ ------ */
+
+// // this is the constructor function
+// function Person(name) {
+//   this.name = name;
+// }
+//
+// // this is an object created from the Person constructor
+// var casy = new Person('Aaron');
+// var nova = new Person('Casanova');
+//
+// // since we used the new keyword, we have established
+// // a link between the object and the prototype property
+// // we can access that using __proto__
+//
+// casy.__proto__ === Person.prototype; // true
+// nova.__proto__ === Person.prototype; // true
+//
+// // the Person.prototype object also has a property
+// // called constructor which points back to the function
+// Person.prototype.constructor === Person; // true
+
+// function Person(name) {
+//   this.name = name;
+// }
+//
+// Person.prototype.sayHi = function () {
+//   return 'Hi ' + this.name;
+// };
+//
+// var aaron = new Person('Aaron');
+// console.log(aaron.sayHi());
+//
+// function Vehicle(make, model, year) {
+//   this.make = make;
+//   this.model = model;
+//   this.year = year;
+//   this.isRunning = false;
+// }
+//
+// Vehicle.prototype.turnOn = function () {
+//   return this.isRunning = true;
+// };
+// 
+// Vehicle.prototype.turnOff = function () {
+//   return this.isRunning = false;
+// };
+//
+// Vehicle.prototype.honk = function () {
+//   if (this.isRunning) {
+//     return 'beep';
+//   }
+// };
