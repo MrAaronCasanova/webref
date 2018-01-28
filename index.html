@@ -44,6 +44,91 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Closures</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Closure</strong> - is a function that makes use of variables defined in outer functions that have previously returned</p>
+          <h5>Things to note</h5>
+          <p>We have to 'return' the inner function for this to work</p>
+          <p>We can either call the inner function right away by using an extra () or we can store the result of the function in a variable (similar to how bind works)</p>
+          <p>We do NOT have to give the inner function a name - we can make it anonymous</p>
+          <p>Closures only exist when an inner function makes use of variables defined from an outer function that has returned. If the inner function does not make use of any of the external variables all we have is a nested function</p>
+          <pre>
+function outer() {
+  var data = 'closures are ';
+  return function inner() {
+    var innerData = 'awesome';
+    return data + innerData;
+  };
+}
+
+outer()(); // closures are awesome
+
+function outer(a) {
+  return function inner(b) {
+    // the inner function is making use of the variable 'a'
+    // which was defined in an outer funtion called 'outer'
+    // and by the time this is called, that outer function
+    // has returned this function called 'inner' is a closure
+    return a + b;
+  };
+}
+
+outer(5)(5); // 10
+
+var storeOuter = outer(5);
+storeOuter(10); //15
+          </pre>
+          <p><strong>Private Variables</strong> - variables that can not be modified externally</p>
+          <pre>
+function counter() {
+  var count = 0;
+  return function () {
+    return ++count;
+  };
+}
+
+counter1 = counter();
+counter1(); // 1
+counter1(); // 2
+
+counter2 = counter();
+counter2(); // 1
+counter2(); // 2
+
+counter1(); // 3 this is not affected by counter2!
+
+count; // ReferenceError: count is not defined - because it is private!
+
+function classRoom() {
+  var instructors = ['Colt', 'Elie']; // private var
+  return {
+    getInstructors: function () {
+      return instructors;
+    },
+
+    addInstructor: function (instructor) {
+      instructors.push(instructor);
+      return instructors;
+    },
+  };
+}
+
+course1 = classRoom();
+course1.getInstructors(); // ['Colt', 'Elie']
+course1.getInstructors('Ian'); // ['Colt', 'Elie', 'Ian']
+course1.getInstructors(); // ['Colt', 'Elie', 'Ian']
+
+course2 = classRoom();
+course2.getInstructors(); // ['Colt', 'Elie'] - not affected by course1
+
+// We also have NO access to the instructors variables
+// which makes it private - no one can modify it...
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">prototype & __proto__</h4>
         </div>
         <div class="collapsible-body">
@@ -1531,7 +1616,7 @@ NOTE WORKFLOW
       // without overwritting everything else stored
       // in the selected item
       db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
-          </pre>
+    </pre>
           <p><strong>remove()</strong> - allows you to remove items from a given collection</p>
           <p><strong>db.collection.drop()</strong> - replace collection with the name of a specific collection to delete all the existing items in the collection</p>
           <hr>
@@ -1791,10 +1876,6 @@ app.get('/speak/:animal', function(req, res) {
 </html>
 
   <!-- TODO: LEFT OFF
-
-  The Web Developer Bootcamp
-    Folder: 39
-      Video: 335
 
   JS Understanding the Weird Parts
     Folder: 2
