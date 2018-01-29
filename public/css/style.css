@@ -360,6 +360,11 @@ div.item-img:hover i {
   transform: translate(-50%, -50%) scale(1);
 } */
 
+.disableSave {
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+}
+
 div.item-img:active img {
   opacity: .3;
   filter: grayscale(100%);
