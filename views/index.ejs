@@ -82,7 +82,7 @@ storeOuter(10); //15
           <p><strong>Private Variables</strong> - variables that can not be modified externally</p>
           <pre>
 function counter() {
-  var count = 0;
+  var count = 0;z
   return function () {
     return ++count;
   };
@@ -390,7 +390,7 @@ casy.lastName;// 'Casanova'
           <p><strong>1: "start": "node app.js"</strong> - make sure package.json has start script</p>
           <p><strong>2: app.listen(process,env.PORT, process.env.IP, callback;</strong> - make sure app.js file is configured like so</p>
           <p><strong>3: git init, git add, git commit</strong> - make sure git is set up on main project directory</p>
-          <p><strong>4: heroku create</strong> - pass through login credentials</p>
+          <p><strong>4: heroku create [appName]</strong> - pass through login credentials</p>
           <p><strong>5: git push heroku master</strong> - this will push your code up to heroku</p>
           <hr>
           <hr>
@@ -758,10 +758,20 @@ NOTE CSS
       </li>
       <li>
         <div class="collapsible-header">
-          <h4 class="css">Scale</h4>
+          <h4 class="css">Rotate - Transform</h4>
         </div>
         <div class="collapsible-body">
-          <h5>Scale</h5>
+          <h5>Lets you move, warp, rotate, and scale elements</h5>
+          <br>
+          <div class="rotate-one no-rotate-one"></div>
+          <div class="rotate-two no-rotate-two"></div>
+          <div class="rotate-three no-rotate-three"></div>
+          <div class="rotate-four no-rotate-four"></div>
+
+          <!-- <div class="rotate-three no-rotate-three"></div> -->
+          <br>
+          <br>
+          <input type="button" id="init-rotate" value="Click Me">
         </div>
       </li>
       <li>
@@ -1883,7 +1893,7 @@ app.get('/speak/:animal', function(req, res) {
 
     The Advance Web Development Bootcamp
       Folder: 02
-        Video: 015 - Search: Scale
+        Video: 016
 
   -->
 

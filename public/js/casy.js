@@ -21,6 +21,15 @@ $('#button').click(function () {
   $('.no-four').toggleClass('crazy-four');
 });
 
+/* ------ Rotate ------ */
+
+$('#init-rotate').click(function () {
+  $('.no-rotate-one').toggleClass('rotated-one');
+  $('.no-rotate-two').toggleClass('rotated-two');
+  $('.no-rotate-three').toggleClass('rotated-three');
+  $('.no-rotate-four').toggleClass('rotated-four');
+});
+
 /* --------------------------------------------
 Form
 -------------------------------------------- */

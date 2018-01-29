@@ -38,6 +38,11 @@ strong {
   font-size: 16px;
 }
 
+input[type="button"] {
+  margin-left: 20px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.51);
+}
+
 /* --------------------------------------------
 Tables
 -------------------------------------------- */
@@ -92,7 +97,8 @@ button.zoom-zoom {
   transition: color .7s, background-color .7s, padding .4s, transform .4s;
 }
 button.zoom-zoom:hover {
-  transform: scale(2);
+  transform: scale(2, 2.5);
+  transform-origin: right bottom;
   padding: 30px;
   color: #fff;
   background-color: #333;
@@ -124,8 +130,8 @@ button.rounder:active {
   color: #ffffff;
   background-color: #09709d;
   border-radius: 100px;
-  text-shadow: 1px 1px 2px #161616;
-  box-shadow: 1px 1px 2px #161616;
+  text-shadow: 1px 1px 6px #161616;
+  box-shadow: 1px 1px 8px #161616;
 }
 
 /* --------------------------------------------
@@ -203,12 +209,84 @@ Transform
   transition: transform 2.7s;
   transform: translateY(-40px);
 }
-input[type="button"] {
-  margin-left: 20px;
-  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.51);
+
+/* ------ Rotate ------ */
+/* Used jQuery to toggleClasses */
+
+.rotate-one,
+.rotate-two,
+.rotate-four {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display: inline-block;
 }
 
-/* ------ Scale ------ */
+.rotate-one {
+  background-color: #1cb18d;
+}
+
+.rotate-two {
+  background-color: #c78b07;
+}
+
+.rotate-four {
+  background-color: #5292dd;
+}
+
+.no-rotate-one,
+.no-rotate-two,
+.no-rotate-three,
+.no-rotate-four {
+  transition: all .9s;
+}
+
+.no-rotate-two {
+  border-radius: 50%;
+}
+
+.rotated-one {
+  transition: all 1s;
+  transform: rotate(-90deg)
+  translateY(286px);
+}
+
+.rotated-two {
+  transition: all 1s;
+  transform: rotate(360deg);
+  border-radius: 0%;
+}
+
+.rotate-three {
+  display: inline-block;
+  margin: 20px;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+
+  border-bottom: 100px solid #5292dd;
+}
+
+.rotated-three {
+  transition: transform .5s, opacity .2s;
+  transform: scale(0)
+  translate(500px, -600px);
+  opacity: 0;
+}
+
+.no-rotate-four {
+  transform: scale(0)
+  translateY(-500px);
+  opacity: 0;
+}
+
+.rotated-four {
+  transition: all 1s;
+  transform: scale(1)
+  translateY(0px);
+  opacity: 1;
+}
 
 /* --------------------------------------------
 Form
