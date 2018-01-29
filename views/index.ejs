@@ -782,6 +782,20 @@ NOTE CSS
           <p><strong>transition-property</strong> - what individual css properties to transition</p>
           <p><strong>transition-timing-function</strong> - the acceleration of the transition</p>
           <p><strong>transition-delay</strong> - how long to wait before starting the transition</p>
+          <p><strong>transition shorthand</strong> - define everything in one line</p>
+          <pre>
+.example {
+  transition: property duration timing-function delay;
+}
+          </pre>
+          <hr>
+          <h5>Best Performing Transition Properties</h5>
+          <ul>
+            <li><strong>transform: translate();</strong></li>
+            <li><strong>transform: scale();</strong></li>
+            <li><strong>transform: rotate();</strong></li>
+            <li><strong>opacity</strong></li>
+          </ul>
         </div>
       </li>
       <li>
@@ -792,6 +806,31 @@ NOTE CSS
           <h5 class="expand">Hover CSS Animation</h5>
           <p class="vanish">Try n Catch Me</p>
           <button class="zoom-zoom">Zoom</button>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="css">Animated Photo Gallery</h4>
+        </div>
+        <div class="collapsible-body button-hover">
+          <div class="container">
+            <div class="ani-flex">
+              <div class="item-img red">
+                <img src="https://preview.ibb.co/gQbzQ5/colt_steele_firemarshall.jpg"/>
+                <i class="fa fa-camera"></i>
+              </div>
+
+              <div class="item-img blue">
+                <img src="https://images.pexels.com/photos/463734/pexels-photo-463734.jpeg?h=350&auto=compress&cs=tinysrgb"/>
+                <i class="fa fa-paw"></i>
+              </div>
+
+              <div class="item-img green">
+                <img src="http://preview.ibb.co/kd9Esk/colt_steele_smugglerscave.jpg"/>
+                <i class="fa fa-cloud"></i>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li>

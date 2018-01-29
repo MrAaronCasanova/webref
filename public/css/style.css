@@ -289,6 +289,97 @@ Transform
 }
 
 /* --------------------------------------------
+Animated Photo Gallery
+-------------------------------------------- */
+
+.ani-flex {
+  display: flex;
+  justify-content: center;
+}
+
+
+div.item-img {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 220px;
+  max-width: 310px;
+  width: 100%;
+  background: #000000;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+div.item-img * {
+  box-sizing: border-box;
+}
+
+div.item-img img {
+  max-width: 100%;
+  vertical-align: top;
+  height: 210px;
+}
+
+div.item-img i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  font-size: 34px;
+  color: #000000;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background: #ffffff;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 300ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+div.item-img a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+div.item-img.blue {
+  background-color: #34495e;
+}
+div.item-img.blue i {
+  color: #34495e;
+}
+div.item-img.red {
+  background-color: #e74c3c;
+}
+div.item-img.red i {
+  color: #e74c3c;
+}
+
+div.item-img.green {
+  background-color: #16a085;
+}
+div.item-img.green i {
+  color: #16a085;
+}
+
+div.item-img:hover img {
+  opacity: .3;
+  filter: grayscale(100%);
+}
+
+div.item-img * {
+  transition: all .3s ease-in-out;
+}
+
+div.item-img:hover i {
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 100ms;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* --------------------------------------------
 Form
 -------------------------------------------- */
 
