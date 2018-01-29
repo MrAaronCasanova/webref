@@ -71,7 +71,7 @@ h5.expand:hover {
   color: #309461;
   padding: 23px;
   border: 1px solid #309461;
-  display: inline-block;
+  /* display: inline-block; */
 }
 p.vanish {
   text-align: center;
