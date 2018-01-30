@@ -44,460 +44,6 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="javascript">Closures</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>Closure</strong> - is a function that makes use of variables defined in outer functions that have previously returned</p>
-          <h5>Things to note</h5>
-          <p>We have to 'return' the inner function for this to work</p>
-          <p>We can either call the inner function right away by using an extra () or we can store the result of the function in a variable (similar to how bind works)</p>
-          <p>We do NOT have to give the inner function a name - we can make it anonymous</p>
-          <p>Closures only exist when an inner function makes use of variables defined from an outer function that has returned. If the inner function does not make use of any of the external variables all we have is a nested function</p>
-          <pre>
-function outer() {
-  var data = 'closures are ';
-  return function inner() {
-    var innerData = 'awesome';
-    return data + innerData;
-  };
-}
-
-outer()(); // closures are awesome
-
-function outer(a) {
-  return function inner(b) {
-    // the inner function is making use of the variable 'a'
-    // which was defined in an outer funtion called 'outer'
-    // and by the time this is called, that outer function
-    // has returned this function called 'inner' is a closure
-    return a + b;
-  };
-}
-
-outer(5)(5); // 10
-
-var storeOuter = outer(5);
-storeOuter(10); //15
-          </pre>
-          <p><strong>Private Variables</strong> - variables that can not be modified externally</p>
-          <pre>
-function counter() {
-  var count = 0;z
-  return function () {
-    return ++count;
-  };
-}
-
-counter1 = counter();
-counter1(); // 1
-counter1(); // 2
-
-counter2 = counter();
-counter2(); // 1
-counter2(); // 2
-
-counter1(); // 3 this is not affected by counter2!
-
-count; // ReferenceError: count is not defined - because it is private!
-
-function classRoom() {
-  var instructors = ['Colt', 'Elie']; // private var
-  return {
-    getInstructors: function () {
-      return instructors;
-    },
-
-    addInstructor: function (instructor) {
-      instructors.push(instructor);
-      return instructors;
-    },
-  };
-}
-
-course1 = classRoom();
-course1.getInstructors(); // ['Colt', 'Elie']
-course1.getInstructors('Ian'); // ['Colt', 'Elie', 'Ian']
-course1.getInstructors(); // ['Colt', 'Elie', 'Ian']
-
-course2 = classRoom();
-course2.getInstructors(); // ['Colt', 'Elie'] - not affected by course1
-
-// We also have NO access to the instructors variables
-// which makes it private - no one can modify it...
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">prototype & __proto__</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>Prototype</strong> - is an object that can have methods and properties placed on it - the prototype is shared among all objects created by that constructor function</p>
-          <p>Every time the new keyword is used, a link between the object created and the prototype property of the constructor is established - this link can be accessed using __proto__</p>
-          <p>The prototype object contains a property called constructor, which points back to the constructor function</p>
-          <p>To share properties and methods for objects created by a constructor function, place them in the prototype as it is the most efficient</p>
-          <img class="responsive-img" src="./img/proto.png" alt="Prototype/__proto__ Diagram">
-          <pre>
-// this is the constructor function
-function Person(name) {
-  this.name = name;
-}
-
-// this is an object created from the Person constructor
-var casy = new Person('Aaron');
-var nova = new Person('Casanova');
-
-// since we used the new keyword, we have established
-// a link between the object and the prototype property
-// we can access that using __proto__
-
-casy.__proto__ === Person.prototype; // true
-nova.__proto__ === Person.prototype; // true
-
-// the Person.prototype object also has a property
-// called constructor which points back to the function
-Person.prototype.constructor === Person; // true
-
---------------------------------------------
-
-function Vehicle(make, model, year) {
-  this.make = make;
-  this.model = model;
-  this.year = year;
-  this.isRunning = false;
-}
-
-Vehicle.prototype.turnOn = function () {
-  return this.isRunning = true;
-};
-
-Vehicle.prototype.turnOff = function () {
-  return this.isRunning = false;
-};
-
-Vehicle.prototype.honk = function () {
-  if (this.isRunning) {
-    return 'beep';
-  }
-};
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Object Oriented Programming (OOP)</h4>
-        </div>
-        <div class="collapsible-body">
-          <p>A model based on objects constructed from a blueprint</p>
-          <p><strong>classes</strong> - are the name of the  blueprints for which objects are constructed</p>
-          <p><strong>instances</strong> - are what we call the objects that are created from classes</p>
-          <p><strong>Constructor Functions</strong> - lets us use a function as a blueprint for what each [House] should be (see example)</p>
-          <p><strong>new</strong> - the 'new' keyword must be used with a function or else we get a type error</p>
-          <ol>
-            <li>Creates an empty object</li>
-            <li>Sets the keyword 'this' to the empty object</li>
-            <li>Adds the line `return this` to the end of the function, which follows it</li>
-            <li>Adds a property onto the empty object called '__proto__'(double underscore commonly called dunder || dunderProto), which links the prototype property on the constructor function to the empty object</li>
-          </ol>
-          <pre>
-// Capitalize function name
-
-function House(bedrooms, bathrooms, numSqft) {
-  this.bedrooms = bedrooms;
-  this.bathrooms = bathrooms;
-  this.numSqft = numSqft;
-}
-
-var firstHouse = new House(2, 2, 1200);
-console.log(firstHouse.bedrooms); // 2
-console.log(firstHouse.bathrooms); // 2
-console.log(firstHouse.numSqft); // 1200
-
----------------------------------------------------
-
-function Dog(name, age) {
-  this.name = name;
-  this.age = age;
-  this.bark = function () {
-    console.log(this.name + ' just barked!');
-  };
-}
-
-var moose = new Dog('Moose', 3);
-
-moose.bark(); // Moose just barked!
-
----------------------------------------------------
-
-function Car(make, model, year) {
-  this.make = make;
-  this.model = model;
-  this.year = year;
-
-  // we can also set properties on the keyword 'this'
-  // that are preset values
-  this.numWheels = 4;
-}
-
-function Motorcycle(make, model, year) {
-  // using call
-  Car.call(this, make, model, year);
-  this.numWheels = 2;
-}
-
-function Motorcycle(make, model, year) {
-  // using apply
-  Car.apply(this, [make, model, year]);
-  this.numWheels = 2;
-}
-
-function Motocycle(make, model, year) {
-  // even better using apply with arguments
-  Car.apply(this, arguments);
-  this.numWheels = 2;
-}
-
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">'THIS' keyword</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>THIS</h5>
-          <p>The 'this' keyword is determined by it's execution context (value is determined at execution)</p>
-          <p><strong>Global, Object/Implicit, Explicit, New</strong> - are the four rules of how the value of the 'this' keyword can be determined</p>
-          <p><strong>1 - Global Context</strong> - when 'this' is not inside of a declared object</p>
-          <p><strong>Strict Mode ('use strict')</strong> - when placed at the top of our document it enables strict mode for which the value of 'this' is undefined when inside a function (so you don't accidently assign properties/create variables on the global object)</p>
-          <p><strong>2 - Implicit/Object</strong> - when the keyword 'this' IS inside of a declared object (the value will always be the closest parent object)</p>
-          <p><strong>3 - Explicit Binding</strong> - choose what we want the context of 'this' to be using call, apply or bind (these can only be used by functions)</p>
-          <p><strong>4 - The 'new' keyword</strong> - it is a reserved keyword - we can set the context of the keyword 'this' using the 'new' keyword (when the 'new' keyword is used an object is created on the spot) - the value of the keyword 'this' is set to an empty object and returned from the function that is used with the 'new' keyword</p>
-          <table>
-            <thead>
-              <tr>
-                <th><strong>NAME OF METHOD</strong></th>
-                <th><strong>PARAMETERS</strong></th>
-                <th><strong>INVOKE IMMEDIATELY?</strong></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Call</strong></td>
-                <td>thisArg,a,b,c,d,...</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td><strong>Apply</strong></td>
-                <td>thisArg,[a,b,c,d,...]</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td><strong>Bind</strong></td>
-                <td>thisArg,a,b,c,d,...</td>
-                <td>No</td>
-              </tr>
-            </tbody>
-          </table>
-          <pre>
-var person = {
-  firstName: 'Aaron',
-  sayHi: function () {
-    return 'Hi ' + this.firstname;
-  },
-
-  determineContext: function () {
-    return this === person;
-  },
-
-  dog: {
-    sayHello: function () {
-      return 'Hello ' + this.firstName;
-    },
-
-    determineContext: function () {
-      return this === person;
-    },
-  },
-
-  addNumbers: function (a, b, c, d) {
-    return this.firstName + ' just calculated ' + (a + b + c + d);
-  },
-
-  sayHowdy: function () {
-    setTimeout(function () {
-      console.log('Howdy ' + this.firstName);
-    }, 1000);
-  },
-
-  sayBonjour: function () {
-    setTimeout(function () {
-      console.log('Bonjour ' + this.firstName);
-    }.bind(this), 1000);
-  },
-};
-
-var casanova = {
-  firstName: 'Casy',
-};
-
-var casyCalc = person.addNumbers.bind(casanova, 1, 2, 3, 4); // function() {}...
-// does not invoke / returns function definition
-
-// With bind - we do not need to know all the arguments up front
-var casyCalc2 = person.addNumbers.bind(casanova, 1, 2);
-
-function FullName(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-}
-
-var casy = new FullName('Aaron', 'Casanova');
-
-person.sayHi(); // 'Hi Aaron'
-person.determineContext(); // true
-
-person.dog.sayHello.call(person); // 'Hello Aaron'
-person.dog.determineContext.call(person); // true
-// Notice when using the 'call' method we do NOT invoke sayHello or determineContext
-// (the 'thisArg' can be any declared object in the file)
-person.sayHi.call(casanova); // Hi Casy
-person.sayHi.apply(casanova); // Hi Casy
-
-person.addNumbers(1, 2, 3, 4); // Aaron just calculated 10
-person.addNumbers.call(casanova, 1, 2, 3, 4); // Casy just calculated 10
-person.addNumbers.apply(casanova, [1, 2, 3, 4]); // Casy just calculated 10
-
-casyCalc(); // Casy just calculated 10
-casyCalc2(3, 4); // Casy just calculated 10
-
-// setTimeout is a method on the window object
-person.sayHowdy(); // Howdy undefined (1000 milliseconds later)
-// Use bind to set the correct context of 'this'
-person.sayBonjour(); // Bonjour Aaron (1000 milliseconds later)
-
-casy.firstName; // 'Aaron'
-casy.lastName;// 'Casanova'
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">Heroku</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>Heroku Config</strong></p>
-          <p><strong>1: "start": "node app.js"</strong> - make sure package.json has start script</p>
-          <p><strong>2: app.listen(process,env.PORT, process.env.IP, callback;</strong> - make sure app.js file is configured like so</p>
-          <p><strong>3: git init, git add, git commit</strong> - make sure git is set up on main project directory</p>
-          <p><strong>4: heroku create [appName]</strong> - pass through login credentials</p>
-          <p><strong>5: git push heroku master</strong> - this will push your code up to heroku</p>
-          <hr>
-          <hr>
-          <h5>Other Heroku Commands</h5>
-          <p><strong>heroku logs</strong> - use this command to view a log of any errors that occur with heroku (heroku logs is specific to each project folder)</p>
-          <p><strong>heroku run [command]</strong> - allows you to connect and run your standard CLI commands on the heroku server and return the results</p>
-          <hr>
-          <p><strong>Environment Variables</strong> - are used to hide or obscure information inside your project - define with terminal in project folder using the following command (export KEY=value) - use process.env.KEY to access the value in project files</p>
-          <p><strong>heroku config:set KEY=value</strong> - allows you to define your environment variable with heroku </p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">NPM</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>Node Package Manager</strong> - is the default package manager for the JavaScript runtime environment Node.js</p>
-          <hr>
-          <hr>
-          <h5>Common NPM Commands</h5>
-          <p><strong>npm init</strong> - this command initializes our project by prompting questions which it uses to generate the package.json file</p>
-          <p><strong>npm install [package] --save</strong> - installs package to current directories node_modules directory, and --save adds the package as a dependency in the package.json file</p>
-          <p><strong>npm install [package]@latest --save</strong> - update a particular package as well as the package.json file</p>
-          <hr>
-          <hr>
-          <h5>Commonly Used NPM Packages</h5>
-          <ul>
-            <li>express</li>
-            <li>body-parser</li>
-            <li>mongoose</li>
-            <li></li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">Authentication</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong></strong> - </p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">Modular Code</h4>
-        </div>
-        <div class="collapsible-body">
-          <p><strong>module.exports</strong> - acts like a return value in a function - when splitting our code into mutiple files we use module.exports to take the contents of one file and require('example') it in our other files</p>
-          <p><strong>Seeds File</strong> - can be run to seed our DB with data - Useful for filling in information while building. (Common in error driven development - write code you want to work, get error, write code to get rid of error, etc...)</p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="workflow">Associations</h4>
-        </div>
-        <div class="collapsible-body">
-          <p>Allows us to have multiple collections in our DB relate to one another</p>
-          <hr>
-          <hr>
-          <h5>Types Of Associations</h5>
-          <p><strong>one:one relationships</strong> - one entity is related to one of another entity - Ex. One Book: has One Author</p>
-          <p><strong>one:many relationships</strong> - one entity relates to many other enities - Ex. One User: has Photos, Posts, and Likes</p>
-          <p><strong>many:many relationships</strong> - Many entities are all interrelated - Ex. Students: Courses - Students can sign up for mutlple courses, and Courses can have many students enrolled</p>
-          <hr>
-          <p><strong>Embedding Data</strong> - where you embed the Schema of one entity as an array into the Schema of another</p>
-          <pre>
-// POST - title, content
-var postSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-});
-var Post = mongoose.model('Post', postSchema);
-
-// USER - email, name
-var userSchema = new mongoose.Schema({
-  email: String,
-  name: String,
-  posts: [postSchema],
-});
-var User = mongoose.model('User', userSchema);
-          </pre>
-          <p><strong>Referencing Data</strong> - where you embed an array of IDs into a Schema that reference other entities by their ID</p>
-          <pre>
-// POST - title, content
-var postSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-});
-var Post = mongoose.model('Post', postSchema);
-
-// USER - email, name
-var userSchema = new mongoose.Schema({
-  email: String,
-  name: String,
-  posts: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Post',
-    },
-  ],
-}, { usePushEach: true });
-var User = mongoose.model('User', userSchema);
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
           <h4 class="html">HTML</h4>
         </div>
         <div class="collapsible-body">
@@ -935,6 +481,345 @@ selector {
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">prototype & __proto__</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Prototype</strong> - is an object that can have methods and properties placed on it - the prototype is shared among all objects created by that constructor function</p>
+          <p>Every time the new keyword is used, a link between the object created and the prototype property of the constructor is established - this link can be accessed using __proto__</p>
+          <p>The prototype object contains a property called constructor, which points back to the constructor function</p>
+          <p>To share properties and methods for objects created by a constructor function, place them in the prototype as it is the most efficient</p>
+          <img class="responsive-img" src="./img/proto.png" alt="Prototype/__proto__ Diagram">
+          <pre>
+      // this is the constructor function
+      function Person(name) {
+      this.name = name;
+      }
+
+      // this is an object created from the Person constructor
+      var casy = new Person('Aaron');
+      var nova = new Person('Casanova');
+
+      // since we used the new keyword, we have established
+      // a link between the object and the prototype property
+      // we can access that using __proto__
+
+      casy.__proto__ === Person.prototype; // true
+      nova.__proto__ === Person.prototype; // true
+
+      // the Person.prototype object also has a property
+      // called constructor which points back to the function
+      Person.prototype.constructor === Person; // true
+
+      --------------------------------------------
+
+      function Vehicle(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+      this.isRunning = false;
+      }
+
+      Vehicle.prototype.turnOn = function () {
+      return this.isRunning = true;
+      };
+
+      Vehicle.prototype.turnOff = function () {
+      return this.isRunning = false;
+      };
+
+      Vehicle.prototype.honk = function () {
+      if (this.isRunning) {
+      return 'beep';
+      }
+      };
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Object Oriented Programming (OOP)</h4>
+        </div>
+        <div class="collapsible-body">
+          <p>A model based on objects constructed from a blueprint</p>
+          <p><strong>classes</strong> - are the name of the  blueprints for which objects are constructed</p>
+          <p><strong>instances</strong> - are what we call the objects that are created from classes</p>
+          <p><strong>Constructor Functions</strong> - lets us use a function as a blueprint for what each [House] should be (see example)</p>
+          <p><strong>new</strong> - the 'new' keyword must be used with a function or else we get a type error</p>
+          <ol>
+            <li>Creates an empty object</li>
+            <li>Sets the keyword 'this' to the empty object</li>
+            <li>Adds the line `return this` to the end of the function, which follows it</li>
+            <li>Adds a property onto the empty object called '__proto__'(double underscore commonly called dunder || dunderProto), which links the prototype property on the constructor function to the empty object</li>
+          </ol>
+          <pre>
+      // Capitalize function name
+
+      function House(bedrooms, bathrooms, numSqft) {
+      this.bedrooms = bedrooms;
+      this.bathrooms = bathrooms;
+      this.numSqft = numSqft;
+      }
+
+      var firstHouse = new House(2, 2, 1200);
+      console.log(firstHouse.bedrooms); // 2
+      console.log(firstHouse.bathrooms); // 2
+      console.log(firstHouse.numSqft); // 1200
+
+      ---------------------------------------------------
+
+      function Dog(name, age) {
+      this.name = name;
+      this.age = age;
+      this.bark = function () {
+      console.log(this.name + ' just barked!');
+      };
+      }
+
+      var moose = new Dog('Moose', 3);
+
+      moose.bark(); // Moose just barked!
+
+      ---------------------------------------------------
+
+      function Car(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+
+      // we can also set properties on the keyword 'this'
+      // that are preset values
+      this.numWheels = 4;
+      }
+
+      function Motorcycle(make, model, year) {
+      // using call
+      Car.call(this, make, model, year);
+      this.numWheels = 2;
+      }
+
+      function Motorcycle(make, model, year) {
+      // using apply
+      Car.apply(this, [make, model, year]);
+      this.numWheels = 2;
+      }
+
+      function Motocycle(make, model, year) {
+      // even better using apply with arguments
+      Car.apply(this, arguments);
+      this.numWheels = 2;
+      }
+
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">'THIS' keyword</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>THIS</h5>
+          <p>The 'this' keyword is determined by it's execution context (value is determined at execution)</p>
+          <p><strong>Global, Object/Implicit, Explicit, New</strong> - are the four rules of how the value of the 'this' keyword can be determined</p>
+          <p><strong>1 - Global Context</strong> - when 'this' is not inside of a declared object</p>
+          <p><strong>Strict Mode ('use strict')</strong> - when placed at the top of our document it enables strict mode for which the value of 'this' is undefined when inside a function (so you don't accidently assign properties/create variables on the global object)</p>
+          <p><strong>2 - Implicit/Object</strong> - when the keyword 'this' IS inside of a declared object (the value will always be the closest parent object)</p>
+          <p><strong>3 - Explicit Binding</strong> - choose what we want the context of 'this' to be using call, apply or bind (these can only be used by functions)</p>
+          <p><strong>4 - The 'new' keyword</strong> - it is a reserved keyword - we can set the context of the keyword 'this' using the 'new' keyword (when the 'new' keyword is used an object is created on the spot) - the value of the keyword 'this' is set to an empty object and returned from the function that is used with the 'new' keyword</p>
+          <table>
+            <thead>
+              <tr>
+                <th><strong>NAME OF METHOD</strong></th>
+                <th><strong>PARAMETERS</strong></th>
+                <th><strong>INVOKE IMMEDIATELY?</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Call</strong></td>
+                <td>thisArg,a,b,c,d,...</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Apply</strong></td>
+                <td>thisArg,[a,b,c,d,...]</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Bind</strong></td>
+                <td>thisArg,a,b,c,d,...</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre>
+      var person = {
+      firstName: 'Aaron',
+      sayHi: function () {
+      return 'Hi ' + this.firstname;
+      },
+
+      determineContext: function () {
+      return this === person;
+      },
+
+      dog: {
+      sayHello: function () {
+      return 'Hello ' + this.firstName;
+      },
+
+      determineContext: function () {
+      return this === person;
+      },
+      },
+
+      addNumbers: function (a, b, c, d) {
+      return this.firstName + ' just calculated ' + (a + b + c + d);
+      },
+
+      sayHowdy: function () {
+      setTimeout(function () {
+      console.log('Howdy ' + this.firstName);
+      }, 1000);
+      },
+
+      sayBonjour: function () {
+      setTimeout(function () {
+      console.log('Bonjour ' + this.firstName);
+      }.bind(this), 1000);
+      },
+      };
+
+      var casanova = {
+      firstName: 'Casy',
+      };
+
+      var casyCalc = person.addNumbers.bind(casanova, 1, 2, 3, 4); // function() {}...
+      // does not invoke / returns function definition
+
+      // With bind - we do not need to know all the arguments up front
+      var casyCalc2 = person.addNumbers.bind(casanova, 1, 2);
+
+      function FullName(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      }
+
+      var casy = new FullName('Aaron', 'Casanova');
+
+      person.sayHi(); // 'Hi Aaron'
+      person.determineContext(); // true
+
+      person.dog.sayHello.call(person); // 'Hello Aaron'
+      person.dog.determineContext.call(person); // true
+      // Notice when using the 'call' method we do NOT invoke sayHello or determineContext
+      // (the 'thisArg' can be any declared object in the file)
+      person.sayHi.call(casanova); // Hi Casy
+      person.sayHi.apply(casanova); // Hi Casy
+
+      person.addNumbers(1, 2, 3, 4); // Aaron just calculated 10
+      person.addNumbers.call(casanova, 1, 2, 3, 4); // Casy just calculated 10
+      person.addNumbers.apply(casanova, [1, 2, 3, 4]); // Casy just calculated 10
+
+      casyCalc(); // Casy just calculated 10
+      casyCalc2(3, 4); // Casy just calculated 10
+
+      // setTimeout is a method on the window object
+      person.sayHowdy(); // Howdy undefined (1000 milliseconds later)
+      // Use bind to set the correct context of 'this'
+      person.sayBonjour(); // Bonjour Aaron (1000 milliseconds later)
+
+      casy.firstName; // 'Aaron'
+      casy.lastName;// 'Casanova'
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Closures</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Closure</strong> - is a function that makes use of variables defined in outer functions that have previously returned</p>
+          <h5>Things to note</h5>
+          <p>We have to 'return' the inner function for this to work</p>
+          <p>We can either call the inner function right away by using an extra () or we can store the result of the function in a variable (similar to how bind works)</p>
+          <p>We do NOT have to give the inner function a name - we can make it anonymous</p>
+          <p>Closures only exist when an inner function makes use of variables defined from an outer function that has returned. If the inner function does not make use of any of the external variables all we have is a nested function</p>
+          <pre>
+      function outer() {
+      var data = 'closures are ';
+      return function inner() {
+      var innerData = 'awesome';
+      return data + innerData;
+      };
+      }
+
+      outer()(); // closures are awesome
+
+      function outer(a) {
+      return function inner(b) {
+      // the inner function is making use of the variable 'a'
+      // which was defined in an outer funtion called 'outer'
+      // and by the time this is called, that outer function
+      // has returned this function called 'inner' is a closure
+      return a + b;
+      };
+      }
+
+      outer(5)(5); // 10
+
+      var storeOuter = outer(5);
+      storeOuter(10); //15
+          </pre>
+          <p><strong>Private Variables</strong> - variables that can not be modified externally</p>
+          <pre>
+      function counter() {
+      var count = 0;z
+      return function () {
+      return ++count;
+      };
+      }
+
+      counter1 = counter();
+      counter1(); // 1
+      counter1(); // 2
+
+      counter2 = counter();
+      counter2(); // 1
+      counter2(); // 2
+
+      counter1(); // 3 this is not affected by counter2!
+
+      count; // ReferenceError: count is not defined - because it is private!
+
+      function classRoom() {
+      var instructors = ['Colt', 'Elie']; // private var
+      return {
+      getInstructors: function () {
+      return instructors;
+      },
+
+      addInstructor: function (instructor) {
+      instructors.push(instructor);
+      return instructors;
+      },
+      };
+      }
+
+      course1 = classRoom();
+      course1.getInstructors(); // ['Colt', 'Elie']
+      course1.getInstructors('Ian'); // ['Colt', 'Elie', 'Ian']
+      course1.getInstructors(); // ['Colt', 'Elie', 'Ian']
+
+      course2 = classRoom();
+      course2.getInstructors(); // ['Colt', 'Elie'] - not affected by course1
+
+      // We also have NO access to the instructors variables
+      // which makes it private - no one can modify it...
+          </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">jQuery</h4>
@@ -1565,6 +1450,121 @@ typeTwo(); &larr; runs the function
 <!-- ********************************************
 NOTE WORKFLOW
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Heroku</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Heroku Config</strong></p>
+          <p><strong>1: "start": "node app.js"</strong> - make sure package.json has start script</p>
+          <p><strong>2: app.listen(process,env.PORT, process.env.IP, callback;</strong> - make sure app.js file is configured like so</p>
+          <p><strong>3: git init, git add, git commit</strong> - make sure git is set up on main project directory</p>
+          <p><strong>4: heroku create [appName]</strong> - pass through login credentials</p>
+          <p><strong>5: git push heroku master</strong> - this will push your code up to heroku</p>
+          <hr>
+          <hr>
+          <h5>Other Heroku Commands</h5>
+          <p><strong>heroku logs</strong> - use this command to view a log of any errors that occur with heroku (heroku logs is specific to each project folder)</p>
+          <p><strong>heroku run [command]</strong> - allows you to connect and run your standard CLI commands on the heroku server and return the results</p>
+          <hr>
+          <p><strong>Environment Variables</strong> - are used to hide or obscure information inside your project - define with terminal in project folder using the following command (export KEY=value) - use process.env.KEY to access the value in project files</p>
+          <p><strong>heroku config:set KEY=value</strong> - allows you to define your environment variable with heroku </p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">NPM</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>Node Package Manager</strong> - is the default package manager for the JavaScript runtime environment Node.js</p>
+          <hr>
+          <hr>
+          <h5>Common NPM Commands</h5>
+          <p><strong>npm init</strong> - this command initializes our project by prompting questions which it uses to generate the package.json file</p>
+          <p><strong>npm install [package] --save</strong> - installs package to current directories node_modules directory, and --save adds the package as a dependency in the package.json file</p>
+          <p><strong>npm install [package]@latest --save</strong> - update a particular package as well as the package.json file</p>
+          <hr>
+          <hr>
+          <h5>Commonly Used NPM Packages</h5>
+          <ul>
+            <li>express</li>
+            <li>body-parser</li>
+            <li>mongoose</li>
+            <li></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Authentication</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong></strong> - </p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Modular Code</h4>
+        </div>
+        <div class="collapsible-body">
+          <p><strong>module.exports</strong> - acts like a return value in a function - when splitting our code into mutiple files we use module.exports to take the contents of one file and require('example') it in our other files</p>
+          <p><strong>Seeds File</strong> - can be run to seed our DB with data - Useful for filling in information while building. (Common in error driven development - write code you want to work, get error, write code to get rid of error, etc...)</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="workflow">Associations</h4>
+        </div>
+        <div class="collapsible-body">
+          <p>Allows us to have multiple collections in our DB relate to one another</p>
+          <hr>
+          <hr>
+          <h5>Types Of Associations</h5>
+          <p><strong>one:one relationships</strong> - one entity is related to one of another entity - Ex. One Book: has One Author</p>
+          <p><strong>one:many relationships</strong> - one entity relates to many other enities - Ex. One User: has Photos, Posts, and Likes</p>
+          <p><strong>many:many relationships</strong> - Many entities are all interrelated - Ex. Students: Courses - Students can sign up for mutlple courses, and Courses can have many students enrolled</p>
+          <hr>
+          <p><strong>Embedding Data</strong> - where you embed the Schema of one entity as an array into the Schema of another</p>
+          <pre>
+      // POST - title, content
+      var postSchema = new mongoose.Schema({
+      title: String,
+      content: String,
+      });
+      var Post = mongoose.model('Post', postSchema);
+
+      // USER - email, name
+      var userSchema = new mongoose.Schema({
+      email: String,
+      name: String,
+      posts: [postSchema],
+      });
+      var User = mongoose.model('User', userSchema);
+          </pre>
+          <p><strong>Referencing Data</strong> - where you embed an array of IDs into a Schema that reference other entities by their ID</p>
+          <pre>
+      // POST - title, content
+      var postSchema = new mongoose.Schema({
+      title: String,
+      content: String,
+      });
+      var Post = mongoose.model('Post', postSchema);
+
+      // USER - email, name
+      var userSchema = new mongoose.Schema({
+      email: String,
+      name: String,
+      posts: [
+      {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Post',
+      },
+      ],
+      }, { usePushEach: true });
+      var User = mongoose.model('User', userSchema);
+          </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="html">REST</h4>
