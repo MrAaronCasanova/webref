@@ -557,3 +557,125 @@ REST
 .rest-red {
   background: rgba(150, 12, 12, 0.32);
 }
+
+/* --------------------------------------------
+Keyframe Animations
+-------------------------------------------- */
+
+/* ------ Rainbow Text ------ */
+/* Used jQuery to toggleClasses */
+
+.no-rainbow {
+  margin-left: 20px;
+}
+
+.rainbow-text {
+  margin-left: 20px;
+  animation: rainbow-text;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rainbow-text {
+  0% {
+    color: red;
+    font-size: 20px;
+  }
+  25% {
+    color: orange;
+  }
+  50% {
+    color: yellow;
+    font-size: 40px;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: blue;
+    font-size: 20px;
+  }
+}
+
+/* ------ Sun Scene ------ */
+/* Used jQuery to toggleClasses */
+
+.sun-scene {
+  margin: 0 auto;
+  height: 350px;
+  width: 250px;
+  background-color: #2c3e50;
+  position: relative;
+  animation: sun-scene-sky;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+.grass {
+  background-color: #119552;
+  margin-top: 125px;
+  height: 200px;
+  width: 250px;
+  position: absolute;
+}
+
+.sun {
+  background-color: #f1c40f;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  /* transform: translateY(150px); */
+  /* z-index: -1; */
+  /* position: absolute; */
+  animation: sun-scene-sun;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sun-scene-sky {
+  0% {
+    background-color: #2c3e50;
+  }
+  10% {
+    background-color: #a64f61;
+  }
+  30% {
+    background-color: #0083cd;
+  }
+  70% {
+    background-color: #0083cd;
+  }
+  90% {
+    background-color: #a64f61;
+  }
+  100% {
+    background-color: #2c3e50;
+  }
+}
+
+@keyframes sun-scene-sun {
+  0% {
+    background-color: #f1900e;
+    transform: translate(0px, 150px);
+  }
+  25% {
+    background-color: #f1c40f;
+  }
+  50% {
+    background-color: #ebce37;
+    transform: translate(125px, 0px);
+  }
+  75% {
+    background-color: #f1c40f;
+  }
+  100% {
+    background-color: #e25712;
+    transform: translate(225px, 150px);
+  }
+}

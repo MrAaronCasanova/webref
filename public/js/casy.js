@@ -9,6 +9,24 @@ var options = {
 var refList = new List('references', options);
 
 /* --------------------------------------------
+Keyframe Animation
+-------------------------------------------- */
+
+/* ------ Rainbow Text ------ */
+
+$('#init-rainbow').click(function () {
+  $('.no-rainbow').toggleClass('rainbow-text');
+});
+
+/* ------ Rainbow Text ------ */
+
+$('#init-sun-scene').click(function () {
+  $('.no-sun-scene').toggleClass('sun-scene');
+  $('.no-sun').toggleClass('sun');
+  $('.no-grass').toggleClass('grass');
+});
+
+/* --------------------------------------------
 Transform
 -------------------------------------------- */
 
