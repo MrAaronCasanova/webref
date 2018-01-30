@@ -18,12 +18,17 @@ $('#init-rainbow').click(function () {
   $('.no-rainbow').toggleClass('rainbow-text');
 });
 
-/* ------ Rainbow Text ------ */
+/* ------ Loader Icon ------ */
+
+$('#init-loader').click(function () {
+  $('.loader').toggleClass('loading');
+});
+
+/* ------ Sun Scene ------ */
 
 $('#init-sun-scene').click(function () {
   $('.no-sun-scene').toggleClass('sun-scene');
   $('.no-sun').toggleClass('sun');
-  $('.no-grass').toggleClass('grass');
 });
 
 /* --------------------------------------------
