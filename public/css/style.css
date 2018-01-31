@@ -885,21 +885,24 @@ Flexbox
 }
 .holy-article {
   background-color: #f1f1f1;
-  flex-basis: 60%;
-  flex-grow: 4;
+  flex: 5 0 60%;
+  /* flex-basis: 60%; */
+  /* flex-grow: 5; */
 }
 
 .holy-nav {
   background-color: #969696;
-  flex-basis: 20%;
-  flex-grow: 1;
+  flex: 1 1 20%;
+  /* flex-basis: 20%; */
+  /* flex-grow: 1; */
   order: -1;
 }
 
 .holy-aside {
   background-color: #1876e4;
-  flex-basis: 20%;
-  flex-grow: 1;
+  flex: 1 1 20%;
+  /* flex-basis: 20%; */
+  /* flex-grow: 1; */
 }
 
 .holy-footer {
@@ -907,25 +910,13 @@ Flexbox
   height: 60px;
 }
 
-@media screen and (max-width: 640px) {
+@media all and (max-width: 640px) {
   .holy-main {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .holy-article {
-    min-height: 400px;
-    flex-basis: 100%;
-    flex-grow: 4;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .holy-nav {
-    flex-basis: 100%;
-    flex-grow: 1;
     order: 0;
-  }
-
-  .holy-aside {
-    flex-basis: 100%;
-    flex-grow: 1;
   }
 }
