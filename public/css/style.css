@@ -745,7 +745,6 @@ Flexbox
 
 .flex-container {
   border: 4px solid lightgrey;
-  height: 400px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
@@ -774,4 +773,46 @@ Flexbox
   color: #fff;
   font-size: 16px;
   margin-left: 10px;
+}
+
+/* ------ Flexbox Nav ------ */
+
+.flex-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.flex-nav a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #6e6e6e;
+  border-bottom: 3px solid #2eac65;
+  margin: 20px;
+  letter-spacing: 2px;
+  transition: all .5s ease-out;
+}
+
+.flex-nav a:hover {
+  color: #2eac65;
+}
+
+.flex-nav i {
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 920px) {
+  .flex-nav {
+    justify-content: space-around;
+  }
+  .flex-nav a {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .flex-nav {
+    flex-direction: column;
+    align-items: center;
+  }
 }
