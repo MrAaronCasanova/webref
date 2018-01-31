@@ -66,17 +66,18 @@ NOTE HTML
           <p><strong>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</strong> - defines how space is distributed <em>between rows</em> in the flex container (along the cross axis) - refers to the alignment of the whole multiline structure</p>
           <hr>
           <p><strong>Flex Item Properties</strong></p>
-          <p><strong>order</strong></p>
-          <p><strong>flex</strong></p>
-          <p><strong>flex-grow</strong></p>
-          <p><strong>flex-shrink</strong></p>
-          <p><strong>align-self</strong></p>
+          <p><strong>order: [integer]; /* default is 0 */</strong> - specifies the order used to lay out items in their flex container (each flex item defaults to order: 0)</p>
+          <p><strong>flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]</strong> - defines how a flex item will grow or shrink to fit the available space in a container (shorthand property)</p>
+          <p><strong>flex-basis: [length] | auto; /* default auto */</strong> - sort of like width, but not - specifies the ideal size of a flex item BEFORE it's placed into a flex container</p>
+          <p><strong>flex-grow: [number]; /* default 0 */</strong> - dictates how the unused space should be spread amongst flex items</p>
+          <p><strong>flex-shrink: [number]; /* default 1 */</strong> - dictates how items should shrink when there isn't enough space in the container</p>
+          <p><strong>align-self: auto | flex-start | flex-end | center | baseline | stretch;</strong> - allows you to override align-items on individual flex items</p>
           <hr><hr><hr>
           <div class="flex-nav">
-            <a href="#"><i class="fa fa-home"></i>Home</a>
-            <a href="#"><i class="fa fa-question"></i>About</a>
-            <a href="#"><i class="fa fa-phone"></i>Contact</a>
-            <a href="#"><i class="fa fa-paw"></i>Dogs</a>
+            <a href=""><i class="fa fa-home"></i>Home</a>
+            <a href=""><i class="fa fa-question"></i>About</a>
+            <a href=""><i class="fa fa-phone"></i>Contact</a>
+            <a href=""><i class="fa fa-paw"></i>Dogs</a>
           </div>
           <hr>
           <div class="flex-container">
