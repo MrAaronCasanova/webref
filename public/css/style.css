@@ -816,3 +816,28 @@ Flexbox
     align-items: center;
   }
 }
+
+/* ------ Flex Widget ------ */
+
+.flex-widget {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.widget-box {
+  background-color: #0677b6;
+  flex: 1 1 200px; /* grow shink basis */
+  /* ^^^ same vvv */
+  /* flex-basis: 200px; */
+  /* flex-grow: 1; */
+  color: #fff;
+  padding: 20px;
+  transition: background-color .1s;
+}
+.widget-middle {
+  background-color: #1f8673;
+}
+
+.widget-box:hover {
+  background-color: #5eb49f;
+}
