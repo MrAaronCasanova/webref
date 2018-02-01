@@ -44,6 +44,52 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Javascript</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Javascript Terms</h5>
+          <p><strong>*Syntax Parser</strong> - a program that reads your code and determines what it does and if its grammer is valid (translates your code into something the computer can understand) - the programs are known as compilers or interpreters</p>
+          <p><strong>*Lexical Environment</strong> - where something sits physically in the code you write (where you write something is important)</p>
+          <p><strong>*Execution Context</strong> - a wrapper to help manage the code that is running (multiple lexical environments can exist and the execution context manages which one is current running)</p>
+          <p><strong>Name/Value Pair</strong> - a name which maps to a unique value - the name may be defined more than once, but only can have one value in any given <em>context</em> (that value may be more name/value pairs)</p>
+          <p><strong>Object</strong> - a collection of name value pairs</p>
+          <p><strong>Global Execution Context</strong> - is the base execution context(accessible everywhere to everything in your code) - JS engine automatically creates a <em>Global Object</em>, a special variable called <em>'this'</em>, and a reference to the <em>Outer Environment</em></p>
+          <p><strong>Creation & Hoisting</strong> - there are two phases to an Execution Context - <strong>Creation Phase:</strong> creates the Global Object, the variable 'this', an Outer Environment reference, and sets up memory space for variables and function (Hoisting)[sets all variables to undefined while functions sit in memory in their entirety] - <strong>Execution Phase:</strong> runs your code line by line (takes the undefined vars and assigns the specified values)</p>
+          <p><strong>Undefined</strong> - a special JS value that means the value has not been set</p>
+          <p><strong>*Single Threaded</strong> - one command is executed at a time</p>
+          <p><strong>*Synchronous</strong> - one at a time (and in order...)</p>
+          <p><strong>*Asynchronous</strong> - more than one at a time</p>
+          <p><strong>*Invocation</strong> - running a function '()' - any time you invoke a function a new execution context is created and placed on the execution stack</p>
+          <p><strong>Execution Stack</strong> - when your code is running and hits an invocation, it stops running its current execution, creates a new execution context for which will pop off and return to the original execution once completed</p>
+          <p><strong>Event Queue</strong> - full of events/notifications of events (only when the execution stack is empty will the JS engine look at the event queue)</p>
+          <p><strong>*Variable Environments</strong> - where the variables live in memory (every execution context has its own variable environment/memory space)</p>
+          <p><strong>Outer Environment</strong> - refers to the location of where the invoked function sits lexically (if JS can't find the value of a var in its current execution context it will look in the outer environment)</p>
+          <p><strong>Scope</strong> - where a variable is available in your code (what execution context the variable is in)</p>
+          <p><strong>Scope Chain</strong> - the chain of outer environment references JS uses to find the value of a variable</p>
+          <p><strong>let</strong> - is a way to define a variable using block scoping</p>
+          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
+          <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
+          <p><strong>Data Structure</strong> - Ways of storing data</p>
+          <p>Can either take a function as an argument or they return another function</p>
+          <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
+          <ul class="vocab-lists">
+            <li><strong>Falsy Values</strong></li>
+            <li>false</li>
+            <li>' ' (empty string)</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>NaN</li>
+            <li><strong>Everything Else Is Truthy</strong></li>
+          </ul>
+          <hr>
+          <hr>
+          <h5>JS Concepts</h5>
+          <hr>
+          <hr>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="css">Flexbox</h4>
         </div>
         <div class="collapsible-body">
@@ -1562,37 +1608,6 @@ typeTwo(); &larr; runs the function
           <p>Variables can contain any of the 5 primative datatypes</p>
         </div>
       </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Javascript</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>Confusing Terms</h5>
-          <p><strong>Syntax Parser</strong> - a program that reads your code and determines what it does and if its grammer is valid (translates your code into something the computer can understand) - the programs are known as compilers or interpreters</p>
-          <p><strong>Lexical Environment</strong> - where something sits physically in the code you write (where you write something is important)</p>
-          <p><strong>Execution Context</strong> - a wrapper to help manage the code that is running (multiple lexical environments can exist and the execution context manages which one is current running)</p>
-          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
-          <p><strong>Scope</strong> - is the  context that code is executed in</p>
-          <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
-          <p><strong>Data Structure</strong> - Ways of storing data</p>
-          <p>Can either take a function as an argument or they return another function</p>
-          <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
-          <ul class="vocab-lists">
-            <li><strong>Falsy Values</strong></li>
-            <li>false</li>
-            <li>' ' (empty string)</li>
-            <li>null</li>
-            <li>undefined</li>
-            <li>NaN</li>
-            <li><strong>Everything Else Is Truthy</strong></li>
-          </ul>
-          <hr>
-          <hr>
-          <h5>JS Concepts</h5>
-          <hr>
-          <hr>
-        </div>
-      </li>
 <!-- ********************************************
 NOTE WORKFLOW
 ********************************************* -->
@@ -2083,8 +2098,8 @@ app.get('/speak/:animal', function(req, res) {
   Video: 61
 
   JS Understanding the Weird Parts
-    Folder: 2
-      Video: 6
+    Folder: 3
+      Video: 17
 
   -->
 

@@ -3,8 +3,8 @@ Global
 -------------------------------------------- */
 
 * {
-  font-family: montserrat, sans-serif;
-  font-weight: 100;
+  font-family: sans-serif;
+  font-weight: 300;
   box-sizing: border-box;
 }
 h1 {
@@ -13,11 +13,14 @@ h1 {
   letter-spacing: 1.4rem;
   font-size: 1.8rem;
 }
+h4 {
+  font-weight: 300;
+}
 h5 {
   margin-bottom: 20px;
 }
 p {
-  letter-spacing: .1rem;
+  font-size: 16px
 }
 ul.list {
   margin-top: 16px;
@@ -34,21 +37,17 @@ hr {
 em {
   font-weight: 400;
 }
-
 strong {
   font-size: 16px;
 }
-
 input[type="button"] {
   margin-left: 20px;
   box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.51);
 }
-
 .disableSave {
     -webkit-user-select:none;
     -webkit-touch-callout:none;
 }
-
 .m-auto {
   margin: 0 auto;
 }
