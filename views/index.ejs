@@ -100,6 +100,10 @@ NOTE HTML
           <p><strong>*Mutate</strong> - to change something</p>
           <p><strong>*Immutable</strong> - can't be changed</p>
           <p><strong>*Whitespace</strong> - invisible characters that create literal 'space' in your written code (carriage returns, tabs, and spaces)</p>
+          <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a seperate variable environment through it's execution context</p>
+          <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the exection for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
+          <p><strong>Factory</strong> - a function that returns or makes other things for me</p>
+          <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument)</p>
           <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
           <p><strong>Data Structure</strong> - Ways of storing data</p>
           <p>Can either take a function as an argument or they return another function</p>
@@ -2135,7 +2139,7 @@ app.get('/speak/:animal', function(req, res) {
 
   JS Understanding the Weird Parts
     Folder: 4
-      Video: 40
+      Video: 44
 
   -->
 
