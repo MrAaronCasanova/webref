@@ -90,8 +90,16 @@ NOTE HTML
               <li><em>JSON.parse('json')</em> takes JSON and makes it a JS object</li>
             </ul>
           </p>
-          <p><strong>*First Class Functions</strong> - everything you can do with other types you can do with functions (assign them to variables, pass them around, create them on the fly)</p>
-          <p><strong>Function (JS)</strong> - special type of object - can attach <em>primitives</em>(name value pairs), <em>objects</em>, and other <em>functions</em> - special properties include: it's <em>NAME</em> (optional, can be anonymous), and <em>CODE</em> (holds the actual lines of code you wrote [<em>invocable with ()</em>])</p>
+          <p><strong>*First Class Functions</strong> - everything you can do with other types you can do with functions (assign them to variables, pass them around(as arguments), create them on the fly)</p>
+          <p><strong>Function (in JS)</strong> - special type of object - can attach <em>primitives</em>(name value pairs), <em>objects</em>, and other <em>functions</em> - special properties include: it's <em>NAME</em> (optional, can be anonymous), and <em>CODE</em> (holds the actual lines of code you wrote [<em>invocable with ()</em>])</p>
+          <p><strong>*Arguments</strong> - the parameters you pass to a funtion (JS gives you a keyword of the same name which contains them all [the value(s) are presented in what looks like an array (array like)])</p>
+          <p><strong>*(function) Expression</strong> - a unit of code that results(returns) in a value (doesn't have to save to a variable)</p>
+          <p><strong>*(function) Statement</strong> - declares a function (saved for later use, and will be executed later, when it is invoked (called)) [statements don't <em>return</em> a value by default, you must state that]</p>
+          <p><strong>By Value</strong> - when setting the value of one primitive(a=3) to another(b=a), the JS engine will create a copy of the value of 'a' for 'b' and place it in a new/seperate location memory - all primitives interact by value</p>
+          <p><strong>By Reference</strong> - when you have an object(a={greet:'hello'}) and set (b=a), the JS engine will create 'b' with a reference to the location in memory where the values of 'a' are stored['a' and 'b' have the same value as they point to the same location in memory] - all objects interact by reference when setting them equal to each other or passing to a function</p>
+          <p><strong>*Mutate</strong> - to change something</p>
+          <p><strong>*Immutable</strong> - can't be changed</p>
+          <p><strong>*Whitespace</strong> - invisible characters that create literal 'space' in your written code (carriage returns, tabs, and spaces)</p>
           <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
           <p><strong>Data Structure</strong> - Ways of storing data</p>
           <p>Can either take a function as an argument or they return another function</p>
@@ -110,8 +118,12 @@ NOTE HTML
           <h5>JS Concepts</h5>
           <hr>
           <hr>
+          <p><strong>'this'</strong> - </p>
         </div>
       </li>
+
+<!-- ************************************************************************************************************************************************************************************************** -->
+
       <li>
         <div class="collapsible-header">
           <h4 class="css">Flexbox</h4>
@@ -2123,7 +2135,7 @@ app.get('/speak/:animal', function(req, res) {
 
   JS Understanding the Weird Parts
     Folder: 4
-      Video: 31
+      Video: 40
 
   -->
 
