@@ -67,7 +67,21 @@ NOTE HTML
           <p><strong>Scope</strong> - where a variable is available in your code (what execution context the variable is in)</p>
           <p><strong>Scope Chain</strong> - the chain of outer environment references JS uses to find the value of a variable</p>
           <p><strong>let</strong> - is a way to define a variable using block scoping</p>
-          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type</p>
+          <p><strong>*Dynamic Typing</strong> - you don't tell the engine what type of data a variable holds, it figures it out while your code is running</p>
+          <p><strong>*Primitive Type</strong> - a type of data that represents a single value (not an object)
+            <ul class="vocab-lists">
+              <li><em>undefined</em> (represents lack of existence [you shouldn't set a var to this])</li>
+              <li><em>null</em> (represents lack of existence [you can set a variable to this])</li>
+              <li><em>string</em> (a sequence of characters | '' and "" can be used)</li>
+              <li><em>boolean</em> (true or false)</li>
+              <li><em>number</em> (floating point number [always some decimals attached])</li>
+              <li><em>symbol</em></li>
+            </ul>
+          </p>
+          <p><strong>*Operator</strong> - a special function that is syntactically (written) differently (operators generally take two parameters and return one result)</p>
+          <p><strong>*Operator Precedence</strong> - which operator function gets called first</p>
+          <p><strong>*Associativity</strong> - what order operator functions get called in: left-to-right or right-to-left</p>
+          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type (converting a value from one type to another)</p>
           <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
           <p><strong>Data Structure</strong> - Ways of storing data</p>
           <p>Can either take a function as an argument or they return another function</p>
@@ -2099,7 +2113,7 @@ app.get('/speak/:animal', function(req, res) {
 
   JS Understanding the Weird Parts
     Folder: 3
-      Video: 17
+      Video: 23
 
   -->
 
