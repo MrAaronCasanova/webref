@@ -52,7 +52,7 @@ NOTE HTML
           <p><strong>*Lexical Environment</strong> - where something sits physically in the code you write (where you write something is important)</p>
           <p><strong>*Execution Context</strong> - a wrapper to help manage the code that is running (multiple lexical environments can exist and the execution context manages which one is current running)</p>
           <p><strong>Name/Value Pair</strong> - a name which maps to a unique value - the name may be defined more than once, but only can have one value in any given <em>context</em> (that value may be more name/value pairs)</p>
-          <p><strong>Object</strong> - a collection of name value pairs</p>
+          <p><strong>Object</strong> - a collection of name value pairs (can store properties[primitive key value pairs || more objects] and methods[functions])</p>
           <p><strong>Global Execution Context</strong> - is the base execution context(accessible everywhere to everything in your code) - JS engine automatically creates a <em>Global Object</em>, a special variable called <em>'this'</em>, and a reference to the <em>Outer Environment</em></p>
           <p><strong>Creation & Hoisting</strong> - there are two phases to an Execution Context - <strong>Creation Phase:</strong> creates the Global Object, the variable 'this', an Outer Environment reference, and sets up memory space for variables and function (Hoisting)[sets all variables to undefined while functions sit in memory in their entirety] - <strong>Execution Phase:</strong> runs your code line by line (takes the undefined vars and assigns the specified values)</p>
           <p><strong>Undefined</strong> - a special JS value that means the value has not been set</p>
@@ -82,6 +82,16 @@ NOTE HTML
           <p><strong>*Operator Precedence</strong> - which operator function gets called first</p>
           <p><strong>*Associativity</strong> - what order operator functions get called in: left-to-right or right-to-left</p>
           <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type (converting a value from one type to another)</p>
+          <p><strong>*Namespace</strong> - a container for variables and functions (typically to keep variables and functions with the same name separate)</p>
+          <p><strong>JSON</strong> - JavaScript Object Notation (inspired by JS object literal syntax) - used mainly to send data - properties (both names&values) must be wrapped in quotes
+            <ul>
+              <li><em>Built in JS methods to use with JSON</em></li>
+              <li><em>JSON.stringify(object)</em> - take JS object and makes it valid JSON</li>
+              <li><em>JSON.parse('json')</em> takes JSON and makes it a JS object</li>
+            </ul>
+          </p>
+          <p><strong>*First Class Functions</strong> - everything you can do with other types you can do with functions (assign them to variables, pass them around, create them on the fly)</p>
+          <p><strong>Function (JS)</strong> - special type of object - can attach <em>primitives</em>(name value pairs), <em>objects</em>, and other <em>functions</em> - special properties include: it's <em>NAME</em> (optional, can be anonymous), and <em>CODE</em> (holds the actual lines of code you wrote [<em>invocable with ()</em>])</p>
           <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
           <p><strong>Data Structure</strong> - Ways of storing data</p>
           <p>Can either take a function as an argument or they return another function</p>
@@ -2112,8 +2122,8 @@ app.get('/speak/:animal', function(req, res) {
   Video: 61
 
   JS Understanding the Weird Parts
-    Folder: 3
-      Video: 23
+    Folder: 4
+      Video: 31
 
   -->
 
