@@ -139,103 +139,6 @@ NOTE HTML
       </li>
 
 <!-- ************************************************************************************************************************************************************************************************** -->
-
-      <li>
-        <div class="collapsible-header">
-          <h4 class="css">Flexbox</h4>
-        </div>
-        <div class="collapsible-body">
-          <p>Flexbox is a more efficient wat to lay out, align and distribute space among items in a container (even if their size is unknown)</p>
-          <h5>Flexbox Terminology</h5>
-          <p><strong>Flex Container</strong> - Whatever item or container that has the display flex property</p>
-          <p><strong>Flex Item(s)</strong> - The item(s) inside the flex container</p>
-          <p><strong>Main Axis</strong> - Defaults to "X" axis, but can be altered by the flex-direction</p>
-          <p><strong>Cross Axis</strong> - Defaults "Y" axis, but can be altered by the flex-direction</p>
-          <hr>
-          <hr>
-          <h5>Common Flexbox Properties</h5>
-          <p><strong>display: flex;</strong> - must be initiated on the container to use flexbox</p>
-          <hr>
-          <p><strong>Container Properties</strong></p>
-          <p><strong>flex-direction: row | row-reverse | column | column-reverse;</strong> - specifies how items are placed in the flex container, defining the main axis and its direction</p>
-          <p><strong>flex-wrap: nowrap | wrap | wrap-reverse;</strong> - specifies whether items are forced into a single line OR can be wrapped into multiple lines</p>
-          <p><strong>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</strong> - defines how space is distributed between items in the flex container (along the main axis) - does not change the order, just moves the flex items</p>
-          <p><strong>align-items: flex-start | flex-end | center | baseline | stretch;</strong> - defines how space is distributed between itmes in the flex container (along the cross axis) - refers to the alignment of indivual lines</p>
-          <p><strong>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</strong> - defines how space is distributed <em>between rows</em> in the flex container (along the cross axis) - refers to the alignment of the whole multiline structure</p>
-          <hr>
-          <p><strong>Flex Item Properties</strong></p>
-          <p><strong>order: [integer]; /* default is 0 */</strong> - specifies the order used to lay out items in their flex container (each flex item defaults to order: 0)</p>
-          <p><strong>flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]</strong> - defines how a flex item will grow or shrink to fit the available space in a container (shorthand property)</p>
-          <p><strong>flex-basis: [length] | auto; /* default auto */</strong> - sort of like width, but not - specifies the ideal size of a flex item BEFORE it's placed into a flex container</p>
-          <p><strong>flex-grow: [number]; /* default 0 */</strong> - dictates how the unused space should be spread amongst flex items</p>
-          <p><strong>flex-shrink: [number]; /* default 1 */</strong> - dictates how items should shrink when there isn't enough space in the container</p>
-          <p><strong>align-self: auto | flex-start | flex-end | center | baseline | stretch;</strong> - allows you to override align-items on individual flex items</p>
-          <hr><hr><hr>
-          <div class="flex-nav">
-            <a href=""><i class="fa fa-home"></i>Home</a>
-            <a href=""><i class="fa fa-question"></i>About</a>
-            <a href=""><i class="fa fa-phone"></i>Contact</a>
-            <a href=""><i class="fa fa-paw"></i>Dogs</a>
-          </div>
-          <hr>
-          <div class="holy-grail-container">
-            <div class="holy-header">
-              <a href="" class="holy-link">NAV LEFT</a>
-              <a href="" class="holy-link">NAV RIGHT</a>
-            </div>
-            <div class="holy-main">
-              <div class="holy-article">MAIN CONTENT</div>
-              <div class="holy-nav">SIDE NAV</div>
-              <div class="holy-aside">ASIDE</div>
-            </div>
-            <div class="holy-footer">FOOTER</div>
-          </div>
-          <hr>
-          <div class="flex-widget">
-            <div class="widget-box">
-              <h6>Rick and Morty the Game review: a fun ramp blah blah...</h6>
-            </div>
-            <div class="widget-box widget-middle">
-              <h6>Lord of the Rings Seventeen million review: a fun ramp blah blah...</h6>
-            </div>
-            <div class="widget-box">
-              <h6>Game of Thrones the game review: a fun ramp blah blah...</h6>
-            </div>
-          </div>
-          <hr>
-          <div class="flex-container">
-            <div class="box box-1">1</div>
-            <div class="box box-2">2</div>
-            <div class="box box-3">3</div>
-            <div class="box box-4">4</div>
-            <div class="box box-5">5</div>
-            <div class="box box-6">6</div>
-            <div class="box box-7">7</div>
-            <div class="box box-8">8</div>
-            <div class="box box-9">9</div>
-          </div>
-          <hr>
-          <div class="flex-ex1">
-            <div class="sidebar">
-              <div class="section">
-                <div class="item">Message</div>
-                <div class="item">Friends</div>
-                <div class="item">User Profile</div>
-              </div>
-              <div class="section">
-                <div class="item">Setting</div>
-                <div class="item">Questions?</div>
-              </div>
-            </div>
-          </div>
-          <hr><hr><hr>
-          <h5>
-            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
-              Flexbox Guide
-            </a>
-          </h5>
-        </div>
-      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="html">HTML</h4>
@@ -386,6 +289,102 @@ NOTE HTML
 <!-- ********************************************
 NOTE CSS
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="css">Flexbox</h4>
+        </div>
+        <div class="collapsible-body">
+          <p>Flexbox is a more efficient wat to lay out, align and distribute space among items in a container (even if their size is unknown)</p>
+          <h5>Flexbox Terminology</h5>
+          <p><strong>Flex Container</strong> - Whatever item or container that has the display flex property</p>
+          <p><strong>Flex Item(s)</strong> - The item(s) inside the flex container</p>
+          <p><strong>Main Axis</strong> - Defaults to "X" axis, but can be altered by the flex-direction</p>
+          <p><strong>Cross Axis</strong> - Defaults "Y" axis, but can be altered by the flex-direction</p>
+          <hr>
+          <hr>
+          <h5>Common Flexbox Properties</h5>
+          <p><strong>display: flex;</strong> - must be initiated on the container to use flexbox</p>
+          <hr>
+          <p><strong>Container Properties</strong></p>
+          <p><strong>flex-direction: row | row-reverse | column | column-reverse;</strong> - specifies how items are placed in the flex container, defining the main axis and its direction</p>
+          <p><strong>flex-wrap: nowrap | wrap | wrap-reverse;</strong> - specifies whether items are forced into a single line OR can be wrapped into multiple lines</p>
+          <p><strong>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</strong> - defines how space is distributed between items in the flex container (along the main axis) - does not change the order, just moves the flex items</p>
+          <p><strong>align-items: flex-start | flex-end | center | baseline | stretch;</strong> - defines how space is distributed between itmes in the flex container (along the cross axis) - refers to the alignment of indivual lines</p>
+          <p><strong>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</strong> - defines how space is distributed <em>between rows</em> in the flex container (along the cross axis) - refers to the alignment of the whole multiline structure</p>
+          <hr>
+          <p><strong>Flex Item Properties</strong></p>
+          <p><strong>order: [integer]; /* default is 0 */</strong> - specifies the order used to lay out items in their flex container (each flex item defaults to order: 0)</p>
+          <p><strong>flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]</strong> - defines how a flex item will grow or shrink to fit the available space in a container (shorthand property)</p>
+          <p><strong>flex-basis: [length] | auto; /* default auto */</strong> - sort of like width, but not - specifies the ideal size of a flex item BEFORE it's placed into a flex container</p>
+          <p><strong>flex-grow: [number]; /* default 0 */</strong> - dictates how the unused space should be spread amongst flex items</p>
+          <p><strong>flex-shrink: [number]; /* default 1 */</strong> - dictates how items should shrink when there isn't enough space in the container</p>
+          <p><strong>align-self: auto | flex-start | flex-end | center | baseline | stretch;</strong> - allows you to override align-items on individual flex items</p>
+          <hr><hr><hr>
+          <div class="flex-nav">
+            <a href=""><i class="fa fa-home"></i>Home</a>
+            <a href=""><i class="fa fa-question"></i>About</a>
+            <a href=""><i class="fa fa-phone"></i>Contact</a>
+            <a href=""><i class="fa fa-paw"></i>Dogs</a>
+          </div>
+          <hr>
+          <div class="holy-grail-container">
+            <div class="holy-header">
+              <a href="" class="holy-link">NAV LEFT</a>
+              <a href="" class="holy-link">NAV RIGHT</a>
+            </div>
+            <div class="holy-main">
+              <div class="holy-article">MAIN CONTENT</div>
+              <div class="holy-nav">SIDE NAV</div>
+              <div class="holy-aside">ASIDE</div>
+            </div>
+            <div class="holy-footer">FOOTER</div>
+          </div>
+          <hr>
+          <div class="flex-widget">
+            <div class="widget-box">
+              <h6>Rick and Morty the Game review: a fun ramp blah blah...</h6>
+            </div>
+            <div class="widget-box widget-middle">
+              <h6>Lord of the Rings Seventeen million review: a fun ramp blah blah...</h6>
+            </div>
+            <div class="widget-box">
+              <h6>Game of Thrones the game review: a fun ramp blah blah...</h6>
+            </div>
+          </div>
+          <hr>
+          <div class="flex-container">
+            <div class="box box-1">1</div>
+            <div class="box box-2">2</div>
+            <div class="box box-3">3</div>
+            <div class="box box-4">4</div>
+            <div class="box box-5">5</div>
+            <div class="box box-6">6</div>
+            <div class="box box-7">7</div>
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+          </div>
+          <hr>
+          <div class="flex-ex1">
+            <div class="sidebar">
+              <div class="section">
+                <div class="item">Message</div>
+                <div class="item">Friends</div>
+                <div class="item">User Profile</div>
+              </div>
+              <div class="section">
+                <div class="item">Setting</div>
+                <div class="item">Questions?</div>
+              </div>
+            </div>
+          </div>
+          <hr><hr><hr>
+          <h5>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
+              Flexbox Guide
+            </a>
+          </h5>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="css">Keyframe Animations</h4>
