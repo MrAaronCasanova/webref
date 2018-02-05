@@ -108,7 +108,12 @@ NOTE HTML
           <p><strong>*Inheritance</strong> - one object gets access to the properties and methods of another object (Classical - whats currently best known and popular[tends to be verbose])(Prototypal - simple.flexible.extensible.easy to understand)</p>
           <p><strong>Protoype Chain</strong> - where we have access to a property or method amongst a sequence of objects that are connected via the proto type property</p>
           <p><strong>*Reflection</strong> - an object can look at itself, listing and changing its properites and methods</p>
-          <p><strong>*Function Constructor</strong> - a normal function that is used to construct objects (the 'this' variable points to the new empty object, and that object is returned from the function automatically)</p>
+          <p><strong>*Function Constructor</strong> - a normal function that is used to construct objects (the 'this' variable points to the new empty object, and that object is returned from the function automatically) - Capitalize Function Name</p>
+          <p><strong>Prototype</strong> - (assign your methods as such: Constructor.prototype = function(){} - this method will be available to every related constructor object) every function in JS has access to a prototype property (starts off as an empty object)  - used only by the <em>new</em> operator - the prototype property of all functions is where the prototype chain points for any objects created using the specific function constructor - good for saving memory space as the method only needs to be written once, rather than copied on all created objects</p>
+          <p><strong>Built-In Constructors</strong> - JS allows access to many built constructors such as String an Number which we can add methods to their prototype property for access throughout our project (not super recommended - for ex. sometimes methods wont function properly due to <en>type</en> errors when using ===)</p>
+          <p><strong>*Polyfill</strong> - code that adds a feature which the engine may lack</p>
+          <p><strong>Object.create()</strong> - method creates a new object with the specified prototype object and properties - RESEARCH MORE!!!</p>
+          <p><strong>*Syntatic Sugar</strong> - a different way to type something that doesn't change how it works under the hood (Constructor Function, Object.create(), 'new' ES6 Classes - all do the same basic thing)</p>
           <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
           <p><strong>Data Structure</strong> - Ways of storing data</p>
           <p>Can either take a function as an argument or they return another function</p>
@@ -2149,8 +2154,8 @@ app.get('/speak/:animal', function(req, res) {
   Video: 61
 
   JS Understanding the Weird Parts
-    Folder: 6
-      Video: 54
+    Folder: 7
+      Video: 61
 
   -->
 
