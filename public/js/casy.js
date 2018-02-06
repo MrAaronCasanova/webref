@@ -160,6 +160,25 @@ for (i = 0; i < mouseoverNout.length; i++) {
 }
 
 /* --------------------------------------------
+Greetr.js
+-------------------------------------------- */
+
+// let's use our object on the click of the login button
+$('#login').click(function () {
+
+  // create a new 'Greetr' object (let's pretend we know the  nmae  from the login)
+  var loginGrtr = G$('Aaron', 'Casanova');
+
+  // hide the login on the screen
+  $('#logindiv').hide();
+
+  // fire off an HTML greeting, passing the '#GreetrHTML'
+  // as the selector and the chosen language,
+  // and log the welcome as well
+  loginGrtr.setLang($('#lang').val()).HTMLGreeting('#GreetrHTML', true).log();
+});
+
+/* --------------------------------------------
 Delete This - Tutorial Project Exercise
 -------------------------------------------- */
 
