@@ -705,7 +705,7 @@ NOTE JAVASCRIPT
           <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a seperate variable environment through it's execution context</p>
           <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the exection for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
           <p><strong>Factory</strong> - a function that returns or makes other things for me</p>
-          <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument)</p>
+          <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument into another function then invoked by/within the other function)</p>
           <p><strong>*Function Currying</strong> - creating a copy of a function but with some preset parameters (useful in mathmatics)</p>
           <p><strong>*Inheritance</strong> - one object gets access to the properties and methods of another object (Classical - whats currently best known and popular[tends to be verbose])(Prototypal - simple.flexible.extensible.easy to understand)</p>
           <p><strong>Protoype Chain</strong> - where we have access to a property or method amongst a sequence of objects that are connected via the proto type property</p>
@@ -718,9 +718,12 @@ NOTE JAVASCRIPT
           <p><strong>*Syntatic Sugar</strong> - a different way to type something that doesn't change how it works under the hood (Constructor Function, Object.create(), 'new' ES6 Classes - all do the same basic thing)</p>
           <p><strong>*Method Chaining</strong> - calling one method after another, and each method affects the parent object (So obj.method1().method2() where both methods end up with a 'this' variable pointing at 'obj')</p>
           <p><strong>*Transpile</strong> - convert the syntax of one programming language, to another</p>
-          <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
+          <p><strong>Higher Order Functions</strong> - a function that accepts a callback as a parameter</p>
           <p><strong>Data Structure</strong> - Ways of storing data</p>
           <p>Can either take a function as an argument or they return another function</p>
+          <p><strong>The Stack (refering to the execution stack)</strong> - an ordered data structure - keeps track of function invocations - part of the JS runtime(you don't access it directly)</p>
+          <p><strong>Stack Frames (refering to the each execution context)</strong> - each has info on: the function that was invoked - the params that were passed to the function - current line number</p>
+          <p><strong>Heap</strong> - the area in memory where your data is stored</p>
           <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
           <ul class="vocab-lists">
             <li><strong>Falsy Values</strong></li>
@@ -744,6 +747,25 @@ NOTE JAVASCRIPT
               <li><em>.bind</em> - creates a copy of the function and lets you set up the 'this' keyword (also lets you set up default parameters/ aka permanent preset params)</li>
             </ul>
           </p>
+          <p><strong>forEach</strong> - function forEach(array, callback){} - function callback(curElement, currentIndex, array){}</p>
+          <pre>
+function forEach(arr, callback) {
+  for (var i = 0; i < arr.length; i++) {
+    callback(arr[i], i, arr);
+  }
+}
+          </pre>
+          <p><strong>findIndex</strong> - returns the index of the first element in an array for which the callback returns a truthy value. -1 is returned if the callback never returns a truthty value -- function findIndex(array, callback){} - function callback(curElement, curIndex, array){}</p>
+          <pre>
+function findIndex(arr, callback) {
+  for (var i = 0; i < arr.length; i++) {
+    if (callback(arr[i], i, arr)) {
+      return i;
+    }
+  }
+  return -1;
+}
+          </pre>
         </div>
       </li>
       <li>
@@ -2169,7 +2191,7 @@ app.get('/speak/:animal', function(req, res) {
 
   The Advance Web Development Bootcamp
   Folder: 06
-  Video: 61
+  Video: 66
 
   -->
 
