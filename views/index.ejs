@@ -42,122 +42,6 @@
 <!-- ********************************************
 NOTE HTML
 ********************************************* -->
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Greetr.js</h4>
-        </div>
-        <div class="collapsible-body">
-          <div id="logindiv">
-            <select name="" id="lang">
-              <option value="en">English</option>
-              <option value="es">Spanish</option>
-            </select>
-            <input type="button" value="Login" id="login">
-          </div>
-          <h5 id="GreetrHTML"></h5>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Javascript</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>Javascript Terms</h5>
-          <p><strong>*Syntax Parser</strong> - a program that reads your code and determines what it does and if its grammer is valid (translates your code into something the computer can understand) - the programs are known as compilers or interpreters</p>
-          <p><strong>*Lexical Environment</strong> - where something sits physically in the code you write (where you write something is important)</p>
-          <p><strong>*Execution Context</strong> - a wrapper to help manage the code that is running (multiple lexical environments can exist and the execution context manages which one is current running)</p>
-          <p><strong>Name/Value Pair</strong> - a name which maps to a unique value - the name may be defined more than once, but only can have one value in any given <em>context</em> (that value may be more name/value pairs)</p>
-          <p><strong>Object</strong> - a collection of name value pairs (can store properties[primitive key value pairs || more objects] and methods[functions])</p>
-          <p><strong>Global Execution Context</strong> - is the base execution context(accessible everywhere to everything in your code) - JS engine automatically creates a <em>Global Object</em>, a special variable called <em>'this'</em>, and a reference to the <em>Outer Environment</em></p>
-          <p><strong>Creation & Hoisting</strong> - there are two phases to an Execution Context - <strong>Creation Phase:</strong> creates the Global Object, the variable 'this', an Outer Environment reference, and sets up memory space for variables and function (Hoisting)[sets all variables to undefined while functions sit in memory in their entirety] - <strong>Execution Phase:</strong> runs your code line by line (takes the undefined vars and assigns the specified values)</p>
-          <p><strong>Undefined</strong> - a special JS value that means the value has not been set</p>
-          <p><strong>*Single Threaded</strong> - one command is executed at a time</p>
-          <p><strong>*Synchronous</strong> - one at a time (and in order...)</p>
-          <p><strong>*Asynchronous</strong> - more than one at a time</p>
-          <p><strong>*Invocation</strong> - running a function '()' - any time you invoke a function a new execution context is created and placed on the execution stack</p>
-          <p><strong>Execution Stack</strong> - when your code is running and hits an invocation, it stops running its current execution, creates a new execution context for which will pop off and return to the original execution once completed</p>
-          <p><strong>Event Queue</strong> - full of events/notifications of events (only when the execution stack is empty will the JS engine look at the event queue)</p>
-          <p><strong>*Variable Environments</strong> - where the variables live in memory (every execution context has its own variable environment/memory space)</p>
-          <p><strong>Outer Environment</strong> - refers to the location of where the invoked function sits lexically (if JS can't find the value of a var in its current execution context it will look in the outer environment)</p>
-          <p><strong>Scope</strong> - where a variable is available in your code (what execution context the variable is in)</p>
-          <p><strong>Scope Chain</strong> - the chain of outer environment references JS uses to find the value of a variable</p>
-          <p><strong>let</strong> - is a way to define a variable using block scoping</p>
-          <p><strong>*Dynamic Typing</strong> - you don't tell the engine what type of data a variable holds, it figures it out while your code is running</p>
-          <p><strong>*Primitive Type</strong> - a type of data that represents a single value (not an object)
-            <ul class="vocab-lists">
-              <li><em>undefined</em> (represents lack of existence [you shouldn't set a var to this])</li>
-              <li><em>null</em> (represents lack of existence [you can set a variable to this])</li>
-              <li><em>string</em> (a sequence of characters | '' and "" can be used)</li>
-              <li><em>boolean</em> (true or false)</li>
-              <li><em>number</em> (floating point number [always some decimals attached])</li>
-              <li><em>symbol</em></li>
-            </ul>
-          </p>
-          <p><strong>*Operator</strong> - a special function that is syntactically (written) differently (operators generally take two parameters and return one result)</p>
-          <p><strong>*Operator Precedence</strong> - which operator function gets called first</p>
-          <p><strong>*Associativity</strong> - what order operator functions get called in: left-to-right or right-to-left</p>
-          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type (converting a value from one type to another)</p>
-          <p><strong>*Namespace</strong> - a container for variables and functions (typically to keep variables and functions with the same name separate)</p>
-          <p><strong>JSON</strong> - JavaScript Object Notation (inspired by JS object literal syntax) - used mainly to send data - properties (both names&values) must be wrapped in quotes
-            <ul>
-              <li><em>Built in JS methods to use with JSON</em></li>
-              <li><em>JSON.stringify(object)</em> - take JS object and makes it valid JSON</li>
-              <li><em>JSON.parse('json')</em> takes JSON and makes it a JS object</li>
-            </ul>
-          </p>
-          <p><strong>*First Class Functions</strong> - everything you can do with other types you can do with functions (assign them to variables, pass them around(as arguments), create them on the fly)</p>
-          <p><strong>Function (in JS)</strong> - special type of object - can attach <em>primitives</em>(name value pairs), <em>objects</em>, and other <em>functions</em> - special properties include: it's <em>NAME</em> (optional, can be anonymous), and <em>CODE</em> (holds the actual lines of code you wrote [<em>invocable with ()</em>])</p>
-          <p><strong>*Arguments</strong> - the parameters you pass to a funtion (JS gives you a keyword of the same name which contains them all [the value(s) are presented in what looks like an array (array like)])</p>
-          <p><strong>*(function) Expression</strong> - a unit of code that results(returns) in a value (doesn't have to save to a variable)</p>
-          <p><strong>*(function) Statement</strong> - declares a function (saved for later use, and will be executed later, when it is invoked (called)) [statements don't <em>return</em> a value by default, you must state that]</p>
-          <p><strong>By Value</strong> - when setting the value of one primitive(a=3) to another(b=a), the JS engine will create a copy of the value of 'a' for 'b' and place it in a new/seperate location memory - all primitives interact by value</p>
-          <p><strong>By Reference</strong> - when you have an object(a={greet:'hello'}) and set (b=a), the JS engine will create 'b' with a reference to the location in memory where the values of 'a' are stored['a' and 'b' have the same value as they point to the same location in memory] - all objects interact by reference when setting them equal to each other or passing to a function</p>
-          <p><strong>*Mutate</strong> - to change something</p>
-          <p><strong>*Immutable</strong> - can't be changed</p>
-          <p><strong>*Whitespace</strong> - invisible characters that create literal 'space' in your written code (carriage returns, tabs, and spaces)</p>
-          <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a seperate variable environment through it's execution context</p>
-          <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the exection for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
-          <p><strong>Factory</strong> - a function that returns or makes other things for me</p>
-          <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument)</p>
-          <p><strong>*Function Currying</strong> - creating a copy of a function but with some preset parameters (useful in mathmatics)</p>
-          <p><strong>*Inheritance</strong> - one object gets access to the properties and methods of another object (Classical - whats currently best known and popular[tends to be verbose])(Prototypal - simple.flexible.extensible.easy to understand)</p>
-          <p><strong>Protoype Chain</strong> - where we have access to a property or method amongst a sequence of objects that are connected via the proto type property</p>
-          <p><strong>*Reflection</strong> - an object can look at itself, listing and changing its properites and methods</p>
-          <p><strong>*Function Constructor</strong> - a normal function that is used to construct objects (the 'this' variable points to the new empty object, and that object is returned from the function automatically) - Capitalize Function Name</p>
-          <p><strong>Prototype</strong> - (assign your methods as such: Constructor.prototype = function(){} - this method will be available to every related constructor object) every function in JS has access to a prototype property (starts off as an empty object)  - used only by the <em>new</em> operator - the prototype property of all functions is where the prototype chain points for any objects created using the specific function constructor - good for saving memory space as the method only needs to be written once, rather than copied on all created objects</p>
-          <p><strong>Built-In Constructors</strong> - JS allows access to many built constructors such as String an Number which we can add methods to their prototype property for access throughout our project (not super recommended - for ex. sometimes methods wont function properly due to <en>type</en> errors when using ===)</p>
-          <p><strong>*Polyfill</strong> - code that adds a feature which the engine may lack</p>
-          <p><strong>Object.create()</strong> - method creates a new object with the specified prototype object and properties - RESEARCH MORE!!!</p>
-          <p><strong>*Syntatic Sugar</strong> - a different way to type something that doesn't change how it works under the hood (Constructor Function, Object.create(), 'new' ES6 Classes - all do the same basic thing)</p>
-          <p><strong>*Method Chaining</strong> - calling one method after another, and each method affects the parent object (So obj.method1().method2() where both methods end up with a 'this' variable pointing at 'obj')</p>
-          <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
-          <p><strong>Data Structure</strong> - Ways of storing data</p>
-          <p>Can either take a function as an argument or they return another function</p>
-          <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
-          <ul class="vocab-lists">
-            <li><strong>Falsy Values</strong></li>
-            <li>false</li>
-            <li>' ' (empty string)</li>
-            <li>null</li>
-            <li>undefined</li>
-            <li>NaN</li>
-            <li><strong>Everything Else Is Truthy</strong></li>
-          </ul>
-          <hr>
-          <hr>
-          <h5>JS Concepts</h5>
-          <hr>
-          <hr>
-          <p><strong>'this'</strong> - is determined by how a function is called (in most cases) <em>SEE THIS KEYWORD SECTION</em>
-            <ul>
-              <li><em>Function methods for assigning the 'this' keyword</em></li>
-              <li><em>.call</em> - invokes the function and lets you set up the 'this' keyword (pass additional params seperated by commas)</li>
-              <li><em>.apply</em> - invokes the function and lets you set up the 'this' keyword (pass additional params inside an array)</li>
-              <li><em>.bind</em> - creates a copy of the function and lets you set up the 'this' keyword (also lets you set up default parameters/ aka permanent preset params)</li>
-            </ul>
-          </p>
-        </div>
-      </li>
 
 <!-- ************************************************************************************************************************************************************************************************** -->
       <li>
@@ -745,6 +629,123 @@ selector {
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Greetr.js</h4>
+        </div>
+        <div class="collapsible-body">
+          <div id="logindiv">
+            <select name="" id="lang">
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+            </select>
+            <input type="button" value="Login" id="login">
+          </div>
+          <h5 id="GreetrHTML"></h5>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Javascript</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Javascript Terms</h5>
+          <p><strong>*Syntax Parser</strong> - a program that reads your code and determines what it does and if its grammer is valid (translates your code into something the computer can understand) - the programs are known as compilers or interpreters</p>
+          <p><strong>*Lexical Environment</strong> - where something sits physically in the code you write (where you write something is important)</p>
+          <p><strong>*Execution Context</strong> - a wrapper to help manage the code that is running (multiple lexical environments can exist and the execution context manages which one is current running)</p>
+          <p><strong>Name/Value Pair</strong> - a name which maps to a unique value - the name may be defined more than once, but only can have one value in any given <em>context</em> (that value may be more name/value pairs)</p>
+          <p><strong>Object</strong> - a collection of name value pairs (can store properties[primitive key value pairs || more objects] and methods[functions])</p>
+          <p><strong>Global Execution Context</strong> - is the base execution context(accessible everywhere to everything in your code) - JS engine automatically creates a <em>Global Object</em>, a special variable called <em>'this'</em>, and a reference to the <em>Outer Environment</em></p>
+          <p><strong>Creation & Hoisting</strong> - there are two phases to an Execution Context - <strong>Creation Phase:</strong> creates the Global Object, the variable 'this', an Outer Environment reference, and sets up memory space for variables and function (Hoisting)[sets all variables to undefined while functions sit in memory in their entirety] - <strong>Execution Phase:</strong> runs your code line by line (takes the undefined vars and assigns the specified values)</p>
+          <p><strong>Undefined</strong> - a special JS value that means the value has not been set</p>
+          <p><strong>*Single Threaded</strong> - one command is executed at a time</p>
+          <p><strong>*Synchronous</strong> - one at a time (and in order...)</p>
+          <p><strong>*Asynchronous</strong> - more than one at a time</p>
+          <p><strong>*Invocation</strong> - running a function '()' - any time you invoke a function a new execution context is created and placed on the execution stack</p>
+          <p><strong>Execution Stack</strong> - when your code is running and hits an invocation, it stops running its current execution, creates a new execution context for which will pop off and return to the original execution once completed</p>
+          <p><strong>Event Queue</strong> - full of events/notifications of events (only when the execution stack is empty will the JS engine look at the event queue)</p>
+          <p><strong>*Variable Environments</strong> - where the variables live in memory (every execution context has its own variable environment/memory space)</p>
+          <p><strong>Outer Environment</strong> - refers to the location of where the invoked function sits lexically (if JS can't find the value of a var in its current execution context it will look in the outer environment)</p>
+          <p><strong>Scope</strong> - where a variable is available in your code (what execution context the variable is in)</p>
+          <p><strong>Scope Chain</strong> - the chain of outer environment references JS uses to find the value of a variable</p>
+          <p><strong>let</strong> - is a way to define a variable using block scoping</p>
+          <p><strong>*Dynamic Typing</strong> - you don't tell the engine what type of data a variable holds, it figures it out while your code is running</p>
+          <p><strong>*Primitive Type</strong> - a type of data that represents a single value (not an object)
+            <ul class="vocab-lists">
+              <li><em>undefined</em> (represents lack of existence [you shouldn't set a var to this])</li>
+              <li><em>null</em> (represents lack of existence [you can set a variable to this])</li>
+              <li><em>string</em> (a sequence of characters | '' and "" can be used)</li>
+              <li><em>boolean</em> (true or false)</li>
+              <li><em>number</em> (floating point number [always some decimals attached])</li>
+              <li><em>symbol</em></li>
+            </ul>
+          </p>
+          <p><strong>*Operator</strong> - a special function that is syntactically (written) differently (operators generally take two parameters and return one result)</p>
+          <p><strong>*Operator Precedence</strong> - which operator function gets called first</p>
+          <p><strong>*Associativity</strong> - what order operator functions get called in: left-to-right or right-to-left</p>
+          <p><strong>Coercion</strong> - When the javascript engine is given multiple values of different <em>types</em> it attempts to convert them to the same primitive type (converting a value from one type to another)</p>
+          <p><strong>*Namespace</strong> - a container for variables and functions (typically to keep variables and functions with the same name separate)</p>
+          <p><strong>JSON</strong> - JavaScript Object Notation (inspired by JS object literal syntax) - used mainly to send data - properties (both names&values) must be wrapped in quotes
+            <ul>
+              <li><em>Built in JS methods to use with JSON</em></li>
+              <li><em>JSON.stringify(object)</em> - take JS object and makes it valid JSON</li>
+              <li><em>JSON.parse('json')</em> takes JSON and makes it a JS object</li>
+            </ul>
+          </p>
+          <p><strong>*First Class Functions</strong> - everything you can do with other types you can do with functions (assign them to variables, pass them around(as arguments), create them on the fly)</p>
+          <p><strong>Function (in JS)</strong> - special type of object - can attach <em>primitives</em>(name value pairs), <em>objects</em>, and other <em>functions</em> - special properties include: it's <em>NAME</em> (optional, can be anonymous), and <em>CODE</em> (holds the actual lines of code you wrote [<em>invocable with ()</em>])</p>
+          <p><strong>*Arguments</strong> - the parameters you pass to a funtion (JS gives you a keyword of the same name which contains them all [the value(s) are presented in what looks like an array (array like)])</p>
+          <p><strong>*(function) Expression</strong> - a unit of code that results(returns) in a value (doesn't have to save to a variable)</p>
+          <p><strong>*(function) Statement</strong> - declares a function (saved for later use, and will be executed later, when it is invoked (called)) [statements don't <em>return</em> a value by default, you must state that]</p>
+          <p><strong>By Value</strong> - when setting the value of one primitive(a=3) to another(b=a), the JS engine will create a copy of the value of 'a' for 'b' and place it in a new/seperate location memory - all primitives interact by value</p>
+          <p><strong>By Reference</strong> - when you have an object(a={greet:'hello'}) and set (b=a), the JS engine will create 'b' with a reference to the location in memory where the values of 'a' are stored['a' and 'b' have the same value as they point to the same location in memory] - all objects interact by reference when setting them equal to each other or passing to a function</p>
+          <p><strong>*Mutate</strong> - to change something</p>
+          <p><strong>*Immutable</strong> - can't be changed</p>
+          <p><strong>*Whitespace</strong> - invisible characters that create literal 'space' in your written code (carriage returns, tabs, and spaces)</p>
+          <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a seperate variable environment through it's execution context</p>
+          <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the exection for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
+          <p><strong>Factory</strong> - a function that returns or makes other things for me</p>
+          <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument)</p>
+          <p><strong>*Function Currying</strong> - creating a copy of a function but with some preset parameters (useful in mathmatics)</p>
+          <p><strong>*Inheritance</strong> - one object gets access to the properties and methods of another object (Classical - whats currently best known and popular[tends to be verbose])(Prototypal - simple.flexible.extensible.easy to understand)</p>
+          <p><strong>Protoype Chain</strong> - where we have access to a property or method amongst a sequence of objects that are connected via the proto type property</p>
+          <p><strong>*Reflection</strong> - an object can look at itself, listing and changing its properites and methods</p>
+          <p><strong>*Function Constructor</strong> - a normal function that is used to construct objects (the 'this' variable points to the new empty object, and that object is returned from the function automatically) - Capitalize Function Name</p>
+          <p><strong>Prototype</strong> - (assign your methods as such: Constructor.prototype = function(){} - this method will be available to every related constructor object) every function in JS has access to a prototype property (starts off as an empty object)  - used only by the <em>new</em> operator - the prototype property of all functions is where the prototype chain points for any objects created using the specific function constructor - good for saving memory space as the method only needs to be written once, rather than copied on all created objects</p>
+          <p><strong>Built-In Constructors</strong> - JS allows access to many built constructors such as String an Number which we can add methods to their prototype property for access throughout our project (not super recommended - for ex. sometimes methods wont function properly due to <en>type</en> errors when using ===)</p>
+          <p><strong>*Polyfill</strong> - code that adds a feature which the engine may lack</p>
+          <p><strong>Object.create()</strong> - method creates a new object with the specified prototype object and properties - RESEARCH MORE!!!</p>
+          <p><strong>*Syntatic Sugar</strong> - a different way to type something that doesn't change how it works under the hood (Constructor Function, Object.create(), 'new' ES6 Classes - all do the same basic thing)</p>
+          <p><strong>*Method Chaining</strong> - calling one method after another, and each method affects the parent object (So obj.method1().method2() where both methods end up with a 'this' variable pointing at 'obj')</p>
+          <p><strong>*Transpile</strong> - convert the syntax of one programming language, to another</p>
+          <p><strong>Higher Order Functions</strong> - We can pass functions to other functions</p>
+          <p><strong>Data Structure</strong> - Ways of storing data</p>
+          <p>Can either take a function as an argument or they return another function</p>
+          <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
+          <ul class="vocab-lists">
+            <li><strong>Falsy Values</strong></li>
+            <li>false</li>
+            <li>' ' (empty string)</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>NaN</li>
+            <li><strong>Everything Else Is Truthy</strong></li>
+          </ul>
+          <hr>
+          <hr>
+          <h5>JS Concepts</h5>
+          <hr>
+          <hr>
+          <p><strong>'this'</strong> - is determined by how a function is called (in most cases) <em>SEE THIS KEYWORD SECTION</em>
+            <ul>
+              <li><em>Function methods for assigning the 'this' keyword</em></li>
+              <li><em>.call</em> - invokes the function and lets you set up the 'this' keyword (pass additional params seperated by commas)</li>
+              <li><em>.apply</em> - invokes the function and lets you set up the 'this' keyword (pass additional params inside an array)</li>
+              <li><em>.bind</em> - creates a copy of the function and lets you set up the 'this' keyword (also lets you set up default parameters/ aka permanent preset params)</li>
+            </ul>
+          </p>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">prototype & __proto__</h4>
@@ -2169,10 +2170,6 @@ app.get('/speak/:animal', function(req, res) {
   The Advance Web Development Bootcamp
   Folder: 06
   Video: 61
-
-  JS Understanding the Weird Parts
-    Folder: 9
-      Video: 68
 
   -->
 
