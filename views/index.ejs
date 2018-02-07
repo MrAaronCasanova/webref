@@ -310,10 +310,12 @@ NOTE CSS
           <hr>
           <h5>Shorthand Animations</h5>
           <pre>
-      animation: name duration
-      timing-function delay
-      iteration-count direction
-      fill-mode play-state;
+            <code>
+              animation: name duration
+              timing-function delay
+              iteration-count direction
+              fill-mode play-state;
+            </code>
           </pre>
           <hr>
           <h5>Loader Icon</h5>
@@ -474,9 +476,11 @@ NOTE CSS
           <p><strong>transition-delay</strong> - how long to wait before starting the transition</p>
           <p><strong>transition shorthand</strong> - define everything in one line</p>
           <pre>
-.example {
-  transition: property duration timing-function delay;
-}
+            <code>
+              .example {
+                transition: property duration timing-function delay;
+              }
+            </code>
           </pre>
           <hr>
           <h5>Best Performing Transition Properties</h5>
@@ -561,66 +565,84 @@ NOTE CSS
           <hr>
           <p><strong>Element</strong> - Use tag names to select elements on a page</p>
           <pre>
-h1 {
-  font-size: 25px;
-}
+            <code>
+              h1 {
+                font-size: 25px;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>Class</strong> - Can be applied to multiple elements on page</p>
           <pre>
-.completed {
-  text-decoration: line-through;
-}
+            <code>
+              .completed {
+                text-decoration: line-through;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>ID</strong> - Applies to one specific element on page</p>
           <pre>
-#special {
-  background-color: #078881;
-}
+            <code>
+              #special {
+                background-color: #078881;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>Asterisk</strong> - Applies to every element on the page</p>
           <pre>
-* {
-  margin: 0;
-  padding: 0;
-}
+            <code>
+              * {
+                margin: 0;
+                padding: 0;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>Descendant Selector</strong> - Lets you select elements nested within elements (chain together selectors with one space between each)</p>
           <pre>
-li .class {
-  margin-right: 30px;
-}
+            <code>
+              li .class {
+                margin-right: 30px;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>Adjacent Selector</strong> - Lets you select element siblings that come immediately after another element (Examples shows only ul's after an h4 tag being selected)</p>
           <pre>
-h4 + ul {
-  border: 4px solid #2178b0;
-}
+            <code>
+              h4 + ul {
+                border: 4px solid #2178b0;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>Attribute Selector</strong> - Lets you select elements from any specified attribute</p>
           <pre>
-input[type="checkbox"] {
-  border: 4px solid #2178b0;
-}
+            <code>
+              input[type="checkbox"] {
+                border: 4px solid #2178b0;
+              }
+            </code>
           </pre>
           <hr>
           <p><strong>nth-of-type</strong> - This selector takes the parameter even, odd, or a numeric value & lets you select those elements of the specified type (Example finds every 3rd ul on the page and styles it)</p>
           <pre>
-ul:nth-of-type(3) {
-  color: blue;
-}
+            <code>
+              ul:nth-of-type(3) {
+                color: blue;
+              }
+            </code>
           </pre>
           <hr>
           <p>This whole code snippet is refered to as a declaration</p>
           <pre>
-selector {
-  property: value;
-}
+            <code>
+              selector {
+                property: value;
+              }
+            </code>
           </pre>
         </div>
       </li>
@@ -760,22 +782,37 @@ NOTE JAVASCRIPT
           </p>
           <p><strong>forEach</strong> - function forEach(array, callback){} - function callback(curElement, currentIndex, array){}</p>
           <pre>
-function forEach(arr, callback) {
-  for (var i = 0; i < arr.length; i++) {
-    callback(arr[i], i, arr);
-  }
-}
+            <code>
+              function forEach(arr, callback) {
+                for (var i = 0; i < arr.length; i++) {
+                  callback(arr[i], i, arr);
+                }
+              }
+            </code>
           </pre>
           <p><strong>findIndex</strong> - returns the index of the first element in an array for which the callback returns a truthy value. -1 is returned if the callback never returns a truthty value -- function findIndex(array, callback){} - function callback(curElement, curIndex, array){}</p>
           <pre>
-function findIndex(arr, callback) {
-  for (var i = 0; i < arr.length; i++) {
-    if (callback(arr[i], i, arr)) {
-      return i;
-    }
-  }
-  return -1;
-}
+            <code>
+              function findIndex(arr, callback) {
+                for (var i = 0; i < arr.length; i++) {
+                  if (callback(arr[i], i, arr)) {
+                    return i;
+                  }
+                }
+                return -1;
+              }
+            </code>
+          </pre>
+          <p><strong>setTimeout</strong> - a function that asynchronously invokes a callback after a delay in milliseconds</p>
+          <pre>
+            <code>
+              // setTimeout usage
+              function callback() {
+                console.log('callback function');
+              }
+              var delay = 1000; // Delay is in ms
+              setTimeout(callback, delay);
+            </code>
           </pre>
         </div>
       </li>
@@ -790,48 +827,50 @@ function findIndex(arr, callback) {
           <p>To share properties and methods for objects created by a constructor function, place them in the prototype as it is the most efficient</p>
           <img class="responsive-img" src="./img/proto.png" alt="Prototype/__proto__ Diagram">
           <pre>
-      // this is the constructor function
-      function Person(name) {
-      this.name = name;
-      }
+            <code>
+              // this is the constructor function
+              function Person(name) {
+                this.name = name;
+              }
 
-      // this is an object created from the Person constructor
-      var casy = new Person('Aaron');
-      var nova = new Person('Casanova');
+              // this is an object created from the Person constructor
+              var casy = new Person('Aaron');
+              var nova = new Person('Casanova');
 
-      // since we used the new keyword, we have established
-      // a link between the object and the prototype property
-      // we can access that using __proto__
+              // since we used the new keyword, we have established
+              // a link between the object and the prototype property
+              // we can access that using __proto__
 
-      casy.__proto__ === Person.prototype; // true
-      nova.__proto__ === Person.prototype; // true
+              casy.__proto__ === Person.prototype; // true
+              nova.__proto__ === Person.prototype; // true
 
-      // the Person.prototype object also has a property
-      // called constructor which points back to the function
-      Person.prototype.constructor === Person; // true
+              // the Person.prototype object also has a property
+              // called constructor which points back to the function
+              Person.prototype.constructor === Person; // true
 
-      --------------------------------------------
+              --------------------------------------------
 
-      function Vehicle(make, model, year) {
-      this.make = make;
-      this.model = model;
-      this.year = year;
-      this.isRunning = false;
-      }
+              function Vehicle(make, model, year) {
+                this.make = make;
+                this.model = model;
+                this.year = year;
+                this.isRunning = false;
+              }
 
-      Vehicle.prototype.turnOn = function () {
-      return this.isRunning = true;
-      };
+              Vehicle.prototype.turnOn = function () {
+                return this.isRunning = true;
+              };
 
-      Vehicle.prototype.turnOff = function () {
-      return this.isRunning = false;
-      };
+              Vehicle.prototype.turnOff = function () {
+                return this.isRunning = false;
+              };
 
-      Vehicle.prototype.honk = function () {
-      if (this.isRunning) {
-      return 'beep';
-      }
-      };
+              Vehicle.prototype.honk = function () {
+                if (this.isRunning) {
+                  return 'beep';
+                }
+              };
+            </code>
           </pre>
         </div>
       </li>
@@ -852,63 +891,64 @@ function findIndex(arr, callback) {
             <li>Adds a property onto the empty object called '__proto__'(double underscore commonly called dunder || dunderProto), which links the prototype property on the constructor function to the empty object</li>
           </ol>
           <pre>
-      // Capitalize function name
+            <code>
+              // Capitalize function name
 
-      function House(bedrooms, bathrooms, numSqft) {
-      this.bedrooms = bedrooms;
-      this.bathrooms = bathrooms;
-      this.numSqft = numSqft;
-      }
+              function House(bedrooms, bathrooms, numSqft) {
+                this.bedrooms = bedrooms;
+                this.bathrooms = bathrooms;
+                this.numSqft = numSqft;
+              }
 
-      var firstHouse = new House(2, 2, 1200);
-      console.log(firstHouse.bedrooms); // 2
-      console.log(firstHouse.bathrooms); // 2
-      console.log(firstHouse.numSqft); // 1200
+              var firstHouse = new House(2, 2, 1200);
+              console.log(firstHouse.bedrooms); // 2
+              console.log(firstHouse.bathrooms); // 2
+              console.log(firstHouse.numSqft); // 1200
 
-      ---------------------------------------------------
+              ---------------------------------------------------
 
-      function Dog(name, age) {
-      this.name = name;
-      this.age = age;
-      this.bark = function () {
-      console.log(this.name + ' just barked!');
-      };
-      }
+              function Dog(name, age) {
+                this.name = name;
+                this.age = age;
+                this.bark = function () {
+                  console.log(this.name + ' just barked!');
+                };
+              }
 
-      var moose = new Dog('Moose', 3);
+              var moose = new Dog('Moose', 3);
 
-      moose.bark(); // Moose just barked!
+              moose.bark(); // Moose just barked!
 
-      ---------------------------------------------------
+              ---------------------------------------------------
 
-      function Car(make, model, year) {
-      this.make = make;
-      this.model = model;
-      this.year = year;
+              function Car(make, model, year) {
+                this.make = make;
+                this.model = model;
+                this.year = year;
 
-      // we can also set properties on the keyword 'this'
-      // that are preset values
-      this.numWheels = 4;
-      }
+                // we can also set properties on the keyword 'this'
+                // that are preset values
+                this.numWheels = 4;
+              }
 
-      function Motorcycle(make, model, year) {
-      // using call
-      Car.call(this, make, model, year);
-      this.numWheels = 2;
-      }
+              function Motorcycle(make, model, year) {
+                // using call
+                Car.call(this, make, model, year);
+                this.numWheels = 2;
+              }
 
-      function Motorcycle(make, model, year) {
-      // using apply
-      Car.apply(this, [make, model, year]);
-      this.numWheels = 2;
-      }
+              function Motorcycle(make, model, year) {
+                // using apply
+                Car.apply(this, [make, model, year]);
+                this.numWheels = 2;
+              }
 
-      function Motocycle(make, model, year) {
-      // even better using apply with arguments
-      Car.apply(this, arguments);
-      this.numWheels = 2;
-      }
-
+              function Motocycle(make, model, year) {
+                // even better using apply with arguments
+                Car.apply(this, arguments);
+                this.numWheels = 2;
+              }
+            </code>
           </pre>
         </div>
       </li>
@@ -952,84 +992,86 @@ function findIndex(arr, callback) {
             </tbody>
           </table>
           <pre>
-      var person = {
-      firstName: 'Aaron',
-      sayHi: function () {
-      return 'Hi ' + this.firstname;
-      },
+            <code>
+              var person = {
+                firstName: 'Aaron',
+                sayHi: function () {
+                  return 'Hi ' + this.firstname;
+                },
 
-      determineContext: function () {
-      return this === person;
-      },
+                determineContext: function () {
+                  return this === person;
+                },
 
-      dog: {
-      sayHello: function () {
-      return 'Hello ' + this.firstName;
-      },
+                dog: {
+                  sayHello: function () {
+                    return 'Hello ' + this.firstName;
+                  },
 
-      determineContext: function () {
-      return this === person;
-      },
-      },
+                  determineContext: function () {
+                    return this === person;
+                  },
+                },
 
-      addNumbers: function (a, b, c, d) {
-      return this.firstName + ' just calculated ' + (a + b + c + d);
-      },
+                addNumbers: function (a, b, c, d) {
+                  return this.firstName + ' just calculated ' + (a + b + c + d);
+                },
 
-      sayHowdy: function () {
-      setTimeout(function () {
-      console.log('Howdy ' + this.firstName);
-      }, 1000);
-      },
+                sayHowdy: function () {
+                  setTimeout(function () {
+                    console.log('Howdy ' + this.firstName);
+                  }, 1000);
+                },
 
-      sayBonjour: function () {
-      setTimeout(function () {
-      console.log('Bonjour ' + this.firstName);
-      }.bind(this), 1000);
-      },
-      };
+                sayBonjour: function () {
+                  setTimeout(function () {
+                    console.log('Bonjour ' + this.firstName);
+                  }.bind(this), 1000);
+                },
+              };
 
-      var casanova = {
-      firstName: 'Casy',
-      };
+              var casanova = {
+                firstName: 'Casy',
+              };
 
-      var casyCalc = person.addNumbers.bind(casanova, 1, 2, 3, 4); // function() {}...
-      // does not invoke / returns function definition
+              var casyCalc = person.addNumbers.bind(casanova, 1, 2, 3, 4); // function() {}...
+              // does not invoke / returns function definition
 
-      // With bind - we do not need to know all the arguments up front
-      var casyCalc2 = person.addNumbers.bind(casanova, 1, 2);
+              // With bind - we do not need to know all the arguments up front
+              var casyCalc2 = person.addNumbers.bind(casanova, 1, 2);
 
-      function FullName(firstName, lastName) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      }
+              function FullName(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+              }
 
-      var casy = new FullName('Aaron', 'Casanova');
+              var casy = new FullName('Aaron', 'Casanova');
 
-      person.sayHi(); // 'Hi Aaron'
-      person.determineContext(); // true
+              person.sayHi(); // 'Hi Aaron'
+              person.determineContext(); // true
 
-      person.dog.sayHello.call(person); // 'Hello Aaron'
-      person.dog.determineContext.call(person); // true
-      // Notice when using the 'call' method we do NOT invoke sayHello or determineContext
-      // (the 'thisArg' can be any declared object in the file)
-      person.sayHi.call(casanova); // Hi Casy
-      person.sayHi.apply(casanova); // Hi Casy
+              person.dog.sayHello.call(person); // 'Hello Aaron'
+              person.dog.determineContext.call(person); // true
+              // Notice when using the 'call' method we do NOT invoke sayHello or determineContext
+              // (the 'thisArg' can be any declared object in the file)
+              person.sayHi.call(casanova); // Hi Casy
+              person.sayHi.apply(casanova); // Hi Casy
 
-      person.addNumbers(1, 2, 3, 4); // Aaron just calculated 10
-      person.addNumbers.call(casanova, 1, 2, 3, 4); // Casy just calculated 10
-      person.addNumbers.apply(casanova, [1, 2, 3, 4]); // Casy just calculated 10
+              person.addNumbers(1, 2, 3, 4); // Aaron just calculated 10
+              person.addNumbers.call(casanova, 1, 2, 3, 4); // Casy just calculated 10
+              person.addNumbers.apply(casanova, [1, 2, 3, 4]); // Casy just calculated 10
 
-      casyCalc(); // Casy just calculated 10
-      casyCalc2(3, 4); // Casy just calculated 10
+              casyCalc(); // Casy just calculated 10
+              casyCalc2(3, 4); // Casy just calculated 10
 
-      // setTimeout is a method on the window object
-      person.sayHowdy(); // Howdy undefined (1000 milliseconds later)
-      // Use bind to set the correct context of 'this'
-      person.sayBonjour(); // Bonjour Aaron (1000 milliseconds later)
+              // setTimeout is a method on the window object
+              person.sayHowdy(); // Howdy undefined (1000 milliseconds later)
+              // Use bind to set the correct context of 'this'
+              person.sayBonjour(); // Bonjour Aaron (1000 milliseconds later)
 
-      casy.firstName; // 'Aaron'
-      casy.lastName;// 'Casanova'
+              casy.firstName; // 'Aaron'
+              casy.lastName;// 'Casanova'
+            </code>
           </pre>
         </div>
       </li>
@@ -1045,76 +1087,80 @@ function findIndex(arr, callback) {
           <p>We do NOT have to give the inner function a name - we can make it anonymous</p>
           <p>Closures only exist when an inner function makes use of variables defined from an outer function that has returned. If the inner function does not make use of any of the external variables all we have is a nested function</p>
           <pre>
-      function outer() {
-      var data = 'closures are ';
-      return function inner() {
-      var innerData = 'awesome';
-      return data + innerData;
-      };
-      }
+            <code>
+              function outer() {
+                var data = 'closures are ';
+                return function inner() {
+                  var innerData = 'awesome';
+                  return data + innerData;
+                };
+              }
 
-      outer()(); // closures are awesome
+              outer()(); // closures are awesome
 
-      function outer(a) {
-      return function inner(b) {
-      // the inner function is making use of the variable 'a'
-      // which was defined in an outer funtion called 'outer'
-      // and by the time this is called, that outer function
-      // has returned this function called 'inner' is a closure
-      return a + b;
-      };
-      }
+              function outer(a) {
+                return function inner(b) {
+                  // the inner function is making use of the variable 'a'
+                  // which was defined in an outer funtion called 'outer'
+                  // and by the time this is called, that outer function
+                  // has returned this function called 'inner' is a closure
+                  return a + b;
+                };
+              }
 
-      outer(5)(5); // 10
+              outer(5)(5); // 10
 
-      var storeOuter = outer(5);
-      storeOuter(10); //15
+              var storeOuter = outer(5);
+              storeOuter(10); //15
+            </code>
           </pre>
           <p><strong>Private Variables</strong> - variables that can not be modified externally</p>
           <pre>
-      function counter() {
-      var count = 0;z
-      return function () {
-      return ++count;
-      };
-      }
+            <code>
+              function counter() {
+                var count = 0;z
+                return function () {
+                  return ++count;
+                };
+              }
 
-      counter1 = counter();
-      counter1(); // 1
-      counter1(); // 2
+              counter1 = counter();
+              counter1(); // 1
+              counter1(); // 2
 
-      counter2 = counter();
-      counter2(); // 1
-      counter2(); // 2
+              counter2 = counter();
+              counter2(); // 1
+              counter2(); // 2
 
-      counter1(); // 3 this is not affected by counter2!
+              counter1(); // 3 this is not affected by counter2!
 
-      count; // ReferenceError: count is not defined - because it is private!
+              count; // ReferenceError: count is not defined - because it is private!
 
-      function classRoom() {
-      var instructors = ['Colt', 'Elie']; // private var
-      return {
-      getInstructors: function () {
-      return instructors;
-      },
+              function classRoom() {
+                var instructors = ['Colt', 'Elie']; // private var
+                return {
+                  getInstructors: function () {
+                    return instructors;
+                  },
 
-      addInstructor: function (instructor) {
-      instructors.push(instructor);
-      return instructors;
-      },
-      };
-      }
+                  addInstructor: function (instructor) {
+                    instructors.push(instructor);
+                    return instructors;
+                  },
+                };
+              }
 
-      course1 = classRoom();
-      course1.getInstructors(); // ['Colt', 'Elie']
-      course1.getInstructors('Ian'); // ['Colt', 'Elie', 'Ian']
-      course1.getInstructors(); // ['Colt', 'Elie', 'Ian']
+              course1 = classRoom();
+              course1.getInstructors(); // ['Colt', 'Elie']
+              course1.getInstructors('Ian'); // ['Colt', 'Elie', 'Ian']
+              course1.getInstructors(); // ['Colt', 'Elie', 'Ian']
 
-      course2 = classRoom();
-      course2.getInstructors(); // ['Colt', 'Elie'] - not affected by course1
+              course2 = classRoom();
+              course2.getInstructors(); // ['Colt', 'Elie'] - not affected by course1
 
-      // We also have NO access to the instructors variables
-      // which makes it private - no one can modify it...
+              // We also have NO access to the instructors variables
+              // which makes it private - no one can modify it...
+            </code>
           </pre>
         </div>
       </li>
@@ -1130,80 +1176,98 @@ function findIndex(arr, callback) {
         <h5>Manipulate Style</h5>
         <p><strong>.css()</strong> - method is jQuery's interface to styling</p>
         <pre id="special">
-$(selector)
+          <code>
+            $(selector)
 
-.css(property, value)
+            .css(property, value)
 
-// select elem with id "special" and give it a border
-$('#special').css('border', '2px solid red');
+            // select elem with id "special" and give it a border
+            $('#special').css('border', '2px solid red');
 
-// we can also pass in an object with stylesheet
-var styles = {
-  backgroundColor: 'pink',
-  fontWeight: 'bold'
-};
+            // we can also pass in an object with stylesheet
+            var styles = {
+              backgroundColor: 'pink',
+              fontWeight: 'bold'
+            };
 
-$('#special').css(styles);
+            $('#special').css(styles);
+          </code>
         </pre>
         <hr>
         <hr>
         <h5>Common jQuery Methods</h5>
         <p><strong>.text()</strong> - Get the combined text contents of each element in the set of matched elements, including their decendants, or set the text contents of the matched elements</p>
         <pre>
-$(selector)
+          <code>
+            $(selector)
 
-.text(newValue)
+            .text(newValue)
+          </code>
         </pre>
         <p><strong>.html()</strong> - Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element</p>
         <pre>
-$(selector)
+          <code>
+            $(selector)
 
-.html('&lt;p&gt;Example&lt;/p&gt;')
+            .html('&lt;p&gt;Example&lt;/p&gt;')
+          </code>
         </pre>
         <p><strong>.attr()</strong> - Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element</p>
         <pre>
-$(selector)
+          <code>
+            $(selector)
 
-.attr(attribute, value)
+            .attr(attribute, value)
+          </code>
         </pre>
         <p><strong>.val()</strong> -  Get the current value of the first element in the set of matched elements or set the value of every matched element</p>
         <pre>
-$(selector)
+          <code>
+            $(selector)
 
-.val(value)
+            .val(value)
+          </code>
         </pre>
         <p><strong>.addClass()</strong> -  Adds the specified class(es) to each element in the set of matched elements</p>
         <p><strong>.removeClass()</strong> -  Removes the specified class(es) to each element in the set of matched elements</p>
         <p><strong>.toggleClass()</strong> -  Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument</p>
         <pre>
-$(selector)
+          <code>
+            $(selector)
 
-.addClass('class-name')
-.removeClass('class-name')
-.toggleClass('class-name')
+            .addClass('class-name')
+            .removeClass('class-name')
+            .toggleClass('class-name')
+          </code>
         </pre>
         <hr>
         <hr>
         <h5>Common jQuery Event Methods</h5>
         <p><strong>click()</strong> - method is a quick and easy way to add a click listener to element(s)</p>
         <pre>
-// prints when item with id 'submit' is clicked
-$('#submit').click(function(){
-  console.log('Another Click');
-});
+          <code>
+            // prints when item with id 'submit' is clicked
+            $('#submit').click(function(){
+              console.log('Another Click');
+            });
+          </code>
         </pre>
         <p><strong>keypress()</strong> - method is a quick and easy way to add a keypress listener to element(s)</p>
         <pre>
-$('#target').keypress(function(){
-  console.log('Handler for .keypress() called');
-});
+          <code>
+            $('#target').keypress(function(){
+              console.log('Handler for .keypress() called');
+            });
+          </code>
         </pre>
         <p><strong>on()</strong> - works similarly to addEventListener. It lets you specify the type of event to listen for.</p>
         <pre>
-// prints when item with id 'submit' is clicked
-$('#submit').on('dblclick', function(){
-  console.log('Another Click');
-});
+          <code>
+            // prints when item with id 'submit' is clicked
+            $('#submit').on('dblclick', function(){
+              console.log('Another Click');
+            });
+          </code>
         </pre>
         <hr>
         <hr>
@@ -1212,12 +1276,14 @@ $('#submit').on('dblclick', function(){
         <p><strong>fadeIn()</strong> - Reveals the matched elements by fading them in from 0 transparency</p>
         <p><strong>fadeToggle()</strong> - Hide or Reveal the matched elements base on elements current state</p>
         <pre>
-$('#clickme').click(function(){
-  $('#book').fadeOut(1000, function(){
-    console.log('Fade Completed');
-    // this code will run after the fade time specified
-  });
-});
+          <code>
+            $('#clickme').click(function(){
+              $('#book').fadeOut(1000, function(){
+                console.log('Fade Completed');
+                // this code will run after the fade time specified
+              });
+            });
+          </code>
         </pre>
         <p><strong>slideOut(), slideIn(), slideToggle()</strong> - all function like the fade methods</p>
         </div>
@@ -1231,12 +1297,14 @@ $('#clickme').click(function(){
           <p><strong>The Process</strong> - Select an element then add an event listener</p>
           <p><strong>The Syntax</strong> - To add a listener, we use a method called <em>addEventListener</em></p>
           <pre>
-element.addEventListener(type, functionToCall);
+            <code>
+              element.addEventListener(type, functionToCall);
 
-var button = document.querySelector('button');
-button.addEventListener('click', function(){
-  console.log('SOMEONE CLICKED THE BUTTON');
-});
+              var button = document.querySelector('button');
+              button.addEventListener('click', function(){
+                console.log('SOMEONE CLICKED THE BUTTON');
+              });
+            </code>
           </pre>
           <hr>
           <hr>
@@ -1268,75 +1336,85 @@ button.addEventListener('click', function(){
           <h5>Common Properties</h5>
           <p><strong>style</strong> - The style property is one way to manipulate an element's style</p>
           <pre>
-var tag = document.querySelector('h1');
+            <code>
+              var tag = document.querySelector('h1');
 
-// manipulate
-tag.style.color = 'blue';
-tag.style.border = '1px solid red';
-tag.style.fontSize = '70px';
+              // manipulate
+              tag.style.color = 'blue';
+              tag.style.border = '1px solid red';
+              tag.style.fontSize = '70px';
 
-// Above is not DRY
-// * Define a class in CSS File * //
-.some-class {
-  color: blue;
-  border: 1px solid red;
-  font-size: 70px;
-}
-// Add the new class to the previously selected element
-tag.classList.add('some-class');
+              // Above is not DRY
+              // * Define a class in CSS File * //
+              .some-class {
+                color: blue;
+                border: 1px solid red;
+                font-size: 70px;
+              }
+              // Add the new class to the previously selected element
+              tag.classList.add('some-class');
+            </code>
           </pre>
           <hr>
           <p><strong>classList</strong> - A read-only list that contains the classes for a given element. It is not an array.</p>
           <pre>
-var tag = document.querySelector('h1');
+            <code>
+              var tag = document.querySelector('h1');
 
-// Add a class to the selected element
-tag.classList.add('another-class');
+              // Add a class to the selected element
+              tag.classList.add('another-class');
 
-// Remove a class
-tag.classList.remove('another-class');
+              // Remove a class
+              tag.classList.remove('another-class');
 
-// Toggle a class
-tag.classList.toggle('another-class');
+              // Toggle a class
+              tag.classList.toggle('another-class');
+            </code>
           </pre>
           <hr>
           <p><strong>textContent</strong> - Returns a string of all the text contained in a given element</p>
           <pre>
-var tag = document.querySelector('p');
+            <code>
+              var tag = document.querySelector('p');
 
-// Retrieve the textContent:
-tag.textContent // 'This is an awesome paragraph'
+              // Retrieve the textContent:
+              tag.textContent // 'This is an awesome paragraph'
 
-// alter the textContent:
-tag.textContent = 'blah blah blah';
+              // alter the textContent:
+              tag.textContent = 'blah blah blah';
+            </code>
           </pre>
           <hr>
           <p><strong>innerHTML</strong> - Similar to textContent, except it returns a string of all the HTML contained in a given element</p>
           <strong>Will also render HTML on your page if written appropriately</strong>
           <pre>
-var tag = document.querySelector('p');
+            <code>
+              var tag = document.querySelector('p');
 
-// Retrieve the textContent:
-tag.textContent // 'This is an awesome paragraph'
+              // Retrieve the textContent:
+              tag.textContent // 'This is an awesome paragraph'
 
-// alter the textContent:
-tag.textContent = 'blah blah blah';
+              // alter the textContent:
+              tag.textContent = 'blah blah blah';
+            </code>
           </pre>
           <hr>
           <hr>
           <p><strong>Attributes</strong> - You have the ability to manipulate the HTML attributes on the page</p>
           <p><h5>getAttribute & setAttribute</h5> - will read and write attributes like <em>src</em> or <em>href</em></p>
           <pre>
-var link = document.querySelector('a');
-link.getAttribute('href'); // "www.google.com"
-// Change href attribute
-link.setAttribute('href', 'www.dogs.com');
-// &lt;a href="www.dogs.com"&gt;I am a link&lt;/a&gt;
+            <code>
+              var link = document.querySelector('a');
+              link.getAttribute('href'); // "www.google.com"
+              // Change href attribute
+              link.setAttribute('href', 'www.dogs.com');
+              // &lt;a href="www.dogs.com"&gt;I am a link&lt;/a&gt;
 
-// To change the image src
-var img = document.querySelector('img');
-img.setAttribute('src', 'corgi.png');
-// &lt;img src="corgi.png"&gt;
+              // To change the image src
+              var img = document.querySelector('img');
+              img.setAttribute('src', 'corgi.png');
+              // &lt;img src="corgi.png"&gt;
+            </code>
           </pre>
         </div>
       </li>
@@ -1360,26 +1438,28 @@ img.setAttribute('src', 'corgi.png');
         <div class="collapsible-body">
           <p><strong>Objects</strong> - Stores multiple key value pairs</p>
           <pre>
-Three ways to initialize an empty Object
+            <code>
+              Three ways to initialize an empty Object
 
-// make an empty object and then add to it
-var person = {};
-person.name = 'Aaron Casanova';
-person.age = 25;
-person.city = 'Huntington Beach';
+              // make an empty object and then add to it
+              var person = {};
+              person.name = 'Aaron Casanova';
+              person.age = 25;
+              person.city = 'Huntington Beach';
 
-// all at once
-var person = {
-  name: 'Aaron Casanova',
-  age: 25,
-  city: 'Huntington Beach'
-};
+              // all at once
+              var person = {
+                name: 'Aaron Casanova',
+                age: 25,
+                city: 'Huntington Beach'
+              };
 
-// another way of initializing an Object
-var person = new Object();
-person.name = 'Aaron Casanova';
-person.age = 25;
-person.city = 'Huntington Beach';
+              // another way of initializing an Object
+              var person = new Object();
+              person.name = 'Aaron Casanova';
+              person.age = 25;
+              person.city = 'Huntington Beach';
+            </code>
           </pre>
         </div>
       </li>
@@ -1390,105 +1470,125 @@ person.city = 'Huntington Beach';
         <div class="collapsible-body">
           <p><strong>Array</strong> - Stores multiple values - Zero-based</p>
           <pre>
-Two ways to initialize an empty array
+            <code>
+              Two ways to initialize an empty array
 
-var friends = [];
-var friends = new Array(); // uncommon
+              var friends = [];
+              var friends = new Array(); // uncommon
+            </code>
           </pre>
           <p><strong>Nested Arrays</strong> - Example below</p>
           <pre>
-var friendGroups = [
-  ['Harry', 'Ron', 'Hermione'],
-  ['Malfoy', 'Crabbe', 'Goyle'],
-  ['Mooney', 'Wormtail', 'Prongs']
-];
+            <code>
+              var friendGroups = [
+              ['Harry', 'Ron', 'Hermione'],
+              ['Malfoy', 'Crabbe', 'Goyle'],
+              ['Mooney', 'Wormtail', 'Prongs']
+              ];
 
-console.log(friendsGroups[2][0]); // returns 'Mooney'
+              console.log(friendsGroups[2][0]); // returns 'Mooney'
+            </code>
           </pre>
           <p><strong>Array Iteration</strong> - Doing something to every item in an array</p>
           <h5>Commonly Used Array Methods</h5>
           <p><strong>Push</strong> - adds values to the end of an array</p>
           <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.push('green');
-// ['red', 'orange', 'yellow', 'green']
+            <code>
+              var colors = ['red', 'orange', 'yellow'];
+              colors.push('green');
+              // ['red', 'orange', 'yellow', 'green']
+            </code>
           </pre>
           <p><strong>Pop</strong> - removes the last item in an array</p>
           <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.pop();
-// ['red', 'orange']
+            <code>
+              var colors = ['red', 'orange', 'yellow'];
+              colors.pop();
+              // ['red', 'orange']
+            </code>
           </pre>
           <p><strong>Unshift</strong> - Use unshift to add to the front of an array</p>
           <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.unshift('infrared');
-// ['infrared', 'red', 'orange', 'yellow']
+            <code>
+              var colors = ['red', 'orange', 'yellow'];
+              colors.unshift('infrared');
+              // ['infrared', 'red', 'orange', 'yellow']
+            </code>
           </pre>
           <p><strong>Shift</strong> - Use shift to remove the first item in an array</p>
           <pre>
-var colors = ['red', 'orange', 'yellow'];
-colors.shift();
-// ['orange', 'yellow']
+            <code>
+              var colors = ['red', 'orange', 'yellow'];
+              colors.shift();
+              // ['orange', 'yellow']
 
-// shift() also returns the removed element
-var col = colors.shift(); // orange
+              // shift() also returns the removed element
+              var col = colors.shift(); // orange
+            </code>
           </pre>
           <p><strong>IndexOf</strong> - Use indexOf() to find the index of an item in an array</p>
           <pre>
-var friends = ['Charlie', 'Liz', 'David', 'Mattias', 'Liz'];
+            <code>
+              var friends = ['Charlie', 'Liz', 'David', 'Mattias', 'Liz'];
 
-// returns the first index at which a given element can be found
-friends.indexOf('David'); // 2
-friends.indexOf('Liz'); // 1, not 4
+              // returns the first index at which a given element can be found
+              friends.indexOf('David'); // 2
+              friends.indexOf('Liz'); // 1, not 4
 
-// returns -1 if the element is not present
-friends.indexOf('Hagrid'); // -2
+              // returns -1 if the element is not present
+              friends.indexOf('Hagrid'); // -2
+            </code>
           </pre>
           <p><strong>Slice</strong> - Use slice() to copy parts of an array</p>
           <pre>
-var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
-// use slice to copy the 2nd and 3d fruits
-// specify index where the new array starts(1) and ends(3)
-var citrus = fruits.slice(1, 3);
+            <code>
+              var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+              // use slice to copy the 2nd and 3d fruits
+              // specify index where the new array starts(1) and ends(3)
+              var citrus = fruits.slice(1, 3);
 
-// this does not alter the original fruits Array
-// citrus contains ['Orange', 'Lemon']
-fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+              // this does not alter the original fruits Array
+              // citrus contains ['Orange', 'Lemon']
+              fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
 
-// you can also use slice() to copy an entire Array
-var nums = [1,2,3];
-var otherNums = nums.slice();
-// both arrays are [1, 2, 3]
+              // you can also use slice() to copy an entire Array
+              var nums = [1,2,3];
+              var otherNums = nums.slice();
+              // both arrays are [1, 2, 3]
+            </code>
           </pre>
           <p><strong>forEach</strong> - JavaScript provides an easy built-in way of iterating over an array: ForEach</p>
           <p>Expected to have at least 1 of the 3 available arguments</p>
           <pre>
-// Structure
-arr.forEach(function callback(currentValue[, index[, array]]) {
-  // your iterator
-}[, thisArg]);
+            <code>
+              // Structure
+              arr.forEach(function callback(currentValue[, index[, array]]) {
+                // your iterator
+              }[, thisArg]);
 
-var colors = ['red', 'orange', 'yellow', 'green'];
+              var colors = ['red', 'orange', 'yellow', 'green'];
 
-colors.forEach(function(color){
-  // color is a placeholder, call it whatever you want
-  console.log(color);
-});
+              colors.forEach(function(color){
+                // color is a placeholder, call it whatever you want
+                console.log(color);
+              });
 
-// ****** Same Functionality ******
+              // ****** Same Functionality ******
 
-var colors = ['red', 'orange', 'yellow', 'green'];
+              var colors = ['red', 'orange', 'yellow', 'green'];
 
-for (i = 0; i &lt; colors.length; i++) {
-  console.log(colors[i]);
-}
+              for (i = 0; i &lt; colors.length; i++) {
+                console.log(colors[i]);
+              }
+            </code>
           </pre>
           <p><strong>splice</strong> - Cut and remove a specific number of elements out of an array</p>
           <pre>
-var index = prompt('Enter index of todo to delete');
-todos.splice(index, 1);
-// 1 specifies the number of values following after the index value that will be removed
+            <code>
+              var index = prompt('Enter index of todo to delete');
+              todos.splice(index, 1);
+              // 1 specifies the number of values following after the index value that will be removed
+            </code>
           </pre>
         </div>
       </li>
@@ -1499,46 +1599,56 @@ todos.splice(index, 1);
         <div class="collapsible-body">
           <p><strong>Functions</strong> - Let us wrap bits of code up into REUSABLE packages. They are one of the building blocks of JS.</p>
           <pre>
-function funName() {
-  console.log('Hello World');
-}
+            <code>
+              function funName() {
+                console.log('Hello World');
+              }
 
-funName(); &larr; runs the function
+              funName(); &larr; runs the function
+            </code>
           </pre>
           <p><strong>Arguments</strong> - Values that are passed into functions (Also refered to as parameters)</p>
           <p>Parameters are the names in the paranthesis</p>
           <p>Arguments are the actual values passed in</p>
           <pre>
-function square(val) {
-  console.log(val * val);
-}
+            <code>
+              function square(val) {
+                console.log(val * val);
+              }
 
-square(4); &larr; 16
+              square(4); &larr; 16
+            </code>
           </pre>
           <p>You can also specify multiple arguments</p>
           <pre>
-function area(length, width) {
-  console.log(length * width);
-}
+            <code>
+              function area(length, width) {
+                console.log(length * width);
+              }
 
-square(9,2); &larr; 18
+              square(9,2); &larr; 18
+            </code>
           </pre>
           <p><strong>Return</strong> - Passes through the results of a function (Output)</p>
           <p>Every function returns something and if not specified JS will return undefined</p>
           <p>Return keyword stops the execution of a function</p>
           <pre>
-function typeOne() {
-  return "I am a function declaration";
-}
+            <code>
+              function typeOne() {
+                return "I am a function declaration";
+              }
 
-typeOne(); &larr; runs the function
+              typeOne(); &larr; runs the function
+            </code>
           </pre>
           <pre>
-var typeTwo = function() {
-  return "I am a function expression";
-}
+            <code>
+              var typeTwo = function() {
+                return "I am a function expression";
+              }
 
-typeTwo(); &larr; runs the function
+              typeTwo(); &larr; runs the function
+            </code>
           </pre>
         </div>
       </li>
@@ -1698,7 +1808,9 @@ typeTwo(); &larr; runs the function
           <p>- Every string has access to a length property - Which will retrieve a <em>number</em> specifying the total amount of characters in the string</p>
           <p>- Access indivual characters of the string with [] and an index value</p>
           <pre>
-"hello"[4]    //"o"
+            <code>
+              "hello"[4]    //"o"
+            </code>
           </pre>
           <p><strong>Booleans</strong> - Ex. true, false</p>
           <p><strong>Null</strong> - Value we set in place that tells the javascript engine there is no value specified</p>
@@ -1714,9 +1826,9 @@ typeTwo(); &larr; runs the function
           <p>Variables can contain any of the 5 primative datatypes</p>
         </div>
       </li>
-<!-- ********************************************
-NOTE WORKFLOW
-********************************************* -->
+      <!-- ********************************************
+      NOTE WORKFLOW
+      ********************************************* -->
       <li>
         <div class="collapsible-header">
           <h4 class="workflow">Heroku</h4>
@@ -1793,42 +1905,46 @@ NOTE WORKFLOW
           <hr>
           <p><strong>Embedding Data</strong> - where you embed the Schema of one entity as an array into the Schema of another</p>
           <pre>
-      // POST - title, content
-      var postSchema = new mongoose.Schema({
-      title: String,
-      content: String,
-      });
-      var Post = mongoose.model('Post', postSchema);
+            <code>
+              // POST - title, content
+              var postSchema = new mongoose.Schema({
+                title: String,
+                content: String,
+              });
+              var Post = mongoose.model('Post', postSchema);
 
-      // USER - email, name
-      var userSchema = new mongoose.Schema({
-      email: String,
-      name: String,
-      posts: [postSchema],
-      });
-      var User = mongoose.model('User', userSchema);
+              // USER - email, name
+              var userSchema = new mongoose.Schema({
+                email: String,
+                name: String,
+                posts: [postSchema],
+              });
+              var User = mongoose.model('User', userSchema);
+            </code>
           </pre>
           <p><strong>Referencing Data</strong> - where you embed an array of IDs into a Schema that reference other entities by their ID</p>
           <pre>
-      // POST - title, content
-      var postSchema = new mongoose.Schema({
-      title: String,
-      content: String,
-      });
-      var Post = mongoose.model('Post', postSchema);
+            <code>
+              // POST - title, content
+              var postSchema = new mongoose.Schema({
+                title: String,
+                content: String,
+              });
+              var Post = mongoose.model('Post', postSchema);
 
-      // USER - email, name
-      var userSchema = new mongoose.Schema({
-      email: String,
-      name: String,
-      posts: [
-      {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Post',
-      },
-      ],
-      }, { usePushEach: true });
-      var User = mongoose.model('User', userSchema);
+              // USER - email, name
+              var userSchema = new mongoose.Schema({
+                email: String,
+                name: String,
+                posts: [
+                  {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'Post',
+                  },
+                ],
+              }, { usePushEach: true });
+              var User = mongoose.model('User', userSchema);
+            </code>
           </pre>
         </div>
       </li>
@@ -1924,21 +2040,25 @@ NOTE WORKFLOW
           <p><strong>CRUD(not a command more of an ideology)</strong> - stands for: Create - Read - Update - Delete(Destroy)</p>
           <p><strong>insert()</strong> - passes the specified data into a given collection</p>
           <pre>
-      // db refers to the current database your in
-      // .dogs is the collection (it will create
-      // the dogs collection if it doesn't already exist)
-      // .insert() is adding info to the dogs collection
+            <code>
+              // db refers to the current database your in
+              // .dogs is the collection (it will create
+              // the dogs collection if it doesn't already exist)
+              // .insert() is adding info to the dogs collection
 
-      db.dogs.insert({ name: 'Moose', breed: 'Pug' })
+              db.dogs.insert({ name: 'Moose', breed: 'Pug' })
+            </code>
           </pre>
           <p><strong>find()</strong> - allows you to retrieve information out of a collection - you can narrow down your results by specifying info inside the parenthesis</p>
           <p><strong>update()</strong> - takes two params: the selector and the update</p>
           <pre>
-      // $set: - allows us to update and add new info
-      // without overwritting everything else stored
-      // in the selected item
-      db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
-    </pre>
+            <code>
+              // $set: - allows us to update and add new info
+              // without overwritting everything else stored
+              // in the selected item
+              db.dogs.update({name: 'Moose'}, {$set: {breed: 'Monster', color: 'Fawn'}})
+            </code>
+          </pre>
           <p><strong>remove()</strong> - allows you to remove items from a given collection</p>
           <p><strong>db.collection.drop()</strong> - replace collection with the name of a specific collection to delete all the existing items in the collection</p>
           <hr>
@@ -2068,21 +2188,25 @@ NOTE WORKFLOW
           <p>API's dont need the structure provided by HTML, and use simpler data formats like <em>XML</em> and <em>JSON</em> - both specifying key value pairs</p>
           <p><strong>XML</strong> - Extended Markup Language is syntacticly similar to HTML, but it does not describe presentation like HTML</p>
           <pre>
-&lt;person&gt;
-  &lt;age&gt;25&lt;/age&gt;
-  &lt;name&gt;Aaron&lt;/name&gt;
-  &lt;city&gt;Huntington&lt;/city&gt;
-&lt;/person&gt;
+            <code>
+              &lt;person&gt;
+              &lt;age&gt;25&lt;/age&gt;
+              &lt;name&gt;Aaron&lt;/name&gt;
+              &lt;city&gt;Huntington&lt;/city&gt;
+              &lt;/person&gt;
+            </code>
           </pre>
           <p><strong>JSON</strong> - Javascript Object Notation looks exactly like js objects, but everything is a string</p>
           <pre>
-{
-  'person': {
-    'age': '25',
-    'name': 'Aaron',
-    'city': 'Huntington'
-  }
-}
+            <code>
+              {
+                'person': {
+                  'age': '25',
+                  'name': 'Aaron',
+                  'city': 'Huntington'
+                }
+              }
+            </code>
           </pre>
           <p><strong>JSON.parse(body)</strong> - allows us to take the JSON string (that looks like a js object) and parse it into a js object (the body argument in the example is specific to the npm <em>request</em> package)</p>
         </div>
@@ -2101,19 +2225,21 @@ NOTE WORKFLOW
           <p>ex. - <em>app.get(/r</em><strong>/:routeParameters</strong><em>/comments</em><strong>/:moreParameters</strong><strong>/:lastParameter</strong><em>)</em></p>
           <p><strong>req.params</strong> - lets you view and/or retrieve the route parameters of the request (can be stored into variable and used to make dynamic webpages)</p>
           <pre>
-app.get('/speak/:animal', function(req, res) {
-    var sounds = {
-        pig: 'Oink',
-        cow: 'Moo',
-        dog: 'Woof Woof',
-        cat: 'Meow',
-        goldfish: '...',
-    }
-    var animal = req.params.animal.toLowerCase();
-    var sound = sounds[animal];
+            <code>
+              app.get('/speak/:animal', function(req, res) {
+                var sounds = {
+                  pig: 'Oink',
+                  cow: 'Moo',
+                  dog: 'Woof Woof',
+                  cat: 'Meow',
+                  goldfish: '...',
+                }
+                var animal = req.params.animal.toLowerCase();
+                var sound = sounds[animal];
 
-    res.send('The ' + animal.toUpperCase() + ' says ' + sound);
-});
+                res.send('The ' + animal.toUpperCase() + ' says ' + sound);
+              });
+            </code>
           </pre>
           <p><strong>*</strong> - when a star is used in a route definition it will match any request that comes in (this is why the order of routes is important) - The star is useful for catching requests that have not been established</p>
           <p><strong>res.render()</strong> - a method that lives on the response object that renders dynamic html files also known as templates (lets you send back the contents of a file) - express automatically looks in the <em>views directory</em></p>
