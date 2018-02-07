@@ -179,6 +179,40 @@ $('#login').click(function () {
 });
 
 /* --------------------------------------------
+UpperCaseWords
+-------------------------------------------- */
+
+goUpper = document.getElementById('uppercase-submit');
+goUpper.addEventListener('click', function () {
+
+  function upperCaseFirst(word) {
+    // each word passes through this function as a string
+    // [0] pulls out the first letter of the string passed in
+    // .slice(1) returns a string with the first letter chopped off
+    return word[0].toUpperCase() + word.slice(1);
+  }
+
+  function upperCaseWords(sentence) {
+    // breaks 'sentence' into individual items of an array at every ' '
+    var words = sentence.split(' ');
+    for (var i = 0; i < words.length; i++) {
+      // passes each word in array to upperCaseFirst function
+      words[i] = upperCaseFirst(words[i]);
+    }
+
+    // grabs display div on page
+    var upperHTML = document.querySelector('.uppercase-display');
+
+    // places new uppercase contents on page
+    // .join(' ') takes words array and concats to string with ' ' between each array item
+    return upperHTML.innerHTML = words.join(' ');
+  }
+
+  // stores the value/contents of the input and passes through the upperCaseWords function
+  var upperInput = upperCaseWords(document.getElementById('uppercase-input').value);
+});
+
+/* --------------------------------------------
 Delete This - Tutorial Project Exercise
 -------------------------------------------- */
 
