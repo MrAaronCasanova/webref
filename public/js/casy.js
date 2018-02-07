@@ -224,6 +224,42 @@ goUpper.addEventListener('click', function () {
 });
 
 /* --------------------------------------------
+Timer
+-------------------------------------------- */
+
+// grabs timer button
+var timerBtn = document.querySelector('.timer-btn');
+
+// adds click event to button
+timerBtn.addEventListener('click', function () {
+  // grabs timer input value
+  var seconds = document.querySelector('.timer-input').value;
+
+  // grabs html display div
+  var timerDisplay = document.querySelector('.timer-display');
+
+  // displays starting timer content
+  timerDisplay.textContent = seconds + ' : Seconds Left!';
+
+  // begins setInterval timer - storing interval id in variable for use when clearing the interval
+  var intervalId = setInterval(function () {
+    // decrementing seconds
+    seconds--;
+
+    //logic for display contents
+    if (seconds > 0) {
+      timerDisplay.textContent = seconds + ' : Seconds Left!';
+    } else {
+      timerDisplay.textContent = seconds + ' : Ring Ring, That\'s a wrap!';
+
+      // uses id stored in var to clear the setInterval
+      clearInterval(intervalId);
+    }
+
+  }, 1000);
+});
+
+/* --------------------------------------------
 Delete This - Tutorial Project Exercise
 -------------------------------------------- */
 

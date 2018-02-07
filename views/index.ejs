@@ -651,6 +651,19 @@ NOTE JAVASCRIPT
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Timer</h4>
+        </div>
+        <div class="collapsible-body">
+          <input type="number" class="timer-input" placeholder="Count Down">
+          <button class="timer-btn">Start Timer</button>
+          <br>
+          <div>
+            <h5 class="timer-display"></h5>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">UpperCaseWords</h4>
         </div>
         <div class="collapsible-body">
@@ -803,7 +816,9 @@ NOTE JAVASCRIPT
               }
             </code>
           </pre>
-          <p><strong>setTimeout</strong> - a function that asynchronously invokes a callback after a delay in milliseconds</p>
+          <p><strong>setTimeout</strong> - a function that asynchronously invokes a callback after a delay in milliseconds (every time setTimeout is invoked you get back an associated ID - best to save setTimeout within var if access to ID is needed - for ex. var timerId = setTimeout(callback, delay) -- setTimeout(function () {
+            clearTimeout(timerId);
+          }, delay)</p>
           <pre>
             <code>
               // setTimeout usage
@@ -814,7 +829,18 @@ NOTE JAVASCRIPT
               setTimeout(callback, delay);
             </code>
           </pre>
+          <p><strong>setInterval</strong> - a function that continually invokes a callback after every X milliseconds, where X is provided to setInterval (clearInterval just like clearTimeout - store setInterval in var[stores ID] then pass it to clearInterval(var))</p>
         </div>
+        <pre>
+          <code>
+            // setInterval unstage
+            function callback() {
+              console.log('callback continuously');
+            }
+            var repeat = 3000;
+            setInterval(callback, repeat);
+          </code>
+        </pre>
       </li>
       <li>
         <div class="collapsible-header">
