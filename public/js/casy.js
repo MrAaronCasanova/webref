@@ -345,6 +345,9 @@ coinBtn.addEventListener('click', function () {
 Fetch API
 -------------------------------------------- */
 
+// Would be better to refactor, but left as is to comment
+
+// grabbing everything we need from the page
 var userImg = document.querySelector('.user-image');
 var userFullname = document.querySelector('.user-fullname');
 var userUsername = document.querySelector('.user-username');
@@ -356,18 +359,25 @@ var userBtn = document.querySelector('.user-btn');
 userBtn.addEventListener('click', function () {
   fetch(userUrl)
   .then(function (res) {
+    // res is the response/promise object
+    // .ok is a built-in property that specifies if the request was successfull or not
+    // the ! flips the false to true so the if statement can run the error
     if (!res.ok) {
-      throw Error('Woah Woah Woah... Back Up!!!');
+      throw Error('Woah Woah Woah... Back Up!!! ' + res.status);
     }
 
     return res;
   })
   .then(function (res) {
+    // .json() is a built in method to extract/parse the json from the object
     return res.json();
   })
-  .then(function (res) {
-    // console.log(res);
-    var userData = res.results[0];
+  .then(function (data) {
+    // console.log(data);
+    // data is the returned/parsed json of res obj
+    var userData = data.results[0];
+
+    // logic to update the DOM
     userFullname.textContent = userData.name.first + ' ' + userData.name.last;
     userUsername.textContent = userData.login.username;
     userEmail.textContent = userData.email;

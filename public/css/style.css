@@ -991,4 +991,18 @@ Fetch API
   margin-left: 20px;
 }
 
-/* https://randomuser.me/api/ */
+.user-fullname,
+.user-username {
+  color: #4a9948;
+  font-size: 2.2rem;
+}
+
+.user-username {
+  margin: 5px 0;
+}
+
+.user-email,
+.user-city {
+  color: #6e6e6e;
+  font-size: 1.3rem;
+}
