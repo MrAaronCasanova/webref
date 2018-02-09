@@ -651,6 +651,15 @@ NOTE JAVASCRIPT
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">XMLHttpRequest</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5 class="xhr-display">The <em>expert</em> in anything was once a <em>beginner</em></h5>
+          <button class="xhr-btn">Enlighten Me!</button>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">Timer</h4>
         </div>
         <div class="collapsible-body">
@@ -710,6 +719,10 @@ NOTE JAVASCRIPT
           <p><strong>*Invocation</strong> - running a function '()' - any time you invoke a function a new execution context is created and placed on the execution stack</p>
           <p><strong>Execution Stack</strong> - when your code is running and hits an invocation, it stops running its current execution, creates a new execution context for which will pop off and return to the original execution once completed</p>
           <p><strong>Event Queue</strong> - full of events/notifications of events (only when the execution stack is empty will the JS engine look at the event queue)</p>
+          <p><strong>The Queue</strong> - an ordered list of functions waiting to be placed on the stack (functions in queue are processed on first in, first out basis (FIFO))</p>
+          <p><strong>The Event Loop</strong> - functionality in the JS runtime that checks the queue when the stack is empty - if stack is empty, the front of the queue is placed on the stack
+          <a href="https://youtu.be/S3H5dRmF82k?t=45m13s" target="_blank">Event Loop Video</a>
+          </p>
           <p><strong>*Variable Environments</strong> - where the variables live in memory (every execution context has its own variable environment/memory space)</p>
           <p><strong>Outer Environment</strong> - refers to the location of where the invoked function sits lexically (if JS can't find the value of a var in its current execution context it will look in the outer environment)</p>
           <p><strong>Scope</strong> - where a variable is available in your code (what execution context the variable is in)</p>
@@ -770,6 +783,7 @@ NOTE JAVASCRIPT
           <p><strong>The Stack (refering to the execution stack)</strong> - an ordered data structure - keeps track of function invocations - part of the JS runtime(you don't access it directly)</p>
           <p><strong>Stack Frames (refering to the each execution context)</strong> - each has info on: the function that was invoked - the params that were passed to the function - current line number</p>
           <p><strong>Heap</strong> - the area in memory where your data is stored</p>
+          <p><strong>AJAX</strong> - Asychronous JavaScript and Xml (not a library, framework, or technology, but rather an a approach to web development, structure) - websites can send and request data from a server <em>in the background</em> without disturbing the current page</p>
           <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
           <ul class="vocab-lists">
             <li><strong>Falsy Values</strong></li>
@@ -830,17 +844,51 @@ NOTE JAVASCRIPT
             </code>
           </pre>
           <p><strong>setInterval</strong> - a function that continually invokes a callback after every X milliseconds, where X is provided to setInterval (clearInterval just like clearTimeout - store setInterval in var[stores ID] then pass it to clearInterval(var))</p>
+          <pre>
+            <code>
+              // setInterval unstage
+              function callback() {
+                console.log('callback continuously');
+              }
+              var repeat = 3000;
+              setInterval(callback, repeat);
+            </code>
+          </pre>
+          <p><strong>Promise</strong> - is an object that represents a task that will be completed in the future</p>
+          <pre>
+            <code>
+              var p1 = new Promise(function (resolve, reject) {
+                var num = Math.random();
+                if (num < 0.5) {
+                  resolve(num);
+                } else {
+                  reject(num);
+                }
+              });
+
+              p1.then(function (result) {
+                console.log('Success:',result);
+              }).catch(function (error) {
+                consoel.log('Error:', error);
+              });
+            </code>
+          </pre>
+          <p><strong>Promise Chaining</strong> - combine asynchronous tasks into a chain of promises</p>
+          <p><strong>Returning Promise Data</strong> - data returned from promise.then() is passed to the next chained .then()</p>
+          <p><strong>XMLHTTP Requests</strong> - oldschoolish way to make requests</p>
+          <pre>
+            <code>
+              var XHR = new XMLHttpRequest();
+              XHR.onreadystatechange = function {
+                if (XHR.readyState == 4 && XHR.status == 200) {
+                  console.log(XHR.responseText);
+                }
+              };
+              XHR.open('GET', 'https://api.github.com/zen');
+              XHR.send();
+            </code>
+          </pre>
         </div>
-        <pre>
-          <code>
-            // setInterval unstage
-            function callback() {
-              console.log('callback continuously');
-            }
-            var repeat = 3000;
-            setInterval(callback, repeat);
-          </code>
-        </pre>
       </li>
       <li>
         <div class="collapsible-header">
@@ -2100,6 +2148,11 @@ NOTE JAVASCRIPT
           <p><strong>findById(id, callback(err, data))</strong> - Allows you to retrieve information on a specific item from your DB by it's id</p>
           <p><strong>findByIdAndUpdate(id, newData, callback(err, data))</strong> - Allows you to retrieve information on a specific item from your DB by it's id and update the content</p>
           <p><strong>findByIdAndRemove(id, callback(err)</strong> - Allows you to retrieve information on a specific item from your DB by it's id and delete the content</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Fix WiredTiger Main Recovery Loop</h5>
+          <p><a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown/" target="_blank">Fix</a> - mongod --dbpath /data/db --repair</p>
         </div>
       </li>
       <li>
@@ -2353,8 +2406,10 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 06
-  Video: 66
+  Folder: 07
+  Video: 75
+
+   ./mongod --config /usr/local/etc/mongod.conf
 
   -->
 

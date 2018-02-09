@@ -211,12 +211,16 @@ goUpper.addEventListener('click', function () {
       words[i] = upperCaseFirst(words[i]);
     }
 
+    // .join(' ') takes words array and concats to string with ' ' between each array item
+    var upperResult = words.join(' ');
+
     // grabs display div on page
     var upperHTML = document.querySelector('.uppercase-display');
 
     // places new uppercase contents on page
-    // .join(' ') takes words array and concats to string with ' ' between each array item
-    return upperHTML.innerHTML = words.join(' ');
+    upperHTML.innerHTML = upperResult;
+
+    return upperResult;
   }
 
   // stores the value/contents of the input and passes through the upperCaseWords function
@@ -257,6 +261,35 @@ timerBtn.addEventListener('click', function () {
     }
 
   }, 1000);
+});
+
+/* --------------------------------------------
+XMLHttpRequest
+-------------------------------------------- */
+
+var xhrBtn = document.querySelector('.xhr-btn');
+
+xhrBtn.addEventListener('click', function () {
+
+  // makes new instance of the XMLHTTP Request
+  var XHR = new XMLHttpRequest();
+
+  // onreadystatechange executes the function every time
+  // the readyState changes (readyState = 0 through 4)
+  XHR.onreadystatechange = function () {
+    // if readyState is 4(done) && status is good
+    // display XHR.responseText on page
+    if (XHR.readyState == 4 && XHR.status == 200) {
+      var xhrDisplay = document.querySelector('.xhr-display');
+      xhrDisplay.textContent = XHR.responseText;
+    }
+  };
+
+  // specifies what type of request to make and url
+  XHR.open('GET', 'https://api.github.com/zen');
+
+  // initiates the request
+  XHR.send();
 });
 
 /* --------------------------------------------
