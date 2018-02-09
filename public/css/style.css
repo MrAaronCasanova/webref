@@ -919,3 +919,26 @@ Flexbox
     order: 0;
   }
 }
+
+/* --------------------------------------------
+XMLHttpRequest
+-------------------------------------------- */
+
+.xhr-heading {
+  text-align: center;
+}
+
+.coin-price {
+  color: #437827;
+  font-weight: bold;
+}
+
+.xhr-photo,
+.xhr-btn,
+.xhr-photo-btn,
+.coin-btn {
+  max-width: 80%;
+  max-height: 400px;
+  margin: 20px auto;
+  display: block;
+}

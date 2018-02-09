@@ -267,6 +267,8 @@ timerBtn.addEventListener('click', function () {
 XMLHttpRequest
 -------------------------------------------- */
 
+/* ------ XHR Quote ------ */
+
 var xhrBtn = document.querySelector('.xhr-btn');
 
 xhrBtn.addEventListener('click', function () {
@@ -289,6 +291,53 @@ xhrBtn.addEventListener('click', function () {
   XHR.open('GET', 'https://api.github.com/zen');
 
   // initiates the request
+  XHR.send();
+});
+
+/* ------ XHR Photo ------ */
+
+var ajaxBtn = document.querySelector('.xhr-photo-btn');
+
+ajaxBtn.addEventListener('click', function () {
+  // makes new instance of the XMLHTTP Request
+  var XHR = new XMLHttpRequest();
+
+  // onreadystatechange executes the function every time
+  // the readyState changes (readyState = 0 through 4)
+  XHR.onreadystatechange = function () {
+    if (XHR.readyState == 4 && XHR.status == 200) {
+      //Parses JSON into JS object and stores in var
+      var xhrResponse = JSON.parse(XHR.responseText);
+
+      // grabs img on page
+      var ajaxPhoto = document.querySelector('.xhr-photo');
+
+      // updates the img src attr with the parsed message (url)
+      ajaxPhoto.src = xhrResponse.message;
+    }
+  };
+
+  XHR.open('GET', 'https://dog.ceo/api/breeds/image/random');
+  XHR.send();
+});
+
+/* ------ XHR Bitcoin Price ------ */
+/* ------ read above comment for reference ------ */
+
+var coinBtn = document.querySelector('.coin-btn');
+
+coinBtn.addEventListener('click', function () {
+  XHR = new XMLHttpRequest();
+
+  XHR.onreadystatechange = function () {
+    if (XHR.readyState == 4 && XHR.status == 200) {
+      var coinDiv = document.querySelector('.coin-price');
+      var coinPrice = JSON.parse(XHR.responseText).bpi.USD;
+      coinDiv.textContent = coinPrice.rate + ' ' + coinPrice.code;
+    }
+  };
+
+  XHR.open('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
   XHR.send();
 });
 
