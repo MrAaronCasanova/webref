@@ -44,6 +44,71 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="javascript">Fetch API</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Random User Generator</h5>
+          <div class="random-user-container">
+            <div class="user-img">
+              <img class="user-image" src="https://images.pexels.com/photos/395196/pexels-photo-395196.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb">
+            </div>
+            <div class="user-data">
+              <div class="user-data-block">
+                <h5 class="user-fullname">firstName lastName</h5>
+                <p class="user-username">userName</p>
+                <br>
+                <p>email: <span class="user-email">asdfasdf</span></p>
+                <p>city: <span class="user-city">asdfasdf</span></p>
+              </div>
+            </div>
+            <button class="user-btn">Next User</button>
+          </div>
+          <br>
+          <hr>
+          <hr>
+          <hr>
+          <h5>The new and improved XHR</h5>
+          <pre>
+            <code>
+              // initiates request
+              fetch(url)
+              .then(function (res) {
+                // res provides an object with all the info on the request
+                // .json() is a built in method to extract the json from the object
+                // (returns a promise)
+                return res.json();
+              })
+              .then(function (data) {
+                // the prior return passed the json data to the function parameter
+                console.log(data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            </code>
+          </pre>
+          <p><strong>Fetch Options</strong> - can be provided after the url to specify things like the type of request('POST'), look up fetch options on mdn for more info</p>
+          <pre>
+            <code>
+              fetch(url)
+              .then(function (res) {
+                // .ok is built property the specifies if the request was successfull or not
+                // the ! flips the false to true so the if statement can run the error
+                if (!res.ok) {
+                  throw Error(404); // up to you
+                }
+                return res;
+              }).then(function (response) {
+                console.log('ok');
+              }).catch(function (error) {
+                console.log(error);
+              })
+            </code>
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="html">HTML</h4>
         </div>
         <div class="collapsible-body">
@@ -2116,7 +2181,7 @@ NOTE JAVASCRIPT
           <hr>
           <hr>
           <h5>Common Mongo Commands</h5>
-          <p><strong>mongod</strong> - starts the mongo daemon - the mongod process is the primary database process that runs in the background on an individual server</p>
+          <p><strong>mongod</strong> - starts the mongo daemon - the mongod process is the primary database process that runs in the background on an individual server <strong>./mongod --config /usr/local/etc/mongod.conf</strong></p>
           <p><strong>mongo</strong> - opens up the mongo shell - like the js console it is good for testing and debugging</p>
           <p><strong>help</strong> - will give us a list of features that we can use to interact with mongo</p>
           <p><strong>show dbs</strong> - show database names</p>
@@ -2163,7 +2228,7 @@ NOTE JAVASCRIPT
           <hr>
           <hr>
           <h5>Fix WiredTiger Main Recovery Loop</h5>
-          <p><a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown/" target="_blank">Fix</a> - mongod --dbpath /data/db --repair</p>
+          <p><a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown/" target="_blank">Fix</a> :run in terminal /usr/local/mongodb/bin: mongod --dbpath /data/db --repair ,:run in terminal /anywhere: killall node </p>
         </div>
       </li>
       <li>
@@ -2419,8 +2484,6 @@ NOTE JAVASCRIPT
   The Advance Web Development Bootcamp
   Folder: 07
   Video: 75
-
-   ./mongod --config /usr/local/etc/mongod.conf
 
   -->
 

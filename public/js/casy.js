@@ -342,6 +342,44 @@ coinBtn.addEventListener('click', function () {
 });
 
 /* --------------------------------------------
+Fetch API
+-------------------------------------------- */
+
+var userImg = document.querySelector('.user-image');
+var userFullname = document.querySelector('.user-fullname');
+var userUsername = document.querySelector('.user-username');
+var userEmail = document.querySelector('.user-email');
+var userCity = document.querySelector('.user-city');
+
+var userUrl = 'https://randomuser.me/api/';
+var userBtn = document.querySelector('.user-btn');
+userBtn.addEventListener('click', function () {
+  fetch(userUrl)
+  .then(function (res) {
+    if (!res.ok) {
+      throw Error('Woah Woah Woah... Back Up!!!');
+    }
+
+    return res;
+  })
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (res) {
+    // console.log(res);
+    var userData = res.results[0];
+    userFullname.textContent = userData.name.first + ' ' + userData.name.last;
+    userUsername.textContent = userData.login.username;
+    userEmail.textContent = userData.email;
+    userCity.textContent = userData.location.city;
+    userImg.src = userData.picture.medium;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+/* --------------------------------------------
 Delete This - Tutorial Project Exercise
 -------------------------------------------- */
 
