@@ -249,8 +249,36 @@ NOTE HTML
               })
             </code>
           </pre>
-          <p><strong>map</strong> - </p>
-          <p><strong>filter</strong> - </p>
+          <p><strong>map</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with the results - the return keyword is critical to pass the value into the new array</p>
+          <pre>
+            <code>
+              var numbers = [1, 2, 3];
+              var doubled = numbers.map(function (number) {
+                return number * 2;
+              });
+              console.log(doubled); // [2, 4, 6]
+            </code>
+          </pre>
+          <p><strong>filter</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with all elements that pass the test implemented by the provided function (will pass the whole array item if value returned is truthy)</p>
+          <pre>
+            <code>
+              var products = [
+                { name: 'Aaron', gender: 'Male'},
+                { name: 'Lisa', gender: 'Female'},
+                { name: 'Terry', gender: 'Female'},
+                { name: 'Gary', gender: 'Male'},
+              ];
+
+              var males = products.filter(function (product) {
+                return product.gender === 'Male';
+              });
+
+              console.log(males); // [
+                { name: 'Aaron', gender: 'Male'},
+                { name: 'Gary', gender: 'Male'},
+              ];
+            </code>
+          </pre>
           <p><strong>find</strong> - </p>
           <p><strong>every</strong> - </p>
           <p><strong>some</strong> - </p>
