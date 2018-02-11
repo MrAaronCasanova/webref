@@ -279,7 +279,22 @@ NOTE HTML
               ];
             </code>
           </pre>
-          <p><strong>find</strong> - </p>
+          <p><strong>find</strong> - iterates over each item in an array in search for the particular item specified by the iterator function - returns the value of the first element in the array that matches</p>
+          <pre>
+            <code>
+              var users = [
+                { name: 'Jack' },
+                { name: 'Jill' },
+                { name: 'Hill' },
+              ];
+
+              var user = users.find(function (user) {
+              	return user.name === 'Jill';
+              });
+
+              console.log(user); // { name: 'Jill' }
+            </code>
+          </pre>
           <p><strong>every</strong> - </p>
           <p><strong>some</strong> - </p>
           <p><strong>reduce</strong> - </p>
@@ -2534,8 +2549,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   Javascript ES6 Tutorial
-  Folder: 03
-  Video: 007
+  Folder: 06
+  Video: 016
 
   The Advance Web Development Bootcamp
   Folder: 08
