@@ -379,6 +379,55 @@ NOTE HTML
               console.log(balancedParens(")(")); // false
             </code>
           </pre>
+          <hr>
+          <h5>Declaring Variables</h5>
+          <p><strong>let</strong> - statement declares a block scope local variable, optionally initializing it to a value - value is mutable</p>
+          <p><strong>const</strong> - block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can't be redeclared- value is immutable</p>
+        <hr>
+        <p><strong>Template String & Template Literal</strong> - are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them</p>
+        <pre>
+          <code>
+            function getMessage() {
+            	const year = new Date().getFullYear();
+              const born = 1992;
+
+              return `The year is ${year} and I am ${year - born} years old!`;
+            };
+
+            let currentYear = getMessage();
+
+            console.log(currentYear); // The year is 2018 and I am 26 years old!
+          </code>
+        </pre>
+        <hr>
+        <h5>Arrow Functions</h5>
+        <pre>
+          <code>
+            // ---------- ES5 ----------
+            var add = function(a, b) {
+            	return a + b;
+            };
+
+            add(1, 2); // 3
+
+            // ---------- ES6 ----------
+
+            // Ex. 1 -----
+            let add = (a, b) => {
+            	return a + b;
+            };
+
+            add(1, 2); // 3
+
+            // Ex. 2 -----
+            // if returning a single expression - blocks are not needed
+            // implicit return - (after the fat arrow =>) the value of a single expression is returned without including the return keyword
+
+            let add = (a, b) => a + b;
+
+            add(1, 2); // 3
+          </code>
+        </pre>
         </div>
       </li>
       <li>
@@ -2630,8 +2679,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   Javascript ES6 Tutorial
-  Folder: 07
-  Video: 020
+  Folder: 10
+  Video: 028
 
   The Advance Web Development Bootcamp
   Folder: 08
