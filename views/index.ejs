@@ -328,7 +328,57 @@ NOTE HTML
               console.log(computersCanRunProgram); // true
             </code>
           </pre>
-          <p><strong>reduce</strong> - </p>
+          <p><strong>reduce</strong> - iterates over each item in an array and applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value</p>
+          <pre>
+            <code>
+              var numbers = [10, 20, 30];
+
+              var total = numbers.reduce(function (accumulator, number) {
+              	return accumulator + number
+              }, 10);
+
+              total; // 70
+
+              // --------------------------------------------
+
+              var primaryColors = [
+                { color: 'red' },
+                { color: 'yellow' },
+                { color: 'blue' },
+              ];
+
+              var myColors = primaryColors.reduce(function (acc, primaryColor) {
+              	acc += primaryColor.color + ' ';
+
+                return acc;
+              }, '');
+
+              console.log(myColors); // red yellow blue
+
+              // --------------------------------------------
+
+              Balanced Parens Interview QUESTION
+
+              function balancedParens(string) {
+              	return !string.split('').reduce(function (acc, char) {
+                	if (acc < 0) {
+                  	return acc;
+                  }
+                  if (char === '(') {
+                  	return ++acc;
+                  }
+                  if (char === ')') {
+              			return --acc;
+                  }
+                  return acc;
+                }, 0);
+              };
+
+              console.log(balancedParens("()()(())")); // true
+              console.log(balancedParens("((()")); // false
+              console.log(balancedParens(")(")); // false
+            </code>
+          </pre>
         </div>
       </li>
       <li>
