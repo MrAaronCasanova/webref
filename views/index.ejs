@@ -246,7 +246,8 @@ NOTE HTML
               var sum = 0;
               items.forEach(function (item) {
                 sum += item;
-              })
+              });
+              console.log(sum); // 10
             </code>
           </pre>
           <p><strong>map</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with the results - the return keyword is critical to pass the value into the new array</p>
@@ -295,8 +296,38 @@ NOTE HTML
               console.log(user); // { name: 'Jill' }
             </code>
           </pre>
-          <p><strong>every</strong> - </p>
-          <p><strong>some</strong> - </p>
+          <p><strong>every</strong> - iterates over each item in an array and tests whether all elements in the array pass the test implemented by the iterator function (the whole method returns a boolean value based on [true, && false, && true] // false)</p>
+          <pre>
+            <code>
+              var computers = [
+                { name: 'Apple', ram: 32 },
+                { name: 'Compaq', ram: 4 },
+                { name: 'Acer', ram: 16 },
+              ];
+
+              var computersCanRunProgram = computers.every(function (computer) {
+              	return computer.ram < 16;
+              });
+
+              console.log(computersCanRunProgram); // false
+            </code>
+          </pre>
+          <p><strong>some</strong> - iterates over each item in an array and tests whether at least one element in the array passes the test implemented by the iterator function based on [true, || false, || true] // true)</p>
+          <pre>
+            <code>
+              var computers = [
+                { name: 'Apple', ram: 32 },
+                { name: 'Compaq', ram: 4 },
+                { name: 'Acer', ram: 16 },
+              ];
+
+              var computersCanRunProgram = computers.some(function (computer) {
+              	return computer.ram < 16;
+              });
+
+              console.log(computersCanRunProgram); // true
+            </code>
+          </pre>
           <p><strong>reduce</strong> - </p>
         </div>
       </li>
@@ -2549,8 +2580,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   Javascript ES6 Tutorial
-  Folder: 06
-  Video: 016
+  Folder: 07
+  Video: 020
 
   The Advance Web Development Bootcamp
   Folder: 08
