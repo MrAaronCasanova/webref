@@ -426,6 +426,186 @@ NOTE HTML
             let add = (a, b) => a + b;
 
             add(1, 2); // 3
+
+            // Ex. 3 -----
+            let double = (number) => {
+              return 2 * number;
+            };
+            add(2); // 4
+
+            // if arrow function only has one parameter the parenthesis are not needed (below same as above)
+
+            let double = number => 2 * number;
+
+            add(2); // 4
+          </code>
+        </pre>
+        <hr>
+        <h5>Enhanced Literals</h5>
+        <pre>
+          <code>
+            // Ex. 1 -----
+            function createBookShop() {
+              return {
+                inventory: inventory,
+                inventoryValue: function () {
+                	return this.inventory.reduce((total, book) => total + book.price, 0);
+                },
+                priceForTitle: function(title) {
+                	return this.inventory.find(book => book.title === title).price;
+                },
+              };
+            };
+
+            let inventory = [
+              { title: 'Harry Potter', price: 10 },
+              { title: 'Eloquent JavaScript', price: 15 },
+            ];
+
+            let bookShop = createBookShop(inventory);
+
+            bookShop.inventoryValue(); // 25
+            bookShop.priceForTitle('Harry Potter'); // 10
+
+            // ES6 ----- Refactor
+            function createBookShop() {
+              return {
+                // list name once if the key & value share the same name
+                inventory,
+
+                // disregard colon and function keyword when setting methods
+                inventoryValue() {
+                	return this.inventory.reduce((total, book) => total + book.price, 0);
+                },
+                priceForTitle(title) {
+                	return this.inventory.find(book => book.title === title).price;
+                },
+              };
+            };
+
+            let inventory = [
+              { title: 'Harry Potter', price: 10 },
+              { title: 'Eloquent JavaScript', price: 15 },
+            ];
+
+            let bookShop = createBookShop(inventory);
+
+            bookShop.inventoryValue(); // 25
+            bookShop.priceForTitle('Harry Potter'); // 10
+          </code>
+        </pre>
+        <hr>
+        <h5>Default Function Arguments</h5>
+        <pre>
+          <code>
+            // ES5 version sets a default version for method param
+            function makeAjaxRequest( url, method) {
+            	if (!method) {
+              	method = 'GET';
+              }
+
+              // logic to make request
+            };
+            makeAjaxRequest('google.com'); //~ method = GET
+            makeAjaxRequest('google.com', 'POST'); //~ method = POST
+
+            // ES6 refactor
+            function makeAjaxRequest( url, method = 'GET') {
+
+              // logic to make request
+            };
+            makeAjaxRequest('google.com'); //~ method = GET
+            makeAjaxRequest('google.com', 'POST'); //~ method = POST
+            makeAjaxRequest('google.com', null); //~ method = will not be assigned or have any default value
+          </code>
+        </pre>
+        <hr>
+        <h5>Rest & Spread Operators</h5>
+        <pre>
+          <code>
+            // ... Rest Operator
+            // ... takes all the arguments and puts them into an array
+
+            function addNumbers(...numbers) {
+            	return numbers.reduce((sum, number) => {
+              	return sum + number;
+              }, 0);
+            };
+
+            let total = addNumbers(1, 2, 3, 4, 5, 6, 7, 8);
+
+            console.log(total); // 36
+
+            // ... Spread Operator
+            const defaultColors = ['red', 'green'];
+            const userFavoriteColors = ['orange', 'yellow'];
+            const fallColors = ['fire red', 'fall orange'];
+
+            let spread = ['purple', 'blue', ...defaultColors, ...userFavoriteColors, ...fallColors];
+
+            console.log(spread); // ['purple', 'blue', 'red', 'green', 'orange', 'yellow', 'fire red', 'fall orange']
+          </code>
+        </pre>
+        <hr>
+        <h5>Destructuring</h5>
+        <pre>
+          <code>
+            //Destructuring Objects
+            // makes assigning properties off an object much less syntactic
+
+            // ES5 Example
+            var expense = {
+              type: 'Business',
+              amount: '$45 USD',
+            };
+            var type = expense.type;
+            var amount = expense.amount;
+
+            // ES6 Example
+            let expense = {
+              type: 'Business',
+              amount: '$45 USD',
+            };
+
+            const { type } = expense;
+            const { amount } = expense;
+            // pulls the prop off the obj and assigns the var to the prop name
+            // can also be written
+            const { type, amount } = expense;
+            // created two vars - type and amount - referencing data from the obj
+
+            // --------------------------------------------
+
+            // you can also destructure off object arguments
+            let savedFile = {
+            	extension: 'jpg',
+              name: 'repost',
+              size: 14040,
+            };
+
+            function fileSummary({ name, extension, size }, { exclamation }) {
+            	return `The file '${name}.${extension}' is size: ${size} bytes${exclamation}`;
+            };
+
+            fileSummary(savedFile, { exclamation: '!' }) // The file 'repost.jpg' is size: 14040 bytes!
+
+            // --------------------------------------------
+
+            //Destructuring Arrays
+            const companies = [
+            	'Google',
+              'Facebook',
+              'Apple',
+              'Uber',
+              'Intel',
+            ];
+
+            const [ name, name2, name3, ...rest ] = companies;
+
+            console.log(name); // Google
+            console.log(name2); // Facebook
+            console.log(name3); // Apple
+            console.log(rest); // ["Uber", "Intel"]
           </code>
         </pre>
         </div>
@@ -2679,8 +2859,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   Javascript ES6 Tutorial
-  Folder: 10
-  Video: 028
+  Folder: 13
+  Video: 035
 
   The Advance Web Development Bootcamp
   Folder: 08
