@@ -784,7 +784,44 @@ NOTE HTML
             // Array Helpers do not work with Generators
             // we can not 'yield' from within array helpers or callbacks of any sort
 
-            // find all the yield values - 4:30 - F:16 V:60
+
+            class Comment {
+            	constructor(content, children = []) {
+              	this.content = content;
+                this.children = children;
+              }
+
+              *[Symbol.iterator]() {
+              	yield this.content;
+                for (let child of this.children) {
+            			// go into every child and find all the yield values within
+                  yield* child;
+                }
+              }
+            };
+
+            const rootCommentChildren = [
+              new Comment('fantastic', [new Comment('i disagree'), new Comment('how come?') ]),
+              new Comment('well said'),
+              new Comment('more please'),
+            ];
+
+            const rootComment = new Comment('great post!', rootCommentChildren);
+
+            const values = [];
+
+            for (let value of rootComment) {
+            	values.push(value);
+            };
+
+            values; // ['great post!', 'fantastic', 'i disagree', 'how come?', 'well said', 'more please']
+          </code>
+        </pre>
+        <hr>
+        <h5>Promises</h5>
+        <pre>
+          <code>
+            
           </code>
         </pre>
         </div>
