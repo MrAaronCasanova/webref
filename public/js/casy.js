@@ -406,7 +406,36 @@ $('.cat-photo-btn').click(function () {
   });
 });
 
-/* ------ Axios ------ */
+/* ------ Axios Trivia------ */
+
+var axiosUrl = 'https://opentdb.com/api.php?amount=1';
+var axiosQuestionDisp = document.querySelector('.axios-question');
+var axiosAnswerDisp = document.querySelector('.axios-answer');
+var axiosQuestionBtn = document.querySelector('.axios-question-btn');
+var axiosAnswerBtn = document.querySelector('.axios-answer-btn');
+
+axiosQuestionBtn.addEventListener('click', function () {
+  axios.get(axiosUrl)
+  .then(function (res) {
+    // res is the entire response obj
+    // .data is where the requested data is stored
+    var axiosData = res.data.results[0];
+
+    // DOM Manipulation Section
+    axiosQuestionDisp.innerHTML = axiosData.question;
+    axiosAnswerDisp.innerHTML = axiosData.correct_answer;
+    axiosAnswerDisp.style.opacity = 0;
+    axiosQuestionBtn.textContent = 'Next Question';
+    axiosAnswerBtn.textContent = 'Answer';
+  })
+  .catch(function (e) {
+    console.log('Uh Oh!');
+  });
+});
+
+axiosAnswerBtn.addEventListener('click', function () {
+  axiosAnswerDisp.style.opacity = 1;
+});
 
 /* --------------------------------------------
 Delete This - Tutorial Project Exercise
