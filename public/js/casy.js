@@ -327,7 +327,7 @@ ajaxBtn.addEventListener('click', function () {
 var coinBtn = document.querySelector('.coin-btn');
 
 coinBtn.addEventListener('click', function () {
-  XHR = new XMLHttpRequest();
+  var XHR = new XMLHttpRequest();
 
   XHR.onreadystatechange = function () {
     if (XHR.readyState == 4 && XHR.status == 200) {
@@ -406,7 +406,7 @@ $('.cat-photo-btn').click(function () {
   });
 });
 
-/* ------ Axios Trivia------ */
+/* ------ Axios Trivia ------ */
 
 var axiosUrl = 'https://opentdb.com/api.php?amount=1';
 var axiosQuestionDisp = document.querySelector('.axios-question');
@@ -428,13 +428,75 @@ axiosQuestionBtn.addEventListener('click', function () {
     axiosQuestionBtn.textContent = 'Next Question';
     axiosAnswerBtn.textContent = 'Answer';
   })
-  .catch(function (e) {
-    console.log('Uh Oh!');
+  .catch(function (err) {
+    if (err.response) {
+      console.log('Problem With Response', err.response.status);
+    } else if (err.request) {
+      console.log('Problem With Request', err.request);
+    } else {
+      console.log('Error', err.message);
+    }
   });
 });
 
 axiosAnswerBtn.addEventListener('click', function () {
   axiosAnswerDisp.style.opacity = 1;
+});
+
+/* ------ Ron Swanson ------ */
+
+var ronUrl = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
+var ronQuotes = document.querySelector('.ron-quotes');
+var ronBtnXhr = document.querySelector('.ron-btn-xhr');
+var ronBtnFetch = document.querySelector('.ron-btn-fetch');
+var ronBtnJquery = document.querySelector('.ron-btn-jQuery');
+var ronBtnAxios = document.querySelector('.ron-btn-axios');
+
+ronBtnXhr.addEventListener('click', function () {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', ronUrl);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var resData = JSON.parse(xhr.responseText)[0];
+      ronQuotes.innerHTML = resData;
+    }
+  };
+
+  xhr.send();
+});
+
+ronBtnFetch.addEventListener('click', function () {
+  fetch(ronUrl)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    ronQuotes.innerHTML = data[0];
+  })
+  .catch(function () {
+    alert('Error!');
+  });
+});
+
+ronBtnJquery.addEventListener('click', function () {
+  $.ajax({
+    method: 'GET',
+    url: ronUrl,
+    dataType: 'json',
+  })
+  .done(function (resData) {
+    ronQuotes.innerHTML = resData[0];
+  });
+});
+
+ronBtnAxios.addEventListener('click', function () {
+  axios.get(ronUrl)
+  .then(function (res) {
+    ronQuotes.innerHTML = res.data[0];
+  })
+  .catch(function () {
+    alert('Whoops');
+  });
 });
 
 /* --------------------------------------------

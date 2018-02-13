@@ -1014,3 +1014,8 @@ Fetch API
 .cat-photo-display {
   width: 50%;
 }
+
+.ron-swanson-img {
+  width: 100%;
+  max-width: 400px;
+}
