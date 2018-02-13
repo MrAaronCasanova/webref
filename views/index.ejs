@@ -44,74 +44,6 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="html">3rd Party AJAX</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>jQuery AJAX Methods</h5>
-          <ul class="ul-lists">
-            <li><strong>.$.ajax</strong> - (Key Method) - the 'base' jQuery method - creates an XMLHttpRequest under the hood</li>
-            <li><strong>.$.get</strong> - (Shorthand Method for GET) - only required to pass the url as an argument</li>
-            <li><strong>.$.post</strong> - (Shorthand Method for POST) - only required to pass the url as an argument</li>
-            <li><strong>.$.getJSON</strong> - (Shorthand Method for dataType: 'json') - only required to pass the url as an argument</li>
-          </ul>
-          <hr>
-          <pre>
-            <code>
-              $.ajax({
-                method: 'GET',
-                url: 'some.api.com',
-              })
-              .done(function (res) {
-                console.log(res);
-              })
-              .fail(function () {
-                // handle error
-              })
-            </code>
-          </pre>
-          <hr>
-          <button class="cat-photo-btn">Cats!!</button>
-          <div>
-            <img src="http://random.cat/i/069_-_3wK1Vp7.gif" class="cat-photo-display">
-          </div>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Axios AJAX Methods</h5>
-          <pre>
-            <code>
-              // creates an XMLHttpRequest under the hood
-
-              axios.get(url)
-              .then(function (res) {
-                console.log(res.data);
-              })
-              .catch(function (e) {
-                console.log(e);
-              })
-            </code>
-          </pre>
-          <hr>
-          <div>
-            <h5 class="axios-question">Test your skills!!!</h5>
-            <h4 class="axios-answer">Answer Will Be Hidden Here</h4>
-            <button class="axios-question-btn">Start</button>
-            <button class="axios-answer-btn">I don't work yet!</button>
-          </div>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Ron Swanson Quotes</h5>
-          <div><img src="http://cdn1.theodysseyonline.com/files/2016/02/01/635898854290562912-1894624152_ronProfile_400x400.jpg" alt="Ron Swanson" class="ron-swanson-img"></div>
-          <button class="ron-btn-xhr">XHR</button>
-          <button class="ron-btn-fetch">FETCH</button>
-          <button class="ron-btn-jQuery">JQUERY</button>
-          <button class="ron-btn-axios">AXIOS</button>
-          <h4 class="ron-quotes">Fishing relaxes me. It's like yoga, except I still get to kill something.</h4>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
           <h4 class="javascript">Javascript</h4>
         </div>
         <div class="collapsible-body">
@@ -297,71 +229,6 @@ NOTE HTML
               };
               XHR.open('GET', 'https://api.github.com/zen');
               XHR.send();
-            </code>
-          </pre>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">Fetch API</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>Random User Generator</h5>
-          <div class="random-user-container">
-            <div class="user-img">
-              <img class="user-image" src="https://images.pexels.com/photos/395196/pexels-photo-395196.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb">
-            </div>
-            <div class="user-data">
-              <div class="user-data-block">
-                <h5 class="user-fullname">Aaron Casanova</h5>
-                <p class="user-username">casy_nova</p>
-                <br>
-                <p>email: <span class="user-email">casynova@gmail.com</span></p>
-                <p>city: <span class="user-city">Huntington Beach</span></p>
-              </div>
-            </div>
-            <button class="user-btn">Next User</button>
-          </div>
-          <br>
-          <hr>
-          <hr>
-          <hr>
-          <h5>The new and improved XHR</h5>
-          <pre>
-            <code>
-              // initiates request
-              fetch(url)
-              .then(function (res) {
-                // res provides an object with all the info on the request
-                // .json() is a built in method to extract/parse the json from the object
-                // (returns a promise)
-                return res.json();
-              })
-              .then(function (data) {
-                // the prior return passed the json data to the function parameter
-                console.log(data);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-            </code>
-          </pre>
-          <p><strong>Fetch Options</strong> - can be provided after the url to specify things like the type of request('POST'), look up fetch options on mdn for more info</p>
-          <pre>
-            <code>
-              fetch(url)
-              .then(function (res) {
-                // .ok is a built-in property that specifies if the request was successfull or not
-                // the ! flips the false to true so the if statement can run the error
-                if (!res.ok) {
-                  throw Error(404); // up to you
-                }
-                return res;
-              }).then(function (response) {
-                console.log('ok');
-              }).catch(function (error) {
-                console.log(error);
-              })
             </code>
           </pre>
         </div>
@@ -973,6 +840,139 @@ NOTE CSS
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">Fetch API</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Random User Generator</h5>
+          <div class="random-user-container">
+            <div class="user-img">
+              <img class="user-image" src="https://images.pexels.com/photos/395196/pexels-photo-395196.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb">
+            </div>
+            <div class="user-data">
+              <div class="user-data-block">
+                <h5 class="user-fullname">Aaron Casanova</h5>
+                <p class="user-username">casy_nova</p>
+                <br>
+                <p>email: <span class="user-email">casynova@gmail.com</span></p>
+                <p>city: <span class="user-city">Huntington Beach</span></p>
+              </div>
+            </div>
+            <button class="user-btn">Next User</button>
+          </div>
+          <br>
+          <hr>
+          <hr>
+          <hr>
+          <h5>The new and improved XHR</h5>
+          <pre>
+            <code>
+              // initiates request
+              fetch(url)
+              .then(function (res) {
+                // res provides an object with all the info on the request
+                // .json() is a built in method to extract/parse the json from the object
+                // (returns a promise)
+                return res.json();
+              })
+              .then(function (data) {
+                // the prior return passed the json data to the function parameter
+                console.log(data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            </code>
+          </pre>
+          <p><strong>Fetch Options</strong> - can be provided after the url to specify things like the type of request('POST'), look up fetch options on mdn for more info</p>
+          <pre>
+            <code>
+              fetch(url)
+              .then(function (res) {
+                // .ok is a built-in property that specifies if the request was successfull or not
+                // the ! flips the false to true so the if statement can run the error
+                if (!res.ok) {
+                  throw Error(404); // up to you
+                }
+                return res;
+              }).then(function (response) {
+                console.log('ok');
+              }).catch(function (error) {
+                console.log(error);
+              })
+            </code>
+          </pre>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">3rd Party AJAX</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>jQuery AJAX Methods</h5>
+          <ul class="ul-lists">
+            <li><strong>.$.ajax</strong> - (Key Method) - the 'base' jQuery method - creates an XMLHttpRequest under the hood</li>
+            <li><strong>.$.get</strong> - (Shorthand Method for GET) - only required to pass the url as an argument</li>
+            <li><strong>.$.post</strong> - (Shorthand Method for POST) - only required to pass the url as an argument</li>
+            <li><strong>.$.getJSON</strong> - (Shorthand Method for dataType: 'json') - only required to pass the url as an argument</li>
+          </ul>
+          <hr>
+          <pre>
+            <code>
+              $.ajax({
+                method: 'GET',
+                url: 'some.api.com',
+              })
+              .done(function (res) {
+                console.log(res);
+              })
+              .fail(function () {
+                // handle error
+              })
+            </code>
+          </pre>
+          <hr>
+          <button class="cat-photo-btn">Cats!!</button>
+          <div>
+            <img src="http://random.cat/i/069_-_3wK1Vp7.gif" class="cat-photo-display">
+          </div>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Axios AJAX Methods</h5>
+          <pre>
+            <code>
+              // creates an XMLHttpRequest under the hood
+
+              axios.get(url)
+              .then(function (res) {
+                console.log(res.data);
+              })
+              .catch(function (e) {
+                console.log(e);
+              })
+            </code>
+          </pre>
+          <hr>
+          <div>
+            <h5 class="axios-question">Test your skills!!!</h5>
+            <h4 class="axios-answer">Answer Will Be Hidden Here</h4>
+            <button class="axios-question-btn">Start</button>
+            <button class="axios-answer-btn">I don't work yet!</button>
+          </div>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Ron Swanson Quotes</h5>
+          <div><img src="http://cdn1.theodysseyonline.com/files/2016/02/01/635898854290562912-1894624152_ronProfile_400x400.jpg" alt="Ron Swanson" class="ron-swanson-img"></div>
+          <button class="ron-btn-xhr">XHR</button>
+          <button class="ron-btn-fetch">FETCH</button>
+          <button class="ron-btn-jQuery">JQUERY</button>
+          <button class="ron-btn-axios">AXIOS</button>
+          <h4 class="ron-quotes">Fishing relaxes me. It's like yoga, except I still get to kill something.</h4>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">ES6</h4>
@@ -3137,8 +3137,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 08
-  Video: 90
+  Folder: 09
+  Video: 94
 
   -->
 
