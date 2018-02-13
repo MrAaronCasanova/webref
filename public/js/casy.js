@@ -310,10 +310,10 @@ ajaxBtn.addEventListener('click', function () {
       var xhrResponse = JSON.parse(XHR.responseText);
 
       // grabs img on page
-      var ajaxPhoto = document.querySelector('.xhr-photo');
+      var xhrPhoto = document.querySelector('.xhr-photo');
 
       // updates the img src attr with the parsed message (url)
-      ajaxPhoto.src = xhrResponse.message;
+      xhrPhoto.src = xhrResponse.message;
     }
   };
 

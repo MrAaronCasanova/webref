@@ -44,6 +44,20 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="html">jQuery AJAX</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>jQuery AJAX Methods</h5>
+          <ul class="ul-lists">
+            <li><strong>.$.ajax</strong> - (Key Method)</li>
+            <li><strong>.$.get</strong> - (Shorthand Method)</li>
+            <li><strong>.$.post</strong> - (Shorthand Method)</li>
+            <li><strong>.$.getJSON</strong> - (Shorthand Method)</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">Javascript</h4>
         </div>
         <div class="collapsible-body">
@@ -73,7 +87,7 @@ NOTE HTML
           <p><strong>let</strong> - is a way to define a variable using block scoping</p>
           <p><strong>*Dynamic Typing</strong> - you don't tell the engine what type of data a variable holds, it figures it out while your code is running</p>
           <p><strong>*Primitive Type</strong> - a type of data that represents a single value (not an object)
-            <ul class="vocab-lists">
+            <ul class="ul-lists">
               <li><em>undefined</em> (represents lack of existence [you shouldn't set a var to this])</li>
               <li><em>null</em> (represents lack of existence [you can set a variable to this])</li>
               <li><em>string</em> (a sequence of characters | '' and "" can be used)</li>
@@ -128,7 +142,7 @@ NOTE HTML
           <p><strong>Heap</strong> - the area in memory where your data is stored</p>
           <p><strong>AJAX</strong> - Asychronous JavaScript and Xml (not a library, framework, or technology, but rather an a approach to web development, structure) - websites can send and request data from a server <em>in the background</em> without disturbing the current page</p>
           <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
-          <ul class="vocab-lists">
+          <ul class="ul-lists">
             <li><strong>Falsy Values</strong></li>
             <li>false</li>
             <li>' ' (empty string)</li>
@@ -231,599 +245,6 @@ NOTE HTML
               XHR.send();
             </code>
           </pre>
-          <hr>
-          <hr>
-          <hr>
-          <h5>ES6</h5>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Array Helper Methods</h5>
-          <p><strong>forEach</strong> - iterates over each item in an array and executes the iterator function for each item - commonly an anonymous function, but can be a named function (do not invoke a named function in your forEach array) - Ex. .forEach(namedFunction)</p>
-          <pre>
-            <code>
-              var items = [1, 2, 3, 4];
-              var sum = 0;
-              items.forEach(function (item) {
-                sum += item;
-              });
-              console.log(sum); // 10
-            </code>
-          </pre>
-          <p><strong>map</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with the results - the return keyword is critical to pass the value into the new array</p>
-          <pre>
-            <code>
-              var numbers = [1, 2, 3];
-              var doubled = numbers.map(function (number) {
-                return number * 2;
-              });
-              console.log(doubled); // [2, 4, 6]
-            </code>
-          </pre>
-          <p><strong>filter</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with all elements that pass the test implemented by the provided function (will pass the whole array item if value returned is truthy)</p>
-          <pre>
-            <code>
-              var products = [
-                { name: 'Aaron', gender: 'Male'},
-                { name: 'Lisa', gender: 'Female'},
-                { name: 'Terry', gender: 'Female'},
-                { name: 'Gary', gender: 'Male'},
-              ];
-
-              var males = products.filter(function (product) {
-                return product.gender === 'Male';
-              });
-
-              console.log(males); // [
-                { name: 'Aaron', gender: 'Male'},
-                { name: 'Gary', gender: 'Male'},
-              ];
-            </code>
-          </pre>
-          <p><strong>find</strong> - iterates over each item in an array in search for the particular item specified by the iterator function - returns the value of the first element in the array that matches</p>
-          <pre>
-            <code>
-              var users = [
-                { name: 'Jack' },
-                { name: 'Jill' },
-                { name: 'Hill' },
-              ];
-
-              var user = users.find(function (user) {
-              	return user.name === 'Jill';
-              });
-
-              console.log(user); // { name: 'Jill' }
-            </code>
-          </pre>
-          <p><strong>every</strong> - iterates over each item in an array and tests whether all elements in the array pass the test implemented by the iterator function (the whole method returns a boolean value based on [true, && false, && true] // false)</p>
-          <pre>
-            <code>
-              var computers = [
-                { name: 'Apple', ram: 32 },
-                { name: 'Compaq', ram: 4 },
-                { name: 'Acer', ram: 16 },
-              ];
-
-              var computersCanRunProgram = computers.every(function (computer) {
-              	return computer.ram < 16;
-              });
-
-              console.log(computersCanRunProgram); // false
-            </code>
-          </pre>
-          <p><strong>some</strong> - iterates over each item in an array and tests whether at least one element in the array passes the test implemented by the iterator function based on [true, || false, || true] // true)</p>
-          <pre>
-            <code>
-              var computers = [
-                { name: 'Apple', ram: 32 },
-                { name: 'Compaq', ram: 4 },
-                { name: 'Acer', ram: 16 },
-              ];
-
-              var computersCanRunProgram = computers.some(function (computer) {
-              	return computer.ram < 16;
-              });
-
-              console.log(computersCanRunProgram); // true
-            </code>
-          </pre>
-          <p><strong>reduce</strong> - iterates over each item in an array and applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value</p>
-          <pre>
-            <code>
-              var numbers = [10, 20, 30];
-
-              var total = numbers.reduce(function (accumulator, number) {
-              	return accumulator + number
-              }, 10);
-
-              total; // 70
-
-              // --------------------------------------------
-
-              var primaryColors = [
-                { color: 'red' },
-                { color: 'yellow' },
-                { color: 'blue' },
-              ];
-
-              var myColors = primaryColors.reduce(function (acc, primaryColor) {
-              	acc += primaryColor.color + ' ';
-
-                return acc;
-              }, '');
-
-              console.log(myColors); // red yellow blue
-
-              // --------------------------------------------
-
-              Balanced Parens Interview QUESTION
-
-              function balancedParens(string) {
-              	return !string.split('').reduce(function (acc, char) {
-                	if (acc < 0) {
-                  	return acc;
-                  }
-                  if (char === '(') {
-                  	return ++acc;
-                  }
-                  if (char === ')') {
-              			return --acc;
-                  }
-                  return acc;
-                }, 0);
-              };
-
-              console.log(balancedParens("()()(())")); // true
-              console.log(balancedParens("((()")); // false
-              console.log(balancedParens(")(")); // false
-            </code>
-          </pre>
-          <hr>
-          <h5>Declaring Variables</h5>
-          <p><strong>let</strong> - statement declares a block scope local variable, optionally initializing it to a value - value is mutable</p>
-          <p><strong>const</strong> - block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can't be redeclared- value is immutable</p>
-        <hr>
-        <p><strong>Template String & Template Literal</strong> - are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them</p>
-        <pre>
-          <code>
-            function getMessage() {
-            	const year = new Date().getFullYear();
-              const born = 1992;
-
-              return `The year is ${year} and I am ${year - born} years old!`;
-            };
-
-            let currentYear = getMessage();
-
-            console.log(currentYear); // The year is 2018 and I am 26 years old!
-          </code>
-        </pre>
-        <hr>
-        <h5>Arrow Functions</h5>
-        <pre>
-          <code>
-            // ---------- ES5 ----------
-            var add = function(a, b) {
-            	return a + b;
-            };
-
-            add(1, 2); // 3
-
-            // ---------- ES6 ----------
-
-            // Ex. 1 -----
-            let add = (a, b) => {
-            	return a + b;
-            };
-
-            add(1, 2); // 3
-
-            // Ex. 2 -----
-            // if returning a single expression - blocks are not needed
-            // implicit return - (after the fat arrow =>) the value of a single expression is returned without including the return keyword
-
-            let add = (a, b) => a + b;
-
-            add(1, 2); // 3
-
-            // Ex. 3 -----
-            let double = (number) => {
-              return 2 * number;
-            };
-            add(2); // 4
-
-            // if arrow function only has one parameter the parenthesis are not needed (below same as above)
-
-            let double = number => 2 * number;
-
-            add(2); // 4
-          </code>
-        </pre>
-        <hr>
-        <h5>Enhanced Literals</h5>
-        <pre>
-          <code>
-            // Ex. 1 -----
-            function createBookShop() {
-              return {
-                inventory: inventory,
-                inventoryValue: function () {
-                	return this.inventory.reduce((total, book) => total + book.price, 0);
-                },
-                priceForTitle: function(title) {
-                	return this.inventory.find(book => book.title === title).price;
-                },
-              };
-            };
-
-            let inventory = [
-              { title: 'Harry Potter', price: 10 },
-              { title: 'Eloquent JavaScript', price: 15 },
-            ];
-
-            let bookShop = createBookShop(inventory);
-
-            bookShop.inventoryValue(); // 25
-            bookShop.priceForTitle('Harry Potter'); // 10
-
-            // ES6 ----- Refactor
-            function createBookShop() {
-              return {
-                // list name once if the key & value share the same name
-                inventory,
-
-                // disregard colon and function keyword when setting methods
-                inventoryValue() {
-                	return this.inventory.reduce((total, book) => total + book.price, 0);
-                },
-                priceForTitle(title) {
-                	return this.inventory.find(book => book.title === title).price;
-                },
-              };
-            };
-
-            let inventory = [
-              { title: 'Harry Potter', price: 10 },
-              { title: 'Eloquent JavaScript', price: 15 },
-            ];
-
-            let bookShop = createBookShop(inventory);
-
-            bookShop.inventoryValue(); // 25
-            bookShop.priceForTitle('Harry Potter'); // 10
-          </code>
-        </pre>
-        <hr>
-        <h5>Default Function Arguments</h5>
-        <pre>
-          <code>
-            // ES5 version sets a default version for method param
-            function makeAjaxRequest( url, method) {
-            	if (!method) {
-              	method = 'GET';
-              }
-
-              // logic to make request
-            };
-            makeAjaxRequest('google.com'); //~ method = GET
-            makeAjaxRequest('google.com', 'POST'); //~ method = POST
-
-            // ES6 refactor
-            function makeAjaxRequest( url, method = 'GET') {
-
-              // logic to make request
-            };
-            makeAjaxRequest('google.com'); //~ method = GET
-            makeAjaxRequest('google.com', 'POST'); //~ method = POST
-            makeAjaxRequest('google.com', null); //~ method = will not be assigned or have any default value
-          </code>
-        </pre>
-        <hr>
-        <h5>Rest & Spread Operators</h5>
-        <pre>
-          <code>
-            // ... Rest Operator
-            // ... takes all the arguments and puts them into an array
-
-            function addNumbers(...numbers) {
-            	return numbers.reduce((sum, number) => {
-              	return sum + number;
-              }, 0);
-            };
-
-            let total = addNumbers(1, 2, 3, 4, 5, 6, 7, 8);
-
-            console.log(total); // 36
-
-            // ... Spread Operator
-            const defaultColors = ['red', 'green'];
-            const userFavoriteColors = ['orange', 'yellow'];
-            const fallColors = ['fire red', 'fall orange'];
-
-            let spread = ['purple', 'blue', ...defaultColors, ...userFavoriteColors, ...fallColors];
-
-            console.log(spread); // ['purple', 'blue', 'red', 'green', 'orange', 'yellow', 'fire red', 'fall orange']
-          </code>
-        </pre>
-        <hr>
-        <h5>Destructuring</h5>
-        <pre>
-          <code>
-            //Destructuring Objects
-            // makes assigning properties off an object much less syntactic
-
-            // ES5 Example
-            var expense = {
-              type: 'Business',
-              amount: '$45 USD',
-            };
-            var type = expense.type;
-            var amount = expense.amount;
-
-            // ES6 Example
-            let expense = {
-              type: 'Business',
-              amount: '$45 USD',
-            };
-
-            const { type } = expense;
-            const { amount } = expense;
-            // pulls the prop off the obj and assigns the var to the prop name
-            // can also be written
-            const { type, amount } = expense;
-            // created two vars - type and amount - referencing data from the obj
-
-            // --------------------------------------------
-
-            // you can also destructure off object arguments
-            let savedFile = {
-            	extension: 'jpg',
-              name: 'repost',
-              size: 14040,
-            };
-
-            function fileSummary({ name, extension, size }, { exclamation }) {
-            	return `The file '${name}.${extension}' is size: ${size} bytes${exclamation}`;
-            };
-
-            fileSummary(savedFile, { exclamation: '!' }) // The file 'repost.jpg' is size: 14040 bytes!
-
-            // --------------------------------------------
-
-            //Destructuring Arrays
-            const companies = [
-            	'Google',
-              'Facebook',
-              'Apple',
-              'Uber',
-              'Intel',
-            ];
-
-            const [ name, name2, name3, ...rest ] = companies;
-
-            console.log(name); // Google
-            console.log(name2); // Facebook
-            console.log(name3); // Apple
-            console.log(rest); // ["Uber", "Intel"]
-          </code>
-        </pre>
-        <hr>
-        <h5>Classes</h5>
-        <pre>
-          <code>
-            class Car {
-              // constructor is the only method that gets called automatically when initializing the object
-              constructor({ title }) {
-                this.title = title;
-              }
-
-              drive() {
-                return 'vroom';
-              }
-            }
-
-            class Toyota extends Car {
-              // extends means we would like Toyota to have access to all the setup and methods inside of Car
-              // Toyota is the subClass of the parentClass Car
-              // don't usually use destructuring for subClass constructor arguments
-              constructor(options) {
-                super(options); // Car.constructor() - calling the constructor method of the parent Car class
-                this.color = options.color;
-              }
-
-              honk() {
-                return 'beep';
-              }
-            }
-
-            const toyota = new Toyota({ color: 'red', title: 'Daily Driver' });
-
-            console.log(toyota); // { title: 'Daily Driver', color: 'red' }
-            console.log(toyota.drive()); // vroom
-            console.log(toyota.honk()); // beep
-          </code>
-        </pre>
-        <hr>
-        <h5>Generators</h5>
-        <pre>
-          <code>
-            // A function that can be entered and exited multiple times
-
-            // --------------------------------------------
-
-            // Main Ex. 1
-
-            function* shopping() {
-              // stuff on the sidewalk
-              // 3. walking down the sidewalk
-              // 4. go into the store with cash
-              // 5. stops execution at yield & returns 'cash' as the value
-              const stuffFromStore = yield 'cash';
-              // 9. resumes execution from the yield position with the value now set to 'groceries'
-
-              // 10. decided to pick up laundry on the way home
-              // 11. stops execution at the next yield & returns 'laundry' as the new value
-              const cleanClothes = yield 'laundry';
-              // 15. resumes execution from the yield position with the value now set to 'clothes'
-
-              // 16. walking back home
-              return [stuffFromStore, cleanClothes];
-              // 17. execution complete
-            };
-
-            // stuff in the store / laundromat
-            // 1. initiate generator plans to go to the store and get groceries - gen status suspended until .next()
-            const gen = shopping();
-
-            console.log(gen.next()); // 2. leaving our house
-            // 6. walked into the store
-            // 7. walking up and down the aisles
-            console.log(gen.next('groceries')); // 8. leaving the store with groceries
-            // 12. walked into laundromat
-            // 13. picked up clothes
-            console.log(gen.next('clothes')); // 14. leaving laundromat with clothes
-
-            // --------------------------------------------
-
-            // for of loop
-            // usefull for iterating through arrays of any data type
-            const numbers = [1, 2, 3, 4];
-
-            let total = 0;
-            for (let number of numbers) {
-              total += number;
-            }
-            console.log(total); // 10
-
-            // --------------------------------------------
-
-            // Main Ex. 2
-
-            // using the gen function we were able to iterate through specific properties on an object
-
-            const testingTeam = {
-              lead: 'Amanda',
-              tester: 'Bill',
-            };
-
-            const engineeringTeam = {
-              testingTeam,
-              size: 3,
-              department: 'Engineering',
-              lead: 'Jill',
-              manager: 'Alex',
-              engineer: 'Dave',
-            };
-
-            function* teamIterator(team) {
-              yield team.lead;
-              yield team.engineer;
-              yield team.manager;
-
-              // chaining together gnerators - known as generator deligation
-              // yield* lets us access the yields on the testingTeamIterator gen
-              yield* testingTeamIterator(team.testingTeam);
-            };
-
-            function* testingTeamIterator(team) {
-              yield team.lead;
-              yield team.tester;
-            };
-
-            const teamNames = [];
-            for (let name of teamIterator(engineeringTeam)) {
-              teamNames.push(name);
-            };
-
-            teamNames; // ['Jill', 'Dave', 'Alex', 'Amanda', 'Bill']
-
-            // --------------------------------------------
-
-            // Symbol Iterator
-            // a tool that teaches objects how to respond to the 'for of loop'
-
-            // Time to refactor the above code
-
-            // using the [Symbol.iterator] key to tell the 'for of loop' how to iterate of the object
-
-            const testingTeam = {
-            	lead: 'Amanda',
-              tester: 'Bill',
-              [Symbol.iterator]: function* () {
-              	yield this.lead;
-                yield this.tester;
-              },
-            };
-
-            const engineeringTeam = {
-              testingTeam,
-            	size: 3,
-              department: 'Engineering',
-              lead: 'Jill',
-              manager: 'Alex',
-              engineer: 'Dave',
-              [Symbol.iterator]: function* () {
-              	yield this.lead;
-                yield this.manager;
-                yield this.engineer;
-                yield* this.testingTeam;
-              },
-            };
-
-            const teamNames = [];
-            for (let name of engineeringTeam) {
-              // name refers to the value following each yield
-            	teamNames.push(name);
-            };
-
-            teamNames; // ['Jill', 'Alex', 'Dave', 'Amanda', 'Bill']
-
-            // --------------------------------------------
-
-            // Array Helpers do not work with Generators
-            // we can not 'yield' from within array helpers or callbacks of any sort
-
-
-            class Comment {
-            	constructor(content, children = []) {
-              	this.content = content;
-                this.children = children;
-              }
-
-              *[Symbol.iterator]() {
-              	yield this.content;
-                for (let child of this.children) {
-            			// go into every child and find all the yield values within
-                  yield* child;
-                }
-              }
-            };
-
-            const rootCommentChildren = [
-              new Comment('fantastic', [new Comment('i disagree'), new Comment('how come?') ]),
-              new Comment('well said'),
-              new Comment('more please'),
-            ];
-
-            const rootComment = new Comment('great post!', rootCommentChildren);
-
-            const values = [];
-
-            for (let value of rootComment) {
-            	values.push(value);
-            };
-
-            values; // ['great post!', 'fantastic', 'i disagree', 'how come?', 'well said', 'more please']
-          </code>
-        </pre>
-        <hr>
-        <h5>Promises</h5>
-        <pre>
-          <code>
-            
-          </code>
-        </pre>
         </div>
       </li>
       <li>
@@ -1498,6 +919,592 @@ NOTE CSS
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">ES6</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Array Helper Methods</h5>
+          <p><strong>forEach</strong> - iterates over each item in an array and executes the iterator function for each item - commonly an anonymous function, but can be a named function (do not invoke a named function in your forEach array) - Ex. .forEach(namedFunction)</p>
+          <pre>
+            <code>
+              var items = [1, 2, 3, 4];
+              var sum = 0;
+              items.forEach(function (item) {
+                sum += item;
+              });
+              console.log(sum); // 10
+            </code>
+          </pre>
+          <p><strong>map</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with the results - the return keyword is critical to pass the value into the new array</p>
+          <pre>
+            <code>
+              var numbers = [1, 2, 3];
+              var doubled = numbers.map(function (number) {
+                return number * 2;
+              });
+              console.log(doubled); // [2, 4, 6]
+            </code>
+          </pre>
+          <p><strong>filter</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with all elements that pass the test implemented by the provided function (will pass the whole array item if value returned is truthy)</p>
+          <pre>
+            <code>
+              var products = [
+                { name: 'Aaron', gender: 'Male'},
+                { name: 'Lisa', gender: 'Female'},
+                { name: 'Terry', gender: 'Female'},
+                { name: 'Gary', gender: 'Male'},
+              ];
+
+              var males = products.filter(function (product) {
+                return product.gender === 'Male';
+              });
+
+              console.log(males); // [
+                { name: 'Aaron', gender: 'Male'},
+                { name: 'Gary', gender: 'Male'},
+              ];
+            </code>
+          </pre>
+          <p><strong>find</strong> - iterates over each item in an array in search for the particular item specified by the iterator function - returns the value of the first element in the array that matches</p>
+          <pre>
+            <code>
+              var users = [
+                { name: 'Jack' },
+                { name: 'Jill' },
+                { name: 'Hill' },
+              ];
+
+              var user = users.find(function (user) {
+                return user.name === 'Jill';
+              });
+
+              console.log(user); // { name: 'Jill' }
+            </code>
+          </pre>
+          <p><strong>every</strong> - iterates over each item in an array and tests whether all elements in the array pass the test implemented by the iterator function (the whole method returns a boolean value based on [true, && false, && true] // false)</p>
+          <pre>
+            <code>
+              var computers = [
+                { name: 'Apple', ram: 32 },
+                { name: 'Compaq', ram: 4 },
+                { name: 'Acer', ram: 16 },
+              ];
+
+              var computersCanRunProgram = computers.every(function (computer) {
+                return computer.ram < 16;
+              });
+
+              console.log(computersCanRunProgram); // false
+            </code>
+          </pre>
+          <p><strong>some</strong> - iterates over each item in an array and tests whether at least one element in the array passes the test implemented by the iterator function based on [true, || false, || true] // true)</p>
+          <pre>
+            <code>
+              var computers = [
+                { name: 'Apple', ram: 32 },
+                { name: 'Compaq', ram: 4 },
+                { name: 'Acer', ram: 16 },
+              ];
+
+              var computersCanRunProgram = computers.some(function (computer) {
+                return computer.ram < 16;
+              });
+
+              console.log(computersCanRunProgram); // true
+            </code>
+          </pre>
+          <p><strong>reduce</strong> - iterates over each item in an array and applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value</p>
+          <pre>
+            <code>
+              var numbers = [10, 20, 30];
+
+              var total = numbers.reduce(function (accumulator, number) {
+                return accumulator + number
+              }, 10);
+
+              total; // 70
+
+              // --------------------------------------------
+
+              var primaryColors = [
+                { color: 'red' },
+                { color: 'yellow' },
+                { color: 'blue' },
+              ];
+
+              var myColors = primaryColors.reduce(function (acc, primaryColor) {
+                acc += primaryColor.color + ' ';
+
+                return acc;
+              }, '');
+
+              console.log(myColors); // red yellow blue
+
+              // --------------------------------------------
+
+              Balanced Parens Interview QUESTION
+
+              function balancedParens(string) {
+                return !string.split('').reduce(function (acc, char) {
+                  if (acc < 0) {
+                    return acc;
+                  }
+                  if (char === '(') {
+                    return ++acc;
+                  }
+                  if (char === ')') {
+                    return --acc;
+                  }
+                  return acc;
+                }, 0);
+              };
+
+              console.log(balancedParens("()()(())")); // true
+              console.log(balancedParens("((()")); // false
+              console.log(balancedParens(")(")); // false
+            </code>
+          </pre>
+          <hr>
+          <h5>Declaring Variables</h5>
+          <p><strong>let</strong> - statement declares a block scope local variable, optionally initializing it to a value - value is mutable</p>
+          <p><strong>const</strong> - block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can't be redeclared- value is immutable</p>
+          <hr>
+          <p><strong>Template String & Template Literal</strong> - are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them</p>
+          <pre>
+            <code>
+              function getMessage() {
+                const year = new Date().getFullYear();
+                const born = 1992;
+
+                return `The year is ${year} and I am ${year - born} years old!`;
+              };
+
+              let currentYear = getMessage();
+
+              console.log(currentYear); // The year is 2018 and I am 26 years old!
+            </code>
+          </pre>
+          <hr>
+          <h5>Arrow Functions</h5>
+          <pre>
+            <code>
+              // ---------- ES5 ----------
+              var add = function(a, b) {
+                return a + b;
+              };
+
+              add(1, 2); // 3
+
+              // ---------- ES6 ----------
+
+              // Ex. 1 -----
+              let add = (a, b) => {
+                return a + b;
+              };
+
+              add(1, 2); // 3
+
+              // Ex. 2 -----
+              // if returning a single expression - blocks are not needed
+              // implicit return - (after the fat arrow =>) the value of a single expression is returned without including the return keyword
+
+              let add = (a, b) => a + b;
+
+              add(1, 2); // 3
+
+              // Ex. 3 -----
+              let double = (number) => {
+                return 2 * number;
+              };
+              add(2); // 4
+
+              // if arrow function only has one parameter the parenthesis are not needed (below same as above)
+
+              let double = number => 2 * number;
+
+              add(2); // 4
+            </code>
+          </pre>
+          <hr>
+          <h5>Enhanced Literals</h5>
+          <pre>
+            <code>
+              // Ex. 1 -----
+              function createBookShop() {
+                return {
+                  inventory: inventory,
+                  inventoryValue: function () {
+                    return this.inventory.reduce((total, book) => total + book.price, 0);
+                  },
+                  priceForTitle: function(title) {
+                    return this.inventory.find(book => book.title === title).price;
+                  },
+                };
+              };
+
+              let inventory = [
+                { title: 'Harry Potter', price: 10 },
+                { title: 'Eloquent JavaScript', price: 15 },
+              ];
+
+              let bookShop = createBookShop(inventory);
+
+              bookShop.inventoryValue(); // 25
+              bookShop.priceForTitle('Harry Potter'); // 10
+
+              // ES6 ----- Refactor
+              function createBookShop() {
+                return {
+                  // list name once if the key & value share the same name
+                  inventory,
+
+                  // disregard colon and function keyword when setting methods
+                  inventoryValue() {
+                    return this.inventory.reduce((total, book) => total + book.price, 0);
+                  },
+                  priceForTitle(title) {
+                    return this.inventory.find(book => book.title === title).price;
+                  },
+                };
+              };
+
+              let inventory = [
+                { title: 'Harry Potter', price: 10 },
+                { title: 'Eloquent JavaScript', price: 15 },
+              ];
+
+              let bookShop = createBookShop(inventory);
+
+              bookShop.inventoryValue(); // 25
+              bookShop.priceForTitle('Harry Potter'); // 10
+            </code>
+          </pre>
+          <hr>
+          <h5>Default Function Arguments</h5>
+          <pre>
+            <code>
+              // ES5 version sets a default version for method param
+              function makeAjaxRequest( url, method) {
+                if (!method) {
+                  method = 'GET';
+                }
+
+                // logic to make request
+              };
+              makeAjaxRequest('google.com'); //~ method = GET
+              makeAjaxRequest('google.com', 'POST'); //~ method = POST
+
+              // ES6 refactor
+              function makeAjaxRequest( url, method = 'GET') {
+
+                // logic to make request
+              };
+              makeAjaxRequest('google.com'); //~ method = GET
+              makeAjaxRequest('google.com', 'POST'); //~ method = POST
+              makeAjaxRequest('google.com', null); //~ method = will not be assigned or have any default value
+            </code>
+          </pre>
+          <hr>
+          <h5>Rest & Spread Operators</h5>
+          <pre>
+            <code>
+              // ... Rest Operator
+              // ... takes all the arguments and puts them into an array
+
+              function addNumbers(...numbers) {
+                return numbers.reduce((sum, number) => {
+                  return sum + number;
+                }, 0);
+              };
+
+              let total = addNumbers(1, 2, 3, 4, 5, 6, 7, 8);
+
+              console.log(total); // 36
+
+              // ... Spread Operator
+              const defaultColors = ['red', 'green'];
+              const userFavoriteColors = ['orange', 'yellow'];
+              const fallColors = ['fire red', 'fall orange'];
+
+              let spread = ['purple', 'blue', ...defaultColors, ...userFavoriteColors, ...fallColors];
+
+              console.log(spread); // ['purple', 'blue', 'red', 'green', 'orange', 'yellow', 'fire red', 'fall orange']
+            </code>
+          </pre>
+          <hr>
+          <h5>Destructuring</h5>
+          <pre>
+            <code>
+              //Destructuring Objects
+              // makes assigning properties off an object much less syntactic
+
+              // ES5 Example
+              var expense = {
+                type: 'Business',
+                amount: '$45 USD',
+              };
+              var type = expense.type;
+              var amount = expense.amount;
+
+              // ES6 Example
+              let expense = {
+                type: 'Business',
+                amount: '$45 USD',
+              };
+
+              const { type } = expense;
+              const { amount } = expense;
+              // pulls the prop off the obj and assigns the var to the prop name
+              // can also be written
+              const { type, amount } = expense;
+              // created two vars - type and amount - referencing data from the obj
+
+              // --------------------------------------------
+
+              // you can also destructure off object arguments
+              let savedFile = {
+                extension: 'jpg',
+                name: 'repost',
+                size: 14040,
+              };
+
+              function fileSummary({ name, extension, size }, { exclamation }) {
+                return `The file '${name}.${extension}' is size: ${size} bytes${exclamation}`;
+              };
+
+              fileSummary(savedFile, { exclamation: '!' }) // The file 'repost.jpg' is size: 14040 bytes!
+
+              // --------------------------------------------
+
+              //Destructuring Arrays
+              const companies = [
+                'Google',
+                'Facebook',
+                'Apple',
+                'Uber',
+                'Intel',
+              ];
+
+              const [ name, name2, name3, ...rest ] = companies;
+
+              console.log(name); // Google
+              console.log(name2); // Facebook
+              console.log(name3); // Apple
+              console.log(rest); // ["Uber", "Intel"]
+            </code>
+          </pre>
+          <hr>
+          <h5>Classes</h5>
+          <pre>
+            <code>
+              class Car {
+                // constructor is the only method that gets called automatically when initializing the object
+                constructor({ title }) {
+                  this.title = title;
+                }
+
+                drive() {
+                  return 'vroom';
+                }
+              }
+
+              class Toyota extends Car {
+                // extends means we would like Toyota to have access to all the setup and methods inside of Car
+                // Toyota is the subClass of the parentClass Car
+                // don't usually use destructuring for subClass constructor arguments
+                constructor(options) {
+                  super(options); // Car.constructor() - calling the constructor method of the parent Car class
+                  this.color = options.color;
+                }
+
+                honk() {
+                  return 'beep';
+                }
+              }
+
+              const toyota = new Toyota({ color: 'red', title: 'Daily Driver' });
+
+              console.log(toyota); // { title: 'Daily Driver', color: 'red' }
+              console.log(toyota.drive()); // vroom
+              console.log(toyota.honk()); // beep
+            </code>
+          </pre>
+          <hr>
+          <h5>Generators</h5>
+          <pre>
+            <code>
+              // A function that can be entered and exited multiple times
+
+              // --------------------------------------------
+
+              // Main Ex. 1
+
+              function* shopping() {
+                // stuff on the sidewalk
+                // 3. walking down the sidewalk
+                // 4. go into the store with cash
+                // 5. stops execution at yield & returns 'cash' as the value
+                const stuffFromStore = yield 'cash';
+                // 9. resumes execution from the yield position with the value now set to 'groceries'
+
+                // 10. decided to pick up laundry on the way home
+                // 11. stops execution at the next yield & returns 'laundry' as the new value
+                const cleanClothes = yield 'laundry';
+                // 15. resumes execution from the yield position with the value now set to 'clothes'
+
+                // 16. walking back home
+                return [stuffFromStore, cleanClothes];
+                // 17. execution complete
+              };
+
+              // stuff in the store / laundromat
+              // 1. initiate generator plans to go to the store and get groceries - gen status suspended until .next()
+              const gen = shopping();
+
+              console.log(gen.next()); // 2. leaving our house
+              // 6. walked into the store
+              // 7. walking up and down the aisles
+              console.log(gen.next('groceries')); // 8. leaving the store with groceries
+              // 12. walked into laundromat
+              // 13. picked up clothes
+              console.log(gen.next('clothes')); // 14. leaving laundromat with clothes
+
+              // --------------------------------------------
+
+              // for of loop
+              // usefull for iterating through arrays of any data type
+              const numbers = [1, 2, 3, 4];
+
+              let total = 0;
+              for (let number of numbers) {
+                total += number;
+              }
+              console.log(total); // 10
+
+              // --------------------------------------------
+
+              // Main Ex. 2
+
+              // using the gen function we were able to iterate through specific properties on an object
+
+              const testingTeam = {
+                lead: 'Amanda',
+                tester: 'Bill',
+              };
+
+              const engineeringTeam = {
+                testingTeam,
+                size: 3,
+                department: 'Engineering',
+                lead: 'Jill',
+                manager: 'Alex',
+                engineer: 'Dave',
+              };
+
+              function* teamIterator(team) {
+                yield team.lead;
+                yield team.engineer;
+                yield team.manager;
+
+                // chaining together gnerators - known as generator deligation
+                // yield* lets us access the yields on the testingTeamIterator gen
+                yield* testingTeamIterator(team.testingTeam);
+              };
+
+              function* testingTeamIterator(team) {
+                yield team.lead;
+                yield team.tester;
+              };
+
+              const teamNames = [];
+              for (let name of teamIterator(engineeringTeam)) {
+                teamNames.push(name);
+              };
+
+              teamNames; // ['Jill', 'Dave', 'Alex', 'Amanda', 'Bill']
+
+              // --------------------------------------------
+
+              // Symbol Iterator
+              // a tool that teaches objects how to respond to the 'for of loop'
+
+              // Time to refactor the above code
+
+              // using the [Symbol.iterator] key to tell the 'for of loop' how to iterate of the object
+
+              const testingTeam = {
+                lead: 'Amanda',
+                tester: 'Bill',
+                [Symbol.iterator]: function* () {
+                  yield this.lead;
+                  yield this.tester;
+                },
+              };
+
+              const engineeringTeam = {
+                testingTeam,
+                size: 3,
+                department: 'Engineering',
+                lead: 'Jill',
+                manager: 'Alex',
+                engineer: 'Dave',
+                [Symbol.iterator]: function* () {
+                  yield this.lead;
+                  yield this.manager;
+                  yield this.engineer;
+                  yield* this.testingTeam;
+                },
+              };
+
+              const teamNames = [];
+              for (let name of engineeringTeam) {
+                // name refers to the value following each yield
+                teamNames.push(name);
+              };
+
+              teamNames; // ['Jill', 'Alex', 'Dave', 'Amanda', 'Bill']
+
+              // --------------------------------------------
+
+              // Array Helpers do not work with Generators
+              // we can not 'yield' from within array helpers or callbacks of any sort
+
+
+              class Comment {
+                constructor(content, children = []) {
+                  this.content = content;
+                  this.children = children;
+                }
+
+                *[Symbol.iterator]() {
+                  yield this.content;
+                  for (let child of this.children) {
+                    // go into every child and find all the yield values within
+                    yield* child;
+                  }
+                }
+              };
+
+              const rootCommentChildren = [
+                new Comment('fantastic', [new Comment('i disagree'), new Comment('how come?') ]),
+                new Comment('well said'),
+                new Comment('more please'),
+              ];
+
+              const rootComment = new Comment('great post!', rootCommentChildren);
+
+              const values = [];
+
+              for (let value of rootComment) {
+                values.push(value);
+              };
+
+              values; // ['great post!', 'fantastic', 'i disagree', 'how come?', 'well said', 'more please']
+            </code>
+          </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">XMLHttpRequest</h4>
@@ -3073,10 +3080,6 @@ NOTE JAVASCRIPT
 </html>
 
   <!-- TODO: LEFT OFF
-
-  Javascript ES6 Tutorial
-  Folder: 13
-  Video: 035
 
   The Advance Web Development Bootcamp
   Folder: 08
