@@ -608,6 +608,185 @@ NOTE HTML
             console.log(rest); // ["Uber", "Intel"]
           </code>
         </pre>
+        <hr>
+        <h5>Classes</h5>
+        <pre>
+          <code>
+            class Car {
+              // constructor is the only method that gets called automatically when initializing the object
+              constructor({ title }) {
+                this.title = title;
+              }
+
+              drive() {
+                return 'vroom';
+              }
+            }
+
+            class Toyota extends Car {
+              // extends means we would like Toyota to have access to all the setup and methods inside of Car
+              // Toyota is the subClass of the parentClass Car
+              // don't usually use destructuring for subClass constructor arguments
+              constructor(options) {
+                super(options); // Car.constructor() - calling the constructor method of the parent Car class
+                this.color = options.color;
+              }
+
+              honk() {
+                return 'beep';
+              }
+            }
+
+            const toyota = new Toyota({ color: 'red', title: 'Daily Driver' });
+
+            console.log(toyota); // { title: 'Daily Driver', color: 'red' }
+            console.log(toyota.drive()); // vroom
+            console.log(toyota.honk()); // beep
+          </code>
+        </pre>
+        <hr>
+        <h5>Generators</h5>
+        <pre>
+          <code>
+            // A function that can be entered and exited multiple times
+
+            // --------------------------------------------
+
+            // Main Ex. 1
+
+            function* shopping() {
+              // stuff on the sidewalk
+              // 3. walking down the sidewalk
+              // 4. go into the store with cash
+              // 5. stops execution at yield & returns 'cash' as the value
+              const stuffFromStore = yield 'cash';
+              // 9. resumes execution from the yield position with the value now set to 'groceries'
+
+              // 10. decided to pick up laundry on the way home
+              // 11. stops execution at the next yield & returns 'laundry' as the new value
+              const cleanClothes = yield 'laundry';
+              // 15. resumes execution from the yield position with the value now set to 'clothes'
+
+              // 16. walking back home
+              return [stuffFromStore, cleanClothes];
+              // 17. execution complete
+            };
+
+            // stuff in the store / laundromat
+            // 1. initiate generator plans to go to the store and get groceries - gen status suspended until .next()
+            const gen = shopping();
+
+            console.log(gen.next()); // 2. leaving our house
+            // 6. walked into the store
+            // 7. walking up and down the aisles
+            console.log(gen.next('groceries')); // 8. leaving the store with groceries
+            // 12. walked into laundromat
+            // 13. picked up clothes
+            console.log(gen.next('clothes')); // 14. leaving laundromat with clothes
+
+            // --------------------------------------------
+
+            // for of loop
+            // usefull for iterating through arrays of any data type
+            const numbers = [1, 2, 3, 4];
+
+            let total = 0;
+            for (let number of numbers) {
+              total += number;
+            }
+            console.log(total); // 10
+
+            // --------------------------------------------
+
+            // Main Ex. 2
+
+            // using the gen function we were able to iterate through specific properties on an object
+
+            const testingTeam = {
+              lead: 'Amanda',
+              tester: 'Bill',
+            };
+
+            const engineeringTeam = {
+              testingTeam,
+              size: 3,
+              department: 'Engineering',
+              lead: 'Jill',
+              manager: 'Alex',
+              engineer: 'Dave',
+            };
+
+            function* teamIterator(team) {
+              yield team.lead;
+              yield team.engineer;
+              yield team.manager;
+
+              // chaining together gnerators - known as generator deligation
+              // yield* lets us access the yields on the testingTeamIterator gen
+              yield* testingTeamIterator(team.testingTeam);
+            };
+
+            function* testingTeamIterator(team) {
+              yield team.lead;
+              yield team.tester;
+            };
+
+            const teamNames = [];
+            for (let name of teamIterator(engineeringTeam)) {
+              teamNames.push(name);
+            };
+
+            teamNames; // ['Jill', 'Dave', 'Alex', 'Amanda', 'Bill']
+
+            // --------------------------------------------
+
+            // Symbol Iterator
+            // a tool that teaches objects how to respond to the 'for of loop'
+
+            // Time to refactor the above code
+
+            // using the [Symbol.iterator] key to tell the 'for of loop' how to iterate of the object
+
+            const testingTeam = {
+            	lead: 'Amanda',
+              tester: 'Bill',
+              [Symbol.iterator]: function* () {
+              	yield this.lead;
+                yield this.tester;
+              },
+            };
+
+            const engineeringTeam = {
+              testingTeam,
+            	size: 3,
+              department: 'Engineering',
+              lead: 'Jill',
+              manager: 'Alex',
+              engineer: 'Dave',
+              [Symbol.iterator]: function* () {
+              	yield this.lead;
+                yield this.manager;
+                yield this.engineer;
+                yield* this.testingTeam;
+              },
+            };
+
+            const teamNames = [];
+            for (let name of engineeringTeam) {
+              // name refers to the value following each yield
+            	teamNames.push(name);
+            };
+
+            teamNames; // ['Jill', 'Alex', 'Dave', 'Amanda', 'Bill']
+
+            // --------------------------------------------
+
+            // Array Helpers do not work with Generators
+            // we can not 'yield' from within array helpers or callbacks of any sort
+
+            // find all the yield values - 4:30 - F:16 V:60
+          </code>
+        </pre>
         </div>
       </li>
       <li>

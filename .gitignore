@@ -1,4 +1,5 @@
 .htmlhintrc
+.jshintrc
 node_modules/
 package-lock.json
 public/uploads
