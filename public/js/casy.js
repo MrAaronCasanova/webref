@@ -390,6 +390,25 @@ userBtn.addEventListener('click', function () {
 });
 
 /* --------------------------------------------
+3rd Party AJAX
+-------------------------------------------- */
+
+/* ------ jQuery Cat Photo ------ */
+
+$('.cat-photo-btn').click(function () {
+  $.ajax({
+    method: 'GET',
+    url: 'https://random.cat/meow',
+    dataType: 'json',
+  })
+  .done(function (data) {
+    $('.cat-photo-display').attr('src', data.file);
+  });
+});
+
+/* ------ Axios ------ */
+
+/* --------------------------------------------
 Delete This - Tutorial Project Exercise
 -------------------------------------------- */
 

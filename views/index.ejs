@@ -44,16 +44,51 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="html">jQuery AJAX</h4>
+          <h4 class="html">3rd Party AJAX</h4>
         </div>
         <div class="collapsible-body">
           <h5>jQuery AJAX Methods</h5>
           <ul class="ul-lists">
-            <li><strong>.$.ajax</strong> - (Key Method)</li>
-            <li><strong>.$.get</strong> - (Shorthand Method)</li>
-            <li><strong>.$.post</strong> - (Shorthand Method)</li>
-            <li><strong>.$.getJSON</strong> - (Shorthand Method)</li>
+            <li><strong>.$.ajax</strong> - (Key Method) - the 'base' jQuery method - creates an XMLHttpRequest under the hood</li>
+            <li><strong>.$.get</strong> - (Shorthand Method for GET) - only required to pass the url as an argument</li>
+            <li><strong>.$.post</strong> - (Shorthand Method for POST) - only required to pass the url as an argument</li>
+            <li><strong>.$.getJSON</strong> - (Shorthand Method for dataType: 'json') - only required to pass the url as an argument</li>
           </ul>
+          <hr>
+          <pre>
+            <code>
+              $.ajax({
+                method: 'GET',
+                url: 'some.api.com',
+              })
+              .done(function (res) {
+                console.log(res);
+              })
+              .fail(function () {
+                // handle error
+              })
+            </code>
+          </pre>
+          <hr>
+          <button class="cat-photo-btn">Cats!!</button>
+          <div>
+            <img src="http://random.cat/i/069_-_3wK1Vp7.gif" class="cat-photo-display">
+          </div>
+          <hr>
+          <h5>Axios AJAX Methods</h5>
+          <pre>
+            <code>
+              // creates an XMLHttpRequest under the hood
+
+              axios.get(url)
+              .then(function (res) {
+                console.log(res.data);
+              })
+              .catch(function (e) {
+                console.log(e);
+              })
+            </code>
+          </pre>
         </div>
       </li>
       <li>
@@ -3083,7 +3118,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 08
-  Video: 84
+  Video: 90
 
   -->
 
