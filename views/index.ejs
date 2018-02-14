@@ -217,6 +217,74 @@ NOTE HTML
               });
             </code>
           </pre>
+          <hr>
+          <h5>Testing Time Dependent/Asynchronous Code</h5>
+          <hr>
+          <h5>Clock</h5>
+          <p>is installed by invoking jasmine.clock().install() - be sure to uninstall the clock after [after each spec] you are done to restore the original functions</p>
+          <pre>
+            <code>
+              describe('a simple setTimeout', function () {
+                var sample;
+                beforeEach(function () {
+                  sample = jasmine.createSpy('sampleFunction');
+                  jasmine.clock().install();
+                });
+
+                afterEach(function () {
+                  jasmine.clock().uninstall();
+                });
+
+                it('is only invoked after 1000 milliseconds', function () {
+                  setTimeout(function () {
+                    sample();
+                  }, 1000);
+
+                  jasmine.clock().tick(999);
+                  expect(sample).not.toHaveBeenCalled();
+                  jasmine.clock().tick(1);
+                  expect(sample).toHaveBeenCalled();
+                });
+              });
+            </code>
+          </pre>
+          <h5>Async Example</h5>
+          <p><strong>done()</strong> - the 'it' function takes an optional single argument (commonly called 'done') that should be called when the async work is complete - test will not complete until its 'done' is called</p>
+          <pre>
+            <code>
+              function getRonQuotes(route) {
+                return $.getJSON('https://ron-swanson-quotes.herokuapp.com/v2/' + route);
+              }
+
+              describe('#getRonQuotes', function () {
+                it('returns ron quotes', function (done) {
+                  getRonQuotes('quotes')
+                  .then(function (data) {
+                    expect(data.length).toBe(1);
+                    done();
+                  });
+                });
+              });
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <hr>
+          <h5>TDD - Test Driven Development</h5>
+          <p>pattern known as red/green refactor</p>
+          <ul class="ul-lists">
+            <li>Write the tests (RED)</li>
+            <li>See the tests fail (RED)</li>
+            <li>Write code to pass the tests (GREEN)</li>
+            <li>Refactor code as necessary (BLUE)</li>
+            <li>Repeat (back to RED if code breaks during refactor)</li>
+          </ul>
+          <h5>BDD - Behavior Driven Development (Jasmine)</h5>
+          <p>subset of TDD - more verbose as we 'describe' our 'it' and expectations clearly with 'strings' </p>
+          <p><strong>Unit Tests</strong> - are meant to test individual units of functionality in our application</p>
+          <p><strong>Integration Tests</strong> - are meant for testing how all the individual unit tests work together or larger parts of our application</p>
+          <p><strong>Acceptance Tests</strong> - are meant for performing test on the full system - evaluate the entire business or system requirements</p>
+          <p><strong>Stress Tests</strong> - are meant for determining how effective our applications can be under unfavorable conditions</p>
         </div>
       </li>
       <li>
@@ -3319,8 +3387,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 09
-  Video: 99
+  Folder: 10
+  Video: 103
 
   -->
 

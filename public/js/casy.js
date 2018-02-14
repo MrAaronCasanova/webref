@@ -1194,3 +1194,44 @@ Delete This - Tutorial Project Exercise
 //     expect(addSpy).toHaveBeenCalledWith(1, 2, 3);
 //   });
 // });
+
+// describe('a simple setTimeout', function () {
+//   var sample;
+//   beforeEach(function () {
+//     sample = jasmine.createSpy('sampleFunction');
+//     jasmine.clock().install();
+//   });
+//
+//   afterEach(function () {
+//     jasmine.clock().uninstall();
+//   });
+//
+//   it('is only invoked after 1000 milliseconds', function () {
+//     setTimeout(function () {
+//       sample();
+//     }, 1000);
+//
+//     jasmine.clock().tick(999);
+//     expect(sample).not.toHaveBeenCalled();
+//     jasmine.clock().tick(1);
+//     expect(sample).toHaveBeenCalled();
+//   });
+// });
+
+// function getUserInfo(username) {
+//   return console.log($.getJSON('https://ron-swanson-quotes.herokuapp.com/v2/quotes' + username));
+// }
+
+// function getRonQuotes(route) {
+//   return $.getJSON('https://ron-swanson-quotes.herokuapp.com/v2/' + route);
+// }
+//
+// describe('#getRonQuotes', function () {
+//   it('returns ron quotes', function (done) {
+//     getRonQuotes('quotes')
+//     .then(function (data) {
+//       expect(data.status).toBe(200);
+//       done();
+//     });
+//   });
+// });
