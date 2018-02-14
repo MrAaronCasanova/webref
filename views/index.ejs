@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/jasmine.css">
   <title>CASY'S TOOLBOX</title>
 </head>
 <body>
@@ -42,6 +43,151 @@
 <!-- ********************************************
 NOTE HTML
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javscript">Testing JS</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Testing Terms</h5>
+          <p><strong>Unit Test</strong> - test parts of an application, (or units). Very commonly, each unit is tested individually and independentlty to ensure an application is running as expected</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Jasmine Keywords</h5>
+          <p><strong>describe</strong> - function provided to help organize our tests (ExPhrase: let me describe ___ to you)</p>
+          <p><strong>it</strong> - function used inside the describe function to explain in more detail what we expect the piece of functionality to do (ExPhrase: let me tell you about ___ [in more detail]) - each <em>it</em> function corresponds to a test and is also refered to as a <em>spec</em></p>
+          <p><strong>expect</strong> - function lives inside the <em>it</em> function - where we make expectations/assertions about the functionality we are testing (ExPhrase: here's what I expect)</p>
+          <p><strong>Matchers</strong> - are the functions we attach to the result of the expect function</p>
+          <ul class="ul-lists">
+            <li><strong>toBe/not.toBe</strong> - uses === to compare one value to another (=== will return false even if two obj's have the same value, but reference different locations in memory)</li>
+            <li><strong>toBeCloseTo</strong> - compare two values and accepts a second param for more precision</li>
+            <li><strong>toBeDefined</strong> - makes sure certain variables have a value and are not undefined</li>
+            <li><strong>toBeFalsey/toBeTruthy</strong> - checks if a converted value is truthy or falsey</li>
+            <li><strong>toBeGreaterThan/toBeLessThan</strong> - helpful when working with numbers</li>
+            <li><strong>toContain</strong> - checks to see if a value is contained within an array</li>
+            <li><strong>toEqual</strong> - will accept two different objects and if their values inside are the same it will return true (even if they reference different locations in memory) - great for comparing objects and arrays</li>
+            <li><strong>jasmine.any()</strong> - tool for type checking - if we want to make sure some value is an array or function or constructed from a specific function (ex. typeof doesn't work because arrays are a specific type of object)</li>
+          </ul>
+          <h5>All Tests Pass (Below Example)</h5>
+          <pre>
+            <code>
+              describe('Jasmine Matcher', function () {
+                it('allows for === and deep equality', function () {
+                  expect(1 + 1).toBe(2);
+                  expect([1, 2, 3]).toEqual([1, 2, 3]);
+                });
+
+                it('allows for easy precision checking', function () {
+                  expect(3.1415).toBeCloseTo(3.14, 2);
+                });
+
+                it('allows for easy truthy / falsey checking', function () {
+                  expect(0).toBeFalsy();
+                  expect([]).toBeTruthy();
+                });
+
+                it('allows for checking contents of an object', function () {
+                  expect([1, 2, 3]).toContain(1);
+                  expect({ name: 'Aaron' }).toEqual(jasmine.objectContaining({ name: 'Aaron' }));
+                });
+
+                it('allows for easy type checking', function () {
+                  expect([]).toEqual(jasmine.any(Array));
+                  expect(function () {}).toEqual(jasmine.any(Function));
+                });
+              });
+            </code>
+          </pre>
+          <hr>
+          <h5>Helpful built in functions</h5>
+          <p><strong>beforeEach</strong> - accepts a callback that will be run before the callback to each 'it' function</p>
+          <pre>
+            <code>
+              describe('Arrays', function () {
+                // declare var outside beforeEach so the scope chain
+                // can reference the value assigned inside beforeEach for every test
+                var arr;
+                beforeEach(function () {
+                  arr = [1, 3, 5];
+                });
+
+                it('adds elements to an array', function () {
+                  arr.push(7);
+                  expect(arr).toEqual([1, 3, 5, 7]);
+                });
+
+                it('returns the new length of the array', function () {
+                  expect(arr.push(7)).toBe(4);
+                });
+
+                it('adds anything into the array', function () {
+                  expect(arr.push({})).toBe(4);
+                });
+              });
+            </code>
+          </pre>
+          <p><strong>afterEach</strong> - accepts a callback that will be run after the callback to each 'it' function (useful for teardown - reseting variable between test)</p>
+          <pre>
+            <code>
+              describe('Counting', function () {
+                var count = 0;
+
+                beforeEach(function () {
+                  count++;
+                });
+
+                afterEach(function () {
+                  count = 0;
+                });
+
+                it('has a counter that increments', function () {
+                  expect(count).toBe(1);
+                });
+
+                it('count was reset after last test', function () {
+                  expect(count).toBe(1);
+                });
+              });
+            </code>
+          </pre>
+          <hr>
+          <h5>Nesting Describe Blocks</h5>
+          <p>keep particular test in one location</p>
+          <pre>
+            <code>
+              describe('Arrays', function () {
+                describe('test array push method', function () {
+                  it('push tests', function () {})
+                });
+                describe('test array unshift method', function () {
+                  it('unshift test', function () {});
+                });
+              });
+            </code>
+          </pre>
+          <hr>
+          <h5>Pending Test</h5>
+          <p>when we don't exactly what we will be testing or if we don't want to run a specific test</p>
+          <p><strong>Can be noted three different ways</strong> - omitting callback on 'it' method - adding pending() function inside 'it' callback - or placing an x before the 'it' function</p>
+          <pre>
+            <code>
+              describe('Pending specs', function () {
+
+                it('is a pending test if there is no callback');
+
+                it('is pending if the pending function is invoked inside the callback', function () {
+                  expect(2).toBe(2);
+                  pending();
+                });
+
+                xit('can start with an xit', function () {
+                  expect(true).toBe(true);
+                });
+              });
+            </code>
+          </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">Javascript</h4>
@@ -2882,7 +3028,9 @@ NOTE JAVASCRIPT
           <hr>
           <hr>
           <h5>Fix WiredTiger Main Recovery Loop</h5>
-          <p><a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown/" target="_blank">Fix</a> :run in terminal /usr/local/mongodb/bin: mongod --dbpath /data/db --repair ,:run in terminal /anywhere: killall node </p>
+          <p><a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown/" target="_blank">Fix</a></p>
+          <p><strong>Run in terminal:: /usr/local/mongodb/bin: </strong>mongod --dbpath /data/db --repair</p>
+          <p><strong>Run in terminal:: /anywhere: </strong>killall node</p>
         </div>
       </li>
       <li>
@@ -3130,7 +3278,9 @@ NOTE JAVASCRIPT
 <script src="js/list.js" charset="utf-8"></script>
 <script src="js/Greetr.js" charset="utf-8"></script>
 <script src="js/casy.js" charset="utf-8"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/jasmine.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/jasmine-html.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/boot.js" charset="utf-8"></script>
 </body>
 </html>
 
@@ -3138,7 +3288,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 09
-  Video: 94
+  Video: 99
 
   -->
 

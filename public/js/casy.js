@@ -1087,3 +1087,92 @@ Delete This - Tutorial Project Exercise
 //
 // // We also have NO access to the instructors variables
 // // which makes it private - no one can modify it...
+
+/* ------ Jasmine ------ */
+
+// var earth = {
+//   isRound: true,
+//   numberFromSun: 3,
+// };
+//
+// // 'describe' and 'it' both accept a string as there first param
+// // and require a callback for the second param
+// describe('Earth', function () {
+//   it('is round', function () {
+//     // the 'expect' function returns an object we can attach other methods to
+//     // the methods we attach to the returned 'expect' obj are called matchers
+//     expect(earth.isRound).toBe(true);
+//   });
+//
+//   it('is the third planet from the sun', function () {
+//     expect(earth.numberFromSun).toBe(3);
+//   });
+// });
+
+// describe('Jasmine Matcher', function () {
+//   it('allows for === and deep equality', function () {
+//     expect(1 + 1).toBe(2);
+//     expect([1, 2, 3]).toEqual([1, 2, 3]);
+//   });
+//
+//   it('allows for easy precision checking', function () {
+//     expect(3.1415).toBeCloseTo(3.14, 2);
+//   });
+//
+//   it('allows for easy truthy / falsey checking', function () {
+//     expect(0).toBeFalsy();
+//     expect([]).toBeTruthy();
+//   });
+//
+//   it('allows for checking contents of an object', function () {
+//     expect([1, 2, 3]).toContain(1);
+//     expect({ name: 'Aaron' }).toEqual(jasmine.objectContaining({ name: 'Aaron' }));
+//   });
+//
+//   it('allows for easy type checking', function () {
+//     expect([]).toEqual(jasmine.any(Array));
+//     expect(function () {}).toEqual(jasmine.any(Function));
+//   });
+// });
+
+// describe('Arrays', function () {
+//   // declare var outside beforeEach so the scope chain
+//   // can reference the value assigned inside beforeEach for every test
+//   var arr;
+//   beforeEach(function () {
+//     arr = [1, 3, 5];
+//   });
+//
+//   it('adds elements to an array', function () {
+//     arr.push(7);
+//     expect(arr).toEqual([1, 3, 5, 7]);
+//   });
+//
+//   it('returns the new length of the array', function () {
+//     expect(arr.push(7)).toBe(4);
+//   });
+//
+//   it('adds anything into the array', function () {
+//     expect(arr.push({})).toBe(4);
+//   });
+// });
+
+// describe('Counting', function () {
+//   var count = 0;
+//
+//   beforeEach(function () {
+//     count++;
+//   });
+//
+//   afterEach(function () {
+//     count = 0;
+//   });
+//
+//   it('has a counter that increments', function () {
+//     expect(count).toBe(1);
+//   });
+//
+//   it('count was reset after last test', function () {
+//     expect(count).toBe(1);
+//   });
+// });
