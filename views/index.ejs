@@ -50,6 +50,7 @@ NOTE HTML
         <div class="collapsible-body">
           <h5>Testing Terms</h5>
           <p><strong>Unit Test</strong> - test parts of an application, (or units). Very commonly, each unit is tested individually and independentlty to ensure an application is running as expected</p>
+          <p><strong>Mocking</strong> - mock is a fake object that poses as a function without having to go through the overhead of creating the real object - we can then define what methods are called and their return value from within our mock object</p>
           <hr>
           <hr>
           <hr>
@@ -59,13 +60,13 @@ NOTE HTML
           <p><strong>expect</strong> - function lives inside the <em>it</em> function - where we make expectations/assertions about the functionality we are testing (ExPhrase: here's what I expect)</p>
           <p><strong>Matchers</strong> - are the functions we attach to the result of the expect function</p>
           <ul class="ul-lists">
-            <li><strong>toBe/not.toBe</strong> - uses === to compare one value to another (=== will return false even if two obj's have the same value, but reference different locations in memory)</li>
-            <li><strong>toBeCloseTo</strong> - compare two values and accepts a second param for more precision</li>
-            <li><strong>toBeDefined</strong> - makes sure certain variables have a value and are not undefined</li>
-            <li><strong>toBeFalsey/toBeTruthy</strong> - checks if a converted value is truthy or falsey</li>
-            <li><strong>toBeGreaterThan/toBeLessThan</strong> - helpful when working with numbers</li>
-            <li><strong>toContain</strong> - checks to see if a value is contained within an array</li>
-            <li><strong>toEqual</strong> - will accept two different objects and if their values inside are the same it will return true (even if they reference different locations in memory) - great for comparing objects and arrays</li>
+            <li><strong>toBe()/not.toBe()</strong> - uses === to compare one value to another (=== will return false even if two obj's have the same value, but reference different locations in memory)</li>
+            <li><strong>toBeCloseTo()</strong> - compare two values and accepts a second param for more precision</li>
+            <li><strong>toBeDefined()</strong> - makes sure certain variables have a value and are not undefined</li>
+            <li><strong>toBeFalsey()/toBeTruthy()</strong> - checks if a converted value is truthy or falsey</li>
+            <li><strong>toBeGreaterThan()/toBeLessThan()</strong> - helpful when working with numbers</li>
+            <li><strong>toContain()</strong> - checks to see if a value is contained within an array</li>
+            <li><strong>toEqual()</strong> - will accept two different objects and if their values inside are the same it will return true (even if they reference different locations in memory) - great for comparing objects and arrays</li>
             <li><strong>jasmine.any()</strong> - tool for type checking - if we want to make sure some value is an array or function or constructed from a specific function (ex. typeof doesn't work because arrays are a specific type of object)</li>
           </ul>
           <h5>All Tests Pass (Below Example)</h5>
@@ -152,7 +153,7 @@ NOTE HTML
           </pre>
           <hr>
           <h5>Nesting Describe Blocks</h5>
-          <p>keep particular test in one location</p>
+          <p>keep particular tests in one location</p>
           <pre>
             <code>
               describe('Arrays', function () {
@@ -182,6 +183,36 @@ NOTE HTML
 
                 xit('can start with an xit', function () {
                   expect(true).toBe(true);
+                });
+              });
+            </code>
+          </pre>
+          <hr>
+          <h5>Spies</h5>
+          <p>in jasmine, mocks are refered to as spies - test double functions - a spy can stub(mimic) any function, track calls to it and all arguments (spies only exist in the 'describe' or 'it' block in which they are defined and are removed after each spec)</p>
+          <p><strong>Spies are usefull for</strong> - checking how many times a function is called, what arguments a function is called with, and what the function returns</p>
+          <p><strong>Creating Spies in Jasmine</strong> - there are two ways of creating spies in jasmine</p>
+          <ul class="ul-lists">
+            <li><strong>spyOn()</strong> - function [can only be used when the method exists on an obj] - use spyOn() when spying on an existing function</li>
+            <li><strong>jasmine.createSpy()</strong> - function [will return a brand new function]</li>
+          </ul>
+          <pre>
+            <code>
+              function add() {
+                return a + b + c;
+              }
+
+              describe('add', function () {
+                var addSpy;
+                var result;
+                beforeEach(function () {
+                  addSpy = spyOn(window, 'add');
+                  result = addSpy(1, 2, 3);
+                });
+
+                it('is can have params tested', function () {
+                  expect(addSpy).toHaveBeenCalled();
+                  expect(addSpy).toHaveBeenCalledWith(1, 2, 3);
                 });
               });
             </code>
@@ -3281,6 +3312,7 @@ NOTE JAVASCRIPT
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/jasmine.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/jasmine-html.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.0.0/boot.js" charset="utf-8"></script>
+
 </body>
 </html>
 

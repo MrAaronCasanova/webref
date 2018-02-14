@@ -1176,3 +1176,21 @@ Delete This - Tutorial Project Exercise
 //     expect(count).toBe(1);
 //   });
 // });
+
+// function add() {
+//   return a + b + c;
+// }
+//
+// describe('add', function () {
+//   var addSpy;
+//   var result;
+//   beforeEach(function () {
+//     addSpy = spyOn(window, 'add');
+//     result = addSpy(1, 2, 3);
+//   });
+//
+//   it('is can have params tested', function () {
+//     expect(addSpy).toHaveBeenCalled();
+//     expect(addSpy).toHaveBeenCalledWith(1, 2, 3);
+//   });
+// });
