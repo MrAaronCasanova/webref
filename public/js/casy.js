@@ -1303,12 +1303,172 @@ ES6
 
 /* ------ map ------ */
 
-let myNums = [1, 2, 3, 4, 5, 6];
+// let myNums = [1, 2, 3, 4, 5, 6];
+//
+// function doubleVals(arr) {
+//   return arr.map(function (val) {
+//     return val * 2;
+//   });
+// }
+//
+// console.log(doubleVals(myNums));
+//
+// function valTimesIndex(arr) {
+//   return arr.map(function (val, index) {
+//     return val * index;
+//   });
+// }
+//
+// console.log(valTimesIndex(myNums));
+//
+// function extractKey(arr, key) {
+//   return arr.map(function (val) {
+//     return val[key];
+//     // we use bracket notation for [key] instead of val.key
+//     // so JS will evaluate the argument passed to the key variable
+//     // rather than search for a key with the name of
+//     // 'key' on the object
+//   });
+// }
+//
+// let names = [
+//   {
+//     first: 'Aaron',
+//     last: 'Casanova',
+//   },
+//   {
+//     first: 'Lisa',
+//     last: 'Wazewski',
+//   },
+// ];
+//
+// console.log(extractKey(names, 'first'));
+//
+// function firstAndLast(arr) {
+//   return arr.map(function (val) {
+//     return `Why hello ${val.first} ${val.last}`;
+//   });
+// }
+//
+// console.log(firstAndLast(names));
 
-function doubleVals(arr) {
-  return arr.map(function (val) {
-    return val * 2;
-  });
-}
+/* ------ filter ------ */
 
-console.log(doubleVals(myNums));
+// let names = [
+//   {
+//     first: 'Aaron',
+//     last: 'Casanova',
+//   },
+//   {
+//     first: 'Lisa',
+//     last: 'Wazewski',
+//   },
+//   {
+//     fullname: 'John Doe',
+//   },
+// ];
+//
+// let myNums = [1, 2, 3, 4, 5, 6];
+//
+// function filterByValue(arr, key) {
+//   return arr.filter(function (val) {
+//     return val[key] !== undefined;
+//   });
+// }
+//
+// console.log(filterByValue(names, 'first'));
+//
+// function find(arr, searchValue) {
+//   return arr.filter(function (val) {
+//     return val === searchValue;
+//   })[0];
+// }
+//
+// console.log(find(myNums, 3));
+//
+// function findInObj(arr, key, searchValue) {
+//   return arr.filter(function (val) {
+//     return val[key] === searchValue;
+//   })[0];
+// }
+//
+// console.log(findInObj(names, 'first', 'Lisa'));
+//
+// function removeVowels(str) {
+//   let vowels = 'aeiou';
+//   let splitArr = str.split('');
+//   let noVowels = splitArr.filter(function (letter) {
+//     return vowels.indexOf(letter.toLowerCase()) === -1;
+//   });
+//
+//   return noVowels.join('');
+// }
+//
+// console.log(removeVowels('Aaron'));
+//
+// function doubleOddNums(arr) {
+//   return arr.filter(function (val) {
+//     return val % 3 === 0;
+//   }).map(function (val) {
+//     return val * 2;
+//   });
+// }
+//
+// console.log(doubleOddNums(myNums));
+
+/* ------ every & some ------ */
+
+// let myNums = [1, 2, 3, 4, 5, 6];
+//
+// function hasOddNums(arr) {
+//   return arr.some(function (val) {
+//     return val % 2 !== 0;
+//   });
+// }
+//
+// console.log(hasOddNums(myNums));
+//
+// function hasOnlyOddNums(arr) {
+//   return arr.every(function (val) {
+//     return val % 2 !== 0;
+//   });
+// }
+//
+// console.log(hasOnlyOddNums(myNums));
+//
+// function hasNoDuplicates(arr) {
+//   return arr.every(function (val) {
+//     return arr.indexOf(val) === arr.lastIndexOf(val);
+//   });
+// }
+//
+// console.log(hasNoDuplicates(myNums));
+//
+// let arrObj = [
+//   {
+//     hello: 'world',
+//     john: 'doe',
+//   },
+//   {
+//     aaron: 'casanova',
+//     lisa: 'wazewski',
+//   },
+// ];
+//
+// function hasCertainKey(arr, key) {
+//   return arr.some(function (val) {
+//     return val[key] !== undefined;
+//   });
+// }
+//
+// console.log(hasCertainKey(arrObj, 'aaron'));
+//
+// function hasCertainVal(arr, key, searchValue) {
+//   return arr.some(function (val) {
+//     return val[key] === searchValue;
+//   });
+// }
+//
+// console.log(hasCertainVal(arrObj, 'aaron', 'casanova'));
+
+/* ------ reduce ------ */

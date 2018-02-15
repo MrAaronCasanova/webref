@@ -1284,9 +1284,34 @@ NOTE JAVASCRIPT
               console.log(doubled); // [2, 4, 6]
             </code>
           </pre>
-          <p><strong>filter</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with all elements that pass the test implemented by the provided function (will pass the whole array item if value returned is truthy)</p>
+          <p><strong>filter</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with all elements that pass the test implemented by the provided function (will pass through the array item if value returned is truthy)</p>
+          <p>the result of the callback will ALWAYS be a boolean</p>
           <pre>
             <code>
+              // anatomy of filter
+              [2, 5, 7].filter(function (value, index, array) {
+                // no need for an if statements
+                // just return an expressions
+                // that evaluates to true or false
+                // (passes truthy array items to new array)
+                return value > 4;
+              });
+
+              // filter under the hood
+
+              function filter(array, callback) {
+                var newArr = [];
+                for (var i = 0; i < array.length; i++) {
+                  if (callback(array[i], i, array)) {
+                    newArr.push(array[i]);
+                  }
+                }
+
+                return newArr;
+              }
+
+              // --------------------------------------------
+
               var products = [
                 { name: 'Aaron', gender: 'Male'},
                 { name: 'Lisa', gender: 'Female'},
@@ -1321,8 +1346,35 @@ NOTE JAVASCRIPT
             </code>
           </pre>
           <p><strong>every</strong> - iterates over each item in an array and tests whether all elements in the array pass the test implemented by the iterator function (the whole method returns a boolean value based on [true, && false, && true] // false)</p>
+          <p>the result of the callback will ALWAYS be a boolean</p>
+          <p>'every' does not return a new array or undefined but rather true or false</p>
           <pre>
             <code>
+              // anatomy of every
+              [2, 5, 7].every(function (value, index, array) {
+                // no need for an if statements
+                // just return an expressions
+                // that evaluates to true or false
+                // 'every' will result in a boolean
+                // if any array items are false
+                // the entire function returns false
+                return value > 2;
+              });
+
+              // every under the hood
+
+              function every(array, callback) {
+                for (var i = 0; i < array.length; i++) {
+                  if (callback(array[i], i, array) === false) {
+                    return false;
+                  }
+                }
+
+                return true;
+              }
+
+              // --------------------------------------------
+
               var computers = [
                 { name: 'Apple', ram: 32 },
                 { name: 'Compaq', ram: 4 },
@@ -1337,8 +1389,35 @@ NOTE JAVASCRIPT
             </code>
           </pre>
           <p><strong>some</strong> - iterates over each item in an array and tests whether at least one element in the array passes the test implemented by the iterator function based on [true, || false, || true] // true)</p>
+          <p>the result of the callback will ALWAYS be a boolean</p>
+          <p>'some' does not return a new array or undefined but rather true or false</p>
           <pre>
             <code>
+              // anatomy of some
+              [2, 5, 7].some(function (value, index, array) {
+                // no need for an if statements
+                // just return an expressions
+                // that evaluates to true or false
+                // 'some' will result in a boolean
+                // if any array items are truthy
+                // the entire function returns true
+                return value > 2;
+              });
+
+              // some under the hood
+
+              function some(array, callback) {
+                for (var i = 0; i < array.length; i++) {
+                  if (callback(array[i], i, array)) {
+                    return true;
+                  }
+                }
+
+                return false;
+              }
+
+              // --------------------------------------------
+
               var computers = [
                 { name: 'Apple', ram: 32 },
                 { name: 'Compaq', ram: 4 },
@@ -3427,7 +3506,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 10
-  Video: 103
+  Video: 113
 
   -->
 
