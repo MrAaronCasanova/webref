@@ -1235,3 +1235,80 @@ Delete This - Tutorial Project Exercise
 //     });
 //   });
 // });
+
+/* --------------------------------------------
+ES6
+-------------------------------------------- */
+
+/* ------ forEach ------ */
+
+// let myNumbers = [1, 2, 3, 4, 5, 6, 7];
+//
+// function doubleValues(nums) {
+//   let dNums = [];
+//   nums.forEach(function (num) {
+//     dNums.push(num * 2);
+//   });
+//
+//   return dNums;
+// }
+//
+// console.log(doubleValues(myNumbers));
+//
+// function onlyEven(arr) {
+//   let newArr = [];
+//   arr.forEach(function (val) {
+//     if (val % 2 === 0) {
+//       newArr.push(val);
+//     }
+//   });
+//
+//   return newArr;
+// }
+//
+// console.log(onlyEven(myNumbers));
+//
+// function showFirstAndLast(arr) {
+//   let newArr = [];
+//   arr.forEach(function (val, index, array) {
+//     if (index === 0) {
+//       newArr.push(val);
+//     } else if (++index === array.length) {
+//       newArr.push(val);
+//     }
+//   });
+//
+//   return newArr;
+// }
+//
+// console.log(showFirstAndLast(myNumbers));
+//
+// function vowelCount(str) {
+//   let splitArr = str.split('');
+//   let obj = {};
+//   let vowels = 'aeiou';
+//
+//   splitArr.forEach(function (letter) {
+//     if (vowels.indexOf(letter.toLowerCase()) !== -1) {
+//       obj[letter] = obj[letter] + 1 || 1;
+//     } else {
+//       obj[letter] = 1;
+//     }
+//   });
+//
+//   return obj;
+// }
+//
+// console.log(vowelCount('aaron casanova'));
+
+/* ------ map ------ */
+
+let myNums = [1, 2, 3, 4, 5, 6];
+
+function doubleVals(arr) {
+  return arr.map(function (val) {
+    return val * 2;
+  });
+}
+
+console.log(doubleVals(myNums));

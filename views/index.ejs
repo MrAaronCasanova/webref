@@ -1225,8 +1225,26 @@ NOTE JAVASCRIPT
         <div class="collapsible-body">
           <h5>Array Helper Methods</h5>
           <p><strong>forEach</strong> - iterates over each item in an array and executes the iterator function for each item - commonly an anonymous function, but can be a named function (do not invoke a named function in your forEach array) - Ex. .forEach(namedFunction)</p>
+          <p>do NOT 'return' as forEach always returns undefined</p>
           <pre>
             <code>
+              // anatomy of forEach
+              [4, 5, 6].forEach(function (value, index, array) {
+                // callback will execute 3 times
+                // forEach item in the array
+                // do not return = undefined
+              });
+
+              // forEach under the hood
+
+              function forEach(array, callback) {
+                for (var i = 0; i < array.length; i++) {
+                  callback(array[i], i, array);
+                }
+              }
+
+              // --------------------------------------------
+
               var items = [1, 2, 3, 4];
               var sum = 0;
               items.forEach(function (item) {
@@ -1238,6 +1256,27 @@ NOTE JAVASCRIPT
           <p><strong>map</strong> - iterates over each item in an array and executes the iterator function for each item / creates a new array with the results - the return keyword is critical to pass the value into the new array</p>
           <pre>
             <code>
+              // anatomy of map
+              [4, 5, 6].map(function (value, index, array) {
+                // callback will execute 3 times
+                // for each item in the array
+                // and return the values in a new array
+                return value;
+              });
+
+              // map under the hood
+
+              function map(array, callback) {
+                var newArr = [];
+                for (var i = 0; i < array.length; i++) {
+                  newArr.push(callback(array[i], i, array));
+                }
+
+                return newArr;
+              }
+
+              // --------------------------------------------
+
               var numbers = [1, 2, 3];
               var doubled = numbers.map(function (number) {
                 return number * 2;
