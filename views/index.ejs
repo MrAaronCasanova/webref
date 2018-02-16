@@ -1432,8 +1432,22 @@ NOTE JAVASCRIPT
             </code>
           </pre>
           <p><strong>reduce</strong> - iterates over each item in an array and applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value</p>
+          <p>whatever is returned from the callback function becomes the new value of the accumulator</p>
           <pre>
             <code>
+              // anatomy of reduce
+
+              // *accumulator - is either the first value in the array
+              // or the value passed to the opt second param
+              // *nextValue - is either the second value in the array
+              // or the first value in the array
+              // if opt second param was passed
+              [2, 5, 7].reduce(function (accumulator, nextValue, index, array) {
+                // whatever is returned inside here, will be the value of accumulator in the next iteration
+              }, optional second parameter);
+
+              // --------------------------------------------
+
               var numbers = [10, 20, 30];
 
               var total = numbers.reduce(function (accumulator, number) {

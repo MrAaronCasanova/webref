@@ -1472,3 +1472,82 @@ ES6
 // console.log(hasCertainVal(arrObj, 'aaron', 'casanova'));
 
 /* ------ reduce ------ */
+
+// var arr = [5, 4, 1, 4, 5];
+//
+// arr.reduce(function (acc, nextVal) {
+//   if (nextVal in acc) {
+//     acc[nextVal]++;
+//   } else {
+//     acc[nextVal] = 1;
+//   }
+//
+//   return acc;
+// }, {});
+//
+// console.log(arr);
+//
+// let myArr = [
+//   {
+//     first: 'Aaron',
+//     last: 'Casanova',
+//   },
+//   {
+//     first: 'Lisa',
+//     last: 'Wazewski',
+//   },
+// ];
+//
+// // extracts specified keys into new array
+// function extractValue(arr, key) {
+//   return arr.reduce(function (acc, next) {
+//     acc.push(next[key]);
+//     return acc;
+//   }, []);
+// }
+//
+// console.log(extractValue(myArr, 'last'));
+//
+// // only counts the vowels in the passed string
+// function vowelCount(str) {
+//   let vowels = 'aeiou';
+//   let splitStr = str.toLowerCase().split('');
+//   return splitStr.reduce(function (acc, next) {
+//     if (vowels.indexOf(next) !== -1) {
+//       acc[next] = acc[next] + 1 || 1;
+//     } else {
+//       acc[next] = 1;
+//     }
+//
+//     return acc;
+//   }, {});
+// }
+//
+// console.log(vowelCount('abcdefgaeeciouuo'));
+//
+// // adds key value pair to every each array item obj
+// function addKeyAndValue(arr, key, value) {
+//   return arr.reduce(function (acc, next, idx) {
+//     acc[idx][key] = value;
+//     return acc;
+//   }, arr);
+// }
+//
+// console.log(addKeyAndValue(myArr, 'Jane', 'Doe'));
+//
+// // splits results of callback function into seperate arrays
+// function partition(arr, cb) {
+//   return arr.reduce(function (acc, next) {
+//     if (cb(next)) {
+//       acc[0].push(next);
+//     } else {
+//       acc[1].push(next);
+//     }
+//
+//     return acc;
+//   }, [[], []]);
+// }
+//
+// console.log(partition([1, 2, 3, 4], function (a) {
+//   return a > 2;
+// }));
