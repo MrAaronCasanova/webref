@@ -2143,7 +2143,7 @@ NOTE JAVASCRIPT
           <p><strong>Global, Object/Implicit, Explicit, New</strong> - are the four rules of how the value of the 'this' keyword can be determined</p>
           <p><strong>1 - Global Context</strong> - when 'this' is not inside of a declared object</p>
           <p><strong>Strict Mode ('use strict')</strong> - when placed at the top of our document it enables strict mode for which the value of 'this' is undefined when inside a function (so you don't accidently assign properties/create variables on the global object)</p>
-          <p><strong>2 - Implicit/Object</strong> - when the keyword 'this' IS inside of a declared object (the value will always be the closest parent object)</p>
+          <p><strong>2 - Implicit/Object</strong> - when the keyword 'this' IS inside of a declared object (the value will always be the closest parent object) - keep in mind a function inside the declared object must be invoked to create/bind the 'this' keyword to the parent obj (otherwise the 'this' keyword will still be pointing to the global/window obj)</p>
           <p><strong>3 - Explicit Binding</strong> - choose what we want the context of 'this' to be using call, apply or bind (these can only be used by functions)</p>
           <p><strong>4 - The 'new' keyword</strong> - it is a reserved keyword - we can set the context of the keyword 'this' using the 'new' keyword (when the 'new' keyword is used an object is created on the spot) - the value of the keyword 'this' is set to an empty object and returned from the function that is used with the 'new' keyword</p>
           <table>
@@ -3521,7 +3521,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 11
-  Video: 117
+  Video: 125
 
   -->
 
