@@ -1551,3 +1551,56 @@ ES6
 // console.log(partition([1, 2, 3, 4], function (a) {
 //   return a > 2;
 // }));
+
+/* ------ Closure Practice ------ */
+
+// // will first check if 2 arguments were passed to the function
+// // if only one arg was passed it will store that value in its
+// // closure for when its innerFn is called with the second arg
+// // if both args are passed it will just return the function
+// function specialMultiply(a, b) {
+//   if (arguments.length === 1) {
+//     return function (b) {
+//       return a * b;
+//     };
+//   }
+//
+//   return a * b;
+// }
+//
+// console.log(specialMultiply(2)(2));
+// console.log(specialMultiply(2, 5));
+//
+// function guessingGame(amount) {
+//   var answer = Math.floor(Math.random() * 11);
+//   var guesses = 0;
+//   var completed = false;
+//   return function (guess) {
+//     if (!completed) {
+//       guesses++;
+//
+//       if (guess === answer) {
+//         completed = true;
+//         return 'You got it!';
+//       } else if (guesses === amount) {
+//         completed = true;
+//         return 'No more guesses - The answer was: ' + answer;
+//       }
+//
+//       if (guess > answer) {
+//         return 'Your guess is to high!';
+//       } else {
+//         return 'Your guess is to low';
+//       }
+//     }
+//
+//     return 'All done playing!';
+//   };
+// }
+//
+// var guess = guessingGame(5);
+// console.log(guess(1));
+// console.log(guess(2));
+// console.log(guess(3));
+// console.log(guess(4));
+// console.log(guess(5));

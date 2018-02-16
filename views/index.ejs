@@ -350,7 +350,7 @@ NOTE HTML
           <p><strong>*Immutable</strong> - can't be changed</p>
           <p><strong>*Whitespace</strong> - invisible characters that create literal 'space' in your written code (carriage returns, tabs, and spaces)</p>
           <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a seperate variable environment through it's execution context</p>
-          <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the exection for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
+          <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the execution for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
           <p><strong>Factory</strong> - a function that returns or makes other things for me</p>
           <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument into another function then invoked by/within the other function)</p>
           <p><strong>*Function Currying</strong> - creating a copy of a function but with some preset parameters (useful in mathmatics)</p>
@@ -2267,6 +2267,7 @@ NOTE JAVASCRIPT
           <p>We can either call the inner function right away by using an extra () or we can store the result of the function in a variable (similar to how bind works)</p>
           <p>We do NOT have to give the inner function a name - we can make it anonymous</p>
           <p>Closures only exist when an inner function makes use of variables defined from an outer function that has returned. If the inner function does not make use of any of the external variables all we have is a nested function</p>
+          <p>closures/inner functions don't remember all variables from outer functions, but rather only the ones they need (AKA whatever outerFn variables are specified in the innerFn)</p>
           <pre>
             <code>
               function outer() {
@@ -3519,8 +3520,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 10
-  Video: 113
+  Folder: 11
+  Video: 117
 
   -->
 
