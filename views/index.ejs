@@ -2131,6 +2131,43 @@ NOTE JAVASCRIPT
               }
             </code>
           </pre>
+          <hr>
+          <h5>Prototypal Inheritance</h5>
+          <p><strong>Inheritance</strong> - the passing of methods and properties from one class to another</p>
+          <p><strong>Object.create</strong> - a function that creates a brand new object and accepts as its first parameter, what the prototype object should be for the newly created object</p>
+          <h5>Two Parts Of Inheritance</h5>
+          <p>Set the prototype to be an object created with another prototype</p>
+          <p>Reset the constructor property</p>
+          <pre>
+            <code>
+              // Main constructor function
+              function Person(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+              }
+
+              // Secondary constructor function
+              // borrowing functionality from Person
+              function Student(firstName, lastName) {
+                return Person.apply(this, arguments);
+              }
+
+              // Initializing method on Person constructor
+              Person.prototype.sayHi = function () {
+                return 'Hello ' + this.firstName + ' ' + this.lastName;
+              };
+
+              // Assigning/Allowing the Student prototype to access the methods of the Person prototype
+              // We use Object.create to pass along methods and properties from the Person.prototype object
+              // therfore avoiding overwritting methods on the original Person.prototype
+              // as all objects copy by reference by default
+              Student.prototype = Object.create(Person.prototype);
+
+              // The Student.prototype.constructor now points the Person constructor which is not what we want
+              // Reset the constructor property to point back to the Student constructor
+              Student.prototype.constructor = Student;
+            </code>
+          </pre>
         </div>
       </li>
       <li>
