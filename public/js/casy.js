@@ -1673,3 +1673,43 @@ ES6
 //     return fn.apply(thisArg, allArgs.reverse());
 //   };
 // }
+
+/* ------ Prototype Practice ------ */
+
+// function Person(firstName, lastName, favoriteColor) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.favoriteColor = favoriteColor;
+//   this.family = [];
+// }
+//
+// Person.prototype.fullName = function () {
+//   return this.firstName + ' ' + this.lastName;
+// };
+//
+// Person.prototype.addToFamily = function (person) {
+//   if (this.family.indexOf(person) === -1 && person instanceof Person) {
+//     this.family.push(person);
+//   }
+//
+//   return this.family.length;
+// };
+
+// // not the same as es6 map // just prototype exercise
+// Array.prototype.map = function (callback) {
+//   let newArr = [];
+//   for (let i = 0; i < this.length; i++) {
+//     newArr.push(callback(this[i], i, this));
+//   }
+//
+//   return newArr;
+// };
+
+// String.prototype.reverse = function () {
+//   let revString = '';
+//   for (let i = this.length - 1; i >= 0; i--) {
+//     revString += this[i];
+//   }
+//
+//   return revString;
+// };
