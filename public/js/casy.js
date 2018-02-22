@@ -1745,3 +1745,126 @@ ES6
 //
 // Motorcycle.prototype = Object.create(Vehicle.prototype);
 // Motocycle.prototype.constructor = Motorcycle;
+
+/* ------ Arrow Refactor Practice ------ */
+
+// function tripleAndFilter(arr) {
+//   return arr.map(function (value) {
+//     return value * 3;
+//   }).filter(function (value) {
+//     return value % 2 === 0;
+//   });
+// }
+//
+// let tripleAndFilter = arr => arr.map(val => val * 3).filter(val => val % 2 === 0);
+//
+// console.log(tripleAndFilter([1, 2, 3, 4, 5, 6, 7, 8]));
+
+// function doubleOddNumbers(arr) {
+//   return arr.filter(function (val) {
+//     return val % 2 !== 0;
+//   }).map(function (val) {
+//     return val * 2;
+//   });
+// }
+
+// let doubleOddNumbers = arr => arr.filter(val => val % 2 !== 0).map(val => val * 2);
+//
+// console.log(doubleOddNumbers([1, 2, 3, 4, 5, 6]));
+
+// function mapFilterAndReduce(arr) {
+//   return arr.map(function (val) {
+//     return val.firstName;
+//   }).filter(function (val) {
+//     return val.length < 5;
+//   }).reduce(function (acc, next) {
+//     acc[next] = next.length;
+//     return acc;
+//   }, {});
+// }
+
+// let mapFilterAndReduce = arr => arr.map(val => val.firstName)
+// .filter(val => val.length < 5)
+// .reduce((acc, next) => {
+//   acc[next] = next.length;
+//   return acc;
+// }, {});
+
+// console.log(mapFilterAndReduce([
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Casanova',
+//   },
+//   {
+//     firstName: 'Lisa',
+//     lastName: 'Wazewski',
+//   },
+//   {
+//     firstName: 'Jane',
+//     lastName: 'Doe',
+//   },
+//   {
+//     firstName: 'Johnny',
+//     lastName: 'Boon',
+//   },
+// ]));
+
+/* ------ Rest and Spread ------ */
+
+// function smallestValue(args) {
+//   return Math.min(...args);
+// }
+//
+// console.log(smallestValue([1, 2, 4, 5, 6]));
+
+// function placeInMiddle(arr, vals) {
+//   let midArr = Math.floor(arr.length / 2);
+//   arr.splice(midArr, 0, ...vals);
+//   return arr;
+// }
+//
+// console.log(placeInMiddle([1, 2, 3, 7, 8, 9], [4, 5, 6]));
+
+// function joinArrays(...args) {
+//   return args.reduce((acc, next) => acc.concat(next), []);
+// }
+//
+// console.log(joinArrays([1, 2, 3], [4, 5, 6]));
+
+/* ------ Destructuring Exercises ------ */
+
+// function displayStudentInfo(obj) {
+//   let { first, last } = obj;
+//   return `Your full name is ${first} ${last}`;
+// }
+//
+// console.log(displayStudentInfo({ first: 'Aaron', last: 'Casanova' }));
+
+// function printFullName({ first, last }) {
+//   return `Your full name is ${first} ${last}`;
+// }
+//
+// console.log(printFullName({ first: 'Aaron', last: 'Casanova' }));
+
+// function createStudent({ likesJavaScript = true, likesES2015 = true } = {}) {
+//   let start = 'The student';
+//   if (likesJavaScript && likesES2015) {
+//     start += ' likes JavaScript and ES2015';
+//   }
+//
+//   return start;
+// }
+//
+// let aaron = { likesES2015: true };
+//
+// console.log(createStudent(aaron));
+
+// function reverseArray(arr) {
+//   for (let i = 0; i < arr.length / 2; i++) {
+//     [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];
+//   }
+//
+//   return arr;
+// }
+//
+// console.log(reverseArray([1, 2, 3, 4, 5, 6]));
