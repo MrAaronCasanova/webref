@@ -2187,6 +2187,78 @@ NOTE JAVASCRIPT
                   console.log('User does not exist!');
                 }
               }
+
+              // ********** Refactoring sequential async/await  **********
+
+              // Sequential Example
+              ansyc function getMovieDat() {
+                let responseOne = await $.getJSON(`https://api`);
+                let responseTwo = await $.getJSON(`https://another-api`);
+                console.log(responseOne);
+                console.log(responseTwo);
+              }
+              getMovieData(); // runs slow because responseTwo won't start until responseOne's promise resolves
+
+              // Parallel Exmaple
+              async function getMovieData() {
+                let titanicPromise = $.getJSON(`https://api`);
+                let shrekPromise = $.getJSON(`https://another-api`);
+
+                let titanicData = await titanicPromise;
+                let shrekData = await shrekPromise;
+
+                console.log(titanicData);
+                console.log(shrekData);
+              }
+
+              getMovieData(); // runs faster because both request can be sent right away
+
+              // ********** Await with Promise.all **********
+
+              async function getMovieData(first, second) {
+                let movieList = await Promise.all([
+                  $.getJSON(`https://api/${first}`);
+                  $.getJSON(`https://another-api/${second}`);
+                ]);
+
+                console.log(movieList[0].Year);
+                console.log(movieList[1].Year);
+              }
+
+              getMovieData('shrek', 'blade');
+              // 2001
+              // 1998
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Object Rest</h5>
+          <p>gather remaining (rest) of key and values in an object and create a new one out of them</p>
+          <pre>
+            <code>
+              let instructor = {
+                first: 'Elie',
+                last: 'Schoppik',
+                job: 'Instructor',
+                numSiblings: 3,
+              };
+              let { first, last, ...data} = instructor;
+              first; // 'Elie'
+              last; // 'Schoppik'
+              data; // { job: 'Instructor', numSiblings: 3 }
+            </code>
+          </pre>
+          <h5>Object Spread</h5>
+          <p>spread out keys and values from one object to another</p>
+          <p>great for creating objects starting with default values and is more concise alternative to Object.assign</p>
+          <pre>
+            <code>
+              let instructor = { first: 'Elie', last: 'Schoppik', job: 'Instructor' };
+              let instructor2 = { ...instructor, first: 'Tim', last: 'Garcia' };
+
+              let defaults = { job: 'Instructor', ownsCat: true, ownsDog: true };
+              let matt = { ...defaults, ownsCat: false };
+              let colt = { ... defaults, ownsDog: false };
             </code>
           </pre>
         </div>
