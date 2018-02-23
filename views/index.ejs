@@ -1935,6 +1935,69 @@ NOTE JAVASCRIPT
               values; // ['great post!', 'fantastic', 'i disagree', 'how come?', 'well said', 'more please']
             </code>
           </pre>
+          <hr>
+          <hr>
+          <h5>Maps</h5>
+          <p>also called hash maps</p>
+          <p>similar to objects, except the keys can be ANY data type</p>
+          <pre>
+            <code>
+              let firstMap = new Map;
+
+              firstMap.set(1, 'Aaron');
+              firstMap.set(false, 'a boolean');
+              firstMap.set('nice', 'a string');
+
+              firstMap.delete('nice');
+
+              firstMap.size(); // 2
+
+              firstMap.get(1); // 'Aaron'
+              firstMap.get(false); // 'a boolean'
+
+              firstMap.forEach(v => console.log(v)); // Aaron // a boolean
+
+              // maps implement a Symbol.iterator which means we can use a for...of loop!
+              firstMap.values(); // MapIterator of values
+              firstMap.keys(); // MapIterator of keys
+
+              // WeakMap
+              // similar to map, but all key must be objects
+              // not iterable
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Sets</h5>
+          <p>all values in a set are unique</p>
+          <p>any type of value can exist in a set</p>
+          <p>no duplicate values</p>
+          <pre>
+            <code>
+              let s = new Set;
+
+              // can also be created from an array
+              // var s2 = new Set([1, 2, 4, 5, 3, 6]); // { 1, 2, 4, 5, 3, 6 }
+
+              s.add(10); // { 10 }
+              s.add(20); // { 20, 10 }
+              s.add(10); // { 20, 10 }
+
+              s.size; // 2
+
+              s.has(10); // true
+
+              s.delete(20); // true
+              s.size; // 1
+
+              s2[Symbol.iterator]; // function(){}...
+              // we can use a for...of loop!
+
+              // WeakSet
+              // similar to set, but all values must be objects
+              // not iterable
+            </code>
+          </pre>
         </div>
       </li>
       <li>
@@ -3607,8 +3670,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 14
-  Video: 161
+  Folder: 17
+  Video: 191
 
   -->
 
