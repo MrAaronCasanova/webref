@@ -1975,12 +1975,12 @@ NOTE JAVASCRIPT
           <p>any type of value can exist in a set</p>
           <p>but provisions no duplicate values</p>
           <p>no keys just values</p>
+          <pre>
             <code>
               let s = new Set;
 
               // can also be created from an array
               // var s2 = new Set([1, 2, 4, 5, 3, 6]); // { 1, 2, 4, 5, 3, 6 }
-
               s.add(10); // { 10 }
               s.add(20); // { 20, 10 }
               s.add(10); // { 20, 10 }
@@ -1990,6 +1990,7 @@ NOTE JAVASCRIPT
               s.has(10); // true
 
               s.delete(20); // true
+
               s.size; // 1
 
               s2[Symbol.iterator]; // function(){}...
@@ -2057,6 +2058,133 @@ NOTE JAVASCRIPT
               function seeIfNumber(val) {
                 if (Number.isFinite(val)) {
                   return 'It is a number!';
+                }
+              }
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <hr>
+          <h5>ES2016</h5>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Exponentiation Operator **</h5>
+          <pre>
+            <code>
+              // ES2015
+              let calculatedNumber = Math.pow(2, 4);
+              calculatedNumber; // 16
+
+              // ES2016
+              let calculatedNumber = 2**4;
+              calculatedNumber; // 16
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>[].includes()</h5>
+          <pre>
+            <code>
+              // ES2015
+              let nums = [1, 2, 3, 4, 5];
+              nums.indexOf(3) > -1; // true
+              nums.indexOf(44) > -1; // false
+
+              // ES2016
+              let nums = [1, 2, 3, 4, 5];
+              nums.includes(3); // true
+              nums.includes(44); // false
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <hr>
+          <h5>ES2017</h5>
+          <hr>
+          <hr>
+          <hr>
+          <h5>padStart</h5>
+          <p>allows us to pad or place a certain character a number of times before the start of a string</p>
+          <p>first param is total length of new string</p>
+          <p>second is what to pad from the start</p>
+          <pre>
+            <code>
+              'awesome'.padStart(10); // '   awesome'
+              'awesome'.padStart(10, !); // '!!!awesome'
+            </code>
+          </pre>
+          <h5>padEnd</h5>
+          <p>allows us to pad or place a certain character a number of times at the end of a string</p>
+          <p>first param is total length of new string</p>
+          <p>second is what to pad from the end</p>
+          <pre>
+            <code>
+              'awesome'.padEnd(10, !); // 'awesome!!!'
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Async Functions</h5>
+          <p><strong>async</strong> - a special kind of function that is created using the word <em>async</em></p>
+          <p>purpose: simplify writing asynchronous code, specifically Promises</p>
+          <p><strong>await</strong> - a reserved keyword that can only be used inside async functions</p>
+          <p>await pauses the execution of the async function and is followed by a Promise - the await keyword waits for the promise to resolve, and then resumes the async function's execution and returns the resolved value</p>
+          <pre>
+            <code>
+              // ********** Function async **********
+              async function getMovieData() {
+                console.log('starting');
+                let movieData = await $.getJSON('https://omdbapi.com?t=titanic&apikey=thewdb');
+                // this line does NOT run until the promise is resolved!
+                console.log('all done!');
+                console.log(movieData);
+              }
+
+              getMovieData(); // logs an object with data about the movie!
+
+              // no .then or callback or yield necessary!
+
+              // ********** Object async **********
+
+              // we can aslo place async functions as methods inside objects
+
+              let movieCollector = {
+                data: 'titanic',
+                async getMovie() {
+                  let response = await $.getJSON(`https://omdbapi.com?t=${this.data}&apikey=thewdb`);
+                  console.log(response);
+                }
+              }
+
+              movieCollector.getMovie();
+
+              // ********** Class async **********
+
+              class MovieData {
+                constructor(name) {
+                  this.name = name;
+                }
+
+                async getMovie() {
+                  let response = await $.getJSON(`https://omdbapi.com?t=${this.name}&apikey=thewdb`);
+                  console.log(response);
+                }
+              }
+
+              let m = new MovieData('shrek');
+              m.getMovie();
+
+              // ********** Handing errors **********
+
+              // if a promise is rejected using await, an error will be thrown so we can easily use a try/catch statement to handle errors
+
+              async function getUser(user) {
+                try {
+                  let response = await $.getJSON(`https://api.github.com/users/${user}`);
+                  console.log(response.name);
+                } catch(e) {
+                  console.log('User does not exist!');
                 }
               }
             </code>
