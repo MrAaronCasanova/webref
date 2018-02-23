@@ -1969,3 +1969,30 @@ ES6
 // starWarsString(4).then(function (data) {
 //   console.log(data);
 // });
+
+/* ------ ES2015 Methods ------ */
+
+// function copyObject(obj) {
+//   return Object.assign({}, obj);
+// };
+//
+// function checkIfFinite(num) {
+//   return Number.isFinite(num);
+// }
+//
+// function areAllNumberFinite(arr) {
+//   return arr.every(Number.isFinite);
+// }
+//
+// console.log(areAllNumberFinite([1, 2, 3, 4]));
+// console.log(areAllNumberFinite([1, NaN, 3, 4]));
+//
+// function convertArrayLikeObject(obj) {
+//   return Array.from(obj);
+// }
+//
+// function displayEvenArguments() {
+//   return Array.from(arguments).filter(val => val % 2 === 0);
+// }
+//
+// console.log(displayEvenArguments(1, 5, 4, 3, 6, 7, 8, 9, 5, 3));

@@ -463,6 +463,7 @@ NOTE HTML
           </pre>
           <p><strong>Promise Chaining</strong> - combine asynchronous tasks into a chain of promises</p>
           <p><strong>Returning Promise Data</strong> - data returned from promise.then() is passed to the next chained .then()</p>
+          <p><strong>Promise.all(iterable aka [promise1, promise2, promise3, etc...])</strong> - method returns a single Promise that resolves when all of the promises in the iterable argument have resolved or when  the iterable argument contains no promises. It rejects with the reason of the first promise that rejects</p>
           <p><strong>XMLHTTP Requests</strong> - oldschoolish way to make requests</p>
           <pre>
             <code>
@@ -1940,6 +1941,7 @@ NOTE JAVASCRIPT
           <h5>Maps</h5>
           <p>also called hash maps</p>
           <p>similar to objects, except the keys can be ANY data type</p>
+          <p>the map data structure is useful when creating key value pairs and the keys are not strings</p>
           <pre>
             <code>
               let firstMap = new Map;
@@ -1971,8 +1973,8 @@ NOTE JAVASCRIPT
           <h5>Sets</h5>
           <p>all values in a set are unique</p>
           <p>any type of value can exist in a set</p>
-          <p>no duplicate values</p>
-          <pre>
+          <p>but provisions no duplicate values</p>
+          <p>no keys just values</p>
             <code>
               let s = new Set;
 
@@ -1996,6 +1998,67 @@ NOTE JAVASCRIPT
               // WeakSet
               // similar to set, but all values must be objects
               // not iterable
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Object.assign()</h5>
+          <p>creates copies of objects to avoid overwritting from default object interaction by reference</p>
+          <p>does not create a deep clone - aka. if there are objects inside the object you are copying, those references will still be there</p>
+          <pre>
+            <code>
+              // must set first param as empty object to counter assignment by reference
+
+              let a = { name: 'Aaron' };
+              let a2 = Object.assign({}, a);
+
+              a2.name = 'Casy';
+              a.name; // 'Aaron'
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Array.from()</h5>
+          <p>convert <em>array like objects</em> into arrays</p>
+          <p>convert different types of objects into array</p>
+          <pre>
+            <code>
+              let firstSet = new Set([1, 2, 3, 4]); // {1, 2, 3, 4}
+              let arrayFromSet = Array.from(firstSet); // [1, 2, 3, 4]
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>includes()</h5>
+          <p>returns a boolean if a value is in a string - easier than using IndexOf</p>
+          <pre>
+            <code>
+              // ES5
+              'awesome'.indexOf('some') > -1; // true
+
+              // ES2015
+              'awesome'.includes('some'); true
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Number.isFinite()</h5>
+          <p>a handy way for handling NaN being a typeof number</p>
+          <pre>
+            <code>
+              // ES5
+              function seeIfNumber(val) {
+                if (typeof val === 'number' && !isNaN(val)) {
+                  return 'It is a number!';
+                }
+              }
+
+              // ES2015
+              function seeIfNumber(val) {
+                if (Number.isFinite(val)) {
+                  return 'It is a number!';
+                }
+              }
             </code>
           </pre>
         </div>
@@ -3671,7 +3734,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 17
-  Video: 191
+  Video: 208
 
   -->
 
