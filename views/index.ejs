@@ -86,15 +86,157 @@ NOTE HTML
           <p><strong><em>selection</em>.text(<em>[newValue]</em>)</strong> - set innerText on selection</p>
           <p><strong><em>selection</em>.html(<em>[newValue]</em>)</strong> - set innerHTML on selection</p>
           <p><strong><em>selection</em>.classed(<em>classList [, shouldClassesBeSet]</em>)</strong> - when working with classes specifically [instead of using .attr('class', 'new-class')] we use .classed and provide a space-seperated list of class names we want to set and a value - shouldClassesBeSet checks whether classes should be added or removed</p>
+          <p><strong><em>selection</em>.property(<em>name [, newValue]</em>)</strong> - access a property (e.g. an input value) which is not accessible as an element attribute - e.i. input elements don't have inner text so we grab the value with .property</p>
+          <p><strong><em>selection</em>.append(<em>tagName</em>)</strong> - appends a new element of type <em>tagName</em> to every element in the selection & returns a new d3 selection</p>
+          <p><strong><em>selection</em>.remove()</strong> - remove the selection from the DOM</p>
           <pre>
             <code>
               d3.select('#page-title')
-              .style('background-color', '#000')
-              .style('color', '#fff')
-              .classed('new-class', true)
-              .text('D3 is cool!');
+                  .style('background-color', '#000')
+                  .style('color', '#fff')
+                  .classed('new-class', true)
+                  .text('D3 is cool!');
             </code>
           </pre>
+          <hr>
+          <h5>Selections and Callbacks</h5>
+          <p><strong><em>selection</em>.style(<em>property [, callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <p><strong><em>selection</em>.attr(<em>attribute [, callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <p><strong><em>selection</em>.text(<em>[callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <p><strong><em>selection</em>.html(<em>[callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <pre>
+            <code>
+              // Callback structure
+
+              function (d, i) {
+                // write your code here
+              }
+
+              // the first param refers to the data bound to the current element
+              // the second param referes to the index of the current element in selection
+            </code>
+          </pre>
+          <hr>
+          <h5>Method Chaining</h5>
+          <p>chain selectors while manipulating on things like nested HTML elements</p>
+          <pre>
+            <code>
+              d3.select('.outer-div')
+                  .style('color', 'purple')
+                .select('.inner-div')
+                  .style('font-size', '30px')
+                  .style('background-color', 'orange')
+                .select('.inside-inner-div')
+                  .style('border', '8px solid blue');
+
+              // Common to double tab || four spaces on manipulation methods and single tab || two spaces on selection methods when chaining
+              // four spaces on methods that return current selection
+              // two spaces for methods that return a new selection
+            </code>
+          </pre>
+          <hr>
+          <h5>D3 Event Listeners</h5>
+          <a href="https://bl.ocks.org/mmmaaatttttt/afca73f14e15990d26d4299243c69b61" target="_blank">Lesson Link</a>
+          <p><strong>Adding Event Listeners</strong></p>
+          <p><strong><em>selection</em>.on(<em>eventType, callback</em>)</strong> - like vanilla JS provide the type of event listener as the first param followed by the callback</p>
+          <p><strong>d3.event</strong> - this property on d3 will contain all the event information when referenced inside of an event handler</p>
+          <pre>
+            <code>
+              // Add Note Via Form App
+
+              // handle submit event
+              d3.select('#form').on('submit', function () {
+                // prevent default submit behavior (page refresh)
+                d3.event.preventDefault();
+
+                // grab submit information
+                let input = d3.select('input');
+
+                // append new note to page
+                d3.select('#notes-div')
+                  .append('p')
+                    .classed('note', true)
+                    .text(input.property('value'));
+
+                // reset input text field
+                input.property('value', '');
+              });
+            </code>
+          </pre>
+          <hr>
+          <h5>Data Joins</h5>
+          <img class="responsive-img" src="./img/data-joins.png" alt="Data Joins">
+          <a href="https://bl.ocks.org/mmmaaatttttt/61a1839da480e00b6b970575686d2284" target="_blank">Lesson Link</a>
+          <pre>
+            <code>
+              // Enter Selections
+              // access elements d3 creates on the fly
+              // when it needs to bind data to things
+              // that dont exist yet in the DOM
+
+              let quotes = [q, u, o, t, e, s];
+
+              d3.select('#quotes') // empty ul
+                  .style('list-style', 'none')
+                .selectAll('li') // still returns selection obj even though there are no li's on the page
+                .data(quotes) // using .data method to pass in array of quotes
+                // aka we want to take each piece of data in quotes array and attach to DOM element
+                // d3 will create some placeholder nodes for us labeled EnterNode filled with our quotes data
+                .enter() // creates a d3 selection with the new EnterNodes
+                .append('li') // place EnterNodes on page as li's
+                  .text(function (d) {
+                    return d.quote;
+                  });
+            </code>
+          </pre>
+          <h5>Key Function</h5>
+          <p>return value used to join elements and data</p>
+          <p><strong><em>selection</em>.data(<em>dataArr [, keyFunction]</em>)</strong> - return value from keyFunction is what is used to match elements with data rather than the default behavior of matching by index</p>
+          <a href="https://bl.ocks.org/mmmaaatttttt/f258d9e2911501edd5282ba7a85c97ea" target="_blank">Lesson Link</a>
+          <pre>
+            <code>
+              // Exit Selection & Key Functions
+              // target elements that should be removed from the DOM
+
+              // by default:
+              // data is joined to elements on the page by index
+
+              // by passing the keyFunction into the second param
+              // of the .data() method - the return value will
+              // be used to match elements with data rather than
+              // default matching by index
+
+              // This will remove/update page excluding R rated movies
+
+              let nonRQuotes = quotes.filter(function (movie) {
+                return movie.rating !== 'R';
+              })
+
+              d3.selectAll('li')
+                .data(nonRQuotes, function (d) {
+                  return d.quote;
+                })
+                .exit()
+                .remove();
+            </code>
+          </pre>
+          <h5>General Update Pattern</h5>
+          <a href="https://bl.ocks.org/mmmaaatttttt/17616c80b7ecaaca5316f0218c19897a" target="_blank">Lesson Link</a>
+          <p><strong>Selection Types</strong> - 3 Part System  - which D3 treats seperately</p>
+          <p>Enter Selection - corresponds to pieces of data that don't yet have elements on the page</p>
+          <p>Exit Selection - corresponds to elements on the page that no longer have pieces of data</p>
+          <p>Update Selection - corresponds to elements on the page that are successfully joined to data</p>
+          <img class="responsive-img" src="./img/selection-types.png" alt="Prototype/__proto__ Diagram">
+          <p><strong>Merging Selections</strong></p>
+          <p><strong><em>selection</em>.merge(<em>otherSelection</em>)</strong> - merges selection and otherSelection together into a new selection</p>
+          <p><strong>General Update Pattern</strong></p>
+          <ol class="push-lists">
+            <li>Grab the update selection, make any change unique to that selection, and store the selection in a variable</li>
+            <li>Grab the exit selection and remove any unnecessary elements</li>
+            <li>Grab the enter selection and make any changes unique to that selection</li>
+            <li>Merge the enter and update selections, and make any changes that you want to be shared across both selections</li>
+          </ol>
+          <h5>Rewatch: Folder 20 - Video 233</h5>
         </div>
       </li>
       <li>
@@ -735,7 +877,7 @@ NOTE JAVASCRIPT
           <p><strong>let</strong> - is a way to define a variable using block scoping</p>
           <p><strong>*Dynamic Typing</strong> - you don't tell the engine what type of data a variable holds, it figures it out while your code is running</p>
           <p><strong>*Primitive Type</strong> - a type of data that represents a single value (not an object)
-            <ul class="ul-lists">
+            <ul class="push-lists">
               <li><em>undefined</em> (represents lack of existence [you shouldn't set a var to this])</li>
               <li><em>null</em> (represents lack of existence [you can set a variable to this])</li>
               <li><em>string</em> (a sequence of characters | '' and "" can be used)</li>
@@ -790,7 +932,7 @@ NOTE JAVASCRIPT
           <p><strong>Heap</strong> - the area in memory where your data is stored</p>
           <p><strong>AJAX</strong> - Asychronous JavaScript and Xml (not a library, framework, or technology, but rather an a approach to web development, structure) - websites can send and request data from a server <em>in the background</em> without disturbing the current page</p>
           <p><strong>Truthy & Falsy</strong> - Values that aren't actually <em>true</em> or <em>false</em>, are still inherently "truthy" or "falsey" when evaluated in a boolean conext</p>
-          <ul class="ul-lists">
+          <ul class="push-lists">
             <li><strong>Falsy Values</strong></li>
             <li>false</li>
             <li>' ' (empty string)</li>
@@ -912,7 +1054,7 @@ NOTE JAVASCRIPT
           <p><strong>it</strong> - function used inside the describe function to explain in more detail what we expect the piece of functionality to do (ExPhrase: let me tell you about ___ [in more detail]) - each <em>it</em> function corresponds to a test and is also refered to as a <em>spec</em></p>
           <p><strong>expect</strong> - function lives inside the <em>it</em> function - where we make expectations/assertions about the functionality we are testing (ExPhrase: here's what I expect)</p>
           <p><strong>Matchers</strong> - are the functions we attach to the result of the expect function</p>
-          <ul class="ul-lists">
+          <ul class="push-lists">
             <li><strong>toBe()/not.toBe()</strong> - uses === to compare one value to another (=== will return false even if two obj's have the same value, but reference different locations in memory)</li>
             <li><strong>toBeCloseTo()</strong> - compare two values and accepts a second param for more precision</li>
             <li><strong>toBeDefined()</strong> - makes sure certain variables have a value and are not undefined</li>
@@ -1045,7 +1187,7 @@ NOTE JAVASCRIPT
           <p>in jasmine, mocks are refered to as spies - test double functions - a spy can stub(mimic) any function, track calls to it and all arguments (spies only exist in the 'describe' or 'it' block in which they are defined and are removed after each spec)</p>
           <p><strong>Spies are usefull for</strong> - checking how many times a function is called, what arguments a function is called with, and what the function returns</p>
           <p><strong>Creating Spies in Jasmine</strong> - there are two ways of creating spies in jasmine</p>
-          <ul class="ul-lists">
+          <ul class="push-lists">
             <li><strong>spyOn()</strong> - function [can only be used when the method exists on an obj] - use spyOn() when spying on an existing function</li>
             <li><strong>jasmine.createSpy()</strong> - function [will return a brand new function]</li>
           </ul>
@@ -1125,7 +1267,7 @@ NOTE JAVASCRIPT
           <hr>
           <h5>TDD - Test Driven Development</h5>
           <p>pattern known as red/green refactor</p>
-          <ul class="ul-lists">
+          <ul class="push-lists">
             <li>Write the tests (RED)</li>
             <li>See the tests fail (RED)</li>
             <li>Write code to pass the tests (GREEN)</li>
@@ -1211,7 +1353,7 @@ NOTE JAVASCRIPT
         </div>
         <div class="collapsible-body">
           <h5>jQuery AJAX Methods</h5>
-          <ul class="ul-lists">
+          <ul class="push-lists">
             <li><strong>.$.ajax</strong> - (Key Method) - the 'base' jQuery method - creates an XMLHttpRequest under the hood</li>
             <li><strong>.$.get</strong> - (Shorthand Method for GET) - only required to pass the url as an argument</li>
             <li><strong>.$.post</strong> - (Shorthand Method for POST) - only required to pass the url as an argument</li>
@@ -3988,8 +4130,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 19
-  Video: 219
+  Folder: 20
+  Video: 231
 
   -->
 
