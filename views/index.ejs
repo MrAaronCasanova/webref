@@ -45,6 +45,108 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
+          <h4 class="other">SVG</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Scalable Vector Graphics</h5>
+          <p>Vector NOT Raster</p>
+          <p>raster images use pixels</p>
+          <p>vector images use lines and curves as their fundimental building blocks</p>
+          <p><strong>SVG</strong> - is a markup language based on XML that allows us to draw vector graphics in HTML</p>
+          <a href="https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100" target="_blank">Lesson Link</a>
+          <hr>
+          <hr>
+          <hr>
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+              <g stroke-width="5px" stroke="#0b687d">
+                <line x1="100" y1="100" x2="700" y2="350"/>
+                <line x1="100" y1="350" x2="700" y2="100"/>
+             </g>
+             <rect x="300" y="167" width="200" height="113" rx="130" ry="20" stroke="#2e2e2e" stroke-width="2px" fill="#32947c"/>
+             <polygon
+             fill="#18607a"
+             stroke="#2e2e2e"
+             stroke-width="2px"
+             points="0, 0, 800, 0, 400, 113"
+             />
+             <polygon
+             fill="#18607a"
+             stroke="#2e2e2e"
+             stroke-width="2px"
+             points="0, 450, 800, 450, 400, 339"
+             />
+             <circle cx="400" cy="225" r="80" fill="#fafafa" stroke-width="4px" stroke="#282828"/>
+             <circle cx="400" cy="225" r="45" fill="#282828"/>
+             <circle cx="410" cy="203" r="11" fill="#fafafa"/>
+             <circle cx="425" cy="225" r="9" fill="#fafafa"/>
+             <circle cx="200" cy="225" r="30" fill="#282828"/>
+             <circle cx="600" cy="225" r="30" fill="#282828"/>
+             <circle cx="100" cy="225" r="20" fill="#282828"/>
+             <circle cx="700" cy="225" r="20" fill="#282828"/>
+             <circle cx="35" cy="225" r="10" fill="#282828"/>
+             <circle cx="765" cy="225" r="10" fill="#282828"/>
+             <text x="400" y="417" text-anchor="middle" font-size="20px" fill="
+             #fafafa">Eye'm learning about SVGs</text>
+          </svg>
+          <hr>
+          <hr>
+          <img class="responsive-img" src="./img/svg-coordinates.png" alt="Coordinates in SVG">
+          <hr>
+          <h5>g Elements</h5>
+          <p>short for "group"</p>
+          <p>lets us combine elements that should share attributes or functionality</p>
+          <h5>line Elements</h5>
+          <p>line Attributes</p>
+          <p><strong>x1</strong> - x-coordinate of first endpoint (starting position)</p>
+          <p><strong>y1</strong> - y-coordinate of first endpoint (starting position)</p>
+          <p><strong>x2</strong> - x-coordinate of second endpoint (ending position)</p>
+          <p><strong>y2</strong> - y-coordinate of second endpoint (ending position)</p>
+          <h5>Rectangle Elements</h5>
+          <p>rect Attributes</p>
+          <p><strong>x</strong> - x-coordinate of upper-left corner</p>
+          <p><strong>y</strong> - y-coordinate of upper-left corner</p>
+          <p><strong>width</strong> - width of rectangle</p>
+          <p><strong>height</strong> - height of rectangle</p>
+          <p><strong>stroke</strong> - border color</p>
+          <p><strong>stroke-width</strong> - border thickness</p>
+          <p><strong>fill</strong> - interior color</p>
+          <p><strong>rx</strong> - round corner in x direction</p>
+          <p><strong>ry</strong> - round corner in y direction</p>
+          <h5>polygon Elements</h5>
+          <p>any svg shap bounded by straight line edges</p>
+          <p><strong>points</strong> - space-separated list of points representing vertices of the polygon - points are of the form "x1, y1, x2, y2, etc..."</p>
+          <h5>circle Elements</h5>
+          <p>circle Attributes</p>
+          <p><strong>cx</strong> - x-coordinate of center</p>
+          <p><strong>cy</strong> - y-coordinate of center</p>
+          <p><strong>r</strong> - radius of circle</p>
+          <h5>text Elements in SVG</h5>
+          <p><strong>x</strong> - x-coordinate of lower-left corner</p>
+          <p><strong>y</strong> - y-coordinate of lower-left corner</p>
+          <p><strong>dx || dy</strong> - shift the text element from it's anchor point - horizontally or vertically</p>
+          <p>better to use text-anchor property to shift text via CSS Property or Attribute</p>
+          <p><strong>text-anchor</strong> - horizontal alignment - has 3 available properties - start, middle, and end - aka bottom left, bottom middle, and bottom right alignment of the element</p>
+          <p><strong>alignment-baseline</strong> - vertical alignment via - hanging, middle, baseline - aka bottom, center, and top alignment of the element</p>
+          <p><strong>transform="rotate(degree x,y)"</strong> - rotate text and other shapes - first param is degree of rotation (space-separate) second param point to rotate around</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Path Elements</h5>
+          <p>d Attribute commands</p>
+          <p><strong>6 fundimental paths used to draw commands</strong></p>
+          <p><strong>M</strong>(move)</p>
+          <p><strong>L</strong>(line)</p>
+          <p><strong>Z</strong>(close path)</p>
+          <p><strong>Q</strong>(quadratic Bezier curve)</p>
+          <p><strong>C</strong>(cubic Bezier curve)</p>
+          <p><strong>A</strong>(circular arc)</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
           <h4 class="javascript">D3</h4>
         </div>
         <div class="collapsible-body">
@@ -236,7 +338,7 @@ NOTE HTML
             <li>Grab the enter selection and make any changes unique to that selection</li>
             <li>Merge the enter and update selections, and make any changes that you want to be shared across both selections</li>
           </ol>
-          <h5>Rewatch: Folder 20 - Video 233</h5>
+          <h5>Rewatch Advance Developer Bootcamp: Folder 20 - Video 233</h5>
         </div>
       </li>
       <li>
@@ -4111,6 +4213,12 @@ NOTE JAVASCRIPT
     </ul> <!-- Main UL -->
 
   </div> <!-- Main Reference Div -->
+
+  <div class="center-align">
+    <a class="waves-effect waves-light btn" href="http://casytyping.herokuapp.com" target="_blank">Casy Typing</a>
+    <a class="waves-effect waves-light btn" href="http://casytravel.herokuapp.com" target="_blank">Casy Travel</a>
+  </div>
+  <br>
 </div> <!-- Container Div -->
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -4130,8 +4238,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 20
-  Video: 231
+  Folder: 21
+  Video: 238
 
   -->
 
