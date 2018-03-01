@@ -61,35 +61,72 @@ NOTE HTML
             version="1.1"
             baseProfile="full"
             xmlns="http://www.w3.org/2000/svg">
+
               <g stroke-width="5px" stroke="#0b687d">
                 <line x1="100" y1="100" x2="700" y2="350"/>
                 <line x1="100" y1="350" x2="700" y2="100"/>
-             </g>
-             <rect x="300" y="167" width="200" height="113" rx="130" ry="20" stroke="#2e2e2e" stroke-width="2px" fill="#32947c"/>
-             <polygon
-             fill="#18607a"
-             stroke="#2e2e2e"
-             stroke-width="2px"
-             points="0, 0, 800, 0, 400, 113"
-             />
-             <polygon
-             fill="#18607a"
-             stroke="#2e2e2e"
-             stroke-width="2px"
-             points="0, 450, 800, 450, 400, 339"
-             />
-             <circle cx="400" cy="225" r="80" fill="#fafafa" stroke-width="4px" stroke="#282828"/>
-             <circle cx="400" cy="225" r="45" fill="#282828"/>
-             <circle cx="410" cy="203" r="11" fill="#fafafa"/>
-             <circle cx="425" cy="225" r="9" fill="#fafafa"/>
-             <circle cx="200" cy="225" r="30" fill="#282828"/>
-             <circle cx="600" cy="225" r="30" fill="#282828"/>
-             <circle cx="100" cy="225" r="20" fill="#282828"/>
-             <circle cx="700" cy="225" r="20" fill="#282828"/>
-             <circle cx="35" cy="225" r="10" fill="#282828"/>
-             <circle cx="765" cy="225" r="10" fill="#282828"/>
-             <text x="400" y="417" text-anchor="middle" font-size="20px" fill="
-             #fafafa">Eye'm learning about SVGs</text>
+              </g>
+
+              <rect x="300" y="167" width="200" height="113" rx="130" ry="20" stroke="#2e2e2e" stroke-width="2px" fill="#32947c"/>
+
+              <polygon
+                fill="#18607a"
+                stroke="#2e2e2e"
+                stroke-width="2px"
+                points="0, 0, 800, 0, 400, 113"
+              />
+              <polygon
+                fill="#18607a"
+                stroke="#2e2e2e"
+                stroke-width="2px"
+                points="0, 450, 800, 450, 400, 339"
+              />
+
+              <circle
+                cx="400"
+                cy="225"
+                r="80"
+                fill="#fafafa"
+                stroke-width="4px"
+                stroke="#282828"
+              />
+              <circle cx="400" cy="225" r="45" fill="#282828"/>
+              <circle cx="410" cy="203" r="11" fill="#fafafa"/>
+              <circle cx="425" cy="225" r="9" fill="#fafafa"/>
+              <circle cx="200" cy="225" r="30" fill="#282828"/>
+              <circle cx="600" cy="225" r="30" fill="#282828"/>
+              <circle cx="100" cy="225" r="20" fill="#282828"/>
+              <circle cx="700" cy="225" r="20" fill="#282828"/>
+              <circle cx="35" cy="225" r="10" fill="#282828"/>
+              <circle cx="765" cy="225" r="10" fill="#282828"/>
+
+              <text
+                x="400"
+                y="417"
+                text-anchor="middle"
+                font-size="20px"
+                fill="#fafafa">
+                  Eye'm learning about SVGs
+              </text>
+
+              <path
+                d="
+                  M400 100
+                  L500 300
+                  L300 300
+                  L400 100
+                  "
+              />
+              <!-- ^^^ & vvv Same Result -->
+              <path
+                d="
+                  m400 100
+                  l100 200
+                  l-200 0
+                  l 100 -200
+                  "
+              />
+
           </svg>
           <hr>
           <hr>
@@ -137,12 +174,67 @@ NOTE HTML
           <h5>Path Elements</h5>
           <p>d Attribute commands</p>
           <p><strong>6 fundimental paths used to draw commands</strong></p>
-          <p><strong>M</strong>(move)</p>
-          <p><strong>L</strong>(line)</p>
-          <p><strong>Z</strong>(close path)</p>
-          <p><strong>Q</strong>(quadratic Bezier curve)</p>
-          <p><strong>C</strong>(cubic Bezier curve)</p>
-          <p><strong>A</strong>(circular arc)</p>
+          <p><strong>Uppercase vs Lowercase</strong> - uppercase X Y - X and Y represent the location you want to go to - lowercase x y - x and y represent how far you want to go from your current position</p>
+          <p><strong>M</strong> - (move command) syntax: M X Y - moves the cursor to position X,Y [does not draw anything]</p>
+          <p><strong>L</strong> - (line command) syntax: L X Y - draws a line from the curor's current position [line will end at position X, Y] - can be chained together to draw mutiple line segments</p>
+          <p><strong>Z</strong> - (close path command) syntax: Z || z - close the path with a line <strong>Other Shortcuts</strong> syntax: H || h - draw a horizontal line - syntax: V / v - draw a vertical line</p>
+          <p><strong>Q</strong> - (quadratic Bezier curve command) syntax: Q cx cy, x y - first point is the control point, and second point is the destination</p>
+          <p><strong>C</strong> - (cubic Bezier curve command) syntax: C cx1 cy1, cx2 cy2, xy - first point is control point 1, second point is control point 2, and third is destination point</p>
+          <p><strong>A</strong> - (circular arc command) syntax: A rx ry rotate largeArc sweep x y - first two values are the radius of the x and y direction of the arc, the third is the rotatation, 4th 5th arguments determine whether to draw larger or smaller arc (0 or 1 values), and the last two values are the destination</p>
+          <hr>
+          <hr>
+          <hr>
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="bahamas">
+              <rect x="0" y="100" width="600" height="100" fill = "#FFC72C"/>
+              <polygon points="0 0, 260 150, 0 300" />
+          </svg>
+
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="jamaica">
+            <g stroke="#fed100" fill="#009b3a" stroke-width="50">
+              <polygon points="-300 -150, 300 150, 900 -150" />
+              <polygon points="-300 450, 300 150, 900 450" />
+            </g>
+          </svg>
+
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="macedonia">
+            <g fill="#ffe600">
+              <polygon points="0 0, 600 300, 510 300, 90 0"/>
+              <polygon points="330 0, 270 300, 330 300, 270 0" />
+              <polygon points="600 0, 0 300, 90 300, 510 0" />
+              <polygon points="0 120, 600 180, 600 120, 0 180" />
+              <circle cx="300" cy="150" r="50" stroke="#d20000" stroke-width="10" />
+            </g>
+          </svg>
+
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="south-korea">
+            <g stroke="black" stroke-width="15" transform="translate(300,200)">
+              <path d="M-200 -50v100m25 0v-100m25 0v100
+                       M140-50v45m0 10v45m25 0v-45m0 -10v-45m25 0v45m0 10v45"
+                    transform="rotate(30)"/>
+              <path d="M-200 -50v100m25 0v-45m0-10v-45m25 0v100
+                       M140-50v45m0 10v45m25 0v-100m25 0v45m0 10v45"
+                    transform="rotate(-30)"/>
+            </g>
+            <circle cx="300" cy="200" fill="#cd2e3a" r="90"/>
+            <path fill="#0047a0" d="M300 200a45 45 0 0 1 78 45A90 90 0 1 1 300 110"/>
+            <path fill="#cd2e3a" d="M300 200a45 45 0 0 1 -78 -45A90 90 0 0 1 300 110"/>
+          </svg>
         </div>
       </li>
       <li>
@@ -4239,7 +4331,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 21
-  Video: 238
+  Video: 240
 
   -->
 

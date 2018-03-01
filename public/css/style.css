@@ -1021,11 +1021,34 @@ Fetch API
 }
 
 /* --------------------------------------------
-3rd Party AJAX
+SVG
 -------------------------------------------- */
 
 svg {
   border: 1px solid black;
   width: 800px;
   height: 450px;
+}
+
+#bahamas {
+  width: 600px;
+  height: 300px;
+  background-color: #00778B;
+}
+
+#jamaica {
+  width: 600px;
+  height: 300px;
+  background-color: black;
+}
+
+#macedonia {
+  width: 600px;
+  height: 300px;
+  background-color: #d20000;
+}
+
+#south-korea {
+  width: 600px;
+  height: 400px;
 }
