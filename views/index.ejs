@@ -109,24 +109,6 @@ NOTE HTML
                   Eye'm learning about SVGs
               </text>
 
-              <path
-                d="
-                  M400 100
-                  L500 300
-                  L300 300
-                  L400 100
-                  "
-              />
-              <!-- ^^^ & vvv Same Result -->
-              <path
-                d="
-                  m400 100
-                  l100 200
-                  l-200 0
-                  l 100 -200
-                  "
-              />
-
           </svg>
           <hr>
           <hr>
@@ -279,7 +261,7 @@ NOTE HTML
           <p><strong><em>selection</em>.attr(<em>attribute [, newValue]</em>)</strong> - set attributes on selected elements</p>
           <p><strong><em>selection</em>.text(<em>[newValue]</em>)</strong> - set innerText on selection</p>
           <p><strong><em>selection</em>.html(<em>[newValue]</em>)</strong> - set innerHTML on selection</p>
-          <p><strong><em>selection</em>.classed(<em>classList [, shouldClassesBeSet]</em>)</strong> - when working with classes specifically [instead of using .attr('class', 'new-class')] we use .classed and provide a space-seperated list of class names we want to set and a value - shouldClassesBeSet checks whether classes should be added or removed</p>
+          <p><strong><em>selection</em>.classed(<em>classList [, shouldClassesBeSet]</em>)</strong> - when working with classes specifically [instead of using .attr('class', 'new-class')] we use .classed and provide a space-separated list of class names we want to set and a value - shouldClassesBeSet checks whether classes should be added or removed</p>
           <p><strong><em>selection</em>.property(<em>name [, newValue]</em>)</strong> - access a property (e.g. an input value) which is not accessible as an element attribute - e.i. input elements don't have inner text so we grab the value with .property</p>
           <p><strong><em>selection</em>.append(<em>tagName</em>)</strong> - appends a new element of type <em>tagName</em> to every element in the selection & returns a new d3 selection</p>
           <p><strong><em>selection</em>.remove()</strong> - remove the selection from the DOM</p>
@@ -416,7 +398,7 @@ NOTE HTML
           </pre>
           <h5>General Update Pattern</h5>
           <a href="https://bl.ocks.org/mmmaaatttttt/17616c80b7ecaaca5316f0218c19897a" target="_blank">Lesson Link</a>
-          <p><strong>Selection Types</strong> - 3 Part System  - which D3 treats seperately</p>
+          <p><strong>Selection Types</strong> - 3 Part System  - which D3 treats separately</p>
           <p>Enter Selection - corresponds to pieces of data that don't yet have elements on the page</p>
           <p>Exit Selection - corresponds to elements on the page that no longer have pieces of data</p>
           <p>Update Selection - corresponds to elements on the page that are successfully joined to data</p>
@@ -431,6 +413,73 @@ NOTE HTML
             <li>Merge the enter and update selections, and make any changes that you want to be shared across both selections</li>
           </ol>
           <h5>Rewatch Advance Developer Bootcamp: Folder 20 - Video 233</h5>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Intermediate Methods</h5>
+          <hr>
+          <p><strong>Extreme Values</strong></p>
+          <p><strong>d3.max(<em>dataArr [, callback]</em>)</strong> - takes in an array and returns the largest value - callback specifies how to associate values to array elements</p>
+          <p><strong>d3.min(<em>dataArr [, callback]</em>)</strong> - takes in an array and returns the smallest value - callback specifies how to associate values to array elements</p>
+          <p><strong>d3.extent(<em>dataArr [, callback]</em>)</strong> - calculates min and max, returns them in an array</p>
+          <p><strong>d3.scaleLinear()</strong> - given a domain and range, scaleLinear returns a function that maps values in the domain to values in the range (very useful for flipping the functionality of y values to increase/move upwards from base of svg container)</p>
+          <pre>
+            <code>
+              d3.scaleLinear()
+                .domain([num1, num2])
+                .range([num3, num4])
+            </code>
+          </pre>
+          <hr>
+          <p><strong>Scatter Plots</strong></p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 249</p>
+          <p><strong>Axes</strong> - the method we choose determines where the text labels will sit relative to the axis</p>
+          <p><strong>d3.axisTop(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>d3.axisRight(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>d3.axisBottom(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>d3.axisLeft(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>Gridlines</strong></p>
+          <p><strong><em>axis</em>.tickSize(<em>[size]</em>)</strong> - set a new tick size - ticks stretch in the direction of the access label (e.g. left for axisLeft)</p>
+          <p><strong><em>axis</em>.tickSizeOuter(<em>[size]</em>)</strong> - set a new tick size just for the outer ticks</p>
+          <p><strong>Styling Ticks</strong> - edit in css</p>
+          <pre>
+            <code>
+              .tick line {
+                // change stroke color
+                stroke: #ccc;
+                // lengt of dash, distance between dashes
+                stroke-dasharray: 10, 5;
+              }
+            </code>
+          </pre>
+          <hr>
+          <p><strong>Histograms</strong></p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 253</p>
+          <p><strong>d3.histograms()</strong> - returns a function - the returned function creates bins for the data passed into it</p>
+          <p><strong><em>histogram</em>.value(<em>[value]</em>)</strong> - accepts a callback that specifies how d3 should obtain a value from each object - specifies what value should be used when creating bins</p>
+          <p><strong><em>histogram</em>.domain(<em>[domain]</em>)</strong> - specifies the domain of values (i.e. the min and max) for the histogram generator - if no value is passed, the domain will default to the extent of the data set</p>
+          <p><strong><em>histogram</em>.thresholds(<em>[value]</em>)</strong> - specifies how the histogram generator should separate your data into bins - if <em>value</em> is an array, the thresholds will be based on the elements in the array - if <em>value</em> is a number, D3 will try to make that many bins (but no guarantees)</p>
+          <p><strong><em>scale</em>.ticks(<em>[count]</em>)</strong> - returns approximately <em>count</em> intermediate values from the scale's domain - you are not guaranteed to get exact the <em>count</em> values</p>
+          <hr>
+          <p><strong>Pie Charts</strong></p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 253</p>
+          <p><strong>d3.scaleOrdinal()</strong> - maps a discrete set of points(e.g. [1, 2, 3] in the domain ) to another descrete set of points (e.g. ['a', 'b', 'c'] in the range)</p>
+          <p><strong>d3.pie()</strong> - returns a function - the returned function transforms data - like d3.histogram, has a value method that allows you to specify the value you are interested in visualizing</p>
+          <p><strong>d3.arc()</strong> - converts javascript objects into path commands</p>
+          <p><strong><em>arc</em>.innerRadius(<em>[val]</em>)</strong> - set the inner radius</p>
+          <p><strong><em>arc</em>.outerRadius(<em>[val]</em>)</strong> - set the outer radius</p>
+          <p><strong><em>arc</em>.startAngle(<em>[val]</em>)</strong> - set the start angle</p>
+          <p><strong><em>arc</em>.endAngle(<em>[val]</em>)</strong> - set the end angle</p>
+          <p><strong>Chart Styling Helpers</strong></p>
+          <p><strong><em>arc</em>.cornerRadius</strong> - round arc corners</p>
+          <p><strong><em>arc</em>.cornerRadius</strong> - round arc corners</p>
+          <p><strong><em>arc</em>.padAngle</strong> - set padding between arcs</p>
+          <p><strong><em>pie</em>.padAngle</strong> - set padding between arcs</p>
+          <p><strong>Sorting Arcs</strong></p>
+          <p><strong><em>pie</em>.sort(<em>[comparator]</em>)</strong></p>
+          <p>comparator(<em>a, b</em>) &lt; 0: <em>a</em>should come before <em>b</em> - if a comes before b in the chart the comparator will return a negative number</p>
+          <p>comparator(<em>a, b</em>) &gt; 0: <em>a</em>should come after <em>b</em> - if a comes after b in the chart the comparator will return a positive number</p>
+          <p>comparator(<em>a, b</em>) == 0: <em>a</em> and <em>b</em> are equivalent - if a cand b are indifferent the comparator will return 0</p>
         </div>
       </li>
       <li>
@@ -1097,12 +1146,12 @@ NOTE JAVASCRIPT
           <p><strong>*Arguments</strong> - the parameters you pass to a funtion (JS gives you a keyword of the same name which contains them all [the value(s) are presented in what looks like an array (array like)])</p>
           <p><strong>*(function) Expression</strong> - a unit of code that results(returns) in a value (doesn't have to save to a variable)</p>
           <p><strong>*(function) Statement</strong> - declares a function (saved for later use, and will be executed later, when it is invoked (called)) [statements don't <em>return</em> a value by default, you must state that]</p>
-          <p><strong>By Value</strong> - when setting the value of one primitive(a=3) to another(b=a), the JS engine will create a copy of the value of 'a' for 'b' and place it in a new/seperate location memory - all primitives interact by value</p>
+          <p><strong>By Value</strong> - when setting the value of one primitive(a=3) to another(b=a), the JS engine will create a copy of the value of 'a' for 'b' and place it in a new/separate location memory - all primitives interact by value</p>
           <p><strong>By Reference</strong> - when you have an object(a={greet:'hello'}) and set (b=a), the JS engine will create 'b' with a reference to the location in memory where the values of 'a' are stored['a' and 'b' have the same value as they point to the same location in memory] - all objects interact by reference when setting them equal to each other or passing to a function</p>
           <p><strong>*Mutate</strong> - to change something</p>
           <p><strong>*Immutable</strong> - can't be changed</p>
           <p><strong>*Whitespace</strong> - invisible characters that create literal 'space' in your written code (carriage returns, tabs, and spaces)</p>
-          <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a seperate variable environment through it's execution context</p>
+          <p><strong>Immediately Invoked Function Express (IIFE)</strong> - executing code on the fly (invoking a function after creating it) - helps avoid namespace collisions because the invoked function creates a separate variable environment through it's execution context</p>
           <p><strong>Closures</strong> - when a function 'a' returns another function 'b' we can make use of any variables stored in 'a' while running code in 'b' - although the execution for 'a' has been popped off the stack JS still keeps the data for 'a' in memory for which 'b' can reference it through it's outer environments to find the desired values</p>
           <p><strong>Factory</strong> - a function that returns or makes other things for me</p>
           <p><strong>*Callback Function</strong> - a function you give to another function, to be run when the other function is finished (function passed as argument into another function then invoked by/within the other function)</p>
@@ -1143,7 +1192,7 @@ NOTE JAVASCRIPT
           <p><strong>'this'</strong> - is determined by how a function is called (in most cases) <em>SEE THIS KEYWORD SECTION</em>
             <ul>
               <li><em>Function methods for assigning the 'this' keyword</em></li>
-              <li><em>.call</em> - invokes the function and lets you set up the 'this' keyword (pass additional params seperated by commas)</li>
+              <li><em>.call</em> - invokes the function and lets you set up the 'this' keyword (pass additional params separated by commas)</li>
               <li><em>.apply</em> - invokes the function and lets you set up the 'this' keyword (pass additional params inside an array)</li>
               <li><em>.bind</em> - creates a copy of the function and lets you set up the 'this' keyword (also lets you set up default parameters/ aka permanent preset params)</li>
             </ul>
@@ -3037,7 +3086,7 @@ NOTE JAVASCRIPT
               sumValues(values); // incorrect // '4,1,2undefinedundefined'
 
               sumValues.apply(this, [4, 1, 2]); // correct // 7
-              // apply will spread out array values to comma seperated items
+              // apply will spread out array values to comma separated items
 
               // with es6 we can use the ...spread operator
               sumValues(...values); // correct // 7
@@ -4330,8 +4379,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 21
-  Video: 240
+  Folder: 22
+  Video: 247
 
   -->
 
