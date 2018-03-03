@@ -462,7 +462,7 @@ NOTE HTML
           <p><strong><em>scale</em>.ticks(<em>[count]</em>)</strong> - returns approximately <em>count</em> intermediate values from the scale's domain - you are not guaranteed to get exact the <em>count</em> values</p>
           <hr>
           <p><strong>Pie Charts</strong></p>
-          <p>Reference AdvanceWDB - folder: 22 - video: 253</p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 257</p>
           <p><strong>d3.scaleOrdinal()</strong> - maps a discrete set of points(e.g. [1, 2, 3] in the domain ) to another descrete set of points (e.g. ['a', 'b', 'c'] in the range)</p>
           <p><strong>d3.pie()</strong> - returns a function - the returned function transforms data - like d3.histogram, has a value method that allows you to specify the value you are interested in visualizing</p>
           <p><strong>d3.arc()</strong> - converts javascript objects into path commands</p>
@@ -480,6 +480,34 @@ NOTE HTML
           <p>comparator(<em>a, b</em>) &lt; 0: <em>a</em>should come before <em>b</em> - if a comes before b in the chart the comparator will return a negative number</p>
           <p>comparator(<em>a, b</em>) &gt; 0: <em>a</em>should come after <em>b</em> - if a comes after b in the chart the comparator will return a positive number</p>
           <p>comparator(<em>a, b</em>) == 0: <em>a</em> and <em>b</em> are equivalent - if a cand b are indifferent the comparator will return 0</p>
+          <hr>
+          <hr>
+          <h5>More D3</h5>
+          <p><strong>d3.transition()</strong> - creates a new transition</p>
+          <p><strong><em>transition</em>.attr(<em>name, newVal</em>)</strong> - transitions name to newVal</p>
+          <p><strong><em>transition</em>.style(<em>name, newVal</em>)</strong> - transitions name to newVal</p>
+          <p><strong><em>transition</em>.transition()</strong> - chain a new transition</p>
+          <p><strong><em>transition</em>.merge(<em>other</em>)</strong> - merge transitions</p>
+          <p><strong><em>transition</em>.selection()</strong> - access <em>transition</em>'s D3 selection</p>
+          <p><strong><em>transition</em>.duration(<em>[value]</em>)</strong> - new duration for the transition - value can be a constant or callback to be invoke on each element</p>
+          <p><strong><em>transition</em>.ease(<em>[value]</em>)</strong> - new easing function for the transition</p>
+          <p><strong><em>transition</em>.delay(<em>[value]</em>)</strong> - new delay for transition - value can be a constant or a callback to be invoke on each element</p>
+          <p><strong><em>transition</em>.on(<em>typenames [, listener]</em>)</strong> - types of transition events: start, end, and interrupt</p>
+          <hr>
+          <hr>
+          <h5>Working with JSON & CSV</h5>
+          <p><strong>d3.json(<em>url [, callback]</em>)</strong> - url = JSON file location, callback = code to run when response is recieved -  taking two arguments (error, data) - if only one argument is provided it will refer to the data</p>
+          <p><strong>d3.csv(<em>url [, formatter, callback]</em>)</strong> - url = CSV file location, formatter = format you data by iterating through rows - accepts 3 arguments (row, i, headers) row - current CSV row as an object | i - row index | headers - array of CSV headers which are also keys in the row object, callback = code to run when response is recieved -  taking two arguments (error, data) - if only one argument is provided it will refer to the data</p>
+          <p><strong>ADDITIONAL REQUEST METHODS</strong></p>
+          <p>d3.text</p>
+          <p>d3.tsv</p>
+          <p>d3.html</p>
+          <p>d3.xml</p>
+          <p>d3.request</p>
+          <p><strong>d3.queue()</strong> - method to queue asynchronous requests together - creates a D3 queue object used to manage async tasks</p>
+          <p><strong><em>queue</em>.defer(<em>fn [, arguments]</em>)</strong> - add request to a queue - first pass in async fn, follow by any arguments for the fn</p>
+          <p><strong><em>queue</em>.await()</strong> - resolves the queue - makes the response available as a comma separated list - arguments can be provided as follows (err, res)</p>
+          <p><strong><em>queue</em>.awaitAll()</strong> - resolves the queue - gives you an array of responses - arguments can be provided as follows (err, res)</p>
         </div>
       </li>
       <li>
@@ -4380,7 +4408,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 22
-  Video: 247
+  Video: 258
 
   -->
 
