@@ -524,6 +524,22 @@ NOTE HTML
           <p><strong><em>path</em>.projection(<em>[projection]</em>)</strong> - function that transforms spherical geometry data to 2D plane</p>
           <p><strong><em>projection</em>.scale(<em>[scale]</em>)</strong> - scale a projection</p>
           <p><strong><em>projection</em>.translate([x, y])</strong> - translate a projection</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Force Directed Graphs</h5>
+          <p>a way to visualize relationships between nodes in a graph</p>
+          <p><strong>d3.forceSimulation(<em>[nodes]</em>)</strong> - accepts an array of nodes and begins to simulate forces acting on those nodes</p>
+          <p><strong><em>simulation</em>.node(<em>[newNodes]</em>)</strong> - updates a simulation to act on newNodes</p>
+          <p><strong>d3.forceCenter(<em>[x, y]</em>)</strong> - force location (i.e. coordinates of where you'd like the force to pull nodes)</p>
+          <p><strong><em>simulation</em>.force(<em>name [, force]</em>)</strong> - firstArg is developers chosen name of the force, secondArg is the description of the force using D3 (i.e. a function) </p>
+          <p><strong><em>simulation</em>.on(<em>type [, listener]</em>)</strong> - only two types of events to listen for - 'tick' = fires after every tick of the simulation's timer - 'end' = fires when the simulation's timer stops</p>
+          <p><strong>d3.forceManyBody()</strong> - adds forces between all nodes in the simulation - by default, forces are repulsive</p>
+          <p><strong><em>force</em>.strength(<em>[newStrength]</em>)</strong> - accepts a value or callback to set a new strength - negative values are repulsive - positive values are attractive - default 'many body' strength is -30</p>
+          <p><strong>d3.forceLink(<em>[links]</em>)</strong> - add link forces based on the links passed in - update the links later using the .links method on force</p>
+          <p><strong><em>link</em>.id(<em>[id]</em>)</strong> - specify how D3 should find nodes based on source and target</p>
+          <p><strong><em>link</em>.distance(<em>[newDistance]</em>)</strong> - ideal distance between nodes</p>
+          <p><strong><em>link</em>.strength(<em>[newStrength]</em>)</strong></p>
           
         </div>
       </li>
