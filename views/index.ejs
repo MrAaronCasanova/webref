@@ -540,7 +540,15 @@ NOTE HTML
           <p><strong><em>link</em>.id(<em>[id]</em>)</strong> - specify how D3 should find nodes based on source and target</p>
           <p><strong><em>link</em>.distance(<em>[newDistance]</em>)</strong> - ideal distance between nodes</p>
           <p><strong><em>link</em>.strength(<em>[newStrength]</em>)</strong></p>
-          
+          <hr>
+          <h5>Draggable Nodes</h5>
+          <p>implement a drag feature on nodes - during drag, ignore forces from the simulation</p>
+          <p><strong>d3.drag()</strong> - built-in dragging support for D3 selections - add to a selection by passing it into .call - exposes three dragging events: start, drag, end</p>
+          <p><strong>Simulation Cooling</strong> - forces are not applied continuously - forces are based on an alpha value - alpha decays after every tick - after reaching a minimum alpha, the simulation stops</p>
+          <p><strong><em>simulation</em>.alpha(<em>[newAlpha]</em>)</strong> - get or set a new alpha</p>
+          <p><strong><em>simulation</em>.alphaMin(<em>[newMin]</em>)</strong> - get or set a new min (0.001 by default)</p>
+          <p><strong><em>simulation</em>.alphaDecay(<em>[newDecay]</em>)</strong> - get or set a new decay (~0.0228 by default)</p>
+          <p><strong><em>simulation</em>.alphaTarget(<em>[newTgt]</em>)</strong> - get or set a new target (0 by default)</p>
         </div>
       </li>
       <li>
@@ -4440,8 +4448,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 22
-  Video: 262
+  Folder: 25
+  Video: 274
 
   -->
 
