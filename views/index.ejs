@@ -508,6 +508,23 @@ NOTE HTML
           <p><strong><em>queue</em>.defer(<em>fn [, arguments]</em>)</strong> - add request to a queue - first pass in async fn, follow by any arguments for the fn</p>
           <p><strong><em>queue</em>.await()</strong> - resolves the queue - makes the response available as a comma separated list - arguments can be provided as follows (err, res)</p>
           <p><strong><em>queue</em>.awaitAll()</strong> - resolves the queue - gives you an array of responses - arguments can be provided as follows (err, res)</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>GeoJSON & TopoJSON</h5>
+          <p><strong>GeoJSON</strong> - a standard for encoding geographic information - uses JSON - Gerographic data stored in a features property</p>
+          <p><strong>d3.geoPath()</strong> - returns a function - returned function converts GeoJSON data into path commands</p>
+          <p><strong>TopoJSON</strong> - an extension of GeoJSON - removes duplication in data - uses arcs, not coordinates - (there is a two step process to use TopoJSON - first convert to GeoJSON - secondly convert GeoJSON to valid svg path commands)</p>
+          <hr>
+          <p><strong>After including the TopoJSON Library</strong></p>
+          <p><strong>topojson.feature(<em>object, locationOfFeatures</em>)</strong> - firstArg = TopoJSON object - secondArg = location of features to convert within object</p>
+          <hr>
+          <hr>
+          <h5>Projection & Methods</h5>
+          <p><strong><em>path</em>.projection(<em>[projection]</em>)</strong> - function that transforms spherical geometry data to 2D plane</p>
+          <p><strong><em>projection</em>.scale(<em>[scale]</em>)</strong> - scale a projection</p>
+          <p><strong><em>projection</em>.translate([x, y])</strong> - translate a projection</p>
+          
         </div>
       </li>
       <li>
@@ -4408,7 +4425,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 22
-  Video: 258
+  Video: 262
 
   -->
 
