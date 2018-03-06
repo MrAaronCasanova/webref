@@ -170,6 +170,29 @@ NOTE HTML
               );
             </code>
           </pre>
+          <p><strong>Adding Lifecycle Methods to a Class</strong></p>
+          <p><strong>lifecycle hooks</strong> - special methods on the component class to run some code when a component mounts and unmounts</p>
+          <p><strong>componentDidMount()</strong> - hook runs after the component output has been rendered to the DOM</p>
+          <p><strong>componentWillUnmount()</strong> - hooks runs if component is ever removed from the DOM</p>
+          <a href="https://reactjs.org/docs/state-and-lifecycle.html" target="_blank">Lesson Link</a>
+          <p>CMD-F for (Let’s quickly recap what’s going on)</p>
+          <p><strong>setState()</strong> - method to re-render the component</p>
+          <pre>
+            <code>
+              // 3 Important Things To Know About setState()
+
+              1. State cannot be modified directly
+              // The only place where you can assign this.state is the constructor
+              // correct Modification
+              this.setState({ comment: 'Hello' });
+
+              2. State updates may be asynchronous
+              // Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state
+
+              3. State updates are merged
+              // When you call setState(), React merges the object you provide into the current state
+            </code>
+          </pre>
         </div>
       </li>
       <li>
