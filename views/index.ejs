@@ -45,510 +45,131 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="other">SVG</h4>
+          <h4 class="javascript">ReactJS</h4>
         </div>
         <div class="collapsible-body">
-          <h5>Scalable Vector Graphics</h5>
-          <p>Vector NOT Raster</p>
-          <p>raster images use pixels</p>
-          <p>vector images use lines and curves as their fundimental building blocks</p>
-          <p><strong>SVG</strong> - is a markup language based on XML that allows us to draw vector graphics in HTML</p>
-          <a href="https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100" target="_blank">Lesson Link</a>
+          <h5>Front-End Framework</h5>
+          <p>JavaScript libraries that handle DOM manipulation - Handles navigations (HTML5 push state) - State management</p>
+          <h5>Babel</h5>
+          <p>Transpiler: converts from one source code version to another (i.e. JSX to Vanilla JS)</p>
+          <h5>Webpack</h5>
+          <p>A module bundler for moder JavaScript applications</p>
+          <p>*combines different JS files into a bundle.js</p>
+          <p>*has a plugin system to run tools like babel</p>
+          <p>*also bundles other assets like css, images, etc...</p>
           <hr>
           <hr>
           <hr>
-          <svg
-            version="1.1"
-            baseProfile="full"
-            xmlns="http://www.w3.org/2000/svg">
-
-              <g stroke-width="5px" stroke="#0b687d">
-                <line x1="100" y1="100" x2="700" y2="350"/>
-                <line x1="100" y1="350" x2="700" y2="100"/>
-              </g>
-
-              <rect x="300" y="167" width="200" height="113" rx="130" ry="20" stroke="#2e2e2e" stroke-width="2px" fill="#32947c"/>
-
-              <polygon
-                fill="#18607a"
-                stroke="#2e2e2e"
-                stroke-width="2px"
-                points="0, 0, 800, 0, 400, 113"
-              />
-              <polygon
-                fill="#18607a"
-                stroke="#2e2e2e"
-                stroke-width="2px"
-                points="0, 450, 800, 450, 400, 339"
-              />
-
-              <circle
-                cx="400"
-                cy="225"
-                r="80"
-                fill="#fafafa"
-                stroke-width="4px"
-                stroke="#282828"
-              />
-              <circle cx="400" cy="225" r="45" fill="#282828"/>
-              <circle cx="410" cy="203" r="11" fill="#fafafa"/>
-              <circle cx="425" cy="225" r="9" fill="#fafafa"/>
-              <circle cx="200" cy="225" r="30" fill="#282828"/>
-              <circle cx="600" cy="225" r="30" fill="#282828"/>
-              <circle cx="100" cy="225" r="20" fill="#282828"/>
-              <circle cx="700" cy="225" r="20" fill="#282828"/>
-              <circle cx="35" cy="225" r="10" fill="#282828"/>
-              <circle cx="765" cy="225" r="10" fill="#282828"/>
-
-              <text
-                x="400"
-                y="417"
-                text-anchor="middle"
-                font-size="20px"
-                fill="#fafafa">
-                  Eye'm learning about SVGs
-              </text>
-
-          </svg>
-          <hr>
-          <hr>
-          <img class="responsive-img" src="./img/svg-coordinates.png" alt="Coordinates in SVG">
-          <hr>
-          <h5>g Elements</h5>
-          <p>short for "group"</p>
-          <p>lets us combine elements that should share attributes or functionality</p>
-          <h5>line Elements</h5>
-          <p>line Attributes</p>
-          <p><strong>x1</strong> - x-coordinate of first endpoint (starting position)</p>
-          <p><strong>y1</strong> - y-coordinate of first endpoint (starting position)</p>
-          <p><strong>x2</strong> - x-coordinate of second endpoint (ending position)</p>
-          <p><strong>y2</strong> - y-coordinate of second endpoint (ending position)</p>
-          <h5>Rectangle Elements</h5>
-          <p>rect Attributes</p>
-          <p><strong>x</strong> - x-coordinate of upper-left corner</p>
-          <p><strong>y</strong> - y-coordinate of upper-left corner</p>
-          <p><strong>width</strong> - width of rectangle</p>
-          <p><strong>height</strong> - height of rectangle</p>
-          <p><strong>stroke</strong> - border color</p>
-          <p><strong>stroke-width</strong> - border thickness</p>
-          <p><strong>fill</strong> - interior color</p>
-          <p><strong>rx</strong> - round corner in x direction</p>
-          <p><strong>ry</strong> - round corner in y direction</p>
-          <h5>polygon Elements</h5>
-          <p>any svg shap bounded by straight line edges</p>
-          <p><strong>points</strong> - space-separated list of points representing vertices of the polygon - points are of the form "x1, y1, x2, y2, etc..."</p>
-          <h5>circle Elements</h5>
-          <p>circle Attributes</p>
-          <p><strong>cx</strong> - x-coordinate of center</p>
-          <p><strong>cy</strong> - y-coordinate of center</p>
-          <p><strong>r</strong> - radius of circle</p>
-          <h5>text Elements in SVG</h5>
-          <p><strong>x</strong> - x-coordinate of lower-left corner</p>
-          <p><strong>y</strong> - y-coordinate of lower-left corner</p>
-          <p><strong>dx || dy</strong> - shift the text element from it's anchor point - horizontally or vertically</p>
-          <p>better to use text-anchor property to shift text via CSS Property or Attribute</p>
-          <p><strong>text-anchor</strong> - horizontal alignment - has 3 available properties - start, middle, and end - aka bottom left, bottom middle, and bottom right alignment of the element</p>
-          <p><strong>alignment-baseline</strong> - vertical alignment via - hanging, middle, baseline - aka bottom, center, and top alignment of the element</p>
-          <p><strong>transform="rotate(degree x,y)"</strong> - rotate text and other shapes - first param is degree of rotation (space-separate) second param point to rotate around</p>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Path Elements</h5>
-          <p>d Attribute commands</p>
-          <p><strong>6 fundimental paths used to draw commands</strong></p>
-          <p><strong>Uppercase vs Lowercase</strong> - uppercase X Y - X and Y represent the location you want to go to - lowercase x y - x and y represent how far you want to go from your current position</p>
-          <p><strong>M</strong> - (move command) syntax: M X Y - moves the cursor to position X,Y [does not draw anything]</p>
-          <p><strong>L</strong> - (line command) syntax: L X Y - draws a line from the curor's current position [line will end at position X, Y] - can be chained together to draw mutiple line segments</p>
-          <p><strong>Z</strong> - (close path command) syntax: Z || z - close the path with a line <strong>Other Shortcuts</strong> syntax: H || h - draw a horizontal line - syntax: V / v - draw a vertical line</p>
-          <p><strong>Q</strong> - (quadratic Bezier curve command) syntax: Q cx cy, x y - first point is the control point, and second point is the destination</p>
-          <p><strong>C</strong> - (cubic Bezier curve command) syntax: C cx1 cy1, cx2 cy2, xy - first point is control point 1, second point is control point 2, and third is destination point</p>
-          <p><strong>A</strong> - (circular arc command) syntax: A rx ry rotate largeArc sweep x y - first two values are the radius of the x and y direction of the arc, the third is the rotatation, 4th 5th arguments determine whether to draw larger or smaller arc (0 or 1 values), and the last two values are the destination</p>
-          <hr>
-          <hr>
-          <hr>
-          <svg
-            version="1.1"
-            baseProfile="full"
-            xmlns="http://www.w3.org/2000/svg"
-            id="bahamas">
-              <rect x="0" y="100" width="600" height="100" fill = "#FFC72C"/>
-              <polygon points="0 0, 260 150, 0 300" />
-          </svg>
-
-          <svg
-            version="1.1"
-            baseProfile="full"
-            xmlns="http://www.w3.org/2000/svg"
-            id="jamaica">
-            <g stroke="#fed100" fill="#009b3a" stroke-width="50">
-              <polygon points="-300 -150, 300 150, 900 -150" />
-              <polygon points="-300 450, 300 150, 900 450" />
-            </g>
-          </svg>
-
-          <svg
-            version="1.1"
-            baseProfile="full"
-            xmlns="http://www.w3.org/2000/svg"
-            id="macedonia">
-            <g fill="#ffe600">
-              <polygon points="0 0, 600 300, 510 300, 90 0"/>
-              <polygon points="330 0, 270 300, 330 300, 270 0" />
-              <polygon points="600 0, 0 300, 90 300, 510 0" />
-              <polygon points="0 120, 600 180, 600 120, 0 180" />
-              <circle cx="300" cy="150" r="50" stroke="#d20000" stroke-width="10" />
-            </g>
-          </svg>
-
-          <svg
-            version="1.1"
-            baseProfile="full"
-            xmlns="http://www.w3.org/2000/svg"
-            id="south-korea">
-            <g stroke="black" stroke-width="15" transform="translate(300,200)">
-              <path d="M-200 -50v100m25 0v-100m25 0v100
-                       M140-50v45m0 10v45m25 0v-45m0 -10v-45m25 0v45m0 10v45"
-                    transform="rotate(30)"/>
-              <path d="M-200 -50v100m25 0v-45m0-10v-45m25 0v100
-                       M140-50v45m0 10v45m25 0v-100m25 0v45m0 10v45"
-                    transform="rotate(-30)"/>
-            </g>
-            <circle cx="300" cy="200" fill="#cd2e3a" r="90"/>
-            <path fill="#0047a0" d="M300 200a45 45 0 0 1 78 45A90 90 0 1 1 300 110"/>
-            <path fill="#cd2e3a" d="M300 200a45 45 0 0 1 -78 -45A90 90 0 0 1 300 110"/>
-          </svg>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <h4 class="javascript">D3</h4>
-        </div>
-        <div class="collapsible-body">
-          <h5>D3 DOM Manipulation</h5>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Selection Methods</h5>
-          <p><strong>d3.select()</strong> - single element</p>
-          <p><strong>d3.selectAll()</strong> - multiple element</p>
-          <p>both accept a valid CSS selector</p>
+          <h5>React Basics & Terminology</h5>
+          <p><strong>ReactDOM.render(JSX, elementSelection)</strong> - smallest React example of rendering content to a selected element on the page</p>
+          <p><strong>JSX</strong> - JavaScript XML - XML-like syntax extension to ECMAScript without defined semantics - produces React "elements" that describe what the UI should look like - (commonly wrapped in parathesis to avoid the pitfalls of automatic semicolon insertion) - become JS object upon compilation (meaning JSX can be used in 'if statements', 'for loops', 'assign to vars', 'accept as args', and 'return from functions')</p>
+          <p>embed JS expression in JSX by wrapping it in curly braces</p>
           <pre>
             <code>
-              d3.select('#page-title');
-              d3.selectAll('li');
-
-              // both return a selection object
-              // this object has two internal properties
-              // _groups & _parents
-              // the underscores indicate that you should NOT access these properties directly
+              let person = { name: 'Aaron' };
+              let element = (&lt;h1&gt;My name is {person.name}, and I am {20 + 6} years old&lt;/h1&gt;);
+              ReactDOM.render(element, document.getElementById('root'));
             </code>
           </pre>
-          <hr>
-          <h5>Accessing Nodes</h5>
-          <p><strong><em>selection</em>.nodes()</strong> return an array of matching HTML elements</p>
-          <p><strong><em>selection</em>.node()</strong> - return the first (non-null) HTML element</p>
+          <p><strong>JSX Attributes</strong> - use quotes to specify string literals as attrs or use curly braces to embed JS expressions as attrs</p>
           <pre>
             <code>
-              d3.selectAll('li').nodes(); // [li, li, li, li]
-              d3.select('li').node(); // &lt;li&gt;I am the first li&lt;/li&gt;
+              // string literal example
+              const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;;
+              // JS expression example
+              const element = &lt;img scr={user.avatarUrl} /&gt;;
             </code>
           </pre>
-          <hr>
-          <h5>Manipulating Selections</h5>
-          <p>style, attr, text, and htlm adder/getter methods</p>
-          <p>NOTE: These (and other!) D3 methods will work as getters if no newValue is passed in</p>
-          <p><strong><em>selection</em>.style(<em>property [, newValue]</em>)</strong> - set css styling on selected elements</p>
-          <p><strong><em>selection</em>.attr(<em>attribute [, newValue]</em>)</strong> - set attributes on selected elements</p>
-          <p><strong><em>selection</em>.text(<em>[newValue]</em>)</strong> - set innerText on selection</p>
-          <p><strong><em>selection</em>.html(<em>[newValue]</em>)</strong> - set innerHTML on selection</p>
-          <p><strong><em>selection</em>.classed(<em>classList [, shouldClassesBeSet]</em>)</strong> - when working with classes specifically [instead of using .attr('class', 'new-class')] we use .classed and provide a space-separated list of class names we want to set and a value - shouldClassesBeSet checks whether classes should be added or removed</p>
-          <p><strong><em>selection</em>.property(<em>name [, newValue]</em>)</strong> - access a property (e.g. an input value) which is not accessible as an element attribute - e.i. input elements don't have inner text so we grab the value with .property</p>
-          <p><strong><em>selection</em>.append(<em>tagName</em>)</strong> - appends a new element of type <em>tagName</em> to every element in the selection & returns a new d3 selection</p>
-          <p><strong><em>selection</em>.remove()</strong> - remove the selection from the DOM</p>
+          <p><strong>Elements</strong> - describe what you want to see on the screen - React elements are plain objects and are immutable (must be re-rendered to to update, but only updates what necessary)</p>
+          <p><strong>Components</strong> - components are made of elements - like functions, they accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen - always start component name with a capital letter</p>
           <pre>
             <code>
-              d3.select('#page-title')
-                  .style('background-color', '#000')
-                  .style('color', '#fff')
-                  .classed('new-class', true)
-                  .text('D3 is cool!');
-            </code>
-          </pre>
-          <hr>
-          <h5>Selections and Callbacks</h5>
-          <p><strong><em>selection</em>.style(<em>property [, callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
-          <p><strong><em>selection</em>.attr(<em>attribute [, callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
-          <p><strong><em>selection</em>.text(<em>[callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
-          <p><strong><em>selection</em>.html(<em>[callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
-          <pre>
-            <code>
-              // Callback structure
+              // simple defintion of component
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+              }
+              // valid React Component because it accepts a single 'props' object arg with data and returns a React element
 
-              function (d, i) {
-                // write your code here
+              // Equivalent example with ES6
+              class Welcome extends React.Component {
+                render() {
+                  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+                }
               }
 
-              // the first param refers to the data bound to the current element
-              // the second param referes to the index of the current element in selection
-            </code>
-          </pre>
-          <hr>
-          <h5>Method Chaining</h5>
-          <p>chain selectors while manipulating on things like nested HTML elements</p>
-          <pre>
-            <code>
-              d3.select('.outer-div')
-                  .style('color', 'purple')
-                .select('.inner-div')
-                  .style('font-size', '30px')
-                  .style('background-color', 'orange')
-                .select('.inside-inner-div')
-                  .style('border', '8px solid blue');
+              // Elements can also represent user-defined components
+              // React will pass the JSX attrs as a single object to elements representing a user-defined component -- called object 'props'
 
-              // Common to double tab || four spaces on manipulation methods and single tab || two spaces on selection methods when chaining
-              // four spaces on methods that return current selection
-              // two spaces for methods that return a new selection
-            </code>
-          </pre>
-          <hr>
-          <h5>D3 Event Listeners</h5>
-          <a href="https://bl.ocks.org/mmmaaatttttt/afca73f14e15990d26d4299243c69b61" target="_blank">Lesson Link</a>
-          <p><strong>Adding Event Listeners</strong></p>
-          <p><strong><em>selection</em>.on(<em>eventType, callback</em>)</strong> - like vanilla JS provide the type of event listener as the first param followed by the callback</p>
-          <p><strong>d3.event</strong> - this property on d3 will contain all the event information when referenced inside of an event handler</p>
-          <pre>
-            <code>
-              // Add Note Via Form App
+              // Example
 
-              // handle submit event
-              d3.select('#form').on('submit', function () {
-                // prevent default submit behavior (page refresh)
-                d3.event.preventDefault();
-
-                // grab submit information
-                let input = d3.select('input');
-
-                // append new note to page
-                d3.select('#notes-div')
-                  .append('p')
-                    .classed('note', true)
-                    .text(input.property('value'));
-
-                // reset input text field
-                input.property('value', '');
-              });
-            </code>
-          </pre>
-          <hr>
-          <h5>Data Joins</h5>
-          <img class="responsive-img" src="./img/data-joins.png" alt="Data Joins">
-          <a href="https://bl.ocks.org/mmmaaatttttt/61a1839da480e00b6b970575686d2284" target="_blank">Lesson Link</a>
-          <pre>
-            <code>
-              // Enter Selections
-              // access elements d3 creates on the fly
-              // when it needs to bind data to things
-              // that dont exist yet in the DOM
-
-              let quotes = [q, u, o, t, e, s];
-
-              d3.select('#quotes') // empty ul
-                  .style('list-style', 'none')
-                .selectAll('li') // still returns selection obj even though there are no li's on the page
-                .data(quotes) // using .data method to pass in array of quotes
-                // aka we want to take each piece of data in quotes array and attach to DOM element
-                // d3 will create some placeholder nodes for us labeled EnterNode filled with our quotes data
-                .enter() // creates a d3 selection with the new EnterNodes
-                .append('li') // place EnterNodes on page as li's
-                  .text(function (d) {
-                    return d.quote;
-                  });
-            </code>
-          </pre>
-          <h5>Key Function</h5>
-          <p>return value used to join elements and data</p>
-          <p><strong><em>selection</em>.data(<em>dataArr [, keyFunction]</em>)</strong> - return value from keyFunction is what is used to match elements with data rather than the default behavior of matching by index</p>
-          <a href="https://bl.ocks.org/mmmaaatttttt/f258d9e2911501edd5282ba7a85c97ea" target="_blank">Lesson Link</a>
-          <pre>
-            <code>
-              // Exit Selection & Key Functions
-              // target elements that should be removed from the DOM
-
-              // by default:
-              // data is joined to elements on the page by index
-
-              // by passing the keyFunction into the second param
-              // of the .data() method - the return value will
-              // be used to match elements with data rather than
-              // default matching by index
-
-              // This will remove/update page excluding R rated movies
-
-              let nonRQuotes = quotes.filter(function (movie) {
-                return movie.rating !== 'R';
-              })
-
-              d3.selectAll('li')
-                .data(nonRQuotes, function (d) {
-                  return d.quote;
-                })
-                .exit()
-                .remove();
-            </code>
-          </pre>
-          <h5>General Update Pattern</h5>
-          <a href="https://bl.ocks.org/mmmaaatttttt/17616c80b7ecaaca5316f0218c19897a" target="_blank">Lesson Link</a>
-          <p><strong>Selection Types</strong> - 3 Part System  - which D3 treats separately</p>
-          <p>Enter Selection - corresponds to pieces of data that don't yet have elements on the page</p>
-          <p>Exit Selection - corresponds to elements on the page that no longer have pieces of data</p>
-          <p>Update Selection - corresponds to elements on the page that are successfully joined to data</p>
-          <img class="responsive-img" src="./img/selection-types.png" alt="Prototype/__proto__ Diagram">
-          <p><strong>Merging Selections</strong></p>
-          <p><strong><em>selection</em>.merge(<em>otherSelection</em>)</strong> - merges selection and otherSelection together into a new selection</p>
-          <p><strong>General Update Pattern</strong></p>
-          <ol class="push-lists">
-            <li>Grab the update selection, make any change unique to that selection, and store the selection in a variable</li>
-            <li>Grab the exit selection and remove any unnecessary elements</li>
-            <li>Grab the enter selection and make any changes unique to that selection</li>
-            <li>Merge the enter and update selections, and make any changes that you want to be shared across both selections</li>
-          </ol>
-          <h5>Rewatch Advance Developer Bootcamp: Folder 20 - Video 233</h5>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Intermediate Methods</h5>
-          <hr>
-          <p><strong>Extreme Values</strong></p>
-          <p><strong>d3.max(<em>dataArr [, callback]</em>)</strong> - takes in an array and returns the largest value - callback specifies how to associate values to array elements</p>
-          <p><strong>d3.min(<em>dataArr [, callback]</em>)</strong> - takes in an array and returns the smallest value - callback specifies how to associate values to array elements</p>
-          <p><strong>d3.extent(<em>dataArr [, callback]</em>)</strong> - calculates min and max, returns them in an array</p>
-          <p><strong>d3.scaleLinear()</strong> - given a domain and range, scaleLinear returns a function that maps values in the domain to values in the range (very useful for flipping the functionality of y values to increase/move upwards from base of svg container)</p>
-          <pre>
-            <code>
-              d3.scaleLinear()
-                .domain([num1, num2])
-                .range([num3, num4])
-            </code>
-          </pre>
-          <hr>
-          <p><strong>Scatter Plots</strong></p>
-          <p>Reference AdvanceWDB - folder: 22 - video: 249</p>
-          <p><strong>Axes</strong> - the method we choose determines where the text labels will sit relative to the axis</p>
-          <p><strong>d3.axisTop(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
-          <p><strong>d3.axisRight(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
-          <p><strong>d3.axisBottom(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
-          <p><strong>d3.axisLeft(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
-          <p><strong>Gridlines</strong></p>
-          <p><strong><em>axis</em>.tickSize(<em>[size]</em>)</strong> - set a new tick size - ticks stretch in the direction of the access label (e.g. left for axisLeft)</p>
-          <p><strong><em>axis</em>.tickSizeOuter(<em>[size]</em>)</strong> - set a new tick size just for the outer ticks</p>
-          <p><strong>Styling Ticks</strong> - edit in css</p>
-          <pre>
-            <code>
-              .tick line {
-                // change stroke color
-                stroke: #ccc;
-                // lengt of dash, distance between dashes
-                stroke-dasharray: 10, 5;
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
               }
+              const element = &lt;Welcome name="Aaron" /&gt;
+
+              ReactDOM.render(
+                element,
+                document.getElementById('root');
+              ); // output will be 'Hello, Aaron'
+
+
+              // ALL REACT COMPONENTS MUST ACT LIKE PURE FUNCTION WITH RESPECT TO THEIR PROPS
             </code>
           </pre>
-          <hr>
-          <p><strong>Histograms</strong></p>
-          <p>Reference AdvanceWDB - folder: 22 - video: 253</p>
-          <p><strong>d3.histograms()</strong> - returns a function - the returned function creates bins for the data passed into it</p>
-          <p><strong><em>histogram</em>.value(<em>[value]</em>)</strong> - accepts a callback that specifies how d3 should obtain a value from each object - specifies what value should be used when creating bins</p>
-          <p><strong><em>histogram</em>.domain(<em>[domain]</em>)</strong> - specifies the domain of values (i.e. the min and max) for the histogram generator - if no value is passed, the domain will default to the extent of the data set</p>
-          <p><strong><em>histogram</em>.thresholds(<em>[value]</em>)</strong> - specifies how the histogram generator should separate your data into bins - if <em>value</em> is an array, the thresholds will be based on the elements in the array - if <em>value</em> is a number, D3 will try to make that many bins (but no guarantees)</p>
-          <p><strong><em>scale</em>.ticks(<em>[count]</em>)</strong> - returns approximately <em>count</em> intermediate values from the scale's domain - you are not guaranteed to get exact the <em>count</em> values</p>
-          <hr>
-          <p><strong>Pie Charts</strong></p>
-          <p>Reference AdvanceWDB - folder: 22 - video: 257</p>
-          <p><strong>d3.scaleOrdinal()</strong> - maps a discrete set of points(e.g. [1, 2, 3] in the domain ) to another descrete set of points (e.g. ['a', 'b', 'c'] in the range)</p>
-          <p><strong>d3.pie()</strong> - returns a function - the returned function transforms data - like d3.histogram, has a value method that allows you to specify the value you are interested in visualizing</p>
-          <p><strong>d3.arc()</strong> - converts javascript objects into path commands</p>
-          <p><strong><em>arc</em>.innerRadius(<em>[val]</em>)</strong> - set the inner radius</p>
-          <p><strong><em>arc</em>.outerRadius(<em>[val]</em>)</strong> - set the outer radius</p>
-          <p><strong><em>arc</em>.startAngle(<em>[val]</em>)</strong> - set the start angle</p>
-          <p><strong><em>arc</em>.endAngle(<em>[val]</em>)</strong> - set the end angle</p>
-          <p><strong>Chart Styling Helpers</strong></p>
-          <p><strong><em>arc</em>.cornerRadius</strong> - round arc corners</p>
-          <p><strong><em>arc</em>.cornerRadius</strong> - round arc corners</p>
-          <p><strong><em>arc</em>.padAngle</strong> - set padding between arcs</p>
-          <p><strong><em>pie</em>.padAngle</strong> - set padding between arcs</p>
-          <p><strong>Sorting Arcs</strong></p>
-          <p><strong><em>pie</em>.sort(<em>[comparator]</em>)</strong></p>
-          <p>comparator(<em>a, b</em>) &lt; 0: <em>a</em>should come before <em>b</em> - if a comes before b in the chart the comparator will return a negative number</p>
-          <p>comparator(<em>a, b</em>) &gt; 0: <em>a</em>should come after <em>b</em> - if a comes after b in the chart the comparator will return a positive number</p>
-          <p>comparator(<em>a, b</em>) == 0: <em>a</em> and <em>b</em> are equivalent - if a cand b are indifferent the comparator will return 0</p>
-          <hr>
-          <hr>
-          <h5>More D3</h5>
-          <p><strong>d3.transition()</strong> - creates a new transition</p>
-          <p><strong><em>transition</em>.attr(<em>name, newVal</em>)</strong> - transitions name to newVal</p>
-          <p><strong><em>transition</em>.style(<em>name, newVal</em>)</strong> - transitions name to newVal</p>
-          <p><strong><em>transition</em>.transition()</strong> - chain a new transition</p>
-          <p><strong><em>transition</em>.merge(<em>other</em>)</strong> - merge transitions</p>
-          <p><strong><em>transition</em>.selection()</strong> - access <em>transition</em>'s D3 selection</p>
-          <p><strong><em>transition</em>.duration(<em>[value]</em>)</strong> - new duration for the transition - value can be a constant or callback to be invoke on each element</p>
-          <p><strong><em>transition</em>.ease(<em>[value]</em>)</strong> - new easing function for the transition</p>
-          <p><strong><em>transition</em>.delay(<em>[value]</em>)</strong> - new delay for transition - value can be a constant or a callback to be invoke on each element</p>
-          <p><strong><em>transition</em>.on(<em>typenames [, listener]</em>)</strong> - types of transition events: start, end, and interrupt</p>
-          <hr>
-          <hr>
-          <h5>Working with JSON & CSV</h5>
-          <p><strong>d3.json(<em>url [, callback]</em>)</strong> - url = JSON file location, callback = code to run when response is recieved -  taking two arguments (error, data) - if only one argument is provided it will refer to the data</p>
-          <p><strong>d3.csv(<em>url [, formatter, callback]</em>)</strong> - url = CSV file location, formatter = format you data by iterating through rows - accepts 3 arguments (row, i, headers) row - current CSV row as an object | i - row index | headers - array of CSV headers which are also keys in the row object, callback = code to run when response is recieved -  taking two arguments (error, data) - if only one argument is provided it will refer to the data</p>
-          <p><strong>ADDITIONAL REQUEST METHODS</strong></p>
-          <p>d3.text</p>
-          <p>d3.tsv</p>
-          <p>d3.html</p>
-          <p>d3.xml</p>
-          <p>d3.request</p>
-          <p><strong>d3.queue()</strong> - method to queue asynchronous requests together - creates a D3 queue object used to manage async tasks</p>
-          <p><strong><em>queue</em>.defer(<em>fn [, arguments]</em>)</strong> - add request to a queue - first pass in async fn, follow by any arguments for the fn</p>
-          <p><strong><em>queue</em>.await()</strong> - resolves the queue - makes the response available as a comma separated list - arguments can be provided as follows (err, res)</p>
-          <p><strong><em>queue</em>.awaitAll()</strong> - resolves the queue - gives you an array of responses - arguments can be provided as follows (err, res)</p>
-          <hr>
-          <hr>
-          <hr>
-          <h5>GeoJSON & TopoJSON</h5>
-          <p><strong>GeoJSON</strong> - a standard for encoding geographic information - uses JSON - Gerographic data stored in a features property</p>
-          <p><strong>d3.geoPath()</strong> - returns a function - returned function converts GeoJSON data into path commands</p>
-          <p><strong>TopoJSON</strong> - an extension of GeoJSON - removes duplication in data - uses arcs, not coordinates - (there is a two step process to use TopoJSON - first convert to GeoJSON - secondly convert GeoJSON to valid svg path commands)</p>
-          <hr>
-          <p><strong>After including the TopoJSON Library</strong></p>
-          <p><strong>topojson.feature(<em>object, locationOfFeatures</em>)</strong> - firstArg = TopoJSON object - secondArg = location of features to convert within object</p>
-          <hr>
-          <hr>
-          <h5>Projection & Methods</h5>
-          <p><strong><em>path</em>.projection(<em>[projection]</em>)</strong> - function that transforms spherical geometry data to 2D plane</p>
-          <p><strong><em>projection</em>.scale(<em>[scale]</em>)</strong> - scale a projection</p>
-          <p><strong><em>projection</em>.translate([x, y])</strong> - translate a projection</p>
-          <hr>
-          <hr>
-          <hr>
-          <h5>Force Directed Graphs</h5>
-          <p>a way to visualize relationships between nodes in a graph</p>
-          <p><strong>d3.forceSimulation(<em>[nodes]</em>)</strong> - accepts an array of nodes and begins to simulate forces acting on those nodes</p>
-          <p><strong><em>simulation</em>.node(<em>[newNodes]</em>)</strong> - updates a simulation to act on newNodes</p>
-          <p><strong>d3.forceCenter(<em>[x, y]</em>)</strong> - force location (i.e. coordinates of where you'd like the force to pull nodes)</p>
-          <p><strong><em>simulation</em>.force(<em>name [, force]</em>)</strong> - firstArg is developers chosen name of the force, secondArg is the description of the force using D3 (i.e. a function) </p>
-          <p><strong><em>simulation</em>.on(<em>type [, listener]</em>)</strong> - only two types of events to listen for - 'tick' = fires after every tick of the simulation's timer - 'end' = fires when the simulation's timer stops</p>
-          <p><strong>d3.forceManyBody()</strong> - adds forces between all nodes in the simulation - by default, forces are repulsive</p>
-          <p><strong><em>force</em>.strength(<em>[newStrength]</em>)</strong> - accepts a value or callback to set a new strength - negative values are repulsive - positive values are attractive - default 'many body' strength is -30</p>
-          <p><strong>d3.forceLink(<em>[links]</em>)</strong> - add link forces based on the links passed in - update the links later using the .links method on force</p>
-          <p><strong><em>link</em>.id(<em>[id]</em>)</strong> - specify how D3 should find nodes based on source and target</p>
-          <p><strong><em>link</em>.distance(<em>[newDistance]</em>)</strong> - ideal distance between nodes</p>
-          <p><strong><em>link</em>.strength(<em>[newStrength]</em>)</strong></p>
-          <hr>
-          <h5>Draggable Nodes</h5>
-          <p>implement a drag feature on nodes - during drag, ignore forces from the simulation</p>
-          <p><strong>d3.drag()</strong> - built-in dragging support for D3 selections - add to a selection by passing it into .call - exposes three dragging events: start, drag, end</p>
-          <p><strong>Simulation Cooling</strong> - forces are not applied continuously - forces are based on an alpha value - alpha decays after every tick - after reaching a minimum alpha, the simulation stops</p>
-          <p><strong><em>simulation</em>.alpha(<em>[newAlpha]</em>)</strong> - get or set a new alpha</p>
-          <p><strong><em>simulation</em>.alphaMin(<em>[newMin]</em>)</strong> - get or set a new min (0.001 by default)</p>
-          <p><strong><em>simulation</em>.alphaDecay(<em>[newDecay]</em>)</strong> - get or set a new decay (~0.0228 by default)</p>
-          <p><strong><em>simulation</em>.alphaTarget(<em>[newTgt]</em>)</strong> - get or set a new target (0 by default)</p>
+          <p><strong>State & Lifecycle</strong></p>
+          <p><strong>state</strong> - is similar to props, but it is private and fully controlled by the component</p>
+          <p><strong>Converting a Function to a Class</strong> - as classes have and additional features (e.g. Local State)</p>
+          <pre>
+            <code>
+              1. Create an ES6 class, with the same name, that extends React.Component.
+              2. Add a single empty method to it called render().
+              3. Move the body of the function into the render() method.
+              4. Replace props with this.props in the render() body.
+              5. Delete the remaining empty function declaration.
+
+              class Clock extends React.Component {
+                render() {
+                  return (
+                    &lt;div&gt;
+                      &lt;h1&gt;Hello, World!&lt;/h1&gt;
+                      &lt;h2&gt;It is {this.props.date.toLocalTimeString()}&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              // now we can use local state and lifecycle hooks
+            </code>
+          </pre>
+          <p><strong>Adding Local State to a Class</strong></p>
+          <pre>
+            <code>
+              1. Replace this.props.date with this.state.date in the render() method
+              2. Add a class constructor that assigns the initial this.state (Note how we pass props to the base constructor - Class components should always call the base constructor with props)
+              3. Remove the date prop from the &lt;Clock /&gt; element
+
+              class Clock extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.state = {date: new Date()};
+                }
+
+                render() {
+                  return (
+                    &lt;div&gt;
+                      &lt;h1&gt;Hello, World!&lt;/h1&gt;
+                      &lt;h2&gt;It is {this.state.date.toLocalTimeString()}&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              ReactDOM.render(
+                &lt;Clock /&gt;,
+                document.getElementById('root');
+              );
+            </code>
+          </pre>
         </div>
       </li>
       <li>
@@ -1158,6 +779,514 @@ NOTE CSS
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="html javascript">SVG</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Scalable Vector Graphics</h5>
+          <p>Vector NOT Raster</p>
+          <p>raster images use pixels</p>
+          <p>vector images use lines and curves as their fundimental building blocks</p>
+          <p><strong>SVG</strong> - is a markup language based on XML that allows us to draw vector graphics in HTML</p>
+          <a href="https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100" target="_blank">Lesson Link</a>
+          <hr>
+          <hr>
+          <hr>
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg">
+
+              <g stroke-width="5px" stroke="#0b687d">
+                <line x1="100" y1="100" x2="700" y2="350"/>
+                <line x1="100" y1="350" x2="700" y2="100"/>
+              </g>
+
+              <rect x="300" y="167" width="200" height="113" rx="130" ry="20" stroke="#2e2e2e" stroke-width="2px" fill="#32947c"/>
+
+              <polygon
+                fill="#18607a"
+                stroke="#2e2e2e"
+                stroke-width="2px"
+                points="0, 0, 800, 0, 400, 113"
+              />
+              <polygon
+                fill="#18607a"
+                stroke="#2e2e2e"
+                stroke-width="2px"
+                points="0, 450, 800, 450, 400, 339"
+              />
+
+              <circle
+                cx="400"
+                cy="225"
+                r="80"
+                fill="#fafafa"
+                stroke-width="4px"
+                stroke="#282828"
+              />
+              <circle cx="400" cy="225" r="45" fill="#282828"/>
+              <circle cx="410" cy="203" r="11" fill="#fafafa"/>
+              <circle cx="425" cy="225" r="9" fill="#fafafa"/>
+              <circle cx="200" cy="225" r="30" fill="#282828"/>
+              <circle cx="600" cy="225" r="30" fill="#282828"/>
+              <circle cx="100" cy="225" r="20" fill="#282828"/>
+              <circle cx="700" cy="225" r="20" fill="#282828"/>
+              <circle cx="35" cy="225" r="10" fill="#282828"/>
+              <circle cx="765" cy="225" r="10" fill="#282828"/>
+
+              <text
+                x="400"
+                y="417"
+                text-anchor="middle"
+                font-size="20px"
+                fill="#fafafa">
+                  Eye'm learning about SVGs
+              </text>
+
+          </svg>
+          <hr>
+          <hr>
+          <img class="responsive-img" src="./img/svg-coordinates.png" alt="Coordinates in SVG">
+          <hr>
+          <h5>g Elements</h5>
+          <p>short for "group"</p>
+          <p>lets us combine elements that should share attributes or functionality</p>
+          <h5>line Elements</h5>
+          <p>line Attributes</p>
+          <p><strong>x1</strong> - x-coordinate of first endpoint (starting position)</p>
+          <p><strong>y1</strong> - y-coordinate of first endpoint (starting position)</p>
+          <p><strong>x2</strong> - x-coordinate of second endpoint (ending position)</p>
+          <p><strong>y2</strong> - y-coordinate of second endpoint (ending position)</p>
+          <h5>Rectangle Elements</h5>
+          <p>rect Attributes</p>
+          <p><strong>x</strong> - x-coordinate of upper-left corner</p>
+          <p><strong>y</strong> - y-coordinate of upper-left corner</p>
+          <p><strong>width</strong> - width of rectangle</p>
+          <p><strong>height</strong> - height of rectangle</p>
+          <p><strong>stroke</strong> - border color</p>
+          <p><strong>stroke-width</strong> - border thickness</p>
+          <p><strong>fill</strong> - interior color</p>
+          <p><strong>rx</strong> - round corner in x direction</p>
+          <p><strong>ry</strong> - round corner in y direction</p>
+          <h5>polygon Elements</h5>
+          <p>any svg shap bounded by straight line edges</p>
+          <p><strong>points</strong> - space-separated list of points representing vertices of the polygon - points are of the form "x1, y1, x2, y2, etc..."</p>
+          <h5>circle Elements</h5>
+          <p>circle Attributes</p>
+          <p><strong>cx</strong> - x-coordinate of center</p>
+          <p><strong>cy</strong> - y-coordinate of center</p>
+          <p><strong>r</strong> - radius of circle</p>
+          <h5>text Elements in SVG</h5>
+          <p><strong>x</strong> - x-coordinate of lower-left corner</p>
+          <p><strong>y</strong> - y-coordinate of lower-left corner</p>
+          <p><strong>dx || dy</strong> - shift the text element from it's anchor point - horizontally or vertically</p>
+          <p>better to use text-anchor property to shift text via CSS Property or Attribute</p>
+          <p><strong>text-anchor</strong> - horizontal alignment - has 3 available properties - start, middle, and end - aka bottom left, bottom middle, and bottom right alignment of the element</p>
+          <p><strong>alignment-baseline</strong> - vertical alignment via - hanging, middle, baseline - aka bottom, center, and top alignment of the element</p>
+          <p><strong>transform="rotate(degree x,y)"</strong> - rotate text and other shapes - first param is degree of rotation (space-separate) second param point to rotate around</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Path Elements</h5>
+          <p>d Attribute commands</p>
+          <p><strong>6 fundimental paths used to draw commands</strong></p>
+          <p><strong>Uppercase vs Lowercase</strong> - uppercase X Y - X and Y represent the location you want to go to - lowercase x y - x and y represent how far you want to go from your current position</p>
+          <p><strong>M</strong> - (move command) syntax: M X Y - moves the cursor to position X,Y [does not draw anything]</p>
+          <p><strong>L</strong> - (line command) syntax: L X Y - draws a line from the curor's current position [line will end at position X, Y] - can be chained together to draw mutiple line segments</p>
+          <p><strong>Z</strong> - (close path command) syntax: Z || z - close the path with a line <strong>Other Shortcuts</strong> syntax: H || h - draw a horizontal line - syntax: V / v - draw a vertical line</p>
+          <p><strong>Q</strong> - (quadratic Bezier curve command) syntax: Q cx cy, x y - first point is the control point, and second point is the destination</p>
+          <p><strong>C</strong> - (cubic Bezier curve command) syntax: C cx1 cy1, cx2 cy2, xy - first point is control point 1, second point is control point 2, and third is destination point</p>
+          <p><strong>A</strong> - (circular arc command) syntax: A rx ry rotate largeArc sweep x y - first two values are the radius of the x and y direction of the arc, the third is the rotatation, 4th 5th arguments determine whether to draw larger or smaller arc (0 or 1 values), and the last two values are the destination</p>
+          <hr>
+          <hr>
+          <hr>
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="bahamas">
+              <rect x="0" y="100" width="600" height="100" fill = "#FFC72C"/>
+              <polygon points="0 0, 260 150, 0 300" />
+          </svg>
+
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="jamaica">
+            <g stroke="#fed100" fill="#009b3a" stroke-width="50">
+              <polygon points="-300 -150, 300 150, 900 -150" />
+              <polygon points="-300 450, 300 150, 900 450" />
+            </g>
+          </svg>
+
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="macedonia">
+            <g fill="#ffe600">
+              <polygon points="0 0, 600 300, 510 300, 90 0"/>
+              <polygon points="330 0, 270 300, 330 300, 270 0" />
+              <polygon points="600 0, 0 300, 90 300, 510 0" />
+              <polygon points="0 120, 600 180, 600 120, 0 180" />
+              <circle cx="300" cy="150" r="50" stroke="#d20000" stroke-width="10" />
+            </g>
+          </svg>
+
+          <svg
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            id="south-korea">
+            <g stroke="black" stroke-width="15" transform="translate(300,200)">
+              <path d="M-200 -50v100m25 0v-100m25 0v100
+                       M140-50v45m0 10v45m25 0v-45m0 -10v-45m25 0v45m0 10v45"
+                    transform="rotate(30)"/>
+              <path d="M-200 -50v100m25 0v-45m0-10v-45m25 0v100
+                       M140-50v45m0 10v45m25 0v-100m25 0v45m0 10v45"
+                    transform="rotate(-30)"/>
+            </g>
+            <circle cx="300" cy="200" fill="#cd2e3a" r="90"/>
+            <path fill="#0047a0" d="M300 200a45 45 0 0 1 78 45A90 90 0 1 1 300 110"/>
+            <path fill="#cd2e3a" d="M300 200a45 45 0 0 1 -78 -45A90 90 0 0 1 300 110"/>
+          </svg>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">D3</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>D3 DOM Manipulation</h5>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Selection Methods</h5>
+          <p><strong>d3.select()</strong> - single element</p>
+          <p><strong>d3.selectAll()</strong> - multiple element</p>
+          <p>both accept a valid CSS selector</p>
+          <pre>
+            <code>
+              d3.select('#page-title');
+              d3.selectAll('li');
+
+              // both return a selection object
+              // this object has two internal properties
+              // _groups & _parents
+              // the underscores indicate that you should NOT access these properties directly
+            </code>
+          </pre>
+          <hr>
+          <h5>Accessing Nodes</h5>
+          <p><strong><em>selection</em>.nodes()</strong> return an array of matching HTML elements</p>
+          <p><strong><em>selection</em>.node()</strong> - return the first (non-null) HTML element</p>
+          <pre>
+            <code>
+              d3.selectAll('li').nodes(); // [li, li, li, li]
+              d3.select('li').node(); // &lt;li&gt;I am the first li&lt;/li&gt;
+            </code>
+          </pre>
+          <hr>
+          <h5>Manipulating Selections</h5>
+          <p>style, attr, text, and htlm adder/getter methods</p>
+          <p>NOTE: These (and other!) D3 methods will work as getters if no newValue is passed in</p>
+          <p><strong><em>selection</em>.style(<em>property [, newValue]</em>)</strong> - set css styling on selected elements</p>
+          <p><strong><em>selection</em>.attr(<em>attribute [, newValue]</em>)</strong> - set attributes on selected elements</p>
+          <p><strong><em>selection</em>.text(<em>[newValue]</em>)</strong> - set innerText on selection</p>
+          <p><strong><em>selection</em>.html(<em>[newValue]</em>)</strong> - set innerHTML on selection</p>
+          <p><strong><em>selection</em>.classed(<em>classList [, shouldClassesBeSet]</em>)</strong> - when working with classes specifically [instead of using .attr('class', 'new-class')] we use .classed and provide a space-separated list of class names we want to set and a value - shouldClassesBeSet checks whether classes should be added or removed</p>
+          <p><strong><em>selection</em>.property(<em>name [, newValue]</em>)</strong> - access a property (e.g. an input value) which is not accessible as an element attribute - e.i. input elements don't have inner text so we grab the value with .property</p>
+          <p><strong><em>selection</em>.append(<em>tagName</em>)</strong> - appends a new element of type <em>tagName</em> to every element in the selection & returns a new d3 selection</p>
+          <p><strong><em>selection</em>.remove()</strong> - remove the selection from the DOM</p>
+          <pre>
+            <code>
+              d3.select('#page-title')
+                  .style('background-color', '#000')
+                  .style('color', '#fff')
+                  .classed('new-class', true)
+                  .text('D3 is cool!');
+            </code>
+          </pre>
+          <hr>
+          <h5>Selections and Callbacks</h5>
+          <p><strong><em>selection</em>.style(<em>property [, callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <p><strong><em>selection</em>.attr(<em>attribute [, callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <p><strong><em>selection</em>.text(<em>[callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <p><strong><em>selection</em>.html(<em>[callback]</em>)</strong> - the call back will be invoked once for each element in the selection</p>
+          <pre>
+            <code>
+              // Callback structure
+
+              function (d, i) {
+                // write your code here
+              }
+
+              // the first param refers to the data bound to the current element
+              // the second param referes to the index of the current element in selection
+            </code>
+          </pre>
+          <hr>
+          <h5>Method Chaining</h5>
+          <p>chain selectors while manipulating on things like nested HTML elements</p>
+          <pre>
+            <code>
+              d3.select('.outer-div')
+                  .style('color', 'purple')
+                .select('.inner-div')
+                  .style('font-size', '30px')
+                  .style('background-color', 'orange')
+                .select('.inside-inner-div')
+                  .style('border', '8px solid blue');
+
+              // Common to double tab || four spaces on manipulation methods and single tab || two spaces on selection methods when chaining
+              // four spaces on methods that return current selection
+              // two spaces for methods that return a new selection
+            </code>
+          </pre>
+          <hr>
+          <h5>D3 Event Listeners</h5>
+          <a href="https://bl.ocks.org/mmmaaatttttt/afca73f14e15990d26d4299243c69b61" target="_blank">Lesson Link</a>
+          <p><strong>Adding Event Listeners</strong></p>
+          <p><strong><em>selection</em>.on(<em>eventType, callback</em>)</strong> - like vanilla JS provide the type of event listener as the first param followed by the callback</p>
+          <p><strong>d3.event</strong> - this property on d3 will contain all the event information when referenced inside of an event handler</p>
+          <pre>
+            <code>
+              // Add Note Via Form App
+
+              // handle submit event
+              d3.select('#form').on('submit', function () {
+                // prevent default submit behavior (page refresh)
+                d3.event.preventDefault();
+
+                // grab submit information
+                let input = d3.select('input');
+
+                // append new note to page
+                d3.select('#notes-div')
+                  .append('p')
+                    .classed('note', true)
+                    .text(input.property('value'));
+
+                // reset input text field
+                input.property('value', '');
+              });
+            </code>
+          </pre>
+          <hr>
+          <h5>Data Joins</h5>
+          <img class="responsive-img" src="./img/data-joins.png" alt="Data Joins">
+          <a href="https://bl.ocks.org/mmmaaatttttt/61a1839da480e00b6b970575686d2284" target="_blank">Lesson Link</a>
+          <pre>
+            <code>
+              // Enter Selections
+              // access elements d3 creates on the fly
+              // when it needs to bind data to things
+              // that dont exist yet in the DOM
+
+              let quotes = [q, u, o, t, e, s];
+
+              d3.select('#quotes') // empty ul
+                  .style('list-style', 'none')
+                .selectAll('li') // still returns selection obj even though there are no li's on the page
+                .data(quotes) // using .data method to pass in array of quotes
+                // aka we want to take each piece of data in quotes array and attach to DOM element
+                // d3 will create some placeholder nodes for us labeled EnterNode filled with our quotes data
+                .enter() // creates a d3 selection with the new EnterNodes
+                .append('li') // place EnterNodes on page as li's
+                  .text(function (d) {
+                    return d.quote;
+                  });
+            </code>
+          </pre>
+          <h5>Key Function</h5>
+          <p>return value used to join elements and data</p>
+          <p><strong><em>selection</em>.data(<em>dataArr [, keyFunction]</em>)</strong> - return value from keyFunction is what is used to match elements with data rather than the default behavior of matching by index</p>
+          <a href="https://bl.ocks.org/mmmaaatttttt/f258d9e2911501edd5282ba7a85c97ea" target="_blank">Lesson Link</a>
+          <pre>
+            <code>
+              // Exit Selection & Key Functions
+              // target elements that should be removed from the DOM
+
+              // by default:
+              // data is joined to elements on the page by index
+
+              // by passing the keyFunction into the second param
+              // of the .data() method - the return value will
+              // be used to match elements with data rather than
+              // default matching by index
+
+              // This will remove/update page excluding R rated movies
+
+              let nonRQuotes = quotes.filter(function (movie) {
+                return movie.rating !== 'R';
+              })
+
+              d3.selectAll('li')
+                .data(nonRQuotes, function (d) {
+                  return d.quote;
+                })
+                .exit()
+                .remove();
+            </code>
+          </pre>
+          <h5>General Update Pattern</h5>
+          <a href="https://bl.ocks.org/mmmaaatttttt/17616c80b7ecaaca5316f0218c19897a" target="_blank">Lesson Link</a>
+          <p><strong>Selection Types</strong> - 3 Part System  - which D3 treats separately</p>
+          <p>Enter Selection - corresponds to pieces of data that don't yet have elements on the page</p>
+          <p>Exit Selection - corresponds to elements on the page that no longer have pieces of data</p>
+          <p>Update Selection - corresponds to elements on the page that are successfully joined to data</p>
+          <img class="responsive-img" src="./img/selection-types.png" alt="Prototype/__proto__ Diagram">
+          <p><strong>Merging Selections</strong></p>
+          <p><strong><em>selection</em>.merge(<em>otherSelection</em>)</strong> - merges selection and otherSelection together into a new selection</p>
+          <p><strong>General Update Pattern</strong></p>
+          <ol class="push-lists">
+            <li>Grab the update selection, make any change unique to that selection, and store the selection in a variable</li>
+            <li>Grab the exit selection and remove any unnecessary elements</li>
+            <li>Grab the enter selection and make any changes unique to that selection</li>
+            <li>Merge the enter and update selections, and make any changes that you want to be shared across both selections</li>
+          </ol>
+          <h5>Rewatch Advance Developer Bootcamp: Folder 20 - Video 233</h5>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Intermediate Methods</h5>
+          <hr>
+          <p><strong>Extreme Values</strong></p>
+          <p><strong>d3.max(<em>dataArr [, callback]</em>)</strong> - takes in an array and returns the largest value - callback specifies how to associate values to array elements</p>
+          <p><strong>d3.min(<em>dataArr [, callback]</em>)</strong> - takes in an array and returns the smallest value - callback specifies how to associate values to array elements</p>
+          <p><strong>d3.extent(<em>dataArr [, callback]</em>)</strong> - calculates min and max, returns them in an array</p>
+          <p><strong>d3.scaleLinear()</strong> - given a domain and range, scaleLinear returns a function that maps values in the domain to values in the range (very useful for flipping the functionality of y values to increase/move upwards from base of svg container)</p>
+          <pre>
+            <code>
+              d3.scaleLinear()
+                .domain([num1, num2])
+                .range([num3, num4])
+            </code>
+          </pre>
+          <hr>
+          <p><strong>Scatter Plots</strong></p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 249</p>
+          <p><strong>Axes</strong> - the method we choose determines where the text labels will sit relative to the axis</p>
+          <p><strong>d3.axisTop(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>d3.axisRight(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>d3.axisBottom(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>d3.axisLeft(<em>scale</em>)</strong> - take in a scale and return a function that can generate an axis in SVG</p>
+          <p><strong>Gridlines</strong></p>
+          <p><strong><em>axis</em>.tickSize(<em>[size]</em>)</strong> - set a new tick size - ticks stretch in the direction of the access label (e.g. left for axisLeft)</p>
+          <p><strong><em>axis</em>.tickSizeOuter(<em>[size]</em>)</strong> - set a new tick size just for the outer ticks</p>
+          <p><strong>Styling Ticks</strong> - edit in css</p>
+          <pre>
+            <code>
+              .tick line {
+                // change stroke color
+                stroke: #ccc;
+                // lengt of dash, distance between dashes
+                stroke-dasharray: 10, 5;
+              }
+            </code>
+          </pre>
+          <hr>
+          <p><strong>Histograms</strong></p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 253</p>
+          <p><strong>d3.histograms()</strong> - returns a function - the returned function creates bins for the data passed into it</p>
+          <p><strong><em>histogram</em>.value(<em>[value]</em>)</strong> - accepts a callback that specifies how d3 should obtain a value from each object - specifies what value should be used when creating bins</p>
+          <p><strong><em>histogram</em>.domain(<em>[domain]</em>)</strong> - specifies the domain of values (i.e. the min and max) for the histogram generator - if no value is passed, the domain will default to the extent of the data set</p>
+          <p><strong><em>histogram</em>.thresholds(<em>[value]</em>)</strong> - specifies how the histogram generator should separate your data into bins - if <em>value</em> is an array, the thresholds will be based on the elements in the array - if <em>value</em> is a number, D3 will try to make that many bins (but no guarantees)</p>
+          <p><strong><em>scale</em>.ticks(<em>[count]</em>)</strong> - returns approximately <em>count</em> intermediate values from the scale's domain - you are not guaranteed to get exact the <em>count</em> values</p>
+          <hr>
+          <p><strong>Pie Charts</strong></p>
+          <p>Reference AdvanceWDB - folder: 22 - video: 257</p>
+          <p><strong>d3.scaleOrdinal()</strong> - maps a discrete set of points(e.g. [1, 2, 3] in the domain ) to another descrete set of points (e.g. ['a', 'b', 'c'] in the range)</p>
+          <p><strong>d3.pie()</strong> - returns a function - the returned function transforms data - like d3.histogram, has a value method that allows you to specify the value you are interested in visualizing</p>
+          <p><strong>d3.arc()</strong> - converts javascript objects into path commands</p>
+          <p><strong><em>arc</em>.innerRadius(<em>[val]</em>)</strong> - set the inner radius</p>
+          <p><strong><em>arc</em>.outerRadius(<em>[val]</em>)</strong> - set the outer radius</p>
+          <p><strong><em>arc</em>.startAngle(<em>[val]</em>)</strong> - set the start angle</p>
+          <p><strong><em>arc</em>.endAngle(<em>[val]</em>)</strong> - set the end angle</p>
+          <p><strong>Chart Styling Helpers</strong></p>
+          <p><strong><em>arc</em>.cornerRadius</strong> - round arc corners</p>
+          <p><strong><em>arc</em>.cornerRadius</strong> - round arc corners</p>
+          <p><strong><em>arc</em>.padAngle</strong> - set padding between arcs</p>
+          <p><strong><em>pie</em>.padAngle</strong> - set padding between arcs</p>
+          <p><strong>Sorting Arcs</strong></p>
+          <p><strong><em>pie</em>.sort(<em>[comparator]</em>)</strong></p>
+          <p>comparator(<em>a, b</em>) &lt; 0: <em>a</em>should come before <em>b</em> - if a comes before b in the chart the comparator will return a negative number</p>
+          <p>comparator(<em>a, b</em>) &gt; 0: <em>a</em>should come after <em>b</em> - if a comes after b in the chart the comparator will return a positive number</p>
+          <p>comparator(<em>a, b</em>) == 0: <em>a</em> and <em>b</em> are equivalent - if a cand b are indifferent the comparator will return 0</p>
+          <hr>
+          <hr>
+          <h5>More D3</h5>
+          <p><strong>d3.transition()</strong> - creates a new transition</p>
+          <p><strong><em>transition</em>.attr(<em>name, newVal</em>)</strong> - transitions name to newVal</p>
+          <p><strong><em>transition</em>.style(<em>name, newVal</em>)</strong> - transitions name to newVal</p>
+          <p><strong><em>transition</em>.transition()</strong> - chain a new transition</p>
+          <p><strong><em>transition</em>.merge(<em>other</em>)</strong> - merge transitions</p>
+          <p><strong><em>transition</em>.selection()</strong> - access <em>transition</em>'s D3 selection</p>
+          <p><strong><em>transition</em>.duration(<em>[value]</em>)</strong> - new duration for the transition - value can be a constant or callback to be invoke on each element</p>
+          <p><strong><em>transition</em>.ease(<em>[value]</em>)</strong> - new easing function for the transition</p>
+          <p><strong><em>transition</em>.delay(<em>[value]</em>)</strong> - new delay for transition - value can be a constant or a callback to be invoke on each element</p>
+          <p><strong><em>transition</em>.on(<em>typenames [, listener]</em>)</strong> - types of transition events: start, end, and interrupt</p>
+          <hr>
+          <hr>
+          <h5>Working with JSON & CSV</h5>
+          <p><strong>d3.json(<em>url [, callback]</em>)</strong> - url = JSON file location, callback = code to run when response is recieved -  taking two arguments (error, data) - if only one argument is provided it will refer to the data</p>
+          <p><strong>d3.csv(<em>url [, formatter, callback]</em>)</strong> - url = CSV file location, formatter = format you data by iterating through rows - accepts 3 arguments (row, i, headers) row - current CSV row as an object | i - row index | headers - array of CSV headers which are also keys in the row object, callback = code to run when response is recieved -  taking two arguments (error, data) - if only one argument is provided it will refer to the data</p>
+          <p><strong>ADDITIONAL REQUEST METHODS</strong></p>
+          <p>d3.text</p>
+          <p>d3.tsv</p>
+          <p>d3.html</p>
+          <p>d3.xml</p>
+          <p>d3.request</p>
+          <p><strong>d3.queue()</strong> - method to queue asynchronous requests together - creates a D3 queue object used to manage async tasks</p>
+          <p><strong><em>queue</em>.defer(<em>fn [, arguments]</em>)</strong> - add request to a queue - first pass in async fn, follow by any arguments for the fn</p>
+          <p><strong><em>queue</em>.await()</strong> - resolves the queue - makes the response available as a comma separated list - arguments can be provided as follows (err, res)</p>
+          <p><strong><em>queue</em>.awaitAll()</strong> - resolves the queue - gives you an array of responses - arguments can be provided as follows (err, res)</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>GeoJSON & TopoJSON</h5>
+          <p><strong>GeoJSON</strong> - a standard for encoding geographic information - uses JSON - Gerographic data stored in a features property</p>
+          <p><strong>d3.geoPath()</strong> - returns a function - returned function converts GeoJSON data into path commands</p>
+          <p><strong>TopoJSON</strong> - an extension of GeoJSON - removes duplication in data - uses arcs, not coordinates - (there is a two step process to use TopoJSON - first convert to GeoJSON - secondly convert GeoJSON to valid svg path commands)</p>
+          <hr>
+          <p><strong>After including the TopoJSON Library</strong></p>
+          <p><strong>topojson.feature(<em>object, locationOfFeatures</em>)</strong> - firstArg = TopoJSON object - secondArg = location of features to convert within object</p>
+          <hr>
+          <hr>
+          <h5>Projection & Methods</h5>
+          <p><strong><em>path</em>.projection(<em>[projection]</em>)</strong> - function that transforms spherical geometry data to 2D plane</p>
+          <p><strong><em>projection</em>.scale(<em>[scale]</em>)</strong> - scale a projection</p>
+          <p><strong><em>projection</em>.translate([x, y])</strong> - translate a projection</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Force Directed Graphs</h5>
+          <p>a way to visualize relationships between nodes in a graph</p>
+          <p><strong>d3.forceSimulation(<em>[nodes]</em>)</strong> - accepts an array of nodes and begins to simulate forces acting on those nodes</p>
+          <p><strong><em>simulation</em>.node(<em>[newNodes]</em>)</strong> - updates a simulation to act on newNodes</p>
+          <p><strong>d3.forceCenter(<em>[x, y]</em>)</strong> - force location (i.e. coordinates of where you'd like the force to pull nodes)</p>
+          <p><strong><em>simulation</em>.force(<em>name [, force]</em>)</strong> - firstArg is developers chosen name of the force, secondArg is the description of the force using D3 (i.e. a function) </p>
+          <p><strong><em>simulation</em>.on(<em>type [, listener]</em>)</strong> - only two types of events to listen for - 'tick' = fires after every tick of the simulation's timer - 'end' = fires when the simulation's timer stops</p>
+          <p><strong>d3.forceManyBody()</strong> - adds forces between all nodes in the simulation - by default, forces are repulsive</p>
+          <p><strong><em>force</em>.strength(<em>[newStrength]</em>)</strong> - accepts a value or callback to set a new strength - negative values are repulsive - positive values are attractive - default 'many body' strength is -30</p>
+          <p><strong>d3.forceLink(<em>[links]</em>)</strong> - add link forces based on the links passed in - update the links later using the .links method on force</p>
+          <p><strong><em>link</em>.id(<em>[id]</em>)</strong> - specify how D3 should find nodes based on source and target</p>
+          <p><strong><em>link</em>.distance(<em>[newDistance]</em>)</strong> - ideal distance between nodes</p>
+          <p><strong><em>link</em>.strength(<em>[newStrength]</em>)</strong></p>
+          <hr>
+          <h5>Draggable Nodes</h5>
+          <p>implement a drag feature on nodes - during drag, ignore forces from the simulation</p>
+          <p><strong>d3.drag()</strong> - built-in dragging support for D3 selections - add to a selection by passing it into .call - exposes three dragging events: start, drag, end</p>
+          <p><strong>Simulation Cooling</strong> - forces are not applied continuously - forces are based on an alpha value - alpha decays after every tick - after reaching a minimum alpha, the simulation stops</p>
+          <p><strong><em>simulation</em>.alpha(<em>[newAlpha]</em>)</strong> - get or set a new alpha</p>
+          <p><strong><em>simulation</em>.alphaMin(<em>[newMin]</em>)</strong> - get or set a new min (0.001 by default)</p>
+          <p><strong><em>simulation</em>.alphaDecay(<em>[newDecay]</em>)</strong> - get or set a new decay (~0.0228 by default)</p>
+          <p><strong><em>simulation</em>.alphaTarget(<em>[newTgt]</em>)</strong> - get or set a new target (0 by default)</p>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="javascript">Javascript</h4>
@@ -4449,7 +4578,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 25
-  Video: 274
+  Video: 282
 
   -->
 
