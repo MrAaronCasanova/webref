@@ -82,7 +82,6 @@ NOTE HTML
           </pre>
           <p><strong>Elements</strong> - describe what you want to see on the screen - React elements are plain objects and are immutable (must be re-rendered to to update, but only updates what necessary)</p>
           <p><strong>Components</strong> - components are made of elements - like functions, they accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen - always start component name with a capital letter</p>
-          <p><strong>Props</strong> - immutable data passed to your components - accessible in your component as an object called this.props (NEVER CHANGE this.props)</p>
           <pre>
             <code>
               // simple defintion of component
@@ -115,10 +114,119 @@ NOTE HTML
 
 
               // ALL REACT COMPONENTS MUST ACT LIKE PURE FUNCTION WITH RESPECT TO THEIR PROPS
+
+              // Pure Function - a function with no side effect
+              // it does not modify its inputs
+              // it's repeatable (same inputs, same outputs)
+            </code>
+          </pre>
+          <p><strong>Props</strong> - immutable data passed to your components - accessible in your component as an object called this.props (NEVER CHANGE this.props)</p>
+          <p><strong>defaultProps</strong> - default values for props in a component</p>
+          <p><strong>propTypes</strong> - specify what props a component is expecting - development time type checker for your props - specify requirements for your props for users of that component</p>
+          <pre>
+            <code>
+              class IngredientsList extends Component {
+                static defalutProps = {
+                  ingredients: []
+                }
+              }
+              render() {
+                return (
+                {this.props.ingredients.map((ing, idx) => (
+                  &lt;li key={idx}&gt;{ing}&lt;/li&gt;
+                  ))}
+                );
+              }
+
+
+              import PropTypes from 'prop-types';
+
+              class IngredientsList extends Component {
+                static PropTypes = {
+                  ingredients: PropTypes.arrayOf(Proptypes.string).isRequired
+                }
+                // if props don't meet the specified requirements
+                // an error will display in the console
+              }
+              render() {
+                return (
+                {this.props.ingredients.map((ing, idx) => (
+                  &lt;li key={idx}&gt;{ing}&lt;/li&gt;
+                  ))}
+                );
+              }
+            </code>
+          </pre>
+          <p><strong>props.children</strong> - a collection of the children inside of a component (i.e. if you want any type/collection of elements to display in a row)</p>
+          <pre>
+            <code>
+              class Row extends Component {
+                render() {
+                  return (
+                    &lt;div style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-around',
+                    }}&gt;
+                      {this.props.children}
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              class App extends Component {
+                render() {
+                  return (
+                  &lt;Row&gt;
+                    &lt;p&gt;Timothy&lt;/p&gt;
+                    &lt;div&gt;Moxie&lt;/div&gt;
+                    &lt;h1&gt;React&lt;/h1&gt;
+                  &lt;/Row&gt;
+                  );
+                }
+              }
+
+              // all elements will display in a row
             </code>
           </pre>
           <p><strong>State & Lifecycle</strong></p>
-          <p><strong>state</strong> - is similar to props, but it is private and fully controlled by the component</p>
+          <p><strong>state</strong> - is similar to props, but it is private and fully controlled by the component - (stateful data) data in our application that can change</p>
+          <p><strong>setState({})</strong> - the correct way to change state in your application - simpleDefinition - setState accepts an object with new properties and values for this.state</p>
+          <p><strong>How is state shared?</strong> - state is always passed down from a parent to a child component as a prop - state should not be passed to a sibbling or parent - state should be owned by 1 component - never assign a prop to your state</p>
+          <pre>
+            <code>
+              class App extends Component {
+                // always pass props as a parameter to the constructor
+                constructor(props) {
+                  // super(props) call the Component constructor
+                  super(props);
+                  // must = an object
+                  this.state = { favColor: 'green' };
+
+                  // after three seconds, setState will invoke
+                  // updating the current state
+                  // which will re-invoke render()
+                  // updating the view to reflect the new stateful data
+                  setTimeout(() => {
+                    this.setState({ favColor: 'blue' });
+                  }, 3000);
+                }
+
+                render() {
+                  return (
+                    &lt;div&gt;
+                      My favorite color:
+                      {this.state.favColor}
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              // ALL CHANGES TO THIS.STATE SHOULD BE PURE
+              // always provide a new object
+            </code>
+          </pre>
+          <p><strong>Stateless Functional Components</strong> - components implemented using a function, not a class - the function implements the render method only: no constructor, no state</p>
           <p><strong>Converting a Function to a Class</strong> - as classes have and additional features (e.g. Local State)</p>
           <pre>
             <code>
@@ -4601,8 +4709,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 25
-  Video: 282
+  Folder: 27
+  Video: 300
 
   -->
 
