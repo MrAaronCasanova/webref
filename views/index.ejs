@@ -226,6 +226,37 @@ NOTE HTML
               // always provide a new object
             </code>
           </pre>
+          <p><strong>setState Update Function</strong> - use when the state you are updating depends on a previous value for the state</p>
+          <pre>
+            <code>
+              // Update Function
+              this.setState((prevState, props) => {
+                return {
+                  counter: prevState.counter + 1
+                };
+              });
+              // Rule: When setState depends on a previous state,
+              // use a function parameter - rather than passing an obj
+            </code>
+          </pre>
+          <p><strong>setState is Asynchronous</strong></p>
+          <pre>
+            <code>
+              // Wrong way to debug/check the value of state
+              this.setState({ name: 'Aaron' });
+              // won't be updated yet
+              console.log(this.state.name); // doesn't reflect new val
+
+              // Right way to debug/check the value of state
+              // provide a callback param to setState
+              this.setState({ name: 'Aaron' }, () => {
+                console.log(
+                  // now state is up to date
+                  this.state.name
+                );
+              });
+            </code>
+          </pre>
           <p><strong>Stateless Functional Components</strong> - components implemented using a function, not a class - the function implements the render method only: no constructor, no state</p>
           <p><strong>Converting a Function to a Class</strong> - as classes have and additional features (e.g. Local State)</p>
           <pre>
