@@ -333,6 +333,67 @@ NOTE HTML
               // When you call setState(), React merges the object you provide into the current state
             </code>
           </pre>
+          <p><strong>Virtual DOM</strong> - a data structure stored by React that tracks changes from one render state to the next - if something has changed from one render to the next, the browser's DOM is updated (Reconciliation)</p>
+          <p><strong>Reconciliation</strong> - the process of figuring out what changes occured and what needs to be updated in the browser's DOM/the actual update</p>
+          <p><strong>Synthetic Events</strong> - supports all the native browser events, but provides a consistent API on all browsers</p>
+          <p><strong>React 16</strong> - Fiber - name of the new reconciliation engine</p>
+          <pre>
+            <code>
+              // REACT 16
+
+              // Render ca return an array of JSX elements or a string
+              render() {
+                return [
+                  &lt;div key="a"&gt;First Element&lt;/div&gt;,
+                  &lt;div key="b"&gt;First Element&lt;/div&gt;,
+                ];
+              }
+
+              // Error Boundary
+              <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank">Lesson Link</a>
+            </code>
+          </pre>
+          <p><strong>Uncontrolled Component</strong> - one that React doesn't have control of, but rather the DOM/Browser does</p>
+          <pre>
+            <code>
+              // Uncontrolled Component
+              &lt;input type="text" /&gt;
+              // React is not aware of what the user is typing, the browser is in charge of the state
+              // (typing in the input field) uncontrolled component because React is not involed in the render process or the state of what is in the input field
+
+              // Controlled Component
+              &lt;input type="text" value={this.state.inputText} /&gt;
+              // React is now in control of the state via this.state.inputText, but the input can't be updated (because it will always be whatever inputText currently is)
+
+              // Controlled Component With Update
+              &lt;input
+                type="text"]
+                name="inputText"
+                value={this.state.inputText}
+                onChange={(e) => {
+                  this.setState({ inputText: e.target.value });
+                }}
+              /&gt;
+              // React is now in control of the state via this.state.inputText and the state can change via onChange
+
+              &lt;form onSubmit={(e) =&gt; {
+                e.preventDefault();
+                const data = [...this.state.data,
+                              this.state.inputText];
+                this.setState({ data, inputText: '' });
+              }}&gt;
+                &lt;input
+                  type="text"
+                  name="inputText"
+                  value={this.state.inputText}
+                  onChange={(e) =&gt; {
+                    this.setState({[e.target.name]: e.target.value});
+                  }}
+                /&gt;
+              &lt;/form&gt;
+              // keep in mind a button (with type="submit") click is not the same as a submit on a form, use onSubmit on the form element
+            </code>
+          </pre>
         </div>
       </li>
       <li>
@@ -4741,7 +4802,7 @@ NOTE JAVASCRIPT
 
   The Advance Web Development Bootcamp
   Folder: 27
-  Video: 300
+  Video: 307
 
   -->
 
