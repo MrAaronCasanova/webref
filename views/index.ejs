@@ -404,6 +404,177 @@ NOTE HTML
           <p>triggering imperative animations</p>
           <p>integrating with third-party DOM libraries</p>
           <p>WARNING: do not use refs when the job can be done with React - you should not need direct DOM access for most tasks</p>
+          <hr>
+          <hr>
+          <h5>React Router</h5>
+          <p><strong>History</strong> - Allows javvascript to manipulate the browser history - changes the url address bar - changes the browsers's local navigation history - DOES NOT cause the browswer to make a GET request</p>
+          <p><strong>history.back();</strong></p>
+          <p><strong>history.forward();</strong></p>
+          <p><strong>history.pushState({}, 'title', '/newpage');</strong></p>
+          <p><strong>React Router v4</strong> - a library to manage routing in your single page application - Version 4 is a declarative api that uses componenets to make rendering decisions</p>
+          <p><strong>BrowserRouter vs HashRouter</strong> - BrowserRouter uses the history object and makes changes to the URL, the HashRouter adds hashes to the url instead (BrowserRouter requires server support, HashRouter does not require server support -- always choose BrowserRouter if you are able)</p>
+          <table>
+            <thead>
+              <tr>
+                <th>BrowserRouter</th>
+                <th>HashRouter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>/</td>
+                <td>/#</td>
+              </tr>
+              <tr>
+                <td>/users</td>
+                <td>/#users</td>
+              </tr>
+              <tr>
+                <td>/users/57492/messages</td>
+                <td>/#users/57492/messages</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre>
+            <code>
+              (npm install --save react-router-dom)
+
+              // REACT ROUTER SETUP //
+
+              import React from 'react';
+              import ReactDOM from 'react-dom';
+              import {
+                BrowserRouter as Router
+              } from 'react-router-dom';
+              import App from './App';
+
+              ReactDOM.render(
+              &lt;Router&gt;
+                &lt;App /&gt;
+              &lt;/Router&gt;,
+              document.getElementById('root');
+              );
+
+              // SWITCH AND ROUTE //
+
+              import React, { Component } from 'react';
+              import {
+                Switch, Route
+              } from 'react-router-dom';
+
+              const Homepage = () =&gt; (&lt;div&gt;HOMEPAGE&lt;/div&gt;);
+              const About = () =&gt; (&lt;div&gt;ABOUT&lt;/div&gt;);
+
+              const SwitchDemo = () =&gt; (
+                &lt;Switch&gt; // acts like if else
+                  &lt;Route path="/about" component={About} /&gt;
+                  &lt;Route path="/" component={Homepage} /&gt;
+                &lt;/Switch&gt;
+              );
+
+              // LINK //
+
+              import React from 'react';
+              import { Link } from 'react-router-dom';
+              import SwitchDemo from './SwitchDemo';
+
+              const App () =&gt; (
+                &lt;div&gt;
+                  &lt;Link to="/"&gt;HOME&lt;/Link&gt;
+                  &lt;Link to="/about"&gt;ABOUT&lt;/Link&gt;
+                  &lt;div style={style}&gt;
+                    &lt;SwitchDemo /&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              );
+
+              // NAVLINK //
+
+              import React from...
+              import { NavLink } from 'react-router-dom';
+              import SwitchDemo from...
+
+              const s={ color: 'red' }; // active style
+              const App = () =&gt; (
+                &lt;div&gt;
+                  &lt;NavLink exact activeStyle={s} to="/"&gt;
+                    HOME
+                  &lt;/NavLink&gt;
+                  &lt;NavLink exact activeStyle={s} to="/about"&gt;
+                    ABOUT
+                  &lt;/NavLink&gt;
+                  &lt;div style={style}&gt;
+                    &lt;SwitchDemo /&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              );
+
+              // URL PARAMETERS //
+
+              import React from...
+              import {
+                Switch, Route
+              } from 'react-router-dom';
+
+              const Homepage = () =&gt; (&lt;div&gt;HOMEPAGE&lt;/div&gt;);
+              const Name = ({ match }) =&gt; (
+                &lt;div&gt;Hello, {match.params.name}&lt;/div&gt;
+              );
+              const SwitchDemo = () =&gt; (
+                &lt;Switch&gt;
+                  &lt;Route path="/:name" component={Name} /&gt;
+                  &lt;Route path="/" component={Homepage} /&gt;
+                &lt;/Switch&gt;
+              );
+            </code>
+          </pre>
+          <p><strong>Route Props</strong> - a component inside of a Route gets 3 props</p>
+          <p><strong>match</strong> - info about how the url matches the route component</p>
+          <p><strong>location</strong> - where you are now, similar to window.location</p>
+          <p><strong>history</strong> - similar to html5 history object, allows explicit changes to the url</p>
+          <p><strong>withRouter</strong> - if a component is not rendered inside of a Route component, you can use withRouter to get route props</p>
+          <pre>
+            <code>
+              import {
+                withRouter, Switch, Route
+              } from 'react-router-dom';
+
+              const SwitchDemo = ({ history }) =&gt; (
+                &lt;div&gt;
+                  &lt;Switch&gt;
+                    &lt;Route path="/:name" component={Name} /&gt;
+                    &lt;Route path="/" component={Homepage} /&gt;
+                  &lt;/Switch&gt;
+                  &lt;button onClick={() =&gt; history.push('/')}&gt;
+                    Go Home
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              );
+              export default withRouter(SwitchDemo);
+            </code>
+          </pre>
+          <p><strong>Render vs Component</strong> - user render to pass custom props to your component - the route component can either use render or component (never both)</p>
+          <pre>
+            <code>
+              // ROUTER RENDER EX.
+
+              import { Route } from 'react-router-dom';
+              const teachers = ['Tim', 'Colt', 'Matt', 'Elie'];
+              const Teachers = ({ teachers }) =&gt; (
+                &lt;ul&gt;
+                  {teachers.map((teach, idx) =&gt; (
+                    &lt;li key={idx}&gt;{teach}&lt;/li&gt;
+                  ))}
+                &lt;/ul&gt;
+              );
+
+              const App = () =&gt; (
+                &lt;Route path="/teachers" render={props =&gt; (
+                  &lt;Teachers {...props} teachers={teachers} /&gt;
+                )} /&gt;
+              );
+            </code>
+          </pre>
         </div>
       </li>
       <li>
