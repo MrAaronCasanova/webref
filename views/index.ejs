@@ -311,6 +311,10 @@ NOTE HTML
             </code>
           </pre>
           <p><strong>Adding Lifecycle Methods to a Class</strong></p>
+          <p><strong>Mounting</strong> - happens when the component is first rendered in the DOM - in order of 1) the constructor() 2) componentWillMount() - when the constructor is finished, but hasn't called render 3) render() 4) componentDidMount() - invoked after component markup is placed in the DOM ||| componentWillMount&componentDidMount are only called once for the lifecycle of a component, very useful for component setup logic</p>
+          <p><strong>Unmounting</strong> - happens when the component is taken out of the DOM (e.g. the component was removed from an array) - componentWillUnmount()</p>
+          <p><strong>Updating</strong> - happens whenever setState() is called - 1) componentWillReceiveProps(nextProps) - used if any props have changed 2) shouldComponentUpdate(nextProps, nextState) - if you return false from this method the component will not render(),use sparingly 3) componentWillUpdate(nextProps, nextState) - gets called right before the render(), you can see what props and state are about to be updated 4) render() - with new state and new props 5) componentDidUpdate(prevProps, prevState)</p>
+          <p>forceUpdate(callback) - skips shouldComponentUpdate() and forces a render() - should be avoided in most cases</p>
           <p><strong>lifecycle hooks</strong> - special methods on the component class to run some code when a component mounts and unmounts</p>
           <p><strong>componentDidMount()</strong> - hook runs after the component output has been rendered to the DOM</p>
           <p><strong>componentWillUnmount()</strong> - hooks runs if component is ever removed from the DOM</p>
@@ -394,6 +398,12 @@ NOTE HTML
               // keep in mind a button (with type="submit") click is not the same as a submit on a form, use onSubmit on the form element
             </code>
           </pre>
+          <p><strong>refs</strong> - a direct reference to a DOM element</p>
+          <p>Use Cases</p>
+          <p>managing focus, text selection, or media playback</p>
+          <p>triggering imperative animations</p>
+          <p>integrating with third-party DOM libraries</p>
+          <p>WARNING: do not use refs when the job can be done with React - you should not need direct DOM access for most tasks</p>
         </div>
       </li>
       <li>
@@ -4801,8 +4811,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   The Advance Web Development Bootcamp
-  Folder: 27
-  Video: 307
+  Folder: 29
+  Video: 320
 
   -->
 
