@@ -3808,121 +3808,121 @@ NOTE JAVASCRIPT
         <div class="collapsible-body">
           <h5>Selecting with jQuery</h5>
           <p><strong>$('selectorGoesHere')</strong> - Similar to querySelectorAll, in that we provide a CSS style selector and jQuery will return all matching elements</p>
-        <hr>
-        <hr>
-        <h5>Manipulate Style</h5>
-        <p><strong>.css()</strong> - method is jQuery's interface to styling</p>
-        <pre id="special">
-          <code>
-            $(selector)
+          <hr>
+          <hr>
+          <h5>Manipulate Style</h5>
+          <p><strong>.css()</strong> - method is jQuery's interface to styling</p>
+          <pre id="special">
+            <code>
+              $(selector)
 
-            .css(property, value)
+              .css(property, value)
 
-            // select elem with id "special" and give it a border
-            $('#special').css('border', '2px solid red');
+              // select elem with id "special" and give it a border
+              $('#special').css('border', '2px solid red');
 
-            // we can also pass in an object with stylesheet
-            var styles = {
-              backgroundColor: 'pink',
-              fontWeight: 'bold'
-            };
+              // we can also pass in an object with stylesheet
+              var styles = {
+                backgroundColor: 'pink',
+                fontWeight: 'bold'
+              };
 
-            $('#special').css(styles);
-          </code>
-        </pre>
-        <hr>
-        <hr>
-        <h5>Common jQuery Methods</h5>
-        <p><strong>.text()</strong> - Get the combined text contents of each element in the set of matched elements, including their decendants, or set the text contents of the matched elements</p>
-        <pre>
-          <code>
-            $(selector)
+              $('#special').css(styles);
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Common jQuery Methods</h5>
+          <p><strong>.text()</strong> - Get the combined text contents of each element in the set of matched elements, including their decendants, or set the text contents of the matched elements</p>
+          <pre>
+            <code>
+              $(selector)
 
-            .text(newValue)
-          </code>
-        </pre>
-        <p><strong>.html()</strong> - Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element</p>
-        <pre>
-          <code>
-            $(selector)
+              .text(newValue)
+            </code>
+          </pre>
+          <p><strong>.html()</strong> - Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element</p>
+          <pre>
+            <code>
+              $(selector)
 
-            .html('&lt;p&gt;Example&lt;/p&gt;')
-          </code>
-        </pre>
-        <p><strong>.attr()</strong> - Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element</p>
-        <pre>
-          <code>
-            $(selector)
+              .html('&lt;p&gt;Example&lt;/p&gt;')
+            </code>
+          </pre>
+          <p><strong>.attr()</strong> - Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element</p>
+          <pre>
+            <code>
+              $(selector)
 
-            .attr(attribute, value)
-          </code>
-        </pre>
-        <p><strong>.val()</strong> -  Get the current value of the first element in the set of matched elements or set the value of every matched element</p>
-        <pre>
-          <code>
-            $(selector)
+              .attr(attribute, value)
+            </code>
+          </pre>
+          <p><strong>.val()</strong> -  Get the current value of the first element in the set of matched elements or set the value of every matched element</p>
+          <pre>
+            <code>
+              $(selector)
 
-            .val(value)
-          </code>
-        </pre>
-        <p><strong>.addClass()</strong> -  Adds the specified class(es) to each element in the set of matched elements</p>
-        <p><strong>.removeClass()</strong> -  Removes the specified class(es) to each element in the set of matched elements</p>
-        <p><strong>.toggleClass()</strong> -  Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument</p>
-        <pre>
-          <code>
-            $(selector)
+              .val(value)
+            </code>
+          </pre>
+          <p><strong>.addClass()</strong> -  Adds the specified class(es) to each element in the set of matched elements</p>
+          <p><strong>.removeClass()</strong> -  Removes the specified class(es) to each element in the set of matched elements</p>
+          <p><strong>.toggleClass()</strong> -  Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument</p>
+          <pre>
+            <code>
+              $(selector)
 
-            .addClass('class-name')
-            .removeClass('class-name')
-            .toggleClass('class-name')
-          </code>
-        </pre>
-        <hr>
-        <hr>
-        <h5>Common jQuery Event Methods</h5>
-        <p><strong>click()</strong> - method is a quick and easy way to add a click listener to element(s)</p>
-        <pre>
-          <code>
-            // prints when item with id 'submit' is clicked
-            $('#submit').click(function(){
-              console.log('Another Click');
-            });
-          </code>
-        </pre>
-        <p><strong>keypress()</strong> - method is a quick and easy way to add a keypress listener to element(s)</p>
-        <pre>
-          <code>
-            $('#target').keypress(function(){
-              console.log('Handler for .keypress() called');
-            });
-          </code>
-        </pre>
-        <p><strong>on()</strong> - works similarly to addEventListener. It lets you specify the type of event to listen for.</p>
-        <pre>
-          <code>
-            // prints when item with id 'submit' is clicked
-            $('#submit').on('dblclick', function(){
-              console.log('Another Click');
-            });
-          </code>
-        </pre>
-        <hr>
-        <hr>
-        <h5>jQuery Effects</h5>
-        <p><strong>fadeOut()</strong> - Hide the matched elements by fading them to transparent</p>
-        <p><strong>fadeIn()</strong> - Reveals the matched elements by fading them in from 0 transparency</p>
-        <p><strong>fadeToggle()</strong> - Hide or Reveal the matched elements base on elements current state</p>
-        <pre>
-          <code>
-            $('#clickme').click(function(){
-              $('#book').fadeOut(1000, function(){
-                console.log('Fade Completed');
-                // this code will run after the fade time specified
+              .addClass('class-name')
+              .removeClass('class-name')
+              .toggleClass('class-name')
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>Common jQuery Event Methods</h5>
+          <p><strong>click()</strong> - method is a quick and easy way to add a click listener to element(s)</p>
+          <pre>
+            <code>
+              // prints when item with id 'submit' is clicked
+              $('#submit').click(function(){
+                console.log('Another Click');
               });
-            });
-          </code>
-        </pre>
-        <p><strong>slideOut(), slideIn(), slideToggle()</strong> - all function like the fade methods</p>
+            </code>
+          </pre>
+          <p><strong>keypress()</strong> - method is a quick and easy way to add a keypress listener to element(s)</p>
+          <pre>
+            <code>
+              $('#target').keypress(function(){
+                console.log('Handler for .keypress() called');
+              });
+            </code>
+          </pre>
+          <p><strong>on()</strong> - works similarly to addEventListener. It lets you specify the type of event to listen for.</p>
+          <pre>
+            <code>
+              // prints when item with id 'submit' is clicked
+              $('#submit').on('dblclick', function(){
+                console.log('Another Click');
+              });
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <h5>jQuery Effects</h5>
+          <p><strong>fadeOut()</strong> - Hide the matched elements by fading them to transparent</p>
+          <p><strong>fadeIn()</strong> - Reveals the matched elements by fading them in from 0 transparency</p>
+          <p><strong>fadeToggle()</strong> - Hide or Reveal the matched elements base on elements current state</p>
+          <pre>
+            <code>
+              $('#clickme').click(function(){
+                $('#book').fadeOut(1000, function(){
+                  console.log('Fade Completed');
+                  // this code will run after the fade time specified
+                });
+              });
+            </code>
+          </pre>
+          <p><strong>slideOut(), slideIn(), slideToggle()</strong> - all function like the fade methods</p>
         </div>
       </li>
       <li>
@@ -4512,10 +4512,20 @@ NOTE JAVASCRIPT
       </li>
       <li>
         <div class="collapsible-header">
-          <h4 class="workflow">Authentication</h4>
+          <h4 class="workflow">Authentication & Authorization</h4>
         </div>
         <div class="collapsible-body">
-          <p><strong></strong> - </p>
+          <h5>Athentication</h5>
+          <p>verifying who you are</p>
+          <p><strong>One Way Hashing</strong> - converting data into a fixed length hash string - you can only recreate the hash if you know the original data - applicable for saving passwords on your server</p>
+          <p><strong>JWT (JSON Web Token)</strong> - a web standard for storing signed data - we can use JWTs as proof that you've logged in before</p>
+          <p><strong>JWT Format</strong> - HEADER - PAYLOAD - SIGNATURE</p>
+          <p><strong>Sending JWT To Server</strong> - HTTP Header - Authorization: Bearer &lt;JWT&gt;</p>
+          <hr>
+          <hr>
+          <h5>Authorization</h5>
+          <p>verify that a user has the permission to take a specific action</p>
+          <p>just because you are signed in, it does not mean you are authorized to do any action the the application</p>
         </div>
       </li>
       <li>
