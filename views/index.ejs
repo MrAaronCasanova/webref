@@ -45,536 +45,11 @@ NOTE HTML
 ********************************************* -->
       <li>
         <div class="collapsible-header">
-          <h4 class="javascript">ReactJS</h4>
+          <h4 class="javscript">NodeJS</h4>
         </div>
         <div class="collapsible-body">
-          <h5>Front-End Framework</h5>
-          <p>JavaScript libraries that handle DOM manipulation - Handles navigations (HTML5 push state) - State management</p>
-          <h5>Babel</h5>
-          <p>Transpiler: converts from one source code version to another (i.e. JSX to Vanilla JS)</p>
-          <h5>Webpack</h5>
-          <p>A module bundler for moder JavaScript applications</p>
-          <p>*combines different JS files into a bundle.js</p>
-          <p>*has a plugin system to run tools like babel</p>
-          <p>*also bundles other assets like css, images, etc...</p>
-          <hr>
-          <hr>
-          <hr>
-          <h5>React Basics & Terminology</h5>
-          <p><strong>ReactDOM.render(JSX, elementSelection)</strong> - smallest React example of rendering content to a selected element on the page</p>
-          <p><strong>JSX</strong> - JavaScript XML - XML-like syntax extension to ECMAScript without defined semantics - produces React "elements" that describe what the UI should look like - (commonly wrapped in parathesis to avoid the pitfalls of automatic semicolon insertion) - become JS object upon compilation (meaning JSX can be used in 'if statements', 'for loops', 'assign to vars', 'accept as args', and 'return from functions')</p>
-          <p>embed JS expression in JSX by wrapping it in curly braces</p>
-          <pre>
-            <code>
-              let person = { name: 'Aaron' };
-              let element = (&lt;h1&gt;My name is {person.name}, and I am {20 + 6} years old&lt;/h1&gt;);
-              ReactDOM.render(element, document.getElementById('root'));
-            </code>
-          </pre>
-          <p><strong>JSX Attributes</strong> - use quotes to specify string literals as attrs or use curly braces to embed JS expressions as attrs</p>
-          <pre>
-            <code>
-              // string literal example
-              const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;;
-              // JS expression example
-              const element = &lt;img scr={user.avatarUrl} /&gt;;
-            </code>
-          </pre>
-          <p><strong>Elements</strong> - describe what you want to see on the screen - React elements are plain objects and are immutable (must be re-rendered to to update, but only updates what necessary)</p>
-          <p><strong>Components</strong> - components are made of elements - like functions, they accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen - always start component name with a capital letter</p>
-          <pre>
-            <code>
-              // simple defintion of component
-              function Welcome(props) {
-                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-              }
-              // valid React Component because it accepts a single 'props' object arg with data and returns a React element
-
-              // Equivalent example with ES6
-              class Welcome extends React.Component {
-                render() {
-                  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-                }
-              }
-
-              // Elements can also represent user-defined components
-              // React will pass the JSX attrs as a single object to elements representing a user-defined component -- called object 'props'
-
-              // Example
-
-              function Welcome(props) {
-                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-              }
-              const element = &lt;Welcome name="Aaron" /&gt;
-
-              ReactDOM.render(
-                element,
-                document.getElementById('root');
-              ); // output will be 'Hello, Aaron'
-
-
-              // ALL REACT COMPONENTS MUST ACT LIKE PURE FUNCTION WITH RESPECT TO THEIR PROPS
-
-              // Pure Function - a function with no side effect
-              // it does not modify its inputs
-              // it's repeatable (same inputs, same outputs)
-            </code>
-          </pre>
-          <p><strong>Props</strong> - immutable data passed to your components - accessible in your component as an object called this.props (NEVER CHANGE this.props)</p>
-          <p><strong>defaultProps</strong> - default values for props in a component</p>
-          <p><strong>propTypes</strong> - specify what props a component is expecting - development time type checker for your props - specify requirements for your props for users of that component</p>
-          <pre>
-            <code>
-              class IngredientsList extends Component {
-                static defalutProps = {
-                  ingredients: []
-                }
-              }
-              render() {
-                return (
-                {this.props.ingredients.map((ing, idx) => (
-                  &lt;li key={idx}&gt;{ing}&lt;/li&gt;
-                  ))}
-                );
-              }
-
-
-              import PropTypes from 'prop-types';
-
-              class IngredientsList extends Component {
-                static PropTypes = {
-                  ingredients: PropTypes.arrayOf(Proptypes.string).isRequired
-                }
-                // if props don't meet the specified requirements
-                // an error will display in the console
-              }
-              render() {
-                return (
-                {this.props.ingredients.map((ing, idx) => (
-                  &lt;li key={idx}&gt;{ing}&lt;/li&gt;
-                  ))}
-                );
-              }
-            </code>
-          </pre>
-          <p><strong>props.children</strong> - a collection of the children inside of a component (i.e. if you want any type/collection of elements to display in a row)</p>
-          <pre>
-            <code>
-              class Row extends Component {
-                render() {
-                  return (
-                    &lt;div style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'space-around',
-                    }}&gt;
-                      {this.props.children}
-                    &lt;/div&gt;
-                  );
-                }
-              }
-
-              class App extends Component {
-                render() {
-                  return (
-                  &lt;Row&gt;
-                    &lt;p&gt;Timothy&lt;/p&gt;
-                    &lt;div&gt;Moxie&lt;/div&gt;
-                    &lt;h1&gt;React&lt;/h1&gt;
-                  &lt;/Row&gt;
-                  );
-                }
-              }
-
-              // all elements will display in a row
-            </code>
-          </pre>
-          <p><strong>State & Lifecycle</strong></p>
-          <p><strong>state</strong> - is similar to props, but it is private and fully controlled by the component - (stateful data) data in our application that can change</p>
-          <p><strong>setState({})</strong> - the correct way to change state in your application - simpleDefinition - setState accepts an object with new properties and values for this.state</p>
-          <p><strong>How is state shared?</strong> - state is always passed down from a parent to a child component as a prop - state should not be passed to a sibbling or parent - state should be owned by 1 component - never assign a prop to your state</p>
-          <pre>
-            <code>
-              class App extends Component {
-                // always pass props as a parameter to the constructor
-                constructor(props) {
-                  // super(props) call the Component constructor
-                  super(props);
-                  // must = an object
-                  this.state = { favColor: 'green' };
-
-                  // after three seconds, setState will invoke
-                  // updating the current state
-                  // which will re-invoke render()
-                  // updating the view to reflect the new stateful data
-                  setTimeout(() => {
-                    this.setState({ favColor: 'blue' });
-                  }, 3000);
-                }
-
-                render() {
-                  return (
-                    &lt;div&gt;
-                      My favorite color:
-                      {this.state.favColor}
-                    &lt;/div&gt;
-                  );
-                }
-              }
-
-              // ALL CHANGES TO THIS.STATE SHOULD BE PURE
-              // always provide a new object
-            </code>
-          </pre>
-          <p><strong>setState Update Function</strong> - use when the state you are updating depends on a previous value for the state</p>
-          <pre>
-            <code>
-              // Update Function
-              this.setState((prevState, props) => {
-                return {
-                  counter: prevState.counter + 1
-                };
-              });
-              // Rule: When setState depends on a previous state,
-              // use a function parameter - rather than passing an obj
-            </code>
-          </pre>
-          <p><strong>setState is Asynchronous</strong></p>
-          <pre>
-            <code>
-              // Wrong way to debug/check the value of state
-              this.setState({ name: 'Aaron' });
-              // won't be updated yet
-              console.log(this.state.name); // doesn't reflect new val
-
-              // Right way to debug/check the value of state
-              // provide a callback param to setState
-              this.setState({ name: 'Aaron' }, () => {
-                console.log(
-                  // now state is up to date
-                  this.state.name
-                );
-              });
-            </code>
-          </pre>
-          <p><strong>Stateless Functional Components</strong> - components implemented using a function, not a class - the function implements the render method only: no constructor, no state</p>
-          <p><strong>Converting a Function to a Class</strong> - as classes have and additional features (e.g. Local State)</p>
-          <pre>
-            <code>
-              1. Create an ES6 class, with the same name, that extends React.Component.
-              2. Add a single empty method to it called render().
-              3. Move the body of the function into the render() method.
-              4. Replace props with this.props in the render() body.
-              5. Delete the remaining empty function declaration.
-
-              class Clock extends React.Component {
-                render() {
-                  return (
-                    &lt;div&gt;
-                      &lt;h1&gt;Hello, World!&lt;/h1&gt;
-                      &lt;h2&gt;It is {this.props.date.toLocalTimeString()}&lt;/h2&gt;
-                    &lt;/div&gt;
-                  );
-                }
-              }
-
-              // now we can use local state and lifecycle hooks
-            </code>
-          </pre>
-          <p><strong>Adding Local State to a Class</strong></p>
-          <pre>
-            <code>
-              1. Replace this.props.date with this.state.date in the render() method
-              2. Add a class constructor that assigns the initial this.state (Note how we pass props to the base constructor - Class components should always call the base constructor with props)
-              3. Remove the date prop from the &lt;Clock /&gt; element
-
-              class Clock extends React.Component {
-                constructor(props) {
-                  super(props);
-                  this.state = {date: new Date()};
-                }
-
-                render() {
-                  return (
-                    &lt;div&gt;
-                      &lt;h1&gt;Hello, World!&lt;/h1&gt;
-                      &lt;h2&gt;It is {this.state.date.toLocalTimeString()}&lt;/h2&gt;
-                    &lt;/div&gt;
-                  );
-                }
-              }
-
-              ReactDOM.render(
-                &lt;Clock /&gt;,
-                document.getElementById('root');
-              );
-            </code>
-          </pre>
-          <p><strong>Adding Lifecycle Methods to a Class</strong></p>
-          <p><strong>Mounting</strong> - happens when the component is first rendered in the DOM - in order of 1) the constructor() 2) componentWillMount() - when the constructor is finished, but hasn't called render 3) render() 4) componentDidMount() - invoked after component markup is placed in the DOM ||| componentWillMount&componentDidMount are only called once for the lifecycle of a component, very useful for component setup logic</p>
-          <p><strong>Unmounting</strong> - happens when the component is taken out of the DOM (e.g. the component was removed from an array) - componentWillUnmount()</p>
-          <p><strong>Updating</strong> - happens whenever setState() is called - 1) componentWillReceiveProps(nextProps) - used if any props have changed 2) shouldComponentUpdate(nextProps, nextState) - if you return false from this method the component will not render(),use sparingly 3) componentWillUpdate(nextProps, nextState) - gets called right before the render(), you can see what props and state are about to be updated 4) render() - with new state and new props 5) componentDidUpdate(prevProps, prevState)</p>
-          <p>forceUpdate(callback) - skips shouldComponentUpdate() and forces a render() - should be avoided in most cases</p>
-          <p><strong>lifecycle hooks</strong> - special methods on the component class to run some code when a component mounts and unmounts</p>
-          <p><strong>componentDidMount()</strong> - hook runs after the component output has been rendered to the DOM</p>
-          <p><strong>componentWillUnmount()</strong> - hooks runs if component is ever removed from the DOM</p>
-          <a href="https://reactjs.org/docs/state-and-lifecycle.html" target="_blank">Lesson Link</a>
-          <p>CMD-F for (Let’s quickly recap what’s going on)</p>
-          <p><strong>setState()</strong> - method to re-render the component</p>
-          <pre>
-            <code>
-              // 3 Important Things To Know About setState()
-
-              1. State cannot be modified directly
-              // The only place where you can assign this.state is the constructor
-              // correct Modification
-              this.setState({ comment: 'Hello' });
-
-              2. State updates may be asynchronous
-              // Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state
-
-              3. State updates are merged
-              // When you call setState(), React merges the object you provide into the current state
-            </code>
-          </pre>
-          <p><strong>Virtual DOM</strong> - a data structure stored by React that tracks changes from one render state to the next - if something has changed from one render to the next, the browser's DOM is updated (Reconciliation)</p>
-          <p><strong>Reconciliation</strong> - the process of figuring out what changes occured and what needs to be updated in the browser's DOM/the actual update</p>
-          <p><strong>Synthetic Events</strong> - supports all the native browser events, but provides a consistent API on all browsers</p>
-          <p><strong>React 16</strong> - Fiber - name of the new reconciliation engine</p>
-          <pre>
-            <code>
-              // REACT 16
-
-              // Render ca return an array of JSX elements or a string
-              render() {
-                return [
-                  &lt;div key="a"&gt;First Element&lt;/div&gt;,
-                  &lt;div key="b"&gt;First Element&lt;/div&gt;,
-                ];
-              }
-
-              // Error Boundary
-              <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank">Lesson Link</a>
-            </code>
-          </pre>
-          <p><strong>Uncontrolled Component</strong> - one that React doesn't have control of, but rather the DOM/Browser does</p>
-          <pre>
-            <code>
-              // Uncontrolled Component
-              &lt;input type="text" /&gt;
-              // React is not aware of what the user is typing, the browser is in charge of the state
-              // (typing in the input field) uncontrolled component because React is not involed in the render process or the state of what is in the input field
-
-              // Controlled Component
-              &lt;input type="text" value={this.state.inputText} /&gt;
-              // React is now in control of the state via this.state.inputText, but the input can't be updated (because it will always be whatever inputText currently is)
-
-              // Controlled Component With Update
-              &lt;input
-                type="text"]
-                name="inputText"
-                value={this.state.inputText}
-                onChange={(e) => {
-                  this.setState({ inputText: e.target.value });
-                }}
-              /&gt;
-              // React is now in control of the state via this.state.inputText and the state can change via onChange
-
-              &lt;form onSubmit={(e) =&gt; {
-                e.preventDefault();
-                const data = [...this.state.data,
-                              this.state.inputText];
-                this.setState({ data, inputText: '' });
-              }}&gt;
-                &lt;input
-                  type="text"
-                  name="inputText"
-                  value={this.state.inputText}
-                  onChange={(e) =&gt; {
-                    this.setState({[e.target.name]: e.target.value});
-                  }}
-                /&gt;
-              &lt;/form&gt;
-              // keep in mind a button (with type="submit") click is not the same as a submit on a form, use onSubmit on the form element
-            </code>
-          </pre>
-          <p><strong>refs</strong> - a direct reference to a DOM element</p>
-          <p>Use Cases</p>
-          <p>managing focus, text selection, or media playback</p>
-          <p>triggering imperative animations</p>
-          <p>integrating with third-party DOM libraries</p>
-          <p>WARNING: do not use refs when the job can be done with React - you should not need direct DOM access for most tasks</p>
-          <hr>
-          <hr>
-          <h5>React Router</h5>
-          <p><strong>History</strong> - Allows javvascript to manipulate the browser history - changes the url address bar - changes the browsers's local navigation history - DOES NOT cause the browswer to make a GET request</p>
-          <p><strong>history.back();</strong></p>
-          <p><strong>history.forward();</strong></p>
-          <p><strong>history.pushState({}, 'title', '/newpage');</strong></p>
-          <p><strong>React Router v4</strong> - a library to manage routing in your single page application - Version 4 is a declarative api that uses componenets to make rendering decisions</p>
-          <p><strong>BrowserRouter vs HashRouter</strong> - BrowserRouter uses the history object and makes changes to the URL, the HashRouter adds hashes to the url instead (BrowserRouter requires server support, HashRouter does not require server support -- always choose BrowserRouter if you are able)</p>
-          <table>
-            <thead>
-              <tr>
-                <th>BrowserRouter</th>
-                <th>HashRouter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>/</td>
-                <td>/#</td>
-              </tr>
-              <tr>
-                <td>/users</td>
-                <td>/#users</td>
-              </tr>
-              <tr>
-                <td>/users/57492/messages</td>
-                <td>/#users/57492/messages</td>
-              </tr>
-            </tbody>
-          </table>
-          <pre>
-            <code>
-              (npm install --save react-router-dom)
-
-              // REACT ROUTER SETUP //
-
-              import React from 'react';
-              import ReactDOM from 'react-dom';
-              import {
-                BrowserRouter as Router
-              } from 'react-router-dom';
-              import App from './App';
-
-              ReactDOM.render(
-              &lt;Router&gt;
-                &lt;App /&gt;
-              &lt;/Router&gt;,
-              document.getElementById('root');
-              );
-
-              // SWITCH AND ROUTE //
-
-              import React, { Component } from 'react';
-              import {
-                Switch, Route
-              } from 'react-router-dom';
-
-              const Homepage = () =&gt; (&lt;div&gt;HOMEPAGE&lt;/div&gt;);
-              const About = () =&gt; (&lt;div&gt;ABOUT&lt;/div&gt;);
-
-              const SwitchDemo = () =&gt; (
-                &lt;Switch&gt; // acts like if else
-                  &lt;Route path="/about" component={About} /&gt;
-                  &lt;Route path="/" component={Homepage} /&gt;
-                &lt;/Switch&gt;
-              );
-
-              // LINK //
-
-              import React from 'react';
-              import { Link } from 'react-router-dom';
-              import SwitchDemo from './SwitchDemo';
-
-              const App () =&gt; (
-                &lt;div&gt;
-                  &lt;Link to="/"&gt;HOME&lt;/Link&gt;
-                  &lt;Link to="/about"&gt;ABOUT&lt;/Link&gt;
-                  &lt;div style={style}&gt;
-                    &lt;SwitchDemo /&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              );
-
-              // NAVLINK //
-
-              import React from...
-              import { NavLink } from 'react-router-dom';
-              import SwitchDemo from...
-
-              const s={ color: 'red' }; // active style
-              const App = () =&gt; (
-                &lt;div&gt;
-                  &lt;NavLink exact activeStyle={s} to="/"&gt;
-                    HOME
-                  &lt;/NavLink&gt;
-                  &lt;NavLink exact activeStyle={s} to="/about"&gt;
-                    ABOUT
-                  &lt;/NavLink&gt;
-                  &lt;div style={style}&gt;
-                    &lt;SwitchDemo /&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              );
-
-              // URL PARAMETERS //
-
-              import React from...
-              import {
-                Switch, Route
-              } from 'react-router-dom';
-
-              const Homepage = () =&gt; (&lt;div&gt;HOMEPAGE&lt;/div&gt;);
-              const Name = ({ match }) =&gt; (
-                &lt;div&gt;Hello, {match.params.name}&lt;/div&gt;
-              );
-              const SwitchDemo = () =&gt; (
-                &lt;Switch&gt;
-                  &lt;Route path="/:name" component={Name} /&gt;
-                  &lt;Route path="/" component={Homepage} /&gt;
-                &lt;/Switch&gt;
-              );
-            </code>
-          </pre>
-          <p><strong>Route Props</strong> - a component inside of a Route gets 3 props</p>
-          <p><strong>match</strong> - info about how the url matches the route component</p>
-          <p><strong>location</strong> - where you are now, similar to window.location</p>
-          <p><strong>history</strong> - similar to html5 history object, allows explicit changes to the url</p>
-          <p><strong>withRouter</strong> - if a component is not rendered inside of a Route component, you can use withRouter to get route props</p>
-          <pre>
-            <code>
-              import {
-                withRouter, Switch, Route
-              } from 'react-router-dom';
-
-              const SwitchDemo = ({ history }) =&gt; (
-                &lt;div&gt;
-                  &lt;Switch&gt;
-                    &lt;Route path="/:name" component={Name} /&gt;
-                    &lt;Route path="/" component={Homepage} /&gt;
-                  &lt;/Switch&gt;
-                  &lt;button onClick={() =&gt; history.push('/')}&gt;
-                    Go Home
-                  &lt;/button&gt;
-                &lt;/div&gt;
-              );
-              export default withRouter(SwitchDemo);
-            </code>
-          </pre>
-          <p><strong>Render vs Component</strong> - user render to pass custom props to your component - the route component can either use render or component (never both)</p>
-          <pre>
-            <code>
-              // ROUTER RENDER EX.
-
-              import { Route } from 'react-router-dom';
-              const teachers = ['Tim', 'Colt', 'Matt', 'Elie'];
-              const Teachers = ({ teachers }) =&gt; (
-                &lt;ul&gt;
-                  {teachers.map((teach, idx) =&gt; (
-                    &lt;li key={idx}&gt;{teach}&lt;/li&gt;
-                  ))}
-                &lt;/ul&gt;
-              );
-
-              const App = () =&gt; (
-                &lt;Route path="/teachers" render={props =&gt; (
-                  &lt;Teachers {...props} teachers={teachers} /&gt;
-                )} /&gt;
-              );
-            </code>
-          </pre>
+          <h5>Node</h5>
+          <p>The language that defines and adds content to a webpage.</p>
         </div>
       </li>
       <li>
@@ -1184,6 +659,774 @@ NOTE CSS
 <!-- ********************************************
 NOTE JAVASCRIPT
 ********************************************* -->
+      <li>
+        <div class="collapsible-header">
+          <h4 class="javascript">ReactJS</h4>
+        </div>
+        <div class="collapsible-body">
+          <h5>Front-End Framework</h5>
+          <p>JavaScript libraries that handle DOM manipulation - Handles navigations (HTML5 push state) - State management</p>
+          <h5>Babel</h5>
+          <p>Transpiler: converts from one source code version to another (i.e. JSX to Vanilla JS)</p>
+          <h5>Webpack</h5>
+          <p>A module bundler for moder JavaScript applications</p>
+          <p>*combines different JS files into a bundle.js</p>
+          <p>*has a plugin system to run tools like babel</p>
+          <p>*also bundles other assets like css, images, etc...</p>
+          <hr>
+          <hr>
+          <hr>
+          <h5>React Basics & Terminology</h5>
+          <p><strong>ReactDOM.render(JSX, elementSelection)</strong> - smallest React example of rendering content to a selected element on the page</p>
+          <p><strong>JSX</strong> - JavaScript XML - XML-like syntax extension to ECMAScript without defined semantics - produces React "elements" that describe what the UI should look like - (commonly wrapped in parathesis to avoid the pitfalls of automatic semicolon insertion) - become JS object upon compilation (meaning JSX can be used in 'if statements', 'for loops', 'assign to vars', 'accept as args', and 'return from functions')</p>
+          <p>embed JS expression in JSX by wrapping it in curly braces</p>
+          <pre>
+            <code>
+              let person = { name: 'Aaron' };
+              let element = (&lt;h1&gt;My name is {person.name}, and I am {20 + 6} years old&lt;/h1&gt;);
+              ReactDOM.render(element, document.getElementById('root'));
+            </code>
+          </pre>
+          <p><strong>JSX Attributes</strong> - use quotes to specify string literals as attrs or use curly braces to embed JS expressions as attrs</p>
+          <pre>
+            <code>
+              // string literal example
+              const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;;
+              // JS expression example
+              const element = &lt;img scr={user.avatarUrl} /&gt;;
+            </code>
+          </pre>
+          <p><strong>Elements</strong> - describe what you want to see on the screen - React elements are plain objects and are immutable (must be re-rendered to to update, but only updates what necessary)</p>
+          <p><strong>Components</strong> - components are made of elements - like functions, they accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen - always start component name with a capital letter</p>
+          <pre>
+            <code>
+              // simple defintion of component
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+              }
+              // valid React Component because it accepts a single 'props' object arg with data and returns a React element
+
+              // Equivalent example with ES6
+              class Welcome extends React.Component {
+                render() {
+                  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+                }
+              }
+
+              // Elements can also represent user-defined components
+              // React will pass the JSX attrs as a single object to elements representing a user-defined component -- called object 'props'
+
+              // Example
+
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+              }
+              const element = &lt;Welcome name="Aaron" /&gt;
+
+              ReactDOM.render(
+                element,
+                document.getElementById('root');
+              ); // output will be 'Hello, Aaron'
+
+
+              // ALL REACT COMPONENTS MUST ACT LIKE PURE FUNCTION WITH RESPECT TO THEIR PROPS
+
+              // Pure Function - a function with no side effect
+              // it does not modify its inputs
+              // it's repeatable (same inputs, same outputs)
+            </code>
+          </pre>
+          <p><strong>Props</strong> - immutable data passed to your components - accessible in your component as an object called this.props (NEVER CHANGE this.props)</p>
+          <p><strong>defaultProps</strong> - default values for props in a component</p>
+          <p><strong>propTypes</strong> - specify what props a component is expecting - development time type checker for your props - specify requirements for your props for users of that component</p>
+          <pre>
+            <code>
+              class IngredientsList extends Component {
+                static defalutProps = {
+                  ingredients: []
+                }
+              }
+              render() {
+                return (
+                {this.props.ingredients.map((ing, idx) => (
+                  &lt;li key={idx}&gt;{ing}&lt;/li&gt;
+                  ))}
+                );
+              }
+
+
+              import PropTypes from 'prop-types';
+
+              class IngredientsList extends Component {
+                static PropTypes = {
+                  ingredients: PropTypes.arrayOf(Proptypes.string).isRequired
+                }
+                // if props don't meet the specified requirements
+                // an error will display in the console
+              }
+              render() {
+                return (
+                {this.props.ingredients.map((ing, idx) => (
+                  &lt;li key={idx}&gt;{ing}&lt;/li&gt;
+                  ))}
+                );
+              }
+            </code>
+          </pre>
+          <p><strong>props.children</strong> - a collection of the children inside of a component (i.e. if you want any type/collection of elements to display in a row)</p>
+          <pre>
+            <code>
+              class Row extends Component {
+                render() {
+                  return (
+                    &lt;div style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-around',
+                    }}&gt;
+                      {this.props.children}
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              class App extends Component {
+                render() {
+                  return (
+                  &lt;Row&gt;
+                    &lt;p&gt;Timothy&lt;/p&gt;
+                    &lt;div&gt;Moxie&lt;/div&gt;
+                    &lt;h1&gt;React&lt;/h1&gt;
+                  &lt;/Row&gt;
+                  );
+                }
+              }
+
+              // all elements will display in a row
+            </code>
+          </pre>
+          <p><strong>State & Lifecycle</strong></p>
+          <p><strong>state</strong> - is similar to props, but it is private and fully controlled by the component - (stateful data) data in our application that can change</p>
+          <p><strong>setState({})</strong> - the correct way to change state in your application - simpleDefinition - setState accepts an object with new properties and values for this.state</p>
+          <p><strong>How is state shared?</strong> - state is always passed down from a parent to a child component as a prop - state should not be passed to a sibbling or parent - state should be owned by 1 component - never assign a prop to your state</p>
+          <pre>
+            <code>
+              class App extends Component {
+                // always pass props as a parameter to the constructor
+                constructor(props) {
+                  // super(props) call the Component constructor
+                  super(props);
+                  // must = an object
+                  this.state = { favColor: 'green' };
+
+                  // after three seconds, setState will invoke
+                  // updating the current state
+                  // which will re-invoke render()
+                  // updating the view to reflect the new stateful data
+                  setTimeout(() => {
+                    this.setState({ favColor: 'blue' });
+                  }, 3000);
+                }
+
+                render() {
+                  return (
+                    &lt;div&gt;
+                      My favorite color:
+                      {this.state.favColor}
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              // ALL CHANGES TO THIS.STATE SHOULD BE PURE
+              // always provide a new object
+            </code>
+          </pre>
+          <p><strong>setState Update Function</strong> - use when the state you are updating depends on a previous value for the state</p>
+          <pre>
+            <code>
+              // Update Function
+              this.setState((prevState, props) => {
+                return {
+                  counter: prevState.counter + 1
+                };
+              });
+              // Rule: When setState depends on a previous state,
+              // use a function parameter - rather than passing an obj
+            </code>
+          </pre>
+          <p><strong>setState is Asynchronous</strong></p>
+          <pre>
+            <code>
+              // Wrong way to debug/check the value of state
+              this.setState({ name: 'Aaron' });
+              // won't be updated yet
+              console.log(this.state.name); // doesn't reflect new val
+
+              // Right way to debug/check the value of state
+              // provide a callback param to setState
+              this.setState({ name: 'Aaron' }, () => {
+                console.log(
+                  // now state is up to date
+                  this.state.name
+                );
+              });
+            </code>
+          </pre>
+          <p><strong>Stateless Functional Components</strong> - components implemented using a function, not a class - the function implements the render method only: no constructor, no state</p>
+          <p><strong>Converting a Function to a Class</strong> - as classes have and additional features (e.g. Local State)</p>
+          <pre>
+            <code>
+              1. Create an ES6 class, with the same name, that extends React.Component.
+              2. Add a single empty method to it called render().
+              3. Move the body of the function into the render() method.
+              4. Replace props with this.props in the render() body.
+              5. Delete the remaining empty function declaration.
+
+              class Clock extends React.Component {
+                render() {
+                  return (
+                    &lt;div&gt;
+                      &lt;h1&gt;Hello, World!&lt;/h1&gt;
+                      &lt;h2&gt;It is {this.props.date.toLocalTimeString()}&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              // now we can use local state and lifecycle hooks
+            </code>
+          </pre>
+          <p><strong>Adding Local State to a Class</strong></p>
+          <pre>
+            <code>
+              1. Replace this.props.date with this.state.date in the render() method
+              2. Add a class constructor that assigns the initial this.state (Note how we pass props to the base constructor - Class components should always call the base constructor with props)
+              3. Remove the date prop from the &lt;Clock /&gt; element
+
+              class Clock extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.state = {date: new Date()};
+                }
+
+                render() {
+                  return (
+                    &lt;div&gt;
+                      &lt;h1&gt;Hello, World!&lt;/h1&gt;
+                      &lt;h2&gt;It is {this.state.date.toLocalTimeString()}&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                }
+              }
+
+              ReactDOM.render(
+                &lt;Clock /&gt;,
+                document.getElementById('root');
+              );
+            </code>
+          </pre>
+          <p><strong>Adding Lifecycle Methods to a Class</strong></p>
+          <p><strong>Mounting</strong> - happens when the component is first rendered in the DOM - in order of 1) the constructor() 2) componentWillMount() - when the constructor is finished, but hasn't called render 3) render() 4) componentDidMount() - invoked after component markup is placed in the DOM ||| componentWillMount&componentDidMount are only called once for the lifecycle of a component, very useful for component setup logic</p>
+          <p><strong>Unmounting</strong> - happens when the component is taken out of the DOM (e.g. the component was removed from an array) - componentWillUnmount()</p>
+          <p><strong>Updating</strong> - happens whenever setState() is called - 1) componentWillReceiveProps(nextProps) - used if any props have changed 2) shouldComponentUpdate(nextProps, nextState) - if you return false from this method the component will not render(),use sparingly 3) componentWillUpdate(nextProps, nextState) - gets called right before the render(), you can see what props and state are about to be updated 4) render() - with new state and new props 5) componentDidUpdate(prevProps, prevState)</p>
+          <p>forceUpdate(callback) - skips shouldComponentUpdate() and forces a render() - should be avoided in most cases</p>
+          <p><strong>lifecycle hooks</strong> - special methods on the component class to run some code when a component mounts and unmounts</p>
+          <p><strong>componentDidMount()</strong> - hook runs after the component output has been rendered to the DOM</p>
+          <p><strong>componentWillUnmount()</strong> - hooks runs if component is ever removed from the DOM</p>
+          <a href="https://reactjs.org/docs/state-and-lifecycle.html" target="_blank">Lesson Link</a>
+          <p>CMD-F for (Let’s quickly recap what’s going on)</p>
+          <p><strong>setState()</strong> - method to re-render the component</p>
+          <pre>
+            <code>
+              // 3 Important Things To Know About setState()
+
+              1. State cannot be modified directly
+              // The only place where you can assign this.state is the constructor
+              // correct Modification
+              this.setState({ comment: 'Hello' });
+
+              2. State updates may be asynchronous
+              // Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state
+
+              3. State updates are merged
+              // When you call setState(), React merges the object you provide into the current state
+            </code>
+          </pre>
+          <p><strong>Virtual DOM</strong> - a data structure stored by React that tracks changes from one render state to the next - if something has changed from one render to the next, the browser's DOM is updated (Reconciliation)</p>
+          <p><strong>Reconciliation</strong> - the process of figuring out what changes occured and what needs to be updated in the browser's DOM/the actual update</p>
+          <p><strong>Synthetic Events</strong> - supports all the native browser events, but provides a consistent API on all browsers</p>
+          <p><strong>React 16</strong> - Fiber - name of the new reconciliation engine</p>
+          <pre>
+            <code>
+              // REACT 16
+
+              // Render ca return an array of JSX elements or a string
+              render() {
+                return [
+                  &lt;div key="a"&gt;First Element&lt;/div&gt;,
+                  &lt;div key="b"&gt;First Element&lt;/div&gt;,
+                ];
+              }
+
+              // Error Boundary
+              <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank">Lesson Link</a>
+            </code>
+          </pre>
+          <p><strong>Uncontrolled Component</strong> - one that React doesn't have control of, but rather the DOM/Browser does</p>
+          <pre>
+            <code>
+              // Uncontrolled Component
+              &lt;input type="text" /&gt;
+              // React is not aware of what the user is typing, the browser is in charge of the state
+              // (typing in the input field) uncontrolled component because React is not involed in the render process or the state of what is in the input field
+
+              // Controlled Component
+              &lt;input type="text" value={this.state.inputText} /&gt;
+              // React is now in control of the state via this.state.inputText, but the input can't be updated (because it will always be whatever inputText currently is)
+
+              // Controlled Component With Update
+              &lt;input
+                type="text"]
+                name="inputText"
+                value={this.state.inputText}
+                onChange={(e) => {
+                  this.setState({ inputText: e.target.value });
+                }}
+              /&gt;
+              // React is now in control of the state via this.state.inputText and the state can change via onChange
+
+              &lt;form onSubmit={(e) =&gt; {
+                e.preventDefault();
+                const data = [...this.state.data,
+                              this.state.inputText];
+                this.setState({ data, inputText: '' });
+              }}&gt;
+                &lt;input
+                  type="text"
+                  name="inputText"
+                  value={this.state.inputText}
+                  onChange={(e) =&gt; {
+                    this.setState({[e.target.name]: e.target.value});
+                  }}
+                /&gt;
+              &lt;/form&gt;
+              // keep in mind a button (with type="submit") click is not the same as a submit on a form, use onSubmit on the form element
+            </code>
+          </pre>
+          <p><strong>refs</strong> - a direct reference to a DOM element</p>
+          <p>Use Cases</p>
+          <p>managing focus, text selection, or media playback</p>
+          <p>triggering imperative animations</p>
+          <p>integrating with third-party DOM libraries</p>
+          <p>WARNING: do not use refs when the job can be done with React - you should not need direct DOM access for most tasks</p>
+          <hr>
+          <hr>
+          <h5>React Router</h5>
+          <p><strong>History</strong> - Allows javvascript to manipulate the browser history - changes the url address bar - changes the browsers's local navigation history - DOES NOT cause the browswer to make a GET request</p>
+          <p><strong>history.back();</strong></p>
+          <p><strong>history.forward();</strong></p>
+          <p><strong>history.pushState({}, 'title', '/newpage');</strong></p>
+          <p><strong>React Router v4</strong> - a library to manage routing in your single page application - Version 4 is a declarative api that uses componenets to make rendering decisions</p>
+          <p><strong>BrowserRouter vs HashRouter</strong> - BrowserRouter uses the history object and makes changes to the URL, the HashRouter adds hashes to the url instead (BrowserRouter requires server support, HashRouter does not require server support -- always choose BrowserRouter if you are able)</p>
+          <table>
+            <thead>
+              <tr>
+                <th>BrowserRouter</th>
+                <th>HashRouter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>/</td>
+                <td>/#</td>
+              </tr>
+              <tr>
+                <td>/users</td>
+                <td>/#users</td>
+              </tr>
+              <tr>
+                <td>/users/57492/messages</td>
+                <td>/#users/57492/messages</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre>
+            <code>
+              (npm install --save react-router-dom)
+
+              // REACT ROUTER SETUP //
+
+              import React from 'react';
+              import ReactDOM from 'react-dom';
+              import {
+                BrowserRouter as Router
+              } from 'react-router-dom';
+              import App from './App';
+
+              ReactDOM.render(
+              &lt;Router&gt;
+                &lt;App /&gt;
+              &lt;/Router&gt;,
+              document.getElementById('root');
+              );
+
+              // SWITCH AND ROUTE //
+
+              import React, { Component } from 'react';
+              import {
+                Switch, Route
+              } from 'react-router-dom';
+
+              const Homepage = () =&gt; (&lt;div&gt;HOMEPAGE&lt;/div&gt;);
+              const About = () =&gt; (&lt;div&gt;ABOUT&lt;/div&gt;);
+
+              const SwitchDemo = () =&gt; (
+                &lt;Switch&gt; // acts like if else
+                  &lt;Route path="/about" component={About} /&gt;
+                  &lt;Route path="/" component={Homepage} /&gt;
+                &lt;/Switch&gt;
+              );
+
+              // LINK //
+
+              import React from 'react';
+              import { Link } from 'react-router-dom';
+              import SwitchDemo from './SwitchDemo';
+
+              const App () =&gt; (
+                &lt;div&gt;
+                  &lt;Link to="/"&gt;HOME&lt;/Link&gt;
+                  &lt;Link to="/about"&gt;ABOUT&lt;/Link&gt;
+                  &lt;div style={style}&gt;
+                    &lt;SwitchDemo /&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              );
+
+              // NAVLINK //
+
+              import React from...
+              import { NavLink } from 'react-router-dom';
+              import SwitchDemo from...
+
+              const s={ color: 'red' }; // active style
+              const App = () =&gt; (
+                &lt;div&gt;
+                  &lt;NavLink exact activeStyle={s} to="/"&gt;
+                    HOME
+                  &lt;/NavLink&gt;
+                  &lt;NavLink exact activeStyle={s} to="/about"&gt;
+                    ABOUT
+                  &lt;/NavLink&gt;
+                  &lt;div style={style}&gt;
+                    &lt;SwitchDemo /&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              );
+
+              // URL PARAMETERS //
+
+              import React from...
+              import {
+                Switch, Route
+              } from 'react-router-dom';
+
+              const Homepage = () =&gt; (&lt;div&gt;HOMEPAGE&lt;/div&gt;);
+              const Name = ({ match }) =&gt; (
+                &lt;div&gt;Hello, {match.params.name}&lt;/div&gt;
+              );
+              const SwitchDemo = () =&gt; (
+                &lt;Switch&gt;
+                  &lt;Route path="/:name" component={Name} /&gt;
+                  &lt;Route path="/" component={Homepage} /&gt;
+                &lt;/Switch&gt;
+              );
+            </code>
+          </pre>
+          <p><strong>Route Props</strong> - a component inside of a Route gets 3 props</p>
+          <p><strong>match</strong> - info about how the url matches the route component</p>
+          <p><strong>location</strong> - where you are now, similar to window.location</p>
+          <p><strong>history</strong> - similar to html5 history object, allows explicit changes to the url</p>
+          <p><strong>withRouter</strong> - if a component is not rendered inside of a Route component, you can use withRouter to get route props</p>
+          <pre>
+            <code>
+              import {
+                withRouter, Switch, Route
+              } from 'react-router-dom';
+
+              const SwitchDemo = ({ history }) =&gt; (
+                &lt;div&gt;
+                  &lt;Switch&gt;
+                    &lt;Route path="/:name" component={Name} /&gt;
+                    &lt;Route path="/" component={Homepage} /&gt;
+                  &lt;/Switch&gt;
+                  &lt;button onClick={() =&gt; history.push('/')}&gt;
+                    Go Home
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              );
+              export default withRouter(SwitchDemo);
+            </code>
+          </pre>
+          <p><strong>Render vs Component</strong> - user render to pass custom props to your component - the route component can either use render or component (never both)</p>
+          <pre>
+            <code>
+              // ROUTER RENDER EX.
+
+              import { Route } from 'react-router-dom';
+              const teachers = ['Tim', 'Colt', 'Matt', 'Elie'];
+              const Teachers = ({ teachers }) =&gt; (
+                &lt;ul&gt;
+                  {teachers.map((teach, idx) =&gt; (
+                    &lt;li key={idx}&gt;{teach}&lt;/li&gt;
+                  ))}
+                &lt;/ul&gt;
+              );
+
+              const App = () =&gt; (
+                &lt;Route path="/teachers" render={props =&gt; (
+                  &lt;Teachers {...props} teachers={teachers} /&gt;
+                )} /&gt;
+              );
+            </code>
+          </pre>
+          <hr>
+          <hr>
+          <hr>
+          <h5>Redux</h5>
+          <p>(npm install --save redux)</p>
+          <p>state management library created by Dan Abramov and Andrew Clark - models the application state as a single JavaScript Object</p>
+          <p><strong>Action</strong> - a plain javascript object that must have a key called type and a string value - the action can have any number of additional keys</p>
+          <pre>
+            <code>
+              {
+                type: "LOGOUT_USER"
+              }
+            </code>
+          </pre>
+          <p><strong>Reducer</strong> - a function that accepts the state and an action and returns a new state (entire state object)</p>
+          <pre>
+            <code>
+              function rootReducer(state={}, action) {
+                switch(action.type) {
+                  case "LOGOUT_USER":
+                    return {...state, login: false}
+                  case "LOGIN_USER":
+                    return {...state, login.true}
+                  default:
+                    return state;
+                }
+              }
+            </code>
+          </pre>
+          <p><strong>Creating A Store</strong> - use the redux createStore function which accepts the root reducer as a parameter</p>
+          <p><strong>store</strong> - is one big JS object that represents the state in the entire application</p>
+          <pre>
+            <code>
+              const store = Redux.createStore(rootReducer);
+            </code>
+          </pre>
+          <p><strong>Changing The State</strong> - the only way to change the state is by calling dispatch</p>
+          <pre>
+            <code>
+              const store = Redux.createStore(rootReducer);
+              store.dispatch({
+                type: "LOGIN_USER"
+              });
+            </code>
+          </pre>
+            <p><strong>Getting The State</strong> - you can get the state of the Redux store using getState</p>
+            <pre>
+              <code>
+                const store = Redux.createStore(rootStore);
+                store.dispatch({
+                  type: "LOGOUT_USER"
+                });
+
+                const newState = store.getState();
+              </code>
+            </pre>
+            <p><strong>Listening For Changes</strong> - you can add a listener to see when the state has changed</p>
+            <pre>
+              <code>
+                const store = Redux.createStore(rootReducer);
+                const changeCallback = () => {
+                  console.log('State has changed', store.getState());
+                }
+                const unsubscribe = store.listen(changeCallback);
+              </code>
+            </pre>
+            <h5>Redux State Change Flow</h5>
+            <ul class="list-style">
+              <li>dispatch(<em>action</em>)</li>
+              <li>reducer(<em>currentState, action</em>)</li>
+              <li>newState</li>
+              <li>Invoke Listeners (UI Changes)</li>
+            </ul>
+            <hr>
+            <hr>
+            <h5>React-Redux</h5>
+            <p>(npm install --save react-redux)</p>
+            <p>a library to facilitate integrating React with Redux - exposes a Provider component and a connect function</p>
+            <p>Provider and Connect - Handles: Listeners, passing in state to a component</p>
+            <pre>
+              <code>
+                // Example Setup  //
+
+                import React from 'react';
+                import ReactDOM from 'react-dom';
+                import { Provider } from 'react-redux';
+                import { createStore } from 'redux';
+                import rootReducer from './reducers';
+
+                const store = createStore(rootReducer);
+
+                ReactDOM.render(
+                  &lt;Provider store={store}&gt;
+                    &lt;App /&gt;
+                  &lt;/Provider&gt;,
+                  document.getElementById('root')
+                );
+
+                // Connect: Wrapping A Component //
+
+                import React from 'react';
+                import { connect } from 'react-redux';
+                const BoldName = ({ name }) =&gt; (
+                  &lt;strong&gt;{name}&lt;/strong&gt;
+                );
+
+                const mapStateTopProps = state =&gt; (
+                  { name: state.name }
+                );
+
+                export default
+                  connect(mapStateToProps, null)(BoldName);
+
+                // Connect: Wrapping A Component 2 //
+
+                import React from 'react';
+                import { connect } from 'react-redux';
+
+                const DelName = ({ delName }) =&gt; (
+                  &lt;button type="button" onClick={delName}&gt;
+                    DELETE
+                  &lt;/button&gt;
+                );
+
+                const mapDispatchToProps = (
+                  dispatch, ownProps
+                ) =&gt; (
+                  {
+                    delName: () =&gt; (dispatch({
+                      type: "DEL_NAME"
+                    }));
+                  }
+                );
+
+                export default
+                  connect(null, mapDispatchToProps)(DelName);
+
+                // Together Now / Using Wrapped Components //
+
+                import React from 'react';
+                import BoldName from './BoldName';
+                import DelName from './DelName';
+
+                const App = () =&gt; (
+                  &lt;div&gt;
+                    &lt;BoldName /&gt;
+                    &lt;DelName /&gt;
+                  &lt;/div&gt;
+                );
+              </code>
+            </pre>
+            <p><strong>Presentational Component</strong> - a component that is primarily concerned with how things look - it is often a stateless functional compononent, but doesn't have to be</p>
+            <p><strong>Container Component</strong> - usually a stteful component that deals with application data - often created using higher order componenets like connect or withRouter</p>
+            <p><strong>combineReducers</strong> - a redux function that allows for reducer composition - each reducer is only responsible for its piece of the entire state object</p>
+            <pre>
+              <code>
+                // combineReducers //
+
+                import { combineReducers } from 'redux';
+                import currentUser from './currentUser';
+                import messages from './messages';
+
+                const rootReducer = combineReducers({
+                  currentUser,
+                  messages,
+                });
+
+                export default rootReducer;
+
+                // ex. of what Messages Reducer from above might look like
+
+                const messages = (state=[], action) => {
+                  switch(action.type) {
+                    case "LOAD-MESSAGES":
+                      return [...action.messages];
+                    case "ADD_MESSAGE":
+                      return [action.message, ...state];
+                    default:
+                      return state;
+                  }
+                };
+
+                export default messages;
+              </code>
+            </pre>
+            <p><strong>Action Creators</strong> - a function that returns an action object</p>
+            <pre>
+              <code>
+                const mapDispatchToProps = dispatch =&gt; ({
+                  onLogout() {
+                    dispatch({
+                      type: "USER_LOGOUT"
+                    });
+                  },
+                });
+
+                // ALT APPROACH //
+
+                const mapDispatchToProps = dispatch =&gt; ({
+                  onLogout() {
+                    dispatch(actions.userLogout());
+                  },
+                });
+              </code>
+            </pre>
+            <hr>
+            <hr>
+            <h5>Redux Directory Structure</h5>
+            <p>[src] > [actions], [components], [containers], [reducers], index.js</p>
+            <hr>
+            <hr>
+            <h5>Redux Middleware</h5>
+            <p>same idea as middleware in NodeJS - code that is executed after an action is dispatched but before a reducer handles the action</p>
+            <p><strong>Redux Thunk</strong> - (npm install --save redux-think) - middleware for handling async ations (API Requests)</p>
+            <pre>
+              <code>
+                // Middleware Setup w/ Redux Thunk //
+
+                import { createStore, applyMiddleware } from 'redux';
+                import thunk from 'redux-thunk';
+                import { createLogger } from 'redux-logger';
+                import reducer from './reducers';
+
+                const middleware = [ thunk ];
+                if (process.end.NODE_ENV !== 'production') {
+                  middleware.push(createLogger());
+                }
+
+                const store = createStore(
+                  reducer,
+                  applyMiddleware(...middleware)
+                );
+              </code>
+            </pre>
+        </div>
+      </li>
       <li>
         <div class="collapsible-header">
           <h4 class="html javascript">SVG</h4>
@@ -4991,9 +5234,9 @@ NOTE JAVASCRIPT
 
   <!-- TODO: LEFT OFF
 
-  The Advance Web Development Bootcamp
-  Folder: 29
-  Video: 320
+  Understand NodeJS
+  Folder: 02
+  Video: 06
 
   -->
 
