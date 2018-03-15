@@ -61,6 +61,8 @@ NOTE HTML
           <p><strong>Breakpoint</strong> - a spot in our code where we tell a debugging tool to pause the execution of our code</p>
           <p><strong>Module</strong> - a reusable block of code whose existence does not accidentally impact other code - JS didn't have this before</p>
           <p><strong>CommonJS Modules</strong> - an agreed upon standard for how code modules should be structured</p>
+          <p><strong>require</strong> - is a function, that you pass a 'path' too - <strong>module.exports</strong> is what the require function returns - this works because your module code is actually wrapped in a function express(IIFE) that is given these things as function parameters (always available in node: require, module, __dirname, __filename) - what we write is acutally the body of the IIFE</p>
+          <p><strong>Revealing Module Pattern</strong> - exposing only the properties and methods you want via the return object (module.exports) - a very common and clean way to structure and protect code within modules</p>
         </div>
       </li>
       <li>
