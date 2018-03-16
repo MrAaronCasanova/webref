@@ -63,6 +63,11 @@ NOTE HTML
           <p><strong>CommonJS Modules</strong> - an agreed upon standard for how code modules should be structured</p>
           <p><strong>require</strong> - is a function, that you pass a 'path' too - <strong>module.exports</strong> is what the require function returns - this works because your module code is actually wrapped in a function express(IIFE) that is given these things as function parameters (always available in node: require, module, __dirname, __filename) - what we write is acutally the body of the IIFE</p>
           <p><strong>Revealing Module Pattern</strong> - exposing only the properties and methods you want via the return object (module.exports) - a very common and clean way to structure and protect code within modules</p>
+          <p><strong>Event</strong> - something that has happened in our app that we can resond to - in node we actually talk about two different kinds of events</p>
+          <p><strong>System Events</strong> - comes from C++ side of node core (from library libuv that deals with event coming from the computer system) - e.g. finished reading a file, file is open, received data from the internet, etc...</p>
+          <p><strong>Custom Events</strong> - comes from Event Emitter in JS core</p>
+          <p><strong>Event Listener</strong> - the code that respondes to an event - in JS's case, the listener will be a function</p>
+          <p><strong>Magic String</strong> - a string that has some special meaning in our code - this is bad because it makes it easy for a typo to cause a bug, and hard for tools to help us find it (e.g. 'string' passed to event emitter)</p>
         </div>
       </li>
       <li>
@@ -5248,8 +5253,8 @@ NOTE JAVASCRIPT
   <!-- TODO: LEFT OFF
 
   Understand NodeJS
-  Folder: 04
-  Video: 23
+  Folder: 05
+  Video: 38
 
   -->
 
