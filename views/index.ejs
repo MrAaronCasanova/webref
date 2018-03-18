@@ -68,6 +68,18 @@ NOTE HTML
           <p><strong>Custom Events</strong> - comes from Event Emitter in JS core</p>
           <p><strong>Event Listener</strong> - the code that respondes to an event - in JS's case, the listener will be a function</p>
           <p><strong>Magic String</strong> - a string that has some special meaning in our code - this is bad because it makes it easy for a typo to cause a bug, and hard for tools to help us find it (e.g. 'string' passed to event emitter)</p>
+          <p><strong>Non-Blocking</strong> - doing other things without stopping your programming from running - this is made possible by Node's ability to do things asynchronously</p>
+          <img class="responsive-img" src="./img/charset-encoding.png" alt="Character Sets and Character Encoding">
+          <p><strong>Buffer</strong> - a temporary holding spot for data being moved from one place to another - intentionally limited in size - (holds raw binary data)</p>
+          <p><strong>Stream</strong> - a sequence of data made available over time - pieces of data that eventually combine into a whole</p>
+          <p><strong>Binary Data</strong> - data stored in binary (sets of 1s and 0s) - the core of math that computers are based on - each one or zero is called a 'bit' or 'binary digit'</p>
+          <p><strong>Character Set</strong> - a representation of characters as numbers - each character gets a number - Unicode and ASCII are character sets (e.g. Letters to Numbers[Base10])</p>
+          <p><strong>Character Encoding</strong> - how characters are stored in binary - the numbers (or code points) are converted and stored in binary (e.g. Numbers[Base10] to Binary Numbers[Base2]){i.e. UTF-8 - 8 bits used store that value}</p>
+          <p><strong>Chunk</strong> - a piece of data being sent through a stream - data is split in 'chunks' and streamed</p>
+          <p><strong>Abstract (Base) Class</strong> - a type of constructor you never work with directly with, but inherit from - we create new custom objects which inherit from the abstract base class</p>
+          <p><strong>Error-First Callback</strong> - callbacks take an error object as their first parameter - null if no error, otherwise will contain an object defining the error - this is a standard so we know in what order to place our callback parameters</p>
+          <p><strong>Pipe</strong> - connecting two streams by writing to one stream what is being read from another - in Node you pipe from a Readable stream to a Writable stream</p>
+          <p><strong>Method Chaining</strong> - a method returns an object so we can keep calling more methods - sometimes it returns the parent object (called 'cascading') and sometimes some other object</p>
         </div>
       </li>
       <li>
